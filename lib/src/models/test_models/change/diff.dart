@@ -5,7 +5,7 @@ import 'package:taiga_rest_models/src/models/test_models/change/due_date.dart';
 import 'package:taiga_rest_models/src/models/test_models/change/promoted_to.dart';
 import 'package:taiga_rest_models/src/models/test_models/data/assigned_to.dart';
 
-//TODO(Nacho): Ver que otras cosas pueden entrar en diff
+// TODO(Nacho): Ver que otras cosas pueden entrar en diff
 
 /// This class store all the changes maded on a Taiga action, all can be null
 /// because the payload can only have one type
