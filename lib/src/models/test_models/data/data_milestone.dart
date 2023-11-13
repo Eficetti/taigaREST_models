@@ -26,7 +26,7 @@ class DataMilestone {
   ///Mapper of the DataMilestone class
   factory DataMilestone.fromJson(Map<String, dynamic> json) {
     return DataMilestone(
-      id: json['id'] as double,
+      id: json['id'] as int,
       name: json['name'] as String,
       slug: json['slug'] as String,
       estimatedStart: DateTime.parse(json['estimated_start'] as String),
@@ -34,7 +34,7 @@ class DataMilestone {
       createdDate: DateTime.parse(json['created_date'] as String),
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       closed: json['closed'] as bool,
-      disponibility: json['disponibility'] as double,
+      disponibility: json['disponibility'] as int,
       permalink: json['permalink'] as String,
       project: Project.fromJson(json['project'] as Map<String, dynamic>),
       owner: By.fromJson(json['owner'] as Map<String, dynamic>),
@@ -42,7 +42,7 @@ class DataMilestone {
   }
 
   /// Id of the milestone
-  double id;
+  int id;
   
   /// Name of the milestone
   String name;
@@ -66,7 +66,7 @@ class DataMilestone {
   bool closed;
   
   /// Disponibility of the milestone
-  double disponibility;
+  int disponibility;
   
   /// Permalink of the milestone
   String permalink;

@@ -40,8 +40,8 @@ class Data {
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
       customAttributesValues: 'null Value, Fix this!!',
-      id: json['id'] as double,
-      ref: json['ref'] as double,
+      id: json['id'] as int,
+      ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
       modifiedDate: json['modified_date'] != null
           ? DateTime.parse(json['modified_date'] as String)
@@ -55,7 +55,7 @@ class Data {
       dueDateReason: json['due_date_reason'] as String,
       subject: json['subject'] as String,
       externalReference: json['external_reference'] as String?,
-      watchers: List<double>.from(json['watchers'] as List<dynamic>),
+      watchers: List<int>.from(json['watchers'] as List<dynamic>),
       description: json['description'] as String,
       tags: List<dynamic>.from(json['tags'] as List<dynamic>),
       permalink: json['permalink'] as String,
@@ -71,7 +71,7 @@ class Data {
       type: Details.fromJson(json['type'] as Map<String, dynamic>),
       priority: Details.fromJson(json['priority'] as Map<String, dynamic>),
       severity: Details.fromJson(json['severity'] as Map<String, dynamic>),
-      promotedTo: List<double>.from(json['promoted_to'] as List<dynamic>),
+      promotedTo: List<int>.from(json['promoted_to'] as List<dynamic>),
     );
   }
 
@@ -80,11 +80,11 @@ class Data {
   String? customAttributesValues;
 
   /// Id for the Data, Taiga value
-  double id;
+  int id;
 
   /// Ref is the number that appear beside of the an issue name on taiga
   /// example: "#6 <Issue-Name>"
-  double ref;
+  int ref;
 
   /// Date of creation of the Issue
   DateTime createdDate;
@@ -108,7 +108,7 @@ class Data {
   String? externalReference;
 
   /// Watchers is a list of people who is marked as watchers in the issue
-  List<double> watchers;
+  List<int> watchers;
 
   /// Description of the projet
   String description;
@@ -144,5 +144,5 @@ class Data {
   Details severity;
 
   /// PromotedTo
-  List<double> promotedTo;
+  List<int?> promotedTo;
 }

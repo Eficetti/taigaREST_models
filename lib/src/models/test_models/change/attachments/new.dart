@@ -16,19 +16,19 @@ class New {
   /// Mapper of the New class
   factory New.fromJson(Map<String, dynamic> json) {
     return New(
-      id: json['id'] as double,
+      id: json['id'] as int,
       filename: json['filename'] as String,
       url: json['url'] as String,
       attachedFile: json['attached_file'] as String,
       thumbnailFile: json['thumbnail_file'] as String,
       isDeprecated: json['is_deprecated'] as bool,
       description: json['description'] as String,
-      order: json['order'] as double,
+      order: json['order'] as int,
     );
   }
 
   /// Id of the new attachment on Taiga
-  double id;
+  int id;
 
   /// Name of the attachment
   String filename;
@@ -50,5 +50,5 @@ class New {
   String description;
 
   /// Position of the attachment
-  double order;
+  int order;
 }

@@ -16,9 +16,9 @@ class Deleted {
   /// Mapper of the Deleted class
   factory Deleted.fromJson(Map<String, dynamic> json) {
     return Deleted(
-      id: json['id'] as double,
+      id: json['id'] as int,
       url: json['url'] as String,
-      order: json['order'] as double,
+      order: json['order'] as int,
       filename: json['filename'] as String,
       description: json['description'] as String,
       attachedFile: json['attached_file'] as String,
@@ -28,13 +28,13 @@ class Deleted {
   }
 
   /// Id of the deleted item
-  double id;
+  int id;
 
   /// Url of the deleted item
   String url;
 
   /// Order of the deleted item
-  double order;
+  int order;
 
   /// Name of the deleted file
   String filename;

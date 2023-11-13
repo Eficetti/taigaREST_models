@@ -12,7 +12,7 @@ class Status {
   /// Mapper of the Status class
   factory Status.fromJson(Map<String, dynamic> json) {
     return Status(
-      id: json['id'] as double,
+      id: json['id'] as int,
       name: json['name'] as String,
       slug: json['slug'] as String,
       color: json['color'] as String,
@@ -21,7 +21,7 @@ class Status {
   }
 
   /// Id of the Status
-  double id;
+  int id;
 
   /// Status name
   String name;
