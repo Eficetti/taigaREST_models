@@ -1,0 +1,54 @@
+/// This class if for saving the new stuff on the Attachments appart, saving
+/// all the info if you added an image for example, or any type of Attachment
+class New {
+  /// Constructor of the 'New' class
+  New({
+    required this.id,
+    required this.filename,
+    required this.url,
+    required this.attachedFile,
+    required this.thumbnailFile,
+    required this.isDeprecated,
+    required this.description,
+    required this.order,
+  });
+
+  /// Mapper of the New class
+  factory New.fromJson(Map<String, dynamic> json) {
+    return New(
+      id: json['id'] as int,
+      filename: json['filename'] as String,
+      url: json['url'] as String,
+      attachedFile: json['attached_file'] as String,
+      thumbnailFile: json['thumbnail_file'] as String,
+      isDeprecated: json['is_deprecated'] as bool,
+      description: json['description'] as String,
+      order: json['order'] as int,
+    );
+  }
+
+  /// Id of the new attachment on Taiga
+  int id;
+
+  /// Name of the attachment
+  String filename;
+
+  /// Url of the attachments
+  String url;
+
+  /// attachedFile, path propio de taiga
+  String attachedFile;
+
+  /// thumbnailFile, path propio de taiga
+  String thumbnailFile;
+
+  /// Its just a bool showing an state of the attachment
+  bool isDeprecated;
+
+  /// Its the description for the attachment, if dont have any, it just
+  /// came as an empty string " "
+  String description;
+
+  /// Position of the attachment
+  int order;
+}

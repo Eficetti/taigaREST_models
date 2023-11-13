@@ -38,8 +38,8 @@ Future<void> main() async {
     key: secret,
     signature: signature,
   )) {
-    print("Signature valida");
+    print('Signature valida');
   } else {
-    print("Signature no valida");
+    print('Signature no valida');
   }
 }
