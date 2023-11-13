@@ -26,7 +26,7 @@ class DataMilestone {
   ///Mapper of the DataMilestone class
   factory DataMilestone.fromJson(Map<String, dynamic> json) {
     return DataMilestone(
-      id: json['id'] as int,
+      id: json['id'] as double,
       name: json['name'] as String,
       slug: json['slug'] as String,
       estimatedStart: DateTime.parse(json['estimated_start'] as String),
@@ -42,7 +42,7 @@ class DataMilestone {
   }
 
   /// Id of the milestone
-  int id;
+  double id;
   
   /// Name of the milestone
   String name;
