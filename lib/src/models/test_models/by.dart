@@ -17,7 +17,7 @@ class By {
       id: json['id'] as int,
       permalink: json['permalink'] as String?,
       username: json['username'] as String?,
-      fullName: json['full_Name'] as String?,
+      fullName: json['full_name'] as String?,
       photo: json['photo'] as String?,
       gravatarId: json['gravatar_id'] as String?,
     );
