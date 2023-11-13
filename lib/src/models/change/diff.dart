@@ -1,9 +1,9 @@
-import 'package:taiga_rest_models/src/models/test_models/change/attachments/attachments.dart';
-import 'package:taiga_rest_models/src/models/test_models/change/diff_milestone.dart';
-import 'package:taiga_rest_models/src/models/test_models/change/diff_status.dart';
-import 'package:taiga_rest_models/src/models/test_models/change/due_date.dart';
-import 'package:taiga_rest_models/src/models/test_models/change/promoted_to.dart';
-import 'package:taiga_rest_models/src/models/test_models/data/assigned_to.dart';
+import 'package:taiga_rest_models/src/models/change/attachments/attachments.dart';
+import 'package:taiga_rest_models/src/models/change/diff_milestone.dart';
+import 'package:taiga_rest_models/src/models/change/diff_status.dart';
+import 'package:taiga_rest_models/src/models/change/due_date.dart';
+import 'package:taiga_rest_models/src/models/change/promoted_to.dart';
+import 'package:taiga_rest_models/src/models/data/assigned_to.dart';
 
 // TODO(Nacho): Ver que otras cosas pueden entrar en diff
 

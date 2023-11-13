@@ -1,5 +1,5 @@
-import 'package:taiga_rest_models/src/models/test_models/change/comment_version.dart';
-import 'package:taiga_rest_models/src/models/test_models/change/diff.dart';
+import 'package:taiga_rest_models/src/models/change/comment_version.dart';
+import 'package:taiga_rest_models/src/models/change/diff.dart';
 
 /// This si the part of the payload wich include all the changes has been maded
 /// on any action, if the action is create something probably it will come with

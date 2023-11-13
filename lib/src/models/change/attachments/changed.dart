@@ -1,4 +1,4 @@
-import 'package:taiga_rest_models/src/models/test_models/changes.dart';
+import 'package:taiga_rest_models/src/models/changes.dart';
 
 /// This is the part of the attachments who saves all the things wich has
 /// changed on the payload

@@ -1,9 +1,9 @@
 // TODO(Nacho): Remove this after testing
 // ignore_for_file: prefer_single_quotes
 
-import 'package:taiga_rest_models/src/models/test_models/by.dart';
-import 'package:taiga_rest_models/src/models/test_models/change/change.dart';
-import 'package:taiga_rest_models/src/models/test_models/data/data.dart';
+import 'package:taiga_rest_models/src/models/by.dart';
+import 'package:taiga_rest_models/src/models/change/change.dart';
+import 'package:taiga_rest_models/src/models/data/data.dart';
 
 /// This Class class is a model for map a Taiga payload from the webhook of
 /// Taiga (Came as Json Format)

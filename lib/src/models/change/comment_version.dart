@@ -1,4 +1,4 @@
-import 'package:taiga_rest_models/src/models/test_models/change/user.dart';
+import 'package:taiga_rest_models/src/models/change/user.dart';
 
 /// This class will storage all the chages maded on a comment of taiga
 class CommentVersion {
