@@ -34,7 +34,7 @@ class DataMilestone {
       createdDate: DateTime.parse(json['created_date'] as String),
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       closed: json['closed'] as bool,
-      disponibility: json['disponibility'] as int,
+      disponibility: json['disponibility'] as double,
       permalink: json['permalink'] as String,
       project: Project.fromJson(json['project'] as Map<String, dynamic>),
       owner: By.fromJson(json['owner'] as Map<String, dynamic>),
@@ -66,7 +66,7 @@ class DataMilestone {
   bool closed;
   
   /// Disponibility of the milestone
-  int disponibility;
+  double disponibility;
   
   /// Permalink of the milestone
   String permalink;

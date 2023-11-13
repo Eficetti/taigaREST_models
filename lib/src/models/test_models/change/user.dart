@@ -8,10 +8,10 @@ class User {
   /// Mapper of the User class
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id'] as int,
+      id: json['id'] as double,
     );
   }
 
   /// Taiga UserId
-  int id;
+  double id;
 }

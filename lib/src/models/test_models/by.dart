@@ -14,7 +14,7 @@ class By {
   /// Mapper of the By Class
   factory By.fromJson(Map<String, dynamic> json) {
     return By(
-      id: json['id'] as int,
+      id: json['id'] as double,
       permalink: json['permalink'] as String?,
       username: json['username'] as String?,
       fullName: json['full_name'] as String?,
@@ -25,7 +25,7 @@ class By {
   
 
   /// Id of the user related on Taiga
-  int id;
+  double id;
 
   /// Link of the user related on Taiga
   String? permalink;

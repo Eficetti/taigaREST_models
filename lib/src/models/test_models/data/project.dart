@@ -11,14 +11,14 @@ class Project {
   /// Mapper of the Project class
   factory Project.fromJson(Map<String, dynamic> json) {
     return Project(
-      id: json['id'] as int,
+      id: json['id'] as double,
       permalink: json['permalink'] as String,
       name: json['name'] as String,
       logoBigUrl: json['logo_big_url'] as String?,
     );
   }
   /// Id of the project
-  int id;
+  double id;
 
   /// Permalink of the Project
   String permalink;
