@@ -10,7 +10,7 @@ class DiffMilestone {
   factory DiffMilestone.fromJson(Map<String?, dynamic> json) {
     return DiffMilestone(
       from: json['from'] as String?,
-      to: json['to'] as String,
+      to: json['to'] as String?,
     );
   }
 
