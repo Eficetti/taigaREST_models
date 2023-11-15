@@ -24,7 +24,7 @@ class Diff {
   });
 
   /// Mapper of the Diff class
-  factory Diff.fromJson(Map<String, dynamic> json) {
+  factory Diff.fromJson(Map<String?, dynamic> json) {
     return Diff(
       attachments: json['attachments'] != null
           ? Attachments.fromJson(json['attachments'] as Map<String, dynamic>)
