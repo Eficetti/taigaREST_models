@@ -20,6 +20,7 @@ class Diff {
     this.milestone,
     this.promotedTo,
     this.tags,
+    this.descriptionDiff,
   });
 
   /// Mapper of the Diff class
@@ -43,6 +44,10 @@ class Diff {
       promotedTo: json['promoted_to'] != null
           ? PromotedTo.fromJson(json['promoted_to'] as Map<String, dynamic>)
           : null,
+      tags: json['tags'] != null
+          ? Tags.fromJson(json['tags'] as Map<String, dynamic>)
+          : null,
+      descriptionDiff: json['description_diff'] as String?,
     );
   }
 
@@ -66,4 +71,7 @@ class Diff {
 
   /// Change made into the Tags
   Tags? tags;
+  
+  /// Change made into the description
+  String? descriptionDiff;
 }
