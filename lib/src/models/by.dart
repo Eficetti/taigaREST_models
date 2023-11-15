@@ -15,11 +15,11 @@ class By {
   factory By.fromJson(Map<String, dynamic> json) {
     return By(
       id: json['id'] as int,
-      permalink: json['permalink'] as String?,
-      username: json['username'] as String?,
-      fullName: json['full_name'] as String?,
-      photo: json['photo'] as String?,
-      gravatarId: json['gravatar_id'] as String?,
+      permalink: json['permalink'] as String,
+      username: json['username'] as String,
+      fullName: json['full_name'] as String,
+      photo: json['photo'] as String,
+      gravatarId: json['gravatar_id'] as String,
     );
   }
   
@@ -28,17 +28,17 @@ class By {
   int id;
 
   /// Link of the user related on Taiga
-  String? permalink;
+  String permalink;
 
   /// Username of the user related on Taiga
-  String? username;
+  String username;
 
   /// FullName of the user related on Taiga
-  String? fullName;
+  String fullName;
 
   /// Photo link of the user related on Taiga
-  String? photo;
+  String photo;
 
   /// Id of the user avatar related on Taiga
-  String? gravatarId;
+  String gravatarId;
 }
