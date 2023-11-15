@@ -33,7 +33,7 @@ class By {
   /// Username of the user related on Taiga
   String? username;
 
-  /// Fullname of the user related on Taiga
+  /// FullName of the user related on Taiga
   String? fullName;
 
   /// Photo link of the user related on Taiga

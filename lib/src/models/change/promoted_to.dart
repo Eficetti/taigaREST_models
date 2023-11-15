@@ -1,6 +1,4 @@
-/// This class save the changes maded into a Issue, expapmle if this is promoted
-/// into a user story, manage Taiga values, in 'from' and 'to', based in the
-/// names of the Kanban
+/// This class saves the 'issues', if they were promoted to user stories, etc.
 class PromotedTo {
     
     /// Constructor of the PromotedTo Class

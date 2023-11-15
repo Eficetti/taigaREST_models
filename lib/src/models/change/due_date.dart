@@ -1,4 +1,4 @@
-/// This class storage the changes on the dueDate states, old and new
+/// This class storage the changes on the due date states, old and new
 class DueDate {
   /// Constructor of the DueDate class
   DueDate({

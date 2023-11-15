@@ -1,9 +1,7 @@
 import 'package:taiga_rest_models/src/models/by.dart';
-/// Propios de Data
 import 'package:taiga_rest_models/src/models/data/project.dart';
 
-
-/// This class will storage all the data about the milestone comming from the
+/// This class will storage all the data about the milestone coming from the
 /// payload
 class DataMilestone {
 

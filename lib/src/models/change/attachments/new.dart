@@ -1,5 +1,5 @@
-/// This class if for saving the new stuff on the Attachments appart, saving
-/// all the info if you added an image for example, or any type of Attachment
+/// This class if for saving the new stuff on the Attachments section, saving
+/// all the info. If you added an image for example, or any type of Attachment
 class New {
   /// Constructor of the 'New' class
   New({
@@ -36,16 +36,16 @@ class New {
   /// Url of the attachments
   String url;
 
-  /// attachedFile, path propio de taiga
+  /// attachedFile, custom taiga path
   String attachedFile;
 
-  /// thumbnailFile, path propio de taiga
+  /// thumbnailFile, custom taiga path
   String thumbnailFile;
 
   /// Its just a bool showing an state of the attachment
   bool isDeprecated;
 
-  /// Its the description for the attachment, if dont have any, it just
+  /// Its the description for the attachment, if don't have any, it just
   /// came as an empty string " "
   String description;
 

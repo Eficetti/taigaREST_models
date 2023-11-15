@@ -30,7 +30,7 @@ class Attachments {
   /// (Can be null)
   List<New?> attachmentsNew;
 
-  /// This List, storage the changes maded on this change if it exist
+  /// This List, storage the changes made on this change if it exist
   /// (Can be null)
   List<Changed?> changed;
 

@@ -1,4 +1,4 @@
-/// This class is maded for save all the details from a project
+/// This class is madded for save all the details from a project
 class Project {
   /// Constructor of the class Project
   Project({
@@ -23,7 +23,7 @@ class Project {
   /// Permalink of the Project
   String permalink;
 
-  /// Name of the Proejct
+  /// Name of the Project
   String name;
 
   /// Url of the logo of the project (Can came as null)

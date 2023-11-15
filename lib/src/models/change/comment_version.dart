@@ -1,8 +1,8 @@
 import 'package:taiga_rest_models/src/models/change/user.dart';
 
-/// This class will storage all the chages maded on a comment of taiga
+/// This class will storage all the changes made on a comment of taiga
 class CommentVersion {
-  /// Constructof of the CommentVersion class
+  /// Construct of of the CommentVersion class
   CommentVersion({
     required this.date,
     required this.comment,

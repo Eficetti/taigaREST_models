@@ -7,8 +7,8 @@ import 'package:taiga_rest_models/src/models/data/assigned_to.dart';
 
 // TODO(Nacho): Ver que otras cosas pueden entrar en diff
 
-/// This class store all the changes maded on a Taiga action, all can be null
-/// because the payload can only have one type
+/// This class store all the changes made on a Taiga action, all can be null
+/// because the payload can only have one type inside
 class Diff {
   /// Constructor of the Diff class
   Diff({
@@ -44,19 +44,19 @@ class Diff {
     );
   }
 
-  /// Changes maded to the attachments in the task
+  /// Changes made to the attachments in the task
   Attachments? attachments;
 
-  /// Changes maded on the guy assigned to the task
+  /// Changes made on the guy assigned to the task
   AssignedTo? assignedTo;
 
-  /// Changed maded into the due date
+  /// Changed made into the due date
   DueDate? dueDate;
 
-  /// Changed maded into the status
+  /// Changed made into the status
   DiffStatus? status;
   
-  /// Changed maded into the milestone
+  /// Changed made into the milestone
   DiffMilestone? milestone;
 
   /// Change example:(If this is promoted into a user Story)

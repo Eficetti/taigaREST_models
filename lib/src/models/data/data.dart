@@ -1,12 +1,12 @@
 import 'package:taiga_rest_models/src/models/by.dart';
-/// Propios de Data
+/// own Data
 import 'package:taiga_rest_models/src/models/data/data_milestone.dart';
 import 'package:taiga_rest_models/src/models/data/details.dart';
 import 'package:taiga_rest_models/src/models/data/project.dart';
 import 'package:taiga_rest_models/src/models/data/status.dart';
 
 
-/// This Data class will storage all the imporant data of the Payload of Taiga
+/// This Data class will storage all the important data of the Payload of Taiga
 /// related to an Issue
 class Data {
   /// Constructor of the class Data
@@ -101,7 +101,7 @@ class Data {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  /// Subjetc is the name of the issue
+  /// Subject is the name of the issue
   String subject;
 
   /// externalReference //TODO(Nacho): Ver como seria este valor
@@ -110,7 +110,7 @@ class Data {
   /// Watchers is a list of people who is marked as watchers in the issue
   List<int> watchers;
 
-  /// Description of the projet
+  /// Description of the project
   String description;
 
   /// Tags, are all the tags added on the project
@@ -128,7 +128,7 @@ class Data {
   /// Owner of the Issue
   By owner;
 
-  /// AssignedTo is the person assignet to a task, only can be one or null
+  /// AssignedTo is the person assigned to a task, only can be one or null
   By? assignedTo;
 
   /// Status of the Issue

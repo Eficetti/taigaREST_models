@@ -1,9 +1,8 @@
 import 'package:taiga_rest_models/src/models/change/comment_version.dart';
 import 'package:taiga_rest_models/src/models/change/diff.dart';
 
-/// This si the part of the payload wich include all the changes has been maded
-/// on any action, if the action is create something probably it will come with
-/// most of their values at null or empty strings
+/// This is the part of the payload which include all the changes has been made
+/// if the action type is not 'change', it will came as a null value
 class Change {
   /// Constructor of the Change class
   Change({
@@ -24,8 +23,9 @@ class Change {
           ? DateTime.parse(json['delete_comment_date'] as String)
           : null,
       commentVersions: (json['comment_versions'] as List<dynamic>?)
-          ?.map((e) => CommentVersion.fromJson(e as Map<String, dynamic>))
-          .toList() ?? [],
+              ?.map((e) => CommentVersion.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
       editCommentDate: json['edit_comment_date'] != null
           ? DateTime.parse(json['edit_comment_date'] as String)
           : null,
@@ -35,23 +35,24 @@ class Change {
     );
   }
 
-
-  /// Comment on payload will have all the information of the change maded,
+  /// Commentary on payload. It will have all the information of the change made
   /// also it can come as an empty value
   String? comment;
 
-  /// Comment html
+  /// Comment html, same as 'comment', but it come with html tags
   String? commentHtml;
 
   /// DeleteCommentDate will have the date of deletion of a comment
   DateTime? deleteCommentDate;
 
-  /// CommentVersions
+  /// CommentVersions will have the old version of the comments, and the details
+  /// about
   List<CommentVersion> commentVersions;
 
-  /// EditCommentDate will have the date of edit of a comment
+  /// EditCommentDate will have the date of the last time someone edit the 
+  /// comment
   DateTime? editCommentDate;
 
-  /// Diff is used to save all the diferences maded on this change
+  /// Diff is used to save all the differences made on this change
   Diff? diff;
 }

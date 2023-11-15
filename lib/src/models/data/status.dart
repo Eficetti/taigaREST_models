@@ -1,4 +1,4 @@
-/// This class is maded for save an status record for the Issue
+/// This class is for save an status record of the payload
 class Status {
   /// Constructor for the class Status
   Status({

@@ -1,4 +1,4 @@
-/// This class save the changes maded into the status 
+/// This class save the changes made into the status 
 class DiffStatus {
 
   /// Constructor of the status class

@@ -1,7 +1,7 @@
 import 'package:taiga_rest_models/src/models/changes.dart';
 
-/// This is the part of the attachments who saves all the things wich has
-/// changed on the payload
+/// This is the part of the attachments who saves all the things which has
+/// changed in this payload
 class Changed {
   /// constructor of the Changed class 
   Changed({
@@ -27,9 +27,9 @@ class Changed {
   /// Url of the attachment related
   String url;
 
-  /// Thumnail Url of the attachment related
+  /// Thumbnail Url of the attachment related
   String thumbUrl;
 
-  /// An especific description of what exactly has been changed
+  /// An specific description of what exactly has been changed
   Changes changes;
 }
