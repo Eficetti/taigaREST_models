@@ -3,6 +3,7 @@ import 'package:taiga_rest_models/src/models/change/diff_milestone.dart';
 import 'package:taiga_rest_models/src/models/change/diff_status.dart';
 import 'package:taiga_rest_models/src/models/change/due_date.dart';
 import 'package:taiga_rest_models/src/models/change/promoted_to.dart';
+import 'package:taiga_rest_models/src/models/change/tags.dart';
 import 'package:taiga_rest_models/src/models/data/assigned_to.dart';
 
 // TODO(Nacho): Ver que otras cosas pueden entrar en diff
@@ -18,6 +19,7 @@ class Diff {
     this.status,
     this.milestone,
     this.promotedTo,
+    this.tags,
   });
 
   /// Mapper of the Diff class
@@ -61,4 +63,7 @@ class Diff {
 
   /// Change example:(If this is promoted into a user Story)
   PromotedTo? promotedTo;
+
+  /// Change made into the Tags
+  Tags? tags;
 }
