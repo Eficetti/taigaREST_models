@@ -19,6 +19,6 @@ class PromotedTo {
     List<int?> from;
 
     /// New value
-    List<int> to;
+    List<int?> to;
 
 }

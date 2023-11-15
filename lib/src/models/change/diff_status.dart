@@ -20,6 +20,6 @@ class DiffStatus {
   String? from;
 
   /// New status
-  String to;
+  String? to;
 
 }

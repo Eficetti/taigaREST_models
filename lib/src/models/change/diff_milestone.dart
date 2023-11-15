@@ -15,8 +15,8 @@ class DiffMilestone {
   }
 
   /// Old milestone
-  dynamic from;
+  String? from;
   
   /// New milestone
-  String to;
+  String? to;
 }

@@ -19,5 +19,5 @@ class AssignedTo {
   String? from;
 
   /// New person assigned to the task
-  String to;
+  String? to;
 }

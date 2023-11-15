@@ -19,5 +19,5 @@ class DueDate {
   DateTime? from;
 
   /// New date
-  DateTime to;
+  DateTime? to;
 }

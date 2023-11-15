@@ -12,14 +12,14 @@ class Details {
   /// Mapper of the Details class
   factory Details.fromJson(Map<String, dynamic> json) {
     return Details(
-      id: json['id'],
+      id: json['id'] as int,
       name: json['name'] as String,
       color: json['color'] as String,
     );
   }
 
   /// Id of the detail
-  dynamic id;
+  int id;
 
   /// Name of the type of detail
   String name;

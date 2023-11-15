@@ -16,9 +16,9 @@ class Tags {
   }
 
     /// Old Value
-    List<String> from;
+    List<String?> from;
 
     /// New Values
-    List<String> to;
+    List<String?> to;
 
 }
