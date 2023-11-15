@@ -7,10 +7,10 @@ class DueDate {
   });
 
   /// Mapper of the DueDate class
-  factory DueDate.fromJson(Map<String?, dynamic> json) {
+  factory DueDate.fromJson(Map<String, dynamic> json) {
     return DueDate(
-      from: json['from'] as DateTime?,
-      to: json['to'] as DateTime?,
+      from: _parseDateTime(json['from']),
+      to: _parseDateTime(json['to']),
     );
   }
 
@@ -20,4 +20,11 @@ class DueDate {
 
   /// New date
   DateTime? to;
+
+  static DateTime? _parseDateTime(dynamic value) {
+    if (value is String) {
+      return DateTime.tryParse(value);
+    }
+    return null;
+  }
 }
