@@ -7,10 +7,10 @@ class AssignedTo {
   });
 
   /// Mapper of the AssignedTo class
-  factory AssignedTo.fromJson(Map<String, dynamic> json) {
+  factory AssignedTo.fromJson(Map<String?, dynamic> json) {
     return AssignedTo(
       from: json['from'] as String?,
-      to: json['to'] as String,
+      to: json['to'] as String?,
     );
   }
 

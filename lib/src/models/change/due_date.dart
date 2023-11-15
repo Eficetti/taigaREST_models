@@ -7,10 +7,10 @@ class DueDate {
   });
 
   /// Mapper of the DueDate class
-  factory DueDate.fromJson(Map<String, dynamic> json) {
+  factory DueDate.fromJson(Map<String?, dynamic> json) {
     return DueDate(
       from: json['from'] as DateTime?,
-      to: json['to'] as DateTime,
+      to: json['to'] as DateTime?,
     );
   }
 

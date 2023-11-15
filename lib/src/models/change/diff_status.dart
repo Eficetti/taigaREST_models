@@ -8,10 +8,10 @@ class DiffStatus {
   });
 
   /// Mapper of the DiffStatus class
-  factory DiffStatus.fromJson(Map<String, dynamic> json) {
+  factory DiffStatus.fromJson(Map<String?, dynamic> json) {
     return DiffStatus(
       from: json['from'] as String?,
-      to: json['to'] as String,
+      to: json['to'] as String?,
     );
   }
 
