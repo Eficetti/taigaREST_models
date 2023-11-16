@@ -32,7 +32,7 @@ class Milestone {
       createdDate: DateTime.parse(json['created_date'] as String),
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       closed: json['closed'] as bool,
-      disponibility: json['disponibility'] as int,
+      disponibility: (json['disponibility'] as num).toInt(),
       permalink: json['permalink'] as String,
       project: Project.fromJson(json['project'] as Map<String, dynamic>),
       owner: By.fromJson(json['owner'] as Map<String, dynamic>),
