@@ -1,9 +1,9 @@
 import 'package:taiga_rest_models/src/models/by.dart';
 /// own Data
-import 'package:taiga_rest_models/src/models/data/data_milestone.dart';
-import 'package:taiga_rest_models/src/models/data/details.dart';
-import 'package:taiga_rest_models/src/models/data/project.dart';
-import 'package:taiga_rest_models/src/models/data/status.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/data/data_milestone.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/data/details.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/data/project.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/data/status.dart';
 
 
 /// This Data class will storage all the important data of the Payload of Taiga

@@ -1,4 +1,4 @@
-import 'package:taiga_rest_models/src/models/change/user.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/change/user.dart';
 
 /// This class will storage all the changes made on a comment of taiga
 class CommentVersion {

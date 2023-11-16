@@ -1,6 +1,6 @@
-import 'package:taiga_rest_models/src/models/change/attachments/changed.dart';
-import 'package:taiga_rest_models/src/models/change/attachments/deleted.dart';
-import 'package:taiga_rest_models/src/models/change/attachments/new.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/change/attachments/changed.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/change/attachments/deleted.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/change/attachments/new.dart';
 
 /// This class storage all the Attachments added on a change
 class Attachments {
