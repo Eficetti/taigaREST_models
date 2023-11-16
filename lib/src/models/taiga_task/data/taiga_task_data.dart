@@ -42,43 +42,44 @@ class TaigaTaskData {
 
   /// Mapper of the TaigaTaskData class //TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
   factory TaigaTaskData.fromJson(Map<String, dynamic> json) {
-  return TaigaTaskData(
-    id: json['id'] as int,
-    ref: json['ref'] as int,
-    createdDate: DateTime.parse(json['createdDate'] as String),
-    modifiedDate: json['modifiedDate'] != null
-        ? DateTime.parse(json['modifiedDate'] as String)
-        : null,
-    dueDate: json['dueDate'] != null
-        ? DateTime.parse(json['dueDate'] as String)
-        : null,
-    dueDateReason: json['dueDateReason'] as String,
-    subject: json['subject'] as String,
-    externalReference: json['externalReference'] as String?,
-    watchers: List<int>.from(json['watchers'] as List<dynamic>),
-    description: json['description'] as String,
-    tags: List<dynamic>.from(json['tags'] as List<dynamic>),
-    permalink: json['permalink'] as String,
-    project: Project.fromJson(json['project'] as Map<String, dynamic>),
-    milestone: json['milestone'] != null
-        ? Milestone.fromJson(json['milestone'] as Map<String, dynamic>)
-        : null,
-    owner: By.fromJson(json['owner'] as Map<String, dynamic>),
-    assignedTo: json['assignedTo'] != null
-        ? By.fromJson(json['assignedTo'] as Map<String, dynamic>)
-        : null,
-    status: Status.fromJson(json['status'] as Map<String, dynamic>),
-    isBlocked: json['isBlocked'] as bool,
-    blockedNote: json['blockedNote'] as String,
-    usOrder: json['usOrder'] as int,
-    userStory: UserStoryData.fromJson(json['userStory'] as Map<String, dynamic>),
-    promotedTo: List<dynamic>.from(json['promotedTo'] as List<dynamic>),
-    finishedDate: json['finishedDate'],
-    taskboardOrder: json['taskboardOrder'] as int,
-    isIocaine: json['isIocaine'] as bool,
-    customAttributesValues: json['customAttributesValues'] as String?,
-  );
-}
+    return TaigaTaskData(
+      id: json['id'] as int,
+      ref: json['ref'] as int,
+      createdDate: DateTime.parse(json['created_date'] as String),
+      modifiedDate: json['modified_date'] != null
+          ? DateTime.parse(json['modified_date'] as String)
+          : null,
+      dueDate: json['due_date'] != null
+          ? DateTime.parse(json['due_date'] as String)
+          : null,
+      dueDateReason: json['due_date_reason'] as String,
+      subject: json['subject'] as String,
+      externalReference: json['external_reference'] as String?,
+      watchers: List<int>.from(json['watchers'] as List<dynamic>),
+      description: json['description'] as String,
+      tags: List<dynamic>.from(json['tags'] as List<dynamic>),
+      permalink: json['permalink'] as String,
+      project: Project.fromJson(json['project'] as Map<String, dynamic>),
+      milestone: json['milestone'] != null
+          ? Milestone.fromJson(json['milestone'] as Map<String, dynamic>)
+          : null,
+      owner: By.fromJson(json['owner'] as Map<String, dynamic>),
+      assignedTo: json['assigned_to'] != null
+          ? By.fromJson(json['assigned_to'] as Map<String, dynamic>)
+          : null,
+      status: Status.fromJson(json['status'] as Map<String, dynamic>),
+      isBlocked: json['is_blocked'] as bool,
+      blockedNote: json['blocked_note'] as String,
+      usOrder: json['us_order'] as int,
+      userStory:
+          UserStoryData.fromJson(json['user_story'] as Map<String, dynamic>),
+      promotedTo: List<dynamic>.from(json['promoted_to'] as List<dynamic>),
+      finishedDate: json['finished_date'],
+      taskboardOrder: json['taskboard_order'] as int,
+      isIocaine: json['is_iocaine'] as bool,
+      customAttributesValues: json['custom_attributes_values'] as String?,
+    );
+  }
 
   /// Id for the Data, Taiga value
   int id;
@@ -159,5 +160,4 @@ class TaigaTaskData {
   /// customAttributesValues //TODO(Nacho): Ver que llegaria aca
   //CustomAttributesValues
   String? customAttributesValues;
-
 }
