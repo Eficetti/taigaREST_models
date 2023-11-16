@@ -1,6 +1,6 @@
 import 'package:taiga_rest_models/src/models/by.dart';
 import 'package:taiga_rest_models/src/models/commons/change.dart';
-import 'package:taiga_rest_models/src/models/taiga_issue/data/data.dart';
+import 'package:taiga_rest_models/src/models/taiga_user_story/data/data.dart';
 
 /// This Class class is a model for map a Taiga payload from the webhook of
 /// Taiga (Came as Json Format)
