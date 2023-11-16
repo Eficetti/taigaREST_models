@@ -12,7 +12,7 @@ class Point {
     factory Point.fromJson(Map<String, dynamic> json) => Point(
         name: json['name'] as String,
         role: json['role'] as String,
-        value: json['value'],
+        value: json['value'] != null ? json['value'] as String : '',
     );
 
     ///
