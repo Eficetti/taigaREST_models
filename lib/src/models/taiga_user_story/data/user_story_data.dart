@@ -44,7 +44,7 @@ class UserStoryData {
     required this.customAttributesValues,
   });
 
-  /// Mapper of the UserStoryData class //TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
+  /// Mapper of the UserStoryData class //TODO(Nacho): cambiar custom Attributes cuando sepa que data viene ahi
   factory UserStoryData.fromJson(Map<String, dynamic> json) {
     return UserStoryData(
       customAttributesValues: 'null Value, Fix this!!',

@@ -40,7 +40,7 @@ class TaigaTaskData {
     required this.customAttributesValues,
   });
 
-  /// Mapper of the TaigaTaskData class //TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
+  /// Mapper of the TaigaTaskData class //TODO(Nacho): Cambiar custom Attributes cuando sepa que data viene ahi
   factory TaigaTaskData.fromJson(Map<String, dynamic> json) {
     return TaigaTaskData(
       id: json['id'] as int,
@@ -77,7 +77,7 @@ class TaigaTaskData {
       finishedDate: json['finished_date'],
       taskboardOrder: json['taskboard_order'] as int,
       isIocaine: json['is_iocaine'] as bool,
-      customAttributesValues: json['custom_attributes_values'] as String?,
+      customAttributesValues: 'Fix this value!',
     );
   }
 
