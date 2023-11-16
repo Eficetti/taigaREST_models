@@ -46,8 +46,6 @@ class Data {
 
   /// Mapper of the Data class //TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
   factory Data.fromJson(Map<String, dynamic> json) {
-    print("JSON: $json");
-    try {
     return Data(
       customAttributesValues: 'null Value, Fix this!!',
       id: json['id'] as int,
@@ -76,8 +74,10 @@ class Data {
           : null,
       status: Status.fromJson(json['status'] as Map<String, dynamic>),
       points: json['points'] != null
-          ? List<Point>.from(json['points'] as List<dynamic>)
-          : [],
+      ? (json['points'] as List<dynamic>)
+          .map((pointJson) => Point.fromJson(pointJson as Map<String, dynamic>))
+          .toList()
+      : [],
       isClosed: json['is_closed'] as bool? ?? false,
       tribeGig: json['tribe_gig'],
       isBlocked: json['is_blocked'] as bool? ?? false,
@@ -92,10 +92,6 @@ class Data {
       generatedFromTask: json['generated_from_task'],
       generatedFromIssue: json['generated_from_issue'] as int,
     );
-    } catch (e) {
-    print("Error while parsing: $e");
-    rethrow; // Re-lanza la excepción para obtener más detalles
-  }
   }
 
   /// customAttributesValues //TODO(Nacho): Ver que llegaria aca
