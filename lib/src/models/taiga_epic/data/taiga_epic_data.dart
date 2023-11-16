@@ -41,7 +41,7 @@ class TaigaEpicData {
       watchers: List<int>.from(json['watchers'] as List<dynamic>),
       permalink: json['permalink'] as String,
       assignedTo:
-          AssignedTo.fromJson(json['assigned_to'] as Map<String, dynamic>),
+          By.fromJson(json['assigned_to'] as Map<String, dynamic>),
       description: json['description'] as String,
       epicsOrder: json['epics_order'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -83,7 +83,7 @@ class TaigaEpicData {
   String permalink;
 
   ///
-  AssignedTo assignedTo;
+  By? assignedTo;
 
   ///
   String description;
