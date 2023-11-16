@@ -1,6 +1,6 @@
 import 'package:taiga_rest_models/src/models/commons/by.dart';
 /// own Data
-import 'package:taiga_rest_models/src/models/taiga_issue/data/details.dart';
+import 'package:taiga_rest_models/src/models/commons/details.dart';
 import 'package:taiga_rest_models/src/models/commons/milestone.dart';
 import 'package:taiga_rest_models/src/models/commons/project.dart';
 import 'package:taiga_rest_models/src/models/commons/status.dart';

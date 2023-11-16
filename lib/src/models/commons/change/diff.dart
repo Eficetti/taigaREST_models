@@ -4,7 +4,7 @@ import 'package:taiga_rest_models/src/models/commons/change/diff/diff_status.dar
 import 'package:taiga_rest_models/src/models/commons/change/diff/due_date.dart';
 import 'package:taiga_rest_models/src/models/commons/change/diff/promoted_to.dart';
 import 'package:taiga_rest_models/src/models/commons/change/diff/tags.dart';
-import 'package:taiga_rest_models/src/models/taiga_issue/data/assigned_to.dart';
+import 'package:taiga_rest_models/src/models/commons/assigned_to.dart';
 
 // TODO(Nacho): Ver que otras cosas pueden entrar en diff
 
