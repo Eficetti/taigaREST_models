@@ -1,11 +1,12 @@
 import 'package:taiga_rest_models/src/models/by.dart';
+
 /// own Data
 import 'package:taiga_rest_models/src/models/commons/milestone.dart';
 import 'package:taiga_rest_models/src/models/commons/project.dart';
 import 'package:taiga_rest_models/src/models/commons/status.dart';
 import 'package:taiga_rest_models/src/models/taiga_user_story/data/point.dart';
 
-// TODO(Nacho): Corregir mapper una vez tenga los valores de los que ahora son dynamic
+// TODO(Nacho): Corregir mapper una vez tenga los valores de los que ahora son dynamic y agregar documentacion
 
 /// This Data class will storage all the important data of the Payload of Taiga
 class Data {
@@ -15,32 +16,32 @@ class Data {
     required this.ref,
     required this.tags,
     required this.owner,
+    required this.points,
     required this.status,
     required this.project,
     required this.subject,
     required this.dueDate,
     required this.watchers,
+    required this.isClosed,
     required this.milestone,
     required this.permalink,
-    required this.assignedTo,
-    required this.description,
-    required this.createdDate,
-    required this.modifiedDate,
-    required this.dueDateReason,
-    required this.externalReference,
-    required this.customAttributesValues,
-    required this.points,
-    required this.isClosed,
     required this.tribeGig,
     required this.isBlocked,
+    required this.assignedTo,
+    required this.description,
     required this.finishDate,
     required this.blockedNote,
+    required this.createdDate,
     required this.fromTaskRef,
+    required this.modifiedDate,
     required this.assignedUsers,
+    required this.dueDateReason,
     required this.teamRequirement,
     required this.clientRequirement,
+    required this.externalReference,
     required this.generatedFromTask,
     required this.generatedFromIssue,
+    required this.customAttributesValues,
   });
 
   /// Mapper of the Data class //TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
@@ -72,24 +73,27 @@ class Data {
           ? By.fromJson(json['assigned_to'] as Map<String, dynamic>)
           : null,
       status: Status.fromJson(json['status'] as Map<String, dynamic>),
-      // New fields added
-      points: List<Point>.from(json['points'] as List<dynamic>),
-      isClosed: json['is_closed'] as bool,
-      tribeGig: json['tribe_gig'], // Ensure correct type assignment
-      isBlocked: json['is_blocked'] as bool,
-      finishDate: json['finish_date'], // Ensure correct type assignment
+      points: json['points'] != null
+          ? List<Point>.from(json['points'] as List<dynamic>)
+          : [],
+      isClosed: json['is_closed'] as bool? ?? false,
+      tribeGig: json['tribe_gig'],
+      isBlocked: json['is_blocked'] as bool? ?? false,
+      finishDate: json['finish_date'],
       blockedNote: json['blocked_note'] as String,
-      fromTaskRef: json['from_task_ref'], // Ensure correct type assignment
-      assignedUsers: List<dynamic>.from(json['assigned_users'] as List<dynamic>),
-      teamRequirement: json['team_requirement'] as bool,
-      clientRequirement: json['client_requirement'] as bool,
-      generatedFromTask: json['generated_from_task'], // Ensure correct type assignment
+      fromTaskRef: json['from_task_ref'],
+      assignedUsers: json['assigned_users'] != null
+          ? List<dynamic>.from(json['assigned_users'] as List<dynamic>)
+          : [],
+      teamRequirement: json['team_requirement'] as bool? ?? false,
+      clientRequirement: json['client_requirement'] as bool? ?? false,
+      generatedFromTask: json['generated_from_task'],
       generatedFromIssue: json['generated_from_issue'] as int,
     );
   }
 
   /// customAttributesValues //TODO(Nacho): Ver que llegaria aca
-  //CustomAttributesValues 
+  //CustomAttributesValues
   String? customAttributesValues;
 
   /// Id for the Data, Taiga value
@@ -143,45 +147,45 @@ class Data {
 
   /// Status of the Issue
   Status status;
-  
+
   ///
   List<Point> points;
-  
+
   ///
   bool isClosed;
-  
+
   //TODO(Nacho): Agregar clase si es necesario
   ///
   dynamic tribeGig;
-  
+
   ///
   bool isBlocked;
-  
+
   //TODO(Nacho): Agregar clase si es necesario
   ///
   dynamic finishDate;
-  
+
   ///
   String blockedNote;
-  
+
   //TODO(Nacho): Agregar clase si es necesario
   ///
   dynamic fromTaskRef;
-  
+
   //TODO(Nacho): Agregar clase si es necesario
   ///
   List<dynamic> assignedUsers;
-  
+
   ///
   bool teamRequirement;
-  
+
   ///
   bool clientRequirement;
-  
+
   //TODO(Nacho): Agregar clase si es necesario
   ///
   dynamic generatedFromTask;
-  
+
   ///
   int generatedFromIssue;
 }
