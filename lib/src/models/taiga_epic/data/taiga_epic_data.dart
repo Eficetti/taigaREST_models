@@ -48,7 +48,7 @@ class TaigaEpicData {
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       teamRequirement: json['team_requirement'] as bool,
       clientRequirement: json['client_requirement'] as bool,
-      customAttributesValues: json['custom_attributes_values'] as String?,
+      customAttributesValues: 'Fix This value!',
     );
   }
 
