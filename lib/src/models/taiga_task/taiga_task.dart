@@ -1,12 +1,13 @@
 import 'package:taiga_rest_models/src/models/commons/by.dart';
 import 'package:taiga_rest_models/src/models/commons/change.dart';
-import 'package:taiga_rest_models/src/models/taiga_user_story/data/user_story_data.dart';
+import 'package:taiga_rest_models/src/models/taiga_task/data/taiga_task_data.dart';
+
 
 /// This Class class is a model for map a Taiga payload from the webhook of
 /// Taiga (Came as Json Format)
-class TaigaUserStory {
-  /// Constructor of TaigaUserStory
-  TaigaUserStory({
+class TaigaTask {
+  /// Constructor of TaigaTask
+  TaigaTask({
     required this.action,
     required this.type,
     required this.by,
@@ -15,14 +16,14 @@ class TaigaUserStory {
     required this.change,
   });
 
-  /// Mapper of the TaigaUserStory class
-  factory TaigaUserStory.fromJson(Map<String, dynamic> json) {
-    return TaigaUserStory(
+  /// Mapper of the TaigaTask class
+  factory TaigaTask.fromJson(Map<String, dynamic> json) {
+    return TaigaTask(
       action: json['action'] as String,
       type: json['type'] as String,
       by: By.fromJson(json['by'] as Map<String, dynamic>),
       date: DateTime.parse(json['date'] as String),
-      data: UserStoryData.fromJson(json['data'] as Map<String, dynamic>),
+      data: TaigaTaskData.fromJson(json['data'] as Map<String, dynamic>),
       change: json['change'] != null
           ? Change.fromJson(json['change'] as Map<String, dynamic>)
           : null,
@@ -43,7 +44,7 @@ class TaigaUserStory {
 
   /// This is the most important part of the Payload, this include all the
   /// information of the action made
-  UserStoryData data;
+  TaigaTaskData data;
 
   /// This is the changes that were made
   Change? change;

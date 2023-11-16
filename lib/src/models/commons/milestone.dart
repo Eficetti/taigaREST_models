@@ -1,4 +1,4 @@
-import 'package:taiga_rest_models/src/models/by.dart';
+import 'package:taiga_rest_models/src/models/commons/by.dart';
 import 'package:taiga_rest_models/src/models/commons/project.dart';
 
 /// This class will storage all the data about the milestone coming from the

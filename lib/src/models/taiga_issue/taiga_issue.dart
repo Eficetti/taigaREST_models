@@ -1,6 +1,6 @@
-import 'package:taiga_rest_models/src/models/by.dart';
+import 'package:taiga_rest_models/src/models/commons/by.dart';
 import 'package:taiga_rest_models/src/models/commons/change.dart';
-import 'package:taiga_rest_models/src/models/taiga_issue/data/data.dart';
+import 'package:taiga_rest_models/src/models/taiga_issue/data/taiga_issue_data.dart';
 
 /// This Class class is a model for map a Taiga payload from the webhook of
 /// Taiga (Came as Json Format)
@@ -22,7 +22,7 @@ class TaigaIssue {
       type: json['type'] as String,
       by: By.fromJson(json['by'] as Map<String, dynamic>),
       date: DateTime.parse(json['date'] as String),
-      data: Data.fromJson(json['data'] as Map<String, dynamic>),
+      data: TaigaIssueData.fromJson(json['data'] as Map<String, dynamic>),
       change: json['change'] != null
           ? Change.fromJson(json['change'] as Map<String, dynamic>)
           : null,
@@ -43,7 +43,7 @@ class TaigaIssue {
 
   /// This is the most important part of the Payload, this include all the
   /// information of the action made
-  Data data;
+  TaigaIssueData data;
 
   /// This is the changes that were made
   Change? change;
