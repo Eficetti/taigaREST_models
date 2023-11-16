@@ -1,38 +1,46 @@
 import 'package:taiga_rest_models/src/models/by.dart';
 /// own Data
-import 'package:taiga_rest_models/src/models/taiga_issue/data/details.dart';
 import 'package:taiga_rest_models/src/models/commons/milestone.dart';
 import 'package:taiga_rest_models/src/models/commons/project.dart';
 import 'package:taiga_rest_models/src/models/commons/status.dart';
+import 'package:taiga_rest_models/src/models/taiga_user_story/data/point.dart';
+
+// TODO(Nacho): Corregir mapper una vez tenga los valores de los que ahora son dynamic
 
 /// This Data class will storage all the important data of the Payload of Taiga
-/// related to an Issue
 class Data {
   /// Constructor of the class Data
   Data({
-    required this.customAttributesValues,
     required this.id,
     required this.ref,
+    required this.tags,
+    required this.owner,
+    required this.status,
+    required this.project,
+    required this.subject,
+    required this.dueDate,
+    required this.watchers,
+    required this.milestone,
+    required this.permalink,
+    required this.assignedTo,
+    required this.description,
     required this.createdDate,
     required this.modifiedDate,
-    required this.finishedDate,
-    required this.dueDate,
     required this.dueDateReason,
-    required this.subject,
     required this.externalReference,
-    required this.watchers,
-    required this.description,
-    required this.tags,
-    required this.permalink,
-    required this.project,
-    required this.milestone,
-    required this.owner,
-    required this.assignedTo,
-    required this.status,
-    required this.type,
-    required this.priority,
-    required this.severity,
-    required this.promotedTo,
+    required this.customAttributesValues,
+    required this.points,
+    required this.isClosed,
+    required this.tribeGig,
+    required this.isBlocked,
+    required this.finishDate,
+    required this.blockedNote,
+    required this.fromTaskRef,
+    required this.assignedUsers,
+    required this.teamRequirement,
+    required this.clientRequirement,
+    required this.generatedFromTask,
+    required this.generatedFromIssue,
   });
 
   /// Mapper of the Data class //TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
@@ -44,9 +52,6 @@ class Data {
       createdDate: DateTime.parse(json['created_date'] as String),
       modifiedDate: json['modified_date'] != null
           ? DateTime.parse(json['modified_date'] as String)
-          : null,
-      finishedDate: json['finished_date'] != null
-          ? DateTime.parse(json['finished_date'] as String)
           : null,
       dueDate: json['due_date'] != null
           ? DateTime.parse(json['due_date'] as String)
@@ -67,10 +72,19 @@ class Data {
           ? By.fromJson(json['assigned_to'] as Map<String, dynamic>)
           : null,
       status: Status.fromJson(json['status'] as Map<String, dynamic>),
-      type: Details.fromJson(json['type'] as Map<String, dynamic>),
-      priority: Details.fromJson(json['priority'] as Map<String, dynamic>),
-      severity: Details.fromJson(json['severity'] as Map<String, dynamic>),
-      promotedTo: List<int>.from(json['promoted_to'] as List<dynamic>),
+      // New fields added
+      points: List<Point>.from(json['points'] as List<dynamic>),
+      isClosed: json['is_closed'] as bool,
+      tribeGig: json['tribe_gig'], // Ensure correct type assignment
+      isBlocked: json['is_blocked'] as bool,
+      finishDate: json['finish_date'], // Ensure correct type assignment
+      blockedNote: json['blocked_note'] as String,
+      fromTaskRef: json['from_task_ref'], // Ensure correct type assignment
+      assignedUsers: List<dynamic>.from(json['assigned_users'] as List<dynamic>),
+      teamRequirement: json['team_requirement'] as bool,
+      clientRequirement: json['client_requirement'] as bool,
+      generatedFromTask: json['generated_from_task'], // Ensure correct type assignment
+      generatedFromIssue: json['generated_from_issue'] as int,
     );
   }
 
@@ -90,9 +104,6 @@ class Data {
 
   /// Date of the last modification
   DateTime? modifiedDate;
-
-  /// Date when the issue was marked as finished
-  DateTime? finishedDate;
 
   /// Date when the issue will be marked as expired, it can be null
   DateTime? dueDate;
@@ -132,16 +143,45 @@ class Data {
 
   /// Status of the Issue
   Status status;
-
-  /// Type of the Issue
-  Details type;
-
-  /// Priority of the Issue
-  Details priority;
-
-  /// Severity of the Issue
-  Details severity;
-
-  /// PromotedTo
-  List<int?> promotedTo;
+  
+  ///
+  List<Point> points;
+  
+  ///
+  bool isClosed;
+  
+  //TODO(Nacho): Agregar clase si es necesario
+  ///
+  dynamic tribeGig;
+  
+  ///
+  bool isBlocked;
+  
+  //TODO(Nacho): Agregar clase si es necesario
+  ///
+  dynamic finishDate;
+  
+  ///
+  String blockedNote;
+  
+  //TODO(Nacho): Agregar clase si es necesario
+  ///
+  dynamic fromTaskRef;
+  
+  //TODO(Nacho): Agregar clase si es necesario
+  ///
+  List<dynamic> assignedUsers;
+  
+  ///
+  bool teamRequirement;
+  
+  ///
+  bool clientRequirement;
+  
+  //TODO(Nacho): Agregar clase si es necesario
+  ///
+  dynamic generatedFromTask;
+  
+  ///
+  int generatedFromIssue;
 }

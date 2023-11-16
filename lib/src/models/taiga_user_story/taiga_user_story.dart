@@ -4,9 +4,9 @@ import 'package:taiga_rest_models/src/models/taiga_issue/data/data.dart';
 
 /// This Class class is a model for map a Taiga payload from the webhook of
 /// Taiga (Came as Json Format)
-class TaigaIssue {
-  /// Constructor of TaigaIssue
-  TaigaIssue({
+class TaigaUserStory {
+  /// Constructor of TaigaUserStory
+  TaigaUserStory({
     required this.action,
     required this.type,
     required this.by,
@@ -15,9 +15,9 @@ class TaigaIssue {
     required this.change,
   });
 
-  /// Mapper of the TaigaIssue class
-  factory TaigaIssue.fromJson(Map<String, dynamic> json) {
-    return TaigaIssue(
+  /// Mapper of the TaigaUserStory class
+  factory TaigaUserStory.fromJson(Map<String, dynamic> json) {
+    return TaigaUserStory(
       action: json['action'] as String,
       type: json['type'] as String,
       by: By.fromJson(json['by'] as Map<String, dynamic>),

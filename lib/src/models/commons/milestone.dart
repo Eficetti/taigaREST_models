@@ -1,12 +1,12 @@
 import 'package:taiga_rest_models/src/models/by.dart';
-import 'package:taiga_rest_models/src/models/taiga_issue/data/project.dart';
+import 'package:taiga_rest_models/src/models/commons/project.dart';
 
 /// This class will storage all the data about the milestone coming from the
 /// payload
-class DataMilestone {
+class Milestone {
 
-  /// Constructor of the DataMilestone class 
-  DataMilestone({
+  /// Constructor of the Milestone class 
+  Milestone({
       required this.id,
       required this.name,
       required this.slug,
@@ -21,9 +21,9 @@ class DataMilestone {
       required this.owner,
   });
 
-  ///Mapper of the DataMilestone class
-  factory DataMilestone.fromJson(Map<String, dynamic> json) {
-    return DataMilestone(
+  ///Mapper of the Milestone class
+  factory Milestone.fromJson(Map<String, dynamic> json) {
+    return Milestone(
       id: json['id'] as int,
       name: json['name'] as String,
       slug: json['slug'] as String,
