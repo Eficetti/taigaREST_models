@@ -46,6 +46,8 @@ class Data {
 
   /// Mapper of the Data class //TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
   factory Data.fromJson(Map<String, dynamic> json) {
+    print("JSON: $json");
+    try {
     return Data(
       customAttributesValues: 'null Value, Fix this!!',
       id: json['id'] as int,
@@ -90,6 +92,10 @@ class Data {
       generatedFromTask: json['generated_from_task'],
       generatedFromIssue: json['generated_from_issue'] as int,
     );
+    } catch (e) {
+    print("Error while parsing: $e");
+    rethrow; // Re-lanza la excepción para obtener más detalles
+  }
   }
 
   /// customAttributesValues //TODO(Nacho): Ver que llegaria aca
