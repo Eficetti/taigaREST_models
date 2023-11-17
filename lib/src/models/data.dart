@@ -1,4 +1,5 @@
 import 'package:taiga_rest_models/src/models/by.dart';
+import 'package:taiga_rest_models/src/models/data/custom_attributes_values.dart';
 import 'package:taiga_rest_models/src/models/data/details.dart';
 import 'package:taiga_rest_models/src/models/data/milestone.dart';
 import 'package:taiga_rest_models/src/models/data/point.dart';
@@ -7,7 +8,6 @@ import 'package:taiga_rest_models/src/models/data/status.dart';
 
 // All
 // TODO(Nacho): See how to manage this value externalReference
-// TODO(Nacho): See how to manage this value customAttributes
 // UserStory
 // TODO(Nacho): See how to manage this value tribeGig
 // TODO(Nacho): See how to manage this value generatedFromTask
@@ -73,10 +73,8 @@ class TaigaData {
   /// Date of the last modification
   DateTime? modifiedDate;
 
-  // TODO(Nacho): See how to manage this value
-
   /// CustomAttributesValues
-  String? customAttributesValues;
+  CustomAttributesValues? customAttributesValues;
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga
@@ -120,7 +118,8 @@ class TaigaUserStoryData extends TaigaData {
   /// Mapper of the TaigaUserStoryData class
   factory TaigaUserStoryData.fromJson(Map<String, dynamic> json) {
     return TaigaUserStoryData(
-      customAttributesValues: 'null Value, Fix this!!',
+      customAttributesValues:
+          json['custom_attributes_values'] as CustomAttributesValues,
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -302,7 +301,8 @@ class TaigaTaskData extends TaigaData {
           : null,
       taskboardOrder: json['taskboard_order'] as int,
       isIocaine: json['is_iocaine'] as bool,
-      customAttributesValues: 'Fix this value!',
+      customAttributesValues:
+          json['custom_attributes_values'] as CustomAttributesValues,
     );
   }
 
@@ -378,7 +378,8 @@ class TaigaIssueData extends TaigaData {
   /// Mapper of the TaigaIssueData class
   factory TaigaIssueData.fromJson(Map<String, dynamic> json) {
     return TaigaIssueData(
-      customAttributesValues: 'null Value, Fix this!!',
+      customAttributesValues:
+          json['custom_attributes_values'] as CustomAttributesValues,
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -490,7 +491,8 @@ class TaigaEpicData extends TaigaData {
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       teamRequirement: json['team_requirement'] as bool,
       clientRequirement: json['client_requirement'] as bool,
-      customAttributesValues: 'Fix This value!',
+      customAttributesValues:
+          json['custom_attributes_values'] as CustomAttributesValues,
     );
   }
 
