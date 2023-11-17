@@ -303,10 +303,13 @@ class TaigaTaskData extends TaigaData {
           : null,
       taskboardOrder: json['taskboard_order'] as int,
       isIocaine: json['is_iocaine'] as bool,
-      customAttributesValues: CustomAttributesValues.fromJson(
-        json['custom_attributes_values'] as Map<String, dynamic>,
-      ),
-    );
+      customAttributesValues: json['custom_attributes_values'] != null
+        ? CustomAttributesValues.fromJson(
+            json['custom_attributes_values'] as Map<String, dynamic>,
+          )
+        : null, 
+      );
+
   }
 
   /// Date when the issue will be marked as expired, it can be null
