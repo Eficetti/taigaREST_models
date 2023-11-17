@@ -15,11 +15,11 @@ class Attribute {
   /// Mapper for Attribute class
   factory Attribute.fromJson(Map<String, dynamic> json) {
     return Attribute(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      type: json['type'] as String,
-      value: json['value'] as String,
-      valueDiff: json['value_diff'] as String,
+      id: json['id'] as int?,
+      name: json['name'] as String?,
+      type: json['type'] as String?,
+      value: json['value'] as String?,
+      valueDiff: json['value_diff'] as String?,
       changes: json['changes'] != null
           ? ChangesAttributes.fromJson(json['changes'] as Map<String, dynamic>)
           : null,
@@ -27,20 +27,20 @@ class Attribute {
   }
 
   /// Id of the attribute
-  int id;
+  int? id;
 
   /// Name of the attribute
-  String name;
+  String? name;
 
   /// Type of the attribute
-  String type;
+  String? type;
 
   /// Value of the attribute
-  String value;
+  String? value;
 
   /// If a change was been made this will storage the data
   ChangesAttributes? changes;
 
   /// This storage the format value "<span>Sample</span><ins style=\"background:#e6ffe6;\">2</ins><span>.com</span>"
-  String valueDiff;
+  String? valueDiff;
 }

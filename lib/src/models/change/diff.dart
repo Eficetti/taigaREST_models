@@ -74,7 +74,11 @@ class Diff {
           ? FromTo.fromJson(json['is_blocked'] as Map<String, dynamic>)
           : null,
       descriptionDiff: json['description_diff'] as String?,
-      customAttributesChange: json['custom_attributes'] as CustomAttributes?,
+      customAttributesChange: json['custom_attributes'] != null
+          ? CustomAttributes.fromJson(
+              json['custom_attributes'] as Map<String, dynamic>,
+            )
+          : null,
     );
   }
 
