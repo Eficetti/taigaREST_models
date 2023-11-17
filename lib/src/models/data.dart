@@ -511,12 +511,12 @@ CustomAttributesValues? _parseCustomAttributesValues(
   Map<String, dynamic> json,
 ) {
   final customAttributesValues =
-      json['custom_attributes_values'] as Map<String, dynamic>;
+      json['custom_attributes_values'] as Map<dynamic, dynamic>;
 
   print(customAttributesValues.runtimeType);
 
   if (customAttributesValues.isNotEmpty) {
-    return CustomAttributesValues.fromJson(customAttributesValues);
+    return CustomAttributesValues.fromJson(customAttributesValues as Map<String,dynamic>);
   }
 
   return null;
