@@ -24,10 +24,10 @@ class TaigaPayload {
       case 'epic':
         data = TaigaEpicData.fromJson(json['data'] as Map<String, dynamic>);
       case 'task':
-        data = TaigaIssueData.fromJson(json['data'] as Map<String, dynamic>);
+        data = TaigaTaskData.fromJson(json['data'] as Map<String, dynamic>);
       case 'issue':
         data =
-            TaigaUserStoryData.fromJson(json['data'] as Map<String, dynamic>);
+            TaigaIssueData.fromJson(json['data'] as Map<String, dynamic>);
       case 'userstory':
         data =
             TaigaUserStoryData.fromJson(json['data'] as Map<String, dynamic>);
