@@ -118,11 +118,7 @@ class TaigaUserStoryData extends TaigaData {
   /// Mapper of the TaigaUserStoryData class
   factory TaigaUserStoryData.fromJson(Map<String, dynamic> json) {
     return TaigaUserStoryData(
-      customAttributesValues: json['custom_attributes_values'] != null
-          ? CustomAttributesValues.fromJson(
-              json['custom_attributes_values'] as Map<String, dynamic>,
-            )
-          : null,
+      customAttributesValues: _parseCustomAttributesValues(json),
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -305,11 +301,7 @@ class TaigaTaskData extends TaigaData {
           : null,
       taskboardOrder: json['taskboard_order'] as int,
       isIocaine: json['is_iocaine'] as bool,
-      customAttributesValues: json['custom_attributes_values'] != null
-          ? CustomAttributesValues.fromJson(
-              json['custom_attributes_values'] as Map<String, dynamic>,
-            )
-          : null,
+      customAttributesValues: _parseCustomAttributesValues(json),
     );
   }
 
@@ -385,11 +377,7 @@ class TaigaIssueData extends TaigaData {
   /// Mapper of the TaigaIssueData class
   factory TaigaIssueData.fromJson(Map<String, dynamic> json) {
     return TaigaIssueData(
-      customAttributesValues: json['custom_attributes_values'] != null
-          ? CustomAttributesValues.fromJson(
-              json['custom_attributes_values'] as Map<String, dynamic>,
-            )
-          : null,
+      customAttributesValues: _parseCustomAttributesValues(json),
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -501,11 +489,7 @@ class TaigaEpicData extends TaigaData {
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       teamRequirement: json['team_requirement'] as bool,
       clientRequirement: json['client_requirement'] as bool,
-      customAttributesValues: json['custom_attributes_values'] != null
-          ? CustomAttributesValues.fromJson(
-              json['custom_attributes_values'] as Map<String, dynamic>,
-            )
-          : null,
+      customAttributesValues: _parseCustomAttributesValues(json),
     );
   }
 
@@ -520,4 +504,18 @@ class TaigaEpicData extends TaigaData {
 
   /// Value who indicates if it is a Client Requirement
   bool clientRequirement;
+}
+
+/// Parser for CustomAttributesValues
+CustomAttributesValues? _parseCustomAttributesValues(
+  Map<String, dynamic> json,
+) {
+  final dynamic customAttributesValues = json['custom_attributes_values'];
+
+  if (customAttributesValues != null &&
+      customAttributesValues is Map<String, dynamic>) {
+    return CustomAttributesValues.fromJson(customAttributesValues);
+  }
+
+  return null;
 }
