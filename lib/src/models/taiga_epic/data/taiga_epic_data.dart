@@ -1,8 +1,6 @@
 import 'package:taiga_rest_models/src/models/commons/by.dart';
 import 'package:taiga_rest_models/src/models/commons/project.dart';
 import 'package:taiga_rest_models/src/models/commons/status.dart';
-import 'package:taiga_rest_models/src/models/commons/assigned_to.dart';
-
 ///
 class TaigaEpicData {
   ///
