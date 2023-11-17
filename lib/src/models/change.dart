@@ -1,5 +1,5 @@
-import 'package:taiga_rest_models/src/models/commons/change/comment_version.dart';
-import 'package:taiga_rest_models/src/models/commons/change/diff.dart';
+import 'package:taiga_rest_models/src/models/change/comment_version.dart';
+import 'package:taiga_rest_models/src/models/change/diff.dart';
 
 /// This is the part of the payload which include all the changes has been made
 /// if the action type is not 'change', it will came as a null value

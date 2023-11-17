@@ -1,9 +1,9 @@
-import 'package:taiga_rest_models/src/models/commons/by.dart';
-import 'package:taiga_rest_models/src/models/commons/milestone.dart';
-import 'package:taiga_rest_models/src/models/commons/project.dart';
-import 'package:taiga_rest_models/src/models/commons/status.dart';
-import 'package:taiga_rest_models/src/models/taiga_issue/data/details.dart';
-import 'package:taiga_rest_models/src/models/taiga_user_story/data/point.dart';
+import 'package:taiga_rest_models/src/models/by.dart';
+import 'package:taiga_rest_models/src/models/data/milestone.dart';
+import 'package:taiga_rest_models/src/models/data/project.dart';
+import 'package:taiga_rest_models/src/models/data/status.dart';
+import 'package:taiga_rest_models/src/models/data/details.dart';
+import 'package:taiga_rest_models/src/models/data/point.dart';
 
 //TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
 
