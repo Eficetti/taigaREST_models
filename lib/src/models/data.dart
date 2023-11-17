@@ -515,9 +515,8 @@ CustomAttributesValues? _parseCustomAttributesValues(
 
   print(customAttributesValues.runtimeType);
 
-  if (customAttributesValues != null &&
-      customAttributesValues.isNotEmpty) {
-      return CustomAttributesValues.fromJson(customAttributesValues);
+  if (customAttributesValues.isNotEmpty) {
+    return CustomAttributesValues.fromJson(customAttributesValues);
   }
 
   return null;
