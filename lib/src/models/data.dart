@@ -79,9 +79,10 @@ class TaigaData {
   String? customAttributesValues;
 }
 
-///
+/// This Data class will storage all the important data of the Payload of Taiga
+/// related to an UserStory
 class TaigaUserStoryData extends TaigaData {
-  ///
+  /// Constructor of the TaigaUserStoryData class
   TaigaUserStoryData({
     required super.id,
     required super.ref,
@@ -208,10 +209,10 @@ class TaigaUserStoryData extends TaigaData {
   /// generatedFromTask
   dynamic generatedFromTask;
 
-  ///
+  /// State of the UserStory Blocked or not Blocked
   bool isBlocked;
 
-  ///
+  /// State of the UserStory Closed or not Closed
   bool isClosed;
 
   /// Milestone
@@ -229,8 +230,9 @@ class TaigaUserStoryData extends TaigaData {
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga
+/// related to a Task
 class TaigaTaskData extends TaigaData {
-  /// Constructor of the class Data
+  /// Constructor of the class TaigaTaskData
   TaigaTaskData({
     required super.id,
     required super.ref,
@@ -295,7 +297,9 @@ class TaigaTaskData extends TaigaData {
         json['user_story'] as Map<String, dynamic>,
       ),
       promotedTo: List<dynamic>.from(json['promoted_to'] as List<dynamic>),
-      finishedDate: json['finished_date'],
+      finishedDate: json['finished_date'] != null
+          ? DateTime.parse(json['finished_date'] as String)
+          : null,
       taskboardOrder: json['taskboard_order'] as int,
       isIocaine: json['is_iocaine'] as bool,
       customAttributesValues: 'Fix this value!',
@@ -315,35 +319,36 @@ class TaigaTaskData extends TaigaData {
   /// Milestone
   Milestone? milestone;
 
-  ///
+  /// State of the Task Blocked or not Blocked
   bool isBlocked;
 
-  ///
+  /// Reason because is blocked, can came as an empty String: ""
   String blockedNote;
 
+  // TODO(Nacho): Create DOC
   ///
   int usOrder;
 
-  ///
+  /// Is the userStory related to the task
   TaigaUserStoryData userStory;
 
-  ///
+  /// If the task is promoted into a UseStory
   List<dynamic> promotedTo;
 
-  ///
-  dynamic finishedDate;
+  /// The day it was marked as finished, is is not, came as null value
+  DateTime? finishedDate;
 
-  ///
+  /// Value who indicate the order in the Kanban
   int taskboardOrder;
 
-  ///
+  /// State indicator about Iocaine
   bool isIocaine;
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an Issue
 class TaigaIssueData extends TaigaData {
-  /// Constructor of the class Data
+  /// Constructor of the TaigaIssueData class 
   TaigaIssueData({
     required super.id,
     required super.ref,
@@ -438,9 +443,10 @@ class TaigaIssueData extends TaigaData {
   List<int?> promotedTo;
 }
 
-///
+/// This Data class will storage all the important data of the Payload of Taiga
+/// related to an Epic
 class TaigaEpicData extends TaigaData {
-  ///
+  /// Constructor of the TaigaEpicData class 
   TaigaEpicData({
     required super.id,
     required super.ref,
@@ -486,17 +492,15 @@ class TaigaEpicData extends TaigaData {
     );
   }
 
-  ///
+  /// Color chosen in the Epic Creation
   String color;
 
-  ///
+  /// Value who indicates the order of the Epic
   int epicsOrder;
 
-  ///
-
-  ///
+  /// Value who indicates if it is a Team Requirement
   bool teamRequirement;
 
-  ///
+  /// Value who indicates if it is a Client Requirement
   bool clientRequirement;
 }
