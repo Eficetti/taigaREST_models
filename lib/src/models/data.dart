@@ -41,7 +41,7 @@ class TaigaData {
   int ref;
 
   /// Description of item in payload
-  String description;
+  String? description;
 
   /// Tags, are all the tags added on the project
   List<dynamic> tags;
@@ -134,7 +134,8 @@ class TaigaUserStoryData extends TaigaData {
       subject: json['subject'] as String,
       externalReference: json['external_reference'] as String?,
       watchers: List<int>.from(json['watchers'] as List<dynamic>),
-      description: json['description'] as String,
+      description:
+          json['description'] != null ? json['description'] as String : null,
       tags: List<dynamic>.from(json['tags'] as List<dynamic>),
       permalink: json['permalink'] as String,
       project: Project.fromJson(json['project'] as Map<String, dynamic>),
