@@ -118,9 +118,11 @@ class TaigaUserStoryData extends TaigaData {
   /// Mapper of the TaigaUserStoryData class
   factory TaigaUserStoryData.fromJson(Map<String, dynamic> json) {
     return TaigaUserStoryData(
-      customAttributesValues: CustomAttributesValues.fromJson(
-        json['custom_attributes_values'] as Map<String, dynamic>,
-      ),
+      customAttributesValues: json['custom_attributes_values'] != null
+          ? CustomAttributesValues.fromJson(
+              json['custom_attributes_values'] as Map<String, dynamic>,
+            )
+          : null,
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -304,12 +306,11 @@ class TaigaTaskData extends TaigaData {
       taskboardOrder: json['taskboard_order'] as int,
       isIocaine: json['is_iocaine'] as bool,
       customAttributesValues: json['custom_attributes_values'] != null
-        ? CustomAttributesValues.fromJson(
-            json['custom_attributes_values'] as Map<String, dynamic>,
-          )
-        : null, 
-      );
-
+          ? CustomAttributesValues.fromJson(
+              json['custom_attributes_values'] as Map<String, dynamic>,
+            )
+          : null,
+    );
   }
 
   /// Date when the issue will be marked as expired, it can be null
@@ -384,9 +385,11 @@ class TaigaIssueData extends TaigaData {
   /// Mapper of the TaigaIssueData class
   factory TaigaIssueData.fromJson(Map<String, dynamic> json) {
     return TaigaIssueData(
-      customAttributesValues: CustomAttributesValues.fromJson(
-        json['custom_attributes_values'] as Map<String, dynamic>,
-      ),
+      customAttributesValues: json['custom_attributes_values'] != null
+          ? CustomAttributesValues.fromJson(
+              json['custom_attributes_values'] as Map<String, dynamic>,
+            )
+          : null,
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -498,9 +501,11 @@ class TaigaEpicData extends TaigaData {
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       teamRequirement: json['team_requirement'] as bool,
       clientRequirement: json['client_requirement'] as bool,
-      customAttributesValues: CustomAttributesValues.fromJson(
-        json['custom_attributes_values'] as Map<String, dynamic>,
-      ),
+      customAttributesValues: json['custom_attributes_values'] != null
+          ? CustomAttributesValues.fromJson(
+              json['custom_attributes_values'] as Map<String, dynamic>,
+            )
+          : null,
     );
   }
 
