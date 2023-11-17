@@ -1,4 +1,5 @@
 import 'package:taiga_rest_models/src/models/change/diff/attachments.dart';
+import 'package:taiga_rest_models/src/models/change/diff/custom_attribute.dart';
 import 'package:taiga_rest_models/src/models/change/diff/due_date.dart';
 import 'package:taiga_rest_models/src/models/change/diff/from_to.dart';
 
@@ -24,6 +25,7 @@ class Diff {
     required this.blockedNoteDiff,
     required this.blockedNoteHtml,
     required this.clientRequirement,
+    required this.customAttributesChange,
   });
 
   /// Mapper of the Diff class
@@ -72,6 +74,7 @@ class Diff {
           ? FromTo.fromJson(json['is_blocked'] as Map<String, dynamic>)
           : null,
       descriptionDiff: json['description_diff'] as String?,
+      customAttributesChange: json['custom_attributes'] as CustomAttributes?,
     );
   }
 
@@ -119,4 +122,7 @@ class Diff {
 
   /// Change made into the status of Client Requirement
   FromTo? clientRequirement;
+
+  /// Change made into a custom attribute 
+  CustomAttributes? customAttributesChange;
 }

@@ -1,18 +1,18 @@
 import 'package:taiga_rest_models/src/models/change/diff/customAttribute/attribute.dart';
 
 /// This class is made for storage custom attributes of Taiga
-class CustomAttributesChange {
-  /// Constructor of the CustomAttributesChange class
-  CustomAttributesChange({
+class CustomAttributes {
+  /// Constructor of the CustomAttributes class
+  CustomAttributes({
     required this.attributesNew,
     required this.attributesChanged,
     required this.attributesDeleted,
   });
 
-  /// Mapper of the CustomAttributesChange class
-  factory CustomAttributesChange.fromJson(Map<String, dynamic> json) {
-    return CustomAttributesChange(
-      attributesNew: (json['custom_attributes_new'] as List<dynamic>)
+  /// Mapper of the CustomAttributes class
+  factory CustomAttributes.fromJson(Map<String, dynamic> json) {
+    return CustomAttributes(
+      attributesNew: (json['new'] as List<dynamic>)
           .map(
             (attributeJson) =>
                 Attribute.fromJson(attributeJson as Map<String, dynamic>),
