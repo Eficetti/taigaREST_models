@@ -506,15 +506,18 @@ class TaigaEpicData extends TaigaData {
   bool clientRequirement;
 }
 
-/// Parser for CustomAttributesValues
+/// Parser for CustomAttributesValue, it comes as an empty map
 CustomAttributesValues? _parseCustomAttributesValues(
   Map<String, dynamic> json,
 ) {
-  final dynamic customAttributesValues = json['custom_attributes_values'];
+  final customAttributesValues =
+      json['custom_attributes_values'] as Map<String, dynamic>;
+
+  print(customAttributesValues.runtimeType);
 
   if (customAttributesValues != null &&
-      customAttributesValues is Map<String, dynamic>) {
-    return CustomAttributesValues.fromJson(customAttributesValues);
+      customAttributesValues.isNotEmpty) {
+      return CustomAttributesValues.fromJson(customAttributesValues);
   }
 
   return null;

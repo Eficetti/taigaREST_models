@@ -25,7 +25,7 @@ class Diff {
     required this.blockedNoteDiff,
     required this.blockedNoteHtml,
     required this.clientRequirement,
-    required this.customAttributesChange,
+    required this.customAttributes,
   });
 
   /// Mapper of the Diff class
@@ -74,7 +74,7 @@ class Diff {
           ? FromTo.fromJson(json['is_blocked'] as Map<String, dynamic>)
           : null,
       descriptionDiff: json['description_diff'] as String?,
-      customAttributesChange: json['custom_attributes'] != null
+      customAttributes: json['custom_attributes'] != null
           ? CustomAttributes.fromJson(
               json['custom_attributes'] as Map<String, dynamic>,
             )
@@ -128,5 +128,5 @@ class Diff {
   FromTo? clientRequirement;
 
   /// Change made into a custom attribute 
-  CustomAttributes? customAttributesChange;
+  CustomAttributes? customAttributes;
 }
