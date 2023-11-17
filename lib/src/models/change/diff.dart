@@ -9,17 +9,21 @@ import 'package:taiga_rest_models/src/models/change/diff/from_to.dart';
 class Diff {
   /// Constructor of the Diff class
   Diff({
-    this.attachments,
-    this.assignedTo,
-    this.dueDate,
-    this.status,
-    this.milestone,
-    this.promotedTo,
-    this.tags,
-    this.descriptionDiff,
-    this.isClosed,
-    this.kanbanOrder,
-    this.finishDate,
+    required this.attachments,
+    required this.assignedTo,
+    required this.dueDate,
+    required this.status,
+    required this.milestone,
+    required this.promotedTo,
+    required this.tags,
+    required this.descriptionDiff,
+    required this.isClosed,
+    required this.kanbanOrder,
+    required this.finishDate,
+    required this.isBlocked,
+    required this.blockedNoteDiff,
+    required this.blockedNoteHtml,
+    required this.clientRequirement,
   });
 
   /// Mapper of the Diff class
@@ -54,6 +58,18 @@ class Diff {
           : null,
       isClosed: json['is_closed'] != null
           ? FromTo.fromJson(json['is_closed'] as Map<String, dynamic>)
+          : null,
+      blockedNoteDiff: json['blocked_note_diff'] != null
+          ? FromTo.fromJson(json['blocked_note_diff'] as Map<String, dynamic>)
+          : null,
+      blockedNoteHtml: json['blocked_note_html'] != null
+          ? FromTo.fromJson(json['blocked_note_html'] as Map<String, dynamic>)
+          : null,
+      isBlocked: json['is_blocked'] != null
+          ? FromTo.fromJson(json['is_blocked'] as Map<String, dynamic>)
+          : null,
+      clientRequirement: json['is_blocked'] != null
+          ? FromTo.fromJson(json['is_blocked'] as Map<String, dynamic>)
           : null,
       descriptionDiff: json['description_diff'] as String?,
     );
@@ -91,4 +107,16 @@ class Diff {
 
   /// Change made into the kanban order
   FromTo? kanbanOrder;
+
+  /// Change made into blocked status
+  FromTo? isBlocked;
+
+  /// Change made into the blockedNote on html format
+  FromTo? blockedNoteDiff;
+
+  /// Change made into the blockedNote on html format
+  FromTo? blockedNoteHtml;
+
+  /// Change made into the status of Client Requirement
+  FromTo? clientRequirement;
 }

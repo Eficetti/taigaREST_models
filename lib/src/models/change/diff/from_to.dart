@@ -11,14 +11,14 @@ class FromTo {
     /// Mapper of the FromTo class
     factory FromTo.fromJson(Map<String, dynamic> json) {
     return FromTo(
-      from: List<dynamic>.from(json['from'] as List<dynamic>),
-      to: List<dynamic>.from(json['to'] as List<dynamic>),
+      from: json['from'],
+      to: json['to'],
     );
   }
 
     /// Old Value
-    List<dynamic> from;
+    dynamic from;
 
     /// New Values
-    List<dynamic> to;
+    dynamic to;
 }
