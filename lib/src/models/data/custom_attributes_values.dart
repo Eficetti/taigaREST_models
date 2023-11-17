@@ -10,10 +10,10 @@ class CustomAttributesValues {
   /// Mapper of the CustomAttributesValues class
   factory CustomAttributesValues.fromJson(Map<String, dynamic> json) {
     return CustomAttributesValues(
-      figmaUrl: json['figmaUrl'] as String,
+      figmaUrl: json['Pestaña del Figma'] as String,
     );
   }
-  
+
   /// Url link of figma
   String figmaUrl;
 }

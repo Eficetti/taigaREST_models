@@ -118,8 +118,9 @@ class TaigaUserStoryData extends TaigaData {
   /// Mapper of the TaigaUserStoryData class
   factory TaigaUserStoryData.fromJson(Map<String, dynamic> json) {
     return TaigaUserStoryData(
-      customAttributesValues:
-          json['custom_attributes_values'] as CustomAttributesValues,
+      customAttributesValues: CustomAttributesValues.fromJson(
+        json['custom_attributes_values'] as Map<String, dynamic>,
+      ),
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -301,8 +302,9 @@ class TaigaTaskData extends TaigaData {
           : null,
       taskboardOrder: json['taskboard_order'] as int,
       isIocaine: json['is_iocaine'] as bool,
-      customAttributesValues:
-          json['custom_attributes_values'] as CustomAttributesValues,
+      customAttributesValues: CustomAttributesValues.fromJson(
+        json['custom_attributes_values'] as Map<String, dynamic>,
+      ),
     );
   }
 
@@ -378,8 +380,9 @@ class TaigaIssueData extends TaigaData {
   /// Mapper of the TaigaIssueData class
   factory TaigaIssueData.fromJson(Map<String, dynamic> json) {
     return TaigaIssueData(
-      customAttributesValues:
-          json['custom_attributes_values'] as CustomAttributesValues,
+      customAttributesValues: CustomAttributesValues.fromJson(
+        json['custom_attributes_values'] as Map<String, dynamic>,
+      ),
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -491,8 +494,9 @@ class TaigaEpicData extends TaigaData {
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       teamRequirement: json['team_requirement'] as bool,
       clientRequirement: json['client_requirement'] as bool,
-      customAttributesValues:
-          json['custom_attributes_values'] as CustomAttributesValues,
+      customAttributesValues: CustomAttributesValues.fromJson(
+        json['custom_attributes_values'] as Map<String, dynamic>,
+      ),
     );
   }
 
