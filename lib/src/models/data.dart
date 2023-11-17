@@ -1,14 +1,18 @@
 import 'package:taiga_rest_models/src/models/by.dart';
+import 'package:taiga_rest_models/src/models/data/details.dart';
 import 'package:taiga_rest_models/src/models/data/milestone.dart';
+import 'package:taiga_rest_models/src/models/data/point.dart';
 import 'package:taiga_rest_models/src/models/data/project.dart';
 import 'package:taiga_rest_models/src/models/data/status.dart';
-import 'package:taiga_rest_models/src/models/data/details.dart';
-import 'package:taiga_rest_models/src/models/data/point.dart';
 
-//TODO(Nacho): Replace custom Attributes cuando sepa que data viene ahi
+// All
+// TODO(Nacho): See how to manage this value externalReference
+// TODO(Nacho): See how to manage this value customAttributes
+// UserStory
+// TODO(Nacho): See how to manage this value tribeGig
+// TODO(Nacho): See how to manage this value generatedFromTask
 
 /// This Data class will storage all the important data of the Payload of Taiga
-/// related to an Issue
 class TaigaData {
   /// Constructor of the class TaigaData
   TaigaData({
@@ -36,7 +40,7 @@ class TaigaData {
   /// Ref is the number of reference thats appears on Taiga
   int ref;
 
-  /// Description of the project
+  /// Description of item in payload
   String description;
 
   /// Tags, are all the tags added on the project
@@ -54,10 +58,10 @@ class TaigaData {
   /// Subject is the name of the Issue/UserStory/Epic/Task
   String subject;
 
-  /// Watchers is a list of people who is marked as watchers in the issue
+  /// Watchers is a list of ids from people who is marked as watchers
   List<int> watchers;
 
-  /// Permalink of the Issue/UserStory/Epic/Task
+  /// Permalink of the Issue/UserStory/Epic/Task on Taiga
   String permalink;
 
   /// AssignedTo is the person assigned to a task, only can be one or null
@@ -69,8 +73,9 @@ class TaigaData {
   /// Date of the last modification
   DateTime? modifiedDate;
 
-  /// customAttributesValues //TODO(Nacho): Ver que llegaria aca
-  //CustomAttributesValues
+  // TODO(Nacho): See how to manage this value
+
+  /// CustomAttributesValues
   String? customAttributesValues;
 }
 
@@ -151,29 +156,31 @@ class TaigaUserStoryData extends TaigaData {
       isClosed: json['is_closed'] as bool? ?? false,
       tribeGig: json['tribe_gig'],
       isBlocked: json['is_blocked'] as bool? ?? false,
-      finishDate: json['finish_date'],
+      finishDate: json['finish_date'] != null
+          ? DateTime.parse(json['finish_date'] as String)
+          : null,
       blockedNote: json['blocked_note'] as String,
-      fromTaskRef: json['from_task_ref'],
+      fromTaskRef: json['from_task_ref'] as String?,
       assignedUsers: json['assigned_users'] != null
-          ? List<dynamic>.from(json['assigned_users'] as List<dynamic>)
+          ? List<int>.from(json['assigned_users'] as List<dynamic>)
           : [],
       teamRequirement: json['team_requirement'] as bool? ?? false,
       clientRequirement: json['client_requirement'] as bool? ?? false,
       generatedFromTask: json['generated_from_task'],
-      generatedFromIssue: json['generated_from_issue'] as int,
+      generatedFromIssue: json['generated_from_issue'] as int?,
     );
   }
 
   // Variables:
 
-  //TODO(Nacho): Agregar clase si es necesario
-  ///
-  List<dynamic> assignedUsers;
+  /// List of all the users assigned on the userStory
+  List<int> assignedUsers;
 
-  ///
+  /// If this is an client requirement or not
   bool clientRequirement;
 
-  ///
+  /// This is a note for the task when is blocked, if is not, it came as an
+  /// empty string: ""
   String blockedNote;
 
   /// Date when the issue will be marked as expired, it can be null
@@ -182,22 +189,23 @@ class TaigaUserStoryData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  /// externalReference //TODO(Nacho): Ver como seria este valor
+  // TODO(Nacho): Add class(?)
+  /// externalReference
   String? externalReference;
 
-  //TODO(Nacho): Agregar clase si es necesario
-  ///
-  dynamic finishDate;
+  /// Date when it was marked as "Lista"
+  DateTime? finishDate;
 
-  //TODO(Nacho): Agregar clase si es necesario
-  ///
-  dynamic fromTaskRef;
+  /// This value appears when a userStory is created from a task, otherwise it
+  /// will be null
+  String? fromTaskRef;
 
-  ///
-  int generatedFromIssue;
-  //TODO(Nacho): Agregar clase si es necesario
+  /// This value appears when a userStory is created from an issue, otherwise it
+  /// will be null
+  int? generatedFromIssue;
 
-  ///
+  // TODO(Nacho): See how to manage this value
+  /// generatedFromTask
   dynamic generatedFromTask;
 
   ///
@@ -209,13 +217,13 @@ class TaigaUserStoryData extends TaigaData {
   /// Milestone
   Milestone? milestone;
 
-  ///
+  /// Thats are the points for each apart (Design/Front/Back/Project Manager)
   List<Point> points;
 
-  ///
+  /// Bool who says if is a Team requirement or not
   bool teamRequirement;
 
-  //TODO(Nacho): Agregar clase si es necesario
+  // TODO(Nacho): Add class
   ///
   dynamic tribeGig;
 }
@@ -284,7 +292,8 @@ class TaigaTaskData extends TaigaData {
       blockedNote: json['blocked_note'] as String,
       usOrder: json['us_order'] as int,
       userStory: TaigaUserStoryData.fromJson(
-          json['user_story'] as Map<String, dynamic>),
+        json['user_story'] as Map<String, dynamic>,
+      ),
       promotedTo: List<dynamic>.from(json['promoted_to'] as List<dynamic>),
       finishedDate: json['finished_date'],
       taskboardOrder: json['taskboard_order'] as int,
@@ -299,7 +308,8 @@ class TaigaTaskData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  /// externalReference //TODO(Nacho): Ver como seria este valor
+  // TODO(Nacho): See how to manage this value
+  /// externalReference
   String? externalReference;
 
   /// Milestone
@@ -408,7 +418,8 @@ class TaigaIssueData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  /// externalReference //TODO(Nacho): Ver como seria este valor
+  // TODO(Nacho): See how to manage this value
+  /// externalReference
   String? externalReference;
 
   /// Milestone
