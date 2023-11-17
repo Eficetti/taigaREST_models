@@ -348,7 +348,7 @@ class TaigaTaskData extends TaigaData {
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an Issue
 class TaigaIssueData extends TaigaData {
-  /// Constructor of the TaigaIssueData class 
+  /// Constructor of the TaigaIssueData class
   TaigaIssueData({
     required super.id,
     required super.ref,
@@ -446,7 +446,7 @@ class TaigaIssueData extends TaigaData {
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an Epic
 class TaigaEpicData extends TaigaData {
-  /// Constructor of the TaigaEpicData class 
+  /// Constructor of the TaigaEpicData class
   TaigaEpicData({
     required super.id,
     required super.ref,
@@ -481,7 +481,9 @@ class TaigaEpicData extends TaigaData {
       subject: json['subject'] as String,
       watchers: List<int>.from(json['watchers'] as List<dynamic>),
       permalink: json['permalink'] as String,
-      assignedTo: By.fromJson(json['assigned_to'] as Map<String, dynamic>),
+      assignedTo: json['assigned_to'] != null
+          ? By.fromJson(json['assigned_to'] as Map<String, dynamic>)
+          : null,
       description: json['description'] as String,
       epicsOrder: json['epics_order'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
