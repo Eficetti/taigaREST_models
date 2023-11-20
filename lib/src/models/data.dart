@@ -118,7 +118,9 @@ class TaigaUserStoryData extends TaigaData {
   /// Mapper of the TaigaUserStoryData class
   factory TaigaUserStoryData.fromJson(Map<String, dynamic> json) {
     return TaigaUserStoryData(
-      customAttributesValues: _parseCustomAttributesValues(json),
+      customAttributesValues: json['custom_attributes_values'] != null
+          ? _parseCustomAttributesValues(json)
+          : null,
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -301,7 +303,9 @@ class TaigaTaskData extends TaigaData {
           : null,
       taskboardOrder: json['taskboard_order'] as int,
       isIocaine: json['is_iocaine'] as bool,
-      customAttributesValues: _parseCustomAttributesValues(json),
+      customAttributesValues: json['custom_attributes_values'] != null
+          ? _parseCustomAttributesValues(json)
+          : null,
     );
   }
 
@@ -377,7 +381,9 @@ class TaigaIssueData extends TaigaData {
   /// Mapper of the TaigaIssueData class
   factory TaigaIssueData.fromJson(Map<String, dynamic> json) {
     return TaigaIssueData(
-      customAttributesValues: _parseCustomAttributesValues(json),
+      customAttributesValues: json['custom_attributes_values'] != null
+          ? _parseCustomAttributesValues(json)
+          : null,
       id: json['id'] as int,
       ref: json['ref'] as int,
       createdDate: DateTime.parse(json['created_date'] as String),
@@ -489,7 +495,9 @@ class TaigaEpicData extends TaigaData {
       modifiedDate: DateTime.parse(json['modified_date'] as String),
       teamRequirement: json['team_requirement'] as bool,
       clientRequirement: json['client_requirement'] as bool,
-      customAttributesValues: _parseCustomAttributesValues(json),
+      customAttributesValues: json['custom_attributes_values'] != null
+          ? _parseCustomAttributesValues(json)
+          : null,
     );
   }
 
@@ -507,7 +515,7 @@ class TaigaEpicData extends TaigaData {
 }
 
 /// Parser for CustomAttributesValue, it came as Map<dynamic, dynamic>, but
-/// can have empty values, if not, will be assigned as Map<String, dynamic>, 
+/// can have empty values, if not, will be assigned as Map<String, dynamic>,
 /// and will be read is values on CustomAttributesValues class
 CustomAttributesValues? _parseCustomAttributesValues(
   Map<String, dynamic> json,
