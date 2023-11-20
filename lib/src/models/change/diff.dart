@@ -70,8 +70,8 @@ class Diff {
       isBlocked: json['is_blocked'] != null
           ? FromTo.fromJson(json['is_blocked'] as Map<String, dynamic>)
           : null,
-      clientRequirement: json['is_blocked'] != null
-          ? FromTo.fromJson(json['is_blocked'] as Map<String, dynamic>)
+      clientRequirement: json['client_requirement'] != null
+          ? FromTo.fromJson(json['client_requirement'] as Map<String, dynamic>)
           : null,
       descriptionDiff: json['description_diff'] as String?,
       customAttributes: json['custom_attributes'] != null
