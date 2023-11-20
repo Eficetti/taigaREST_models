@@ -23,7 +23,7 @@ class Deleted {
       description: json['description'] as String,
       attachedFile: json['attached_file'] as String,
       isDeprecated: json['is_deprecated'] as bool,
-      thumbnailFile: json['thumbnail_file'] as String,
+      thumbnailFile: json['thumbnail_file'] as String?,
     );
   }
 
@@ -49,5 +49,5 @@ class Deleted {
   bool isDeprecated;
 
   /// Thumbnail File path, taiga
-  String thumbnailFile;
+  String? thumbnailFile;
 }

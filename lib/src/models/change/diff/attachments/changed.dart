@@ -16,7 +16,7 @@ class Changed {
     return Changed(
       filename: json['filename'] as String,
       url: json['url'] as String,
-      thumbUrl: json['thumb_url'] as String,
+      thumbUrl: json['thumb_url'] as String?,
       changes: Changes.fromJson(json['changes'] as Map<String, dynamic>),
     );
   }
@@ -28,7 +28,7 @@ class Changed {
   String url;
 
   /// Thumbnail Url of the attachment related
-  String thumbUrl;
+  String? thumbUrl;
 
   /// An specific description of what exactly has been changed
   Changes changes;

@@ -20,7 +20,7 @@ class New {
       filename: json['filename'] as String,
       url: json['url'] as String,
       attachedFile: json['attached_file'] as String,
-      thumbnailFile: json['thumbnail_file'] as String,
+      thumbnailFile: json['thumbnail_file'] as String?,
       isDeprecated: json['is_deprecated'] as bool,
       description: json['description'] as String,
       order: json['order'] as int,
@@ -40,7 +40,7 @@ class New {
   String attachedFile;
 
   /// thumbnailFile, custom taiga path
-  String thumbnailFile;
+  String? thumbnailFile;
 
   /// Its just a bool showing an state of the attachment
   bool isDeprecated;
