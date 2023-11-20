@@ -90,7 +90,7 @@ class Diff {
           ? FromTo.fromJson(json['is_iocaine'] as Map<String, dynamic>)
           : null,
       points: json['points'] != null
-          ? PointDiff.fromJson(json['points']['Design'] as Map<String, dynamic>)
+          ? PointDiff.fromJson(json['points'] as Map<String, dynamic>)
           : null,
 
     );
