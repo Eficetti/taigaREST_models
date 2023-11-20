@@ -14,13 +14,13 @@ class CustomAttributesValues {
       figmaUrl: json['Pestaña del Figma'] != null
           ? json['Pestaña del Figma'] as String
           : null,
-      bounty: json['Bounty'] != null ? json['Bounty'] as String : null,
+      bounty: json['Bounty'] != null ? json['Bounty'] as int : null,
     );
   }
 
   /// Url link of figma
   String? figmaUrl;
-  
+
   /// Bounty for a task
-  String? bounty;
+  int? bounty;
 }
