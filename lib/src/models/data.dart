@@ -132,7 +132,7 @@ class TaigaUserStoryData extends TaigaData {
           : null,
       dueDateReason: json['due_date_reason'] as String,
       subject: json['subject'] as String,
-      externalReference: json['external_reference'] as String?,
+      externalReference: null,
       watchers: List<int>.from(json['watchers'] as List<dynamic>),
       description:
           json['description'] != null ? json['description'] as String : null,
@@ -156,7 +156,7 @@ class TaigaUserStoryData extends TaigaData {
               .toList()
           : [],
       isClosed: json['is_closed'] as bool? ?? false,
-      tribeGig: json['tribe_gig'],
+      tribeGig: null,
       isBlocked: json['is_blocked'] as bool? ?? false,
       finishDate: json['finish_date'] != null
           ? DateTime.parse(json['finish_date'] as String)
@@ -168,7 +168,7 @@ class TaigaUserStoryData extends TaigaData {
           : [],
       teamRequirement: json['team_requirement'] as bool? ?? false,
       clientRequirement: json['client_requirement'] as bool? ?? false,
-      generatedFromTask: json['generated_from_task'],
+      generatedFromTask: null,
       generatedFromIssue: json['generated_from_issue'] as int?,
     );
   }
@@ -191,7 +191,6 @@ class TaigaUserStoryData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  // TODO(Nacho): Add class(?)
   /// externalReference
   String? externalReference;
 
@@ -206,7 +205,6 @@ class TaigaUserStoryData extends TaigaData {
   /// will be null
   int? generatedFromIssue;
 
-  // TODO(Nacho): See how to manage this value
   /// generatedFromTask
   dynamic generatedFromTask;
 
@@ -225,7 +223,6 @@ class TaigaUserStoryData extends TaigaData {
   /// Bool who says if is a Team requirement or not
   bool teamRequirement;
 
-  // TODO(Nacho): Add class
   ///
   dynamic tribeGig;
 }
@@ -277,7 +274,7 @@ class TaigaTaskData extends TaigaData {
           : null,
       dueDateReason: json['due_date_reason'] as String,
       subject: json['subject'] as String,
-      externalReference: json['external_reference'] as String?,
+      externalReference: null,
       watchers: List<int>.from(json['watchers'] as List<dynamic>),
       description: json['description'] as String,
       tags: List<dynamic>.from(json['tags'] as List<dynamic>),
@@ -315,7 +312,6 @@ class TaigaTaskData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  // TODO(Nacho): See how to manage this value
   /// externalReference
   String? externalReference;
 
@@ -328,8 +324,7 @@ class TaigaTaskData extends TaigaData {
   /// Reason because is blocked, can came as an empty String: ""
   String blockedNote;
 
-  // TODO(Nacho): Create DOC
-  ///
+  /// Task order, taiga value
   int usOrder;
 
   /// Is the userStory related to the task
@@ -398,7 +393,7 @@ class TaigaIssueData extends TaigaData {
           : null,
       dueDateReason: json['due_date_reason'] as String,
       subject: json['subject'] as String,
-      externalReference: json['external_reference'] as String?,
+      externalReference: null,
       watchers: List<int>.from(json['watchers'] as List<dynamic>),
       description: json['description'] as String,
       tags: List<dynamic>.from(json['tags'] as List<dynamic>),
@@ -428,7 +423,6 @@ class TaigaIssueData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  // TODO(Nacho): See how to manage this value
   /// externalReference
   String? externalReference;
 
