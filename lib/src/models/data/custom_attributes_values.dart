@@ -5,15 +5,22 @@ class CustomAttributesValues {
   /// Constructor of the CustomAttributesValues class
   CustomAttributesValues({
     required this.figmaUrl,
+    required this.bounty,
   });
 
   /// Mapper of the CustomAttributesValues class
   factory CustomAttributesValues.fromJson(Map<String, dynamic> json) {
     return CustomAttributesValues(
-      figmaUrl: json['Pestaña del Figma'] as String,
+      figmaUrl: json['Pestaña del Figma'] != null
+          ? json['Pestaña del Figma'] as String
+          : null,
+      bounty: json['Bounty'] != null ? json['Bounty'] as String : null,
     );
   }
 
   /// Url link of figma
-  String figmaUrl;
+  String? figmaUrl;
+  
+  /// Bounty for a task
+  String? bounty;
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_null_aware_operators
+
 import 'package:taiga_rest_models/src/models/change/diff/customAttribute/changes.dart';
 
 /// This class is made for storage all the data of an attribute
@@ -18,8 +20,9 @@ class Attribute {
       id: json['id'] as int?,
       name: json['name'] as String?,
       type: json['type'] as String?,
-      value: json['value'] as String?,
-      valueDiff: json['value_diff'] as String?,
+      value: json['value'] != null ? json['value'].toString() : null,
+      valueDiff:
+          json['value_diff'] != null ? json['value_diff'].toString() : null,
       changes: json['changes'] != null
           ? ChangesAttributes.fromJson(json['changes'] as Map<String, dynamic>)
           : null,
