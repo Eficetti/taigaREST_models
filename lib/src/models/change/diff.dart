@@ -4,6 +4,7 @@ import 'package:taiga_rest_models/src/models/change/diff/attachments.dart';
 import 'package:taiga_rest_models/src/models/change/diff/custom_attribute.dart';
 import 'package:taiga_rest_models/src/models/change/diff/due_date.dart';
 import 'package:taiga_rest_models/src/models/change/diff/from_to.dart';
+import 'package:taiga_rest_models/src/models/change/diff/point_diff.dart';
 
 // TODO(Nacho): Add variables if they appear on the payload
 
@@ -29,10 +30,7 @@ class Diff {
     required this.clientRequirement,
     required this.customAttributes,
     required this.isIocaine,
-    required this.backPoints,
-    required this.frontPoints,
-    required this.designPoints,
-    required this.pmPoints,
+    required this.points,
   });
 
   /// Mapper of the Diff class
@@ -91,20 +89,10 @@ class Diff {
       isIocaine: json['is_iocaine'] != null
           ? FromTo.fromJson(json['is_iocaine'] as Map<String, dynamic>)
           : null,
-      backPoints: json['points']['Back'] != null
-          ? FromTo.fromJson(json['points']['Back'] as Map<String, dynamic>)
+      points: json['points'] != null
+          ? PointDiff.fromJson(json['points']['Design'] as Map<String, dynamic>)
           : null,
-      designPoints: json['points']['Design'] != null
-          ? FromTo.fromJson(json['points']['Design'] as Map<String, dynamic>)
-          : null,
-      frontPoints: json['points']['Front'] != null
-          ? FromTo.fromJson(json['points']['Front'] as Map<String, dynamic>)
-          : null,
-      pmPoints: json['points']['Project Manager'] != null
-          ? FromTo.fromJson(
-              json['points']['Project Manager'] as Map<String, dynamic>,
-            )
-          : null,
+
     );
   }
 
@@ -160,14 +148,5 @@ class Diff {
   CustomAttributes? customAttributes;
 
   /// Change made into Design points
-  FromTo? designPoints;
-
-  /// Change made into Front points
-  FromTo? frontPoints;
-
-  /// Change made into Back points
-  FromTo? backPoints;
-
-  /// Change made into Project Manager points
-  FromTo? pmPoints;
+  PointDiff? points;
 }
