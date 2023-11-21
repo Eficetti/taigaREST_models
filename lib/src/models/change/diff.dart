@@ -44,7 +44,7 @@ class Diff {
           ? FromTo.fromJson(json['assigned_to'] as Map<String, dynamic>)
           : null,
       dueDate: json['due_date'] != null
-          ? DueDate.fromJson(json['due_date'] as Map<String, dynamic>)
+          ? FromTo.fromJson(json['due_date'] as Map<String, dynamic>)
           : null,
       status: json['status'] != null
           ? FromTo.fromJson(json['status'] as Map<String, dynamic>)
@@ -108,7 +108,7 @@ class Diff {
   FromTo? assignedTo;
 
   /// Changed made into the due date
-  DueDate? dueDate;
+  FromTo? dueDate;
 
   /// Changed made into the status
   FromTo? status;
