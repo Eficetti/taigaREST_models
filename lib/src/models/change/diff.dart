@@ -34,6 +34,7 @@ class Diff {
     required this.priority,
     required this.severity,
     required this.type,
+    required this.subject,
   });
 
   /// Mapper of the Diff class
@@ -106,6 +107,9 @@ class Diff {
       type: json['type'] != null
           ? FromTo.fromJson(json['type'] as Map<String, dynamic>)
           : null,
+      subject: json['subject'] != null
+          ? FromTo.fromJson(json['subject'] as Map<String, dynamic>)
+          : null,
       points: json['points'] != null
           ? PointDiff.fromJson(json['points'] as Map<String, dynamic>)
           : null,
@@ -171,6 +175,9 @@ class Diff {
 
   /// Change made into the type
   FromTo? type;
+
+  /// Change made into the subject
+  FromTo? subject;
 
   /// Change made into a custom attribute
   CustomAttributes? customAttributes;
