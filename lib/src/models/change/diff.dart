@@ -2,7 +2,6 @@
 
 import 'package:taiga_rest_models/src/models/change/diff/attachments.dart';
 import 'package:taiga_rest_models/src/models/change/diff/custom_attribute.dart';
-import 'package:taiga_rest_models/src/models/change/diff/due_date.dart';
 import 'package:taiga_rest_models/src/models/change/diff/from_to.dart';
 import 'package:taiga_rest_models/src/models/change/diff/point_diff.dart';
 
