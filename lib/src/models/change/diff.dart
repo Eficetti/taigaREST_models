@@ -31,6 +31,9 @@ class Diff {
     required this.customAttributes,
     required this.isIocaine,
     required this.points,
+    required this.priority,
+    required this.severity,
+    required this.type,
   });
 
   /// Mapper of the Diff class
@@ -94,6 +97,15 @@ class Diff {
       isIocaine: json['is_iocaine'] != null
           ? FromTo.fromJson(json['is_iocaine'] as Map<String, dynamic>)
           : null,
+      priority: json['priority'] != null
+          ? FromTo.fromJson(json['priority'] as Map<String, dynamic>)
+          : null,
+      severity: json['severity'] != null
+          ? FromTo.fromJson(json['severity'] as Map<String, dynamic>)
+          : null,
+      type: json['type'] != null
+          ? FromTo.fromJson(json['type'] as Map<String, dynamic>)
+          : null,
       points: json['points'] != null
           ? PointDiff.fromJson(json['points'] as Map<String, dynamic>)
           : null,
@@ -150,6 +162,15 @@ class Diff {
 
   /// Change made into Iocaine status
   FromTo? isIocaine;
+
+  /// Change made into the priority
+  FromTo? priority;
+
+  /// Change made into the severity
+  FromTo? severity;
+
+  /// Change made into the type
+  FromTo? type;
 
   /// Change made into a custom attribute
   CustomAttributes? customAttributes;
