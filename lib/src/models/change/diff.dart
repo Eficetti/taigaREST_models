@@ -28,6 +28,7 @@ class Diff {
     required this.blockedNoteDiff,
     required this.blockedNoteHtml,
     required this.clientRequirement,
+    required this.teamRequirement,
     required this.customAttributes,
     required this.isIocaine,
     required this.points,
@@ -80,6 +81,11 @@ class Diff {
               json['client_requirement'] as Map<String, dynamic>,
             )
           : null,
+      teamRequirement: json['team_requirement'] != null
+          ? FromTo.fromJson(
+              json['team_requirement'] as Map<String, dynamic>,
+            )
+          : null,
       descriptionDiff: json['description_diff'] as String?,
       customAttributes: json['custom_attributes'] != null
           ? CustomAttributes.fromJson(
@@ -92,7 +98,6 @@ class Diff {
       points: json['points'] != null
           ? PointDiff.fromJson(json['points'] as Map<String, dynamic>)
           : null,
-
     );
   }
 
@@ -140,6 +145,9 @@ class Diff {
 
   /// Change made into the status of Client Requirement
   FromTo? clientRequirement;
+
+  /// Change made into the status of Team Requirement
+  FromTo? teamRequirement;
 
   /// Change made into Iocaine status
   FromTo? isIocaine;
