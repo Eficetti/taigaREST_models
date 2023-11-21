@@ -1,8 +1,9 @@
-/// This class if for saving the new stuff on the Attachments section, saving
-/// all the info. If you added an image for example, or any type of Attachment
-class New {
-  /// Constructor of the 'New' class
-  New({
+/// This class if for saving the stuff on the Attachments section, saving all 
+/// the info. If you added an image for example, or any type of Attachment or if
+/// you delete one attachment
+class Item {
+  /// Constructor of the 'Item' class
+  Item({
     required this.id,
     required this.filename,
     required this.url,
@@ -13,9 +14,9 @@ class New {
     required this.order,
   });
 
-  /// Mapper of the New class
-  factory New.fromJson(Map<String, dynamic> json) {
-    return New(
+  /// Mapper of the Item class
+  factory Item.fromJson(Map<String, dynamic> json) {
+    return Item(
       id: json['id'] as int,
       filename: json['filename'] as String,
       url: json['url'] as String,

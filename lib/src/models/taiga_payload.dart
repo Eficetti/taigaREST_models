@@ -2,8 +2,8 @@ import 'package:taiga_rest_models/src/models/by.dart';
 import 'package:taiga_rest_models/src/models/change.dart';
 import 'package:taiga_rest_models/src/models/data.dart';
 
-/// This Class class is a model for map a Taiga payload from the webhook of
-/// Taiga (Came as Json Format)
+/// This Class is for map a payload from the webhook of Taiga it Came as 
+/// Json Format
 class TaigaPayload {
   /// Constructor of TaigaPayload
   TaigaPayload({
@@ -45,22 +45,23 @@ class TaigaPayload {
     );
   }
 
-  /// Action is the type of action you have done on Taiga (create/delete/change)
+  /// Action is the type of action you have done on Taiga (Create/Delete/Change)
   String action;
 
-  /// This is the type of payload (Issue, Kanban, Scrum, Epics)
+  /// This is the type of payload (Issue, UserStory, Task, Epics)
   String type;
 
-  /// This is the user who do the action
+  /// This is the user who made the action
   By by;
 
-  /// This is the date when the action has been done
+  /// This is the date when the payload is generated
   DateTime date;
 
   /// This is the most important part of the Payload, this include all the
   /// information of the action made
   TaigaData data;
 
-  /// This is the changes that were made
+  /// This is the changes that were made, only exist if the action is change, 
+  /// otherwise it will be null
   Change? change;
 }

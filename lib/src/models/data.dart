@@ -13,6 +13,7 @@ import 'package:taiga_rest_models/src/models/data/status.dart';
 // TODO(Nacho): See how to manage this value generatedFromTask
 
 /// This Data class will storage all the important data of the Payload of Taiga
+/// contains all the common data
 class TaigaData {
   /// Constructor of the class TaigaData
   TaigaData({
@@ -55,25 +56,26 @@ class TaigaData {
   /// Details of the projects
   Project project;
 
-  /// Subject is the name of the Issue/UserStory/Epic/Task
+  /// Subject is the name of the Issue, UserStory, Task, Epics
   String subject;
 
   /// Watchers is a list of ids from people who is marked as watchers
   List<int> watchers;
 
-  /// Permalink of the Issue/UserStory/Epic/Task on Taiga
+  /// Permalink of the Issue, UserStory, Task, Epics on Taiga
   String permalink;
 
-  /// AssignedTo is the person assigned to a task, only can be one or null
+  /// AssignedTo is the person assigned to a task, can be null
   By? assignedTo;
 
-  /// Date of creation of the Issue/UserStory/Epic/Task
+  /// Date of creation of the Issue, UserStory, Task, Epics
   DateTime createdDate;
 
-  /// Date of the last modification
+  /// Date of the last modification, can be null
   DateTime? modifiedDate;
 
-  /// CustomAttributesValues
+  /// CustomAttributesValues is the custom values you add on taiga, in our case
+  /// is Bounty, from a task or Figma for any, it can be null
   CustomAttributesValues? customAttributesValues;
 }
 
@@ -191,7 +193,7 @@ class TaigaUserStoryData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  /// externalReference
+  /// externalReference, this value is not applied, always show as null
   String? externalReference;
 
   /// Date when it was marked as "Lista"
@@ -214,7 +216,7 @@ class TaigaUserStoryData extends TaigaData {
   /// State of the UserStory Closed or not Closed
   bool isClosed;
 
-  /// Milestone
+  /// Milestone related to the userStory
   Milestone? milestone;
 
   /// Thats are the points for each apart (Design/Front/Back/Project Manager)
@@ -223,7 +225,7 @@ class TaigaUserStoryData extends TaigaData {
   /// Bool who says if is a Team requirement or not
   bool teamRequirement;
 
-  ///
+  /// TribeGig, this value is not applied, always show as null
   dynamic tribeGig;
 }
 
@@ -246,6 +248,7 @@ class TaigaTaskData extends TaigaData {
     required super.createdDate,
     required super.modifiedDate,
     required super.customAttributesValues,
+    // own
     required this.blockedNote,
     required this.dueDate,
     required this.dueDateReason,
@@ -312,10 +315,10 @@ class TaigaTaskData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  /// externalReference
+  /// externalReference, this value is not applied, always show as null
   String? externalReference;
 
-  /// Milestone
+  /// Milestone related to the task
   Milestone? milestone;
 
   /// State of the Task Blocked or not Blocked
@@ -362,6 +365,7 @@ class TaigaIssueData extends TaigaData {
     required super.createdDate,
     required super.modifiedDate,
     required super.customAttributesValues,
+    // own
     required this.dueDate,
     required this.dueDateReason,
     required this.externalReference,
@@ -423,22 +427,22 @@ class TaigaIssueData extends TaigaData {
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  /// externalReference
+  /// externalReference, this value is not applied, always show as null
   String? externalReference;
 
-  /// Milestone
+  /// Milestone related to the taiga Issue
   Milestone? milestone;
 
   /// Type of the Issue
   Details type;
 
-  /// Priority of the Issue
+  /// Priority of the Issue, custom values
   Details priority;
 
-  /// Severity of the Issue
+  /// Severity of the Issue, custom values
   Details severity;
 
-  /// PromotedTo
+  /// PromotedTo 
   List<int?> promotedTo;
 }
 
@@ -461,6 +465,7 @@ class TaigaEpicData extends TaigaData {
     required super.createdDate,
     required super.modifiedDate,
     required super.customAttributesValues,
+    // own
     required this.clientRequirement,
     required this.color,
     required this.epicsOrder,
@@ -501,10 +506,10 @@ class TaigaEpicData extends TaigaData {
   /// Value who indicates the order of the Epic
   int epicsOrder;
 
-  /// Value who indicates if it is a Team Requirement
+  /// Value who indicates if it is a Team Requirement or not
   bool teamRequirement;
 
-  /// Value who indicates if it is a Client Requirement
+  /// Value who indicates if it is a Client Requirement or not
   bool clientRequirement;
 }
 
