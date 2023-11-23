@@ -1,5 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models_old/data/project.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_project/taiga_project.dart';
 import 'package:taiga_rest_models/src/models_old/taiga_user.dart';
 
 part 'data_milestone.mapper.dart';
@@ -55,8 +55,12 @@ class DataMilestone with DataMilestoneMappable {
   String permalink;
 
   /// Data of the milestone Project
-  Project project;
+  TaigaProject project;
 
   /// Data of the milestone Owner
   TaigaUser owner;
+
+  /// FromJson method, convert a json type object into this
+  /// TaigaUserStoryData Object
+  static const fromJson = DataMilestoneMapper.fromJson;
 }

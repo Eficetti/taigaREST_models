@@ -13,6 +13,7 @@ class DataMilestoneMapper extends ClassMapperBase<DataMilestone> {
   static DataMilestoneMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = DataMilestoneMapper._());
+      TaigaProjectMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -46,8 +47,8 @@ class DataMilestoneMapper extends ClassMapperBase<DataMilestone> {
   static String _$permalink(DataMilestone v) => v.permalink;
   static const Field<DataMilestone, String> _f$permalink =
       Field('permalink', _$permalink);
-  static Project _$project(DataMilestone v) => v.project;
-  static const Field<DataMilestone, Project> _f$project =
+  static TaigaProject _$project(DataMilestone v) => v.project;
+  static const Field<DataMilestone, TaigaProject> _f$project =
       Field('project', _$project);
   static TaigaUser _$owner(DataMilestone v) => v.owner;
   static const Field<DataMilestone, TaigaUser> _f$owner =
@@ -140,6 +141,7 @@ extension DataMilestoneValueCopy<$R, $Out>
 
 abstract class DataMilestoneCopyWith<$R, $In extends DataMilestone, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
+  TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get project;
   $R call(
       {int? id,
       String? name,
@@ -151,7 +153,7 @@ abstract class DataMilestoneCopyWith<$R, $In extends DataMilestone, $Out>
       bool? closed,
       int? disponibility,
       String? permalink,
-      Project? project,
+      TaigaProject? project,
       TaigaUser? owner});
   DataMilestoneCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -165,6 +167,9 @@ class _DataMilestoneCopyWithImpl<$R, $Out>
   late final ClassMapperBase<DataMilestone> $mapper =
       DataMilestoneMapper.ensureInitialized();
   @override
+  TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get project =>
+      $value.project.copyWith.$chain((v) => call(project: v));
+  @override
   $R call(
           {int? id,
           String? name,
@@ -176,7 +181,7 @@ class _DataMilestoneCopyWithImpl<$R, $Out>
           bool? closed,
           int? disponibility,
           String? permalink,
-          Project? project,
+          TaigaProject? project,
           TaigaUser? owner}) =>
       $apply(FieldCopyWithData({
         if (id != null) #id: id,
