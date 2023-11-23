@@ -14,6 +14,6 @@ class TaigaCustomAttributesChange with TaigaCustomAttributesChangeMappable {
   List<String> value;
 
   /// FromJson method, convert a json type object into this
-  /// TaigaAttribute Object
+  /// TaigaCustomAttributesChange Object
   static const fromJson = TaigaCustomAttributesChangeMapper.fromJson;
 }
