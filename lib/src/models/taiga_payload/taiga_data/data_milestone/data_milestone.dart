@@ -1,6 +1,8 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_project/taiga_project.dart';
-import 'package:taiga_rest_models/src/models_old/taiga_user.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_user/taiga_user.dart';
+
+
 
 part 'data_milestone.mapper.dart';
 

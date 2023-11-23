@@ -14,6 +14,7 @@ class DataMilestoneMapper extends ClassMapperBase<DataMilestone> {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = DataMilestoneMapper._());
       TaigaProjectMapper.ensureInitialized();
+      TaigaUserMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -142,6 +143,7 @@ extension DataMilestoneValueCopy<$R, $Out>
 abstract class DataMilestoneCopyWith<$R, $In extends DataMilestone, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get project;
+  TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get owner;
   $R call(
       {int? id,
       String? name,
@@ -169,6 +171,9 @@ class _DataMilestoneCopyWithImpl<$R, $Out>
   @override
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get project =>
       $value.project.copyWith.$chain((v) => call(project: v));
+  @override
+  TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get owner =>
+      $value.owner.copyWith.$chain((v) => call(owner: v));
   @override
   $R call(
           {int? id,
