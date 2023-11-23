@@ -40,7 +40,7 @@ class TaigaChangeMapper extends ClassMapperBase<TaigaChange> {
       Field('editCommentDate', _$editCommentDate);
   static TaigaChangeDifference? _$difference(TaigaChange v) => v.difference;
   static const Field<TaigaChange, TaigaChangeDifference> _f$difference =
-      Field('difference', _$difference);
+      Field('difference', _$difference, key: 'diff');
 
   @override
   final Map<Symbol, Field<TaigaChange, dynamic>> fields = const {
