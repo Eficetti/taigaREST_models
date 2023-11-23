@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/taiga_change.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_user/taiga_user.dart';
@@ -26,13 +28,13 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
   }) {
     switch (jobType) {
       case 'issue':
-        data = data as TaigaIssueDataMPBLE;
+        data = TaigaIssueDataMPBLE.fromJson(jsonEncode(data));
       case 'userstory':
-        data = data as  TaigaUserStoryDataMPBLE;
+        data = TaigaUserStoryDataMPBLE.fromJson(jsonEncode(data));
       case 'task':
-        data = data as TaigaTaskDataMPBLE;
+        data = TaigaTaskDataMPBLE.fromJson(jsonEncode(data));
       case 'epics':
-        data = data as  TaigaEpicDataMPBLE;
+        data = TaigaEpicDataMPBLE.fromJson(jsonEncode(data));
     }
   }
 
@@ -56,7 +58,7 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
   /// This is the most important part of the Payload, this include all the
   /// information of the action made, the related project, the link of them,
   /// and also have custom types, for each jobType
-  late dynamic data;
+  dynamic data;
 
   /// This is the changes that were made on this payload, only exist if the
   /// actionType is change, otherwise it will be null
