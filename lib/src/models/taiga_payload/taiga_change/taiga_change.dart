@@ -31,7 +31,7 @@ class TaigaChange with TaigaChangeMappable{
 
   /// CommentVersions will have the old version of the comments, and the details
   /// about
-  List<TaigaCommentVersion> commentVersions;
+  List<TaigaCommentVersion>? commentVersions;
 
   /// EditCommentDate will have the date of the last time someone edit the 
   /// comment

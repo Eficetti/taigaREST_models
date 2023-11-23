@@ -31,7 +31,7 @@ class TaigaChangeMapper extends ClassMapperBase<TaigaChange> {
   static DateTime? _$deleteCommentDate(TaigaChange v) => v.deleteCommentDate;
   static const Field<TaigaChange, DateTime> _f$deleteCommentDate =
       Field('deleteCommentDate', _$deleteCommentDate);
-  static List<TaigaCommentVersion> _$commentVersions(TaigaChange v) =>
+  static List<TaigaCommentVersion>? _$commentVersions(TaigaChange v) =>
       v.commentVersions;
   static const Field<TaigaChange, List<TaigaCommentVersion>>
       _f$commentVersions = Field('commentVersions', _$commentVersions);
@@ -119,7 +119,7 @@ abstract class TaigaChangeCopyWith<$R, $In extends TaigaChange, $Out>
       $R,
       TaigaCommentVersion,
       TaigaCommentVersionCopyWith<$R, TaigaCommentVersion,
-          TaigaCommentVersion>> get commentVersions;
+          TaigaCommentVersion>>? get commentVersions;
   TaigaChangeDifferenceCopyWith<$R, TaigaChangeDifference,
       TaigaChangeDifference>? get difference;
   $R call(
@@ -145,10 +145,11 @@ class _TaigaChangeCopyWithImpl<$R, $Out>
       $R,
       TaigaCommentVersion,
       TaigaCommentVersionCopyWith<$R, TaigaCommentVersion,
-          TaigaCommentVersion>> get commentVersions => ListCopyWith(
-      $value.commentVersions,
-      (v, t) => v.copyWith.$chain(t),
-      (v) => call(commentVersions: v));
+          TaigaCommentVersion>>? get commentVersions =>
+      $value.commentVersions != null
+          ? ListCopyWith($value.commentVersions!,
+              (v, t) => v.copyWith.$chain(t), (v) => call(commentVersions: v))
+          : null;
   @override
   TaigaChangeDifferenceCopyWith<$R, TaigaChangeDifference,
           TaigaChangeDifference>?
@@ -159,14 +160,14 @@ class _TaigaChangeCopyWithImpl<$R, $Out>
           {Object? comment = $none,
           Object? commentHtml = $none,
           Object? deleteCommentDate = $none,
-          List<TaigaCommentVersion>? commentVersions,
+          Object? commentVersions = $none,
           Object? editCommentDate = $none,
           Object? difference = $none}) =>
       $apply(FieldCopyWithData({
         if (comment != $none) #comment: comment,
         if (commentHtml != $none) #commentHtml: commentHtml,
         if (deleteCommentDate != $none) #deleteCommentDate: deleteCommentDate,
-        if (commentVersions != null) #commentVersions: commentVersions,
+        if (commentVersions != $none) #commentVersions: commentVersions,
         if (editCommentDate != $none) #editCommentDate: editCommentDate,
         if (difference != $none) #difference: difference
       }));
