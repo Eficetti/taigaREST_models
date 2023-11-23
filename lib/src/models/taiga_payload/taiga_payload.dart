@@ -14,9 +14,9 @@ part 'taiga_payload.mapper.dart';
 /// it the type of action is a change, will receive the information in the
 /// "change" variable
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaPayload with TaigaPayloadMappable {
+class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
   /// This is the Constructor of TaigaPayload
-  TaigaPayload({
+  TaigaPayloadMPBLE({
     required this.actionType,
     required this.jobType,
     required this.performer,
@@ -26,13 +26,13 @@ class TaigaPayload with TaigaPayloadMappable {
   }) {
     switch (jobType) {
       case 'Issue':
-        data = data as TaigaIssueData;
+        data = data as TaigaIssueDataMPBLE;
       case 'UserStory':
-        data = data as  TaigaUserStoryData;
+        data = data as  TaigaUserStoryDataMPBLE;
       case 'Task':
-        data = data as TaigaTaskData;
+        data = data as TaigaTaskDataMPBLE;
       case 'Epics':
-        data = data as  TaigaEpicData;
+        data = data as  TaigaEpicDataMPBLE;
     }
   }
 
@@ -56,7 +56,7 @@ class TaigaPayload with TaigaPayloadMappable {
   /// This is the most important part of the Payload, this include all the
   /// information of the action made, the related project, the link of them,
   /// and also have custom types, for each jobType
-  late TaigaData data;
+  late TaigaDataMPBLE data;
 
   /// This is the changes that were made on this payload, only exist if the
   /// actionType is change, otherwise it will be null
@@ -64,5 +64,5 @@ class TaigaPayload with TaigaPayloadMappable {
 
   /// FromJson method, convert a json type object into this TaigaPayloadMapper
   /// object
-  static const fromJson = TaigaPayloadMapper.fromJson;
+  static const fromJson = TaigaPayloadMPBLEMapper.fromJson;
 }

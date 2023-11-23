@@ -6,41 +6,44 @@
 
 part of 'taiga_payload.dart';
 
-class TaigaPayloadMapper extends ClassMapperBase<TaigaPayload> {
-  TaigaPayloadMapper._();
+class TaigaPayloadMPBLEMapper extends ClassMapperBase<TaigaPayloadMPBLE> {
+  TaigaPayloadMPBLEMapper._();
 
-  static TaigaPayloadMapper? _instance;
-  static TaigaPayloadMapper ensureInitialized() {
+  static TaigaPayloadMPBLEMapper? _instance;
+  static TaigaPayloadMPBLEMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = TaigaPayloadMapper._());
+      MapperContainer.globals.use(_instance = TaigaPayloadMPBLEMapper._());
       TaigaUserMapper.ensureInitialized();
+      TaigaDataMPBLEMapper.ensureInitialized();
       TaigaChangeMapper.ensureInitialized();
     }
     return _instance!;
   }
 
   @override
-  final String id = 'TaigaPayload';
+  final String id = 'TaigaPayloadMPBLE';
 
-  static String _$actionType(TaigaPayload v) => v.actionType;
-  static const Field<TaigaPayload, String> _f$actionType =
+  static String _$actionType(TaigaPayloadMPBLE v) => v.actionType;
+  static const Field<TaigaPayloadMPBLE, String> _f$actionType =
       Field('actionType', _$actionType, key: 'action');
-  static String _$jobType(TaigaPayload v) => v.jobType;
-  static const Field<TaigaPayload, String> _f$jobType =
+  static String _$jobType(TaigaPayloadMPBLE v) => v.jobType;
+  static const Field<TaigaPayloadMPBLE, String> _f$jobType =
       Field('jobType', _$jobType, key: 'type');
-  static TaigaUser _$performer(TaigaPayload v) => v.performer;
-  static const Field<TaigaPayload, TaigaUser> _f$performer =
+  static TaigaUser _$performer(TaigaPayloadMPBLE v) => v.performer;
+  static const Field<TaigaPayloadMPBLE, TaigaUser> _f$performer =
       Field('performer', _$performer, key: 'by');
-  static DateTime _$date(TaigaPayload v) => v.date;
-  static const Field<TaigaPayload, DateTime> _f$date = Field('date', _$date);
-  static TaigaData _$data(TaigaPayload v) => v.data;
-  static const Field<TaigaPayload, TaigaData> _f$data = Field('data', _$data);
-  static TaigaChange? _$change(TaigaPayload v) => v.change;
-  static const Field<TaigaPayload, TaigaChange> _f$change =
+  static DateTime _$date(TaigaPayloadMPBLE v) => v.date;
+  static const Field<TaigaPayloadMPBLE, DateTime> _f$date =
+      Field('date', _$date);
+  static TaigaDataMPBLE _$data(TaigaPayloadMPBLE v) => v.data;
+  static const Field<TaigaPayloadMPBLE, TaigaDataMPBLE> _f$data =
+      Field('data', _$data);
+  static TaigaChange? _$change(TaigaPayloadMPBLE v) => v.change;
+  static const Field<TaigaPayloadMPBLE, TaigaChange> _f$change =
       Field('change', _$change);
 
   @override
-  final Map<Symbol, Field<TaigaPayload, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaPayloadMPBLE, dynamic>> fields = const {
     #actionType: _f$actionType,
     #jobType: _f$jobType,
     #performer: _f$performer,
@@ -49,8 +52,8 @@ class TaigaPayloadMapper extends ClassMapperBase<TaigaPayload> {
     #change: _f$change,
   };
 
-  static TaigaPayload _instantiate(DecodingData data) {
-    return TaigaPayload(
+  static TaigaPayloadMPBLE _instantiate(DecodingData data) {
+    return TaigaPayloadMPBLE(
         actionType: data.dec(_f$actionType),
         jobType: data.dec(_f$jobType),
         performer: data.dec(_f$performer),
@@ -62,80 +65,88 @@ class TaigaPayloadMapper extends ClassMapperBase<TaigaPayload> {
   @override
   final Function instantiate = _instantiate;
 
-  static TaigaPayload fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<TaigaPayload>(map);
+  static TaigaPayloadMPBLE fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaPayloadMPBLE>(map);
   }
 
-  static TaigaPayload fromJson(String json) {
-    return ensureInitialized().decodeJson<TaigaPayload>(json);
+  static TaigaPayloadMPBLE fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaPayloadMPBLE>(json);
   }
 }
 
-mixin TaigaPayloadMappable {
+mixin TaigaPayloadMPBLEMappable {
   String toJson() {
-    return TaigaPayloadMapper.ensureInitialized()
-        .encodeJson<TaigaPayload>(this as TaigaPayload);
+    return TaigaPayloadMPBLEMapper.ensureInitialized()
+        .encodeJson<TaigaPayloadMPBLE>(this as TaigaPayloadMPBLE);
   }
 
   Map<String, dynamic> toMap() {
-    return TaigaPayloadMapper.ensureInitialized()
-        .encodeMap<TaigaPayload>(this as TaigaPayload);
+    return TaigaPayloadMPBLEMapper.ensureInitialized()
+        .encodeMap<TaigaPayloadMPBLE>(this as TaigaPayloadMPBLE);
   }
 
-  TaigaPayloadCopyWith<TaigaPayload, TaigaPayload, TaigaPayload> get copyWith =>
-      _TaigaPayloadCopyWithImpl(this as TaigaPayload, $identity, $identity);
+  TaigaPayloadMPBLECopyWith<TaigaPayloadMPBLE, TaigaPayloadMPBLE,
+          TaigaPayloadMPBLE>
+      get copyWith => _TaigaPayloadMPBLECopyWithImpl(
+          this as TaigaPayloadMPBLE, $identity, $identity);
   @override
   String toString() {
-    return TaigaPayloadMapper.ensureInitialized()
-        .stringifyValue(this as TaigaPayload);
+    return TaigaPayloadMPBLEMapper.ensureInitialized()
+        .stringifyValue(this as TaigaPayloadMPBLE);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            TaigaPayloadMapper.ensureInitialized()
-                .isValueEqual(this as TaigaPayload, other));
+            TaigaPayloadMPBLEMapper.ensureInitialized()
+                .isValueEqual(this as TaigaPayloadMPBLE, other));
   }
 
   @override
   int get hashCode {
-    return TaigaPayloadMapper.ensureInitialized()
-        .hashValue(this as TaigaPayload);
+    return TaigaPayloadMPBLEMapper.ensureInitialized()
+        .hashValue(this as TaigaPayloadMPBLE);
   }
 }
 
-extension TaigaPayloadValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, TaigaPayload, $Out> {
-  TaigaPayloadCopyWith<$R, TaigaPayload, $Out> get $asTaigaPayload =>
-      $base.as((v, t, t2) => _TaigaPayloadCopyWithImpl(v, t, t2));
+extension TaigaPayloadMPBLEValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaPayloadMPBLE, $Out> {
+  TaigaPayloadMPBLECopyWith<$R, TaigaPayloadMPBLE, $Out>
+      get $asTaigaPayloadMPBLE =>
+          $base.as((v, t, t2) => _TaigaPayloadMPBLECopyWithImpl(v, t, t2));
 }
 
-abstract class TaigaPayloadCopyWith<$R, $In extends TaigaPayload, $Out>
-    implements ClassCopyWith<$R, $In, $Out> {
+abstract class TaigaPayloadMPBLECopyWith<$R, $In extends TaigaPayloadMPBLE,
+    $Out> implements ClassCopyWith<$R, $In, $Out> {
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get performer;
+  TaigaDataMPBLECopyWith<$R, TaigaDataMPBLE, TaigaDataMPBLE> get data;
   TaigaChangeCopyWith<$R, TaigaChange, TaigaChange>? get change;
   $R call(
       {String? actionType,
       String? jobType,
       TaigaUser? performer,
       DateTime? date,
-      TaigaData? data,
+      TaigaDataMPBLE? data,
       TaigaChange? change});
-  TaigaPayloadCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  TaigaPayloadMPBLECopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _TaigaPayloadCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, TaigaPayload, $Out>
-    implements TaigaPayloadCopyWith<$R, TaigaPayload, $Out> {
-  _TaigaPayloadCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaPayloadMPBLECopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaPayloadMPBLE, $Out>
+    implements TaigaPayloadMPBLECopyWith<$R, TaigaPayloadMPBLE, $Out> {
+  _TaigaPayloadMPBLECopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<TaigaPayload> $mapper =
-      TaigaPayloadMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaPayloadMPBLE> $mapper =
+      TaigaPayloadMPBLEMapper.ensureInitialized();
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get performer =>
       $value.performer.copyWith.$chain((v) => call(performer: v));
+  @override
+  TaigaDataMPBLECopyWith<$R, TaigaDataMPBLE, TaigaDataMPBLE> get data =>
+      $value.data.copyWith.$chain((v) => call(data: v));
   @override
   TaigaChangeCopyWith<$R, TaigaChange, TaigaChange>? get change =>
       $value.change?.copyWith.$chain((v) => call(change: v));
@@ -145,7 +156,7 @@ class _TaigaPayloadCopyWithImpl<$R, $Out>
           String? jobType,
           TaigaUser? performer,
           DateTime? date,
-          TaigaData? data,
+          TaigaDataMPBLE? data,
           Object? change = $none}) =>
       $apply(FieldCopyWithData({
         if (actionType != null) #actionType: actionType,
@@ -156,7 +167,7 @@ class _TaigaPayloadCopyWithImpl<$R, $Out>
         if (change != $none) #change: change
       }));
   @override
-  TaigaPayload $make(CopyWithData data) => TaigaPayload(
+  TaigaPayloadMPBLE $make(CopyWithData data) => TaigaPayloadMPBLE(
       actionType: data.get(#actionType, or: $value.actionType),
       jobType: data.get(#jobType, or: $value.jobType),
       performer: data.get(#performer, or: $value.performer),
@@ -165,7 +176,7 @@ class _TaigaPayloadCopyWithImpl<$R, $Out>
       change: data.get(#change, or: $value.change));
 
   @override
-  TaigaPayloadCopyWith<$R2, TaigaPayload, $Out2> $chain<$R2, $Out2>(
+  TaigaPayloadMPBLECopyWith<$R2, TaigaPayloadMPBLE, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
-      _TaigaPayloadCopyWithImpl($value, $cast, t);
+      _TaigaPayloadMPBLECopyWithImpl($value, $cast, t);
 }

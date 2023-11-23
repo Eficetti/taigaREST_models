@@ -6,17 +6,17 @@
 
 part of 'taiga_data.dart';
 
-class TaigaDataMapper extends ClassMapperBase<TaigaData> {
-  TaigaDataMapper._();
+class TaigaDataMPBLEMapper extends ClassMapperBase<TaigaDataMPBLE> {
+  TaigaDataMPBLEMapper._();
 
-  static TaigaDataMapper? _instance;
-  static TaigaDataMapper ensureInitialized() {
+  static TaigaDataMPBLEMapper? _instance;
+  static TaigaDataMPBLEMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = TaigaDataMapper._());
-      TaigaUserStoryDataMapper.ensureInitialized();
-      TaigaTaskDataMapper.ensureInitialized();
-      TaigaIssueDataMapper.ensureInitialized();
-      TaigaEpicDataMapper.ensureInitialized();
+      MapperContainer.globals.use(_instance = TaigaDataMPBLEMapper._());
+      TaigaUserStoryDataMPBLEMapper.ensureInitialized();
+      TaigaTaskDataMPBLEMapper.ensureInitialized();
+      TaigaIssueDataMPBLEMapper.ensureInitialized();
+      TaigaEpicDataMPBLEMapper.ensureInitialized();
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
@@ -26,52 +26,54 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
   }
 
   @override
-  final String id = 'TaigaData';
+  final String id = 'TaigaDataMPBLE';
 
-  static int _$jobId(TaigaData v) => v.jobId;
-  static const Field<TaigaData, int> _f$jobId =
+  static int _$jobId(TaigaDataMPBLE v) => v.jobId;
+  static const Field<TaigaDataMPBLE, int> _f$jobId =
       Field('jobId', _$jobId, key: 'id');
-  static int _$referenceNumber(TaigaData v) => v.referenceNumber;
-  static const Field<TaigaData, int> _f$referenceNumber =
+  static int _$referenceNumber(TaigaDataMPBLE v) => v.referenceNumber;
+  static const Field<TaigaDataMPBLE, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaData v) => v.tags;
-  static const Field<TaigaData, List<dynamic>> _f$tags = Field('tags', _$tags);
-  static TaigaUser _$jobOwner(TaigaData v) => v.jobOwner;
-  static const Field<TaigaData, TaigaUser> _f$jobOwner =
+  static List<dynamic> _$tags(TaigaDataMPBLE v) => v.tags;
+  static const Field<TaigaDataMPBLE, List<dynamic>> _f$tags =
+      Field('tags', _$tags);
+  static TaigaUser _$jobOwner(TaigaDataMPBLE v) => v.jobOwner;
+  static const Field<TaigaDataMPBLE, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
-  static TaigaStatus _$jobStatus(TaigaData v) => v.jobStatus;
-  static const Field<TaigaData, TaigaStatus> _f$jobStatus =
+  static TaigaStatus _$jobStatus(TaigaDataMPBLE v) => v.jobStatus;
+  static const Field<TaigaDataMPBLE, TaigaStatus> _f$jobStatus =
       Field('jobStatus', _$jobStatus, key: 'status');
-  static TaigaProject _$fromProject(TaigaData v) => v.fromProject;
-  static const Field<TaigaData, TaigaProject> _f$fromProject =
+  static TaigaProject _$fromProject(TaigaDataMPBLE v) => v.fromProject;
+  static const Field<TaigaDataMPBLE, TaigaProject> _f$fromProject =
       Field('fromProject', _$fromProject, key: 'project');
-  static String _$jobName(TaigaData v) => v.jobName;
-  static const Field<TaigaData, String> _f$jobName =
+  static String _$jobName(TaigaDataMPBLE v) => v.jobName;
+  static const Field<TaigaDataMPBLE, String> _f$jobName =
       Field('jobName', _$jobName, key: 'subject');
-  static List<int> _$jobWatchers(TaigaData v) => v.jobWatchers;
-  static const Field<TaigaData, List<int>> _f$jobWatchers =
+  static List<int> _$jobWatchers(TaigaDataMPBLE v) => v.jobWatchers;
+  static const Field<TaigaDataMPBLE, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaData v) => v.permalink;
-  static const Field<TaigaData, String> _f$permalink =
+  static String _$permalink(TaigaDataMPBLE v) => v.permalink;
+  static const Field<TaigaDataMPBLE, String> _f$permalink =
       Field('permalink', _$permalink);
-  static TaigaUser? _$userAssigned(TaigaData v) => v.userAssigned;
-  static const Field<TaigaData, TaigaUser> _f$userAssigned =
+  static TaigaUser? _$userAssigned(TaigaDataMPBLE v) => v.userAssigned;
+  static const Field<TaigaDataMPBLE, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
-  static String? _$jobDescription(TaigaData v) => v.jobDescription;
-  static const Field<TaigaData, String> _f$jobDescription =
+  static String? _$jobDescription(TaigaDataMPBLE v) => v.jobDescription;
+  static const Field<TaigaDataMPBLE, String> _f$jobDescription =
       Field('jobDescription', _$jobDescription, key: 'description');
-  static DateTime _$creationDate(TaigaData v) => v.creationDate;
-  static const Field<TaigaData, DateTime> _f$creationDate =
+  static DateTime _$creationDate(TaigaDataMPBLE v) => v.creationDate;
+  static const Field<TaigaDataMPBLE, DateTime> _f$creationDate =
       Field('creationDate', _$creationDate, key: 'created_date');
-  static DateTime? _$modifiedDate(TaigaData v) => v.modifiedDate;
-  static const Field<TaigaData, DateTime> _f$modifiedDate =
+  static DateTime? _$modifiedDate(TaigaDataMPBLE v) => v.modifiedDate;
+  static const Field<TaigaDataMPBLE, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaData v) => v.customValues;
-  static const Field<TaigaData, TaigaCustomAttributes> _f$customValues =
+  static TaigaCustomAttributes? _$customValues(TaigaDataMPBLE v) =>
+      v.customValues;
+  static const Field<TaigaDataMPBLE, TaigaCustomAttributes> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
 
   @override
-  final Map<Symbol, Field<TaigaData, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaDataMPBLE, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
     #tags: _f$tags,
@@ -88,8 +90,8 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
     #customValues: _f$customValues,
   };
 
-  static TaigaData _instantiate(DecodingData data) {
-    return TaigaData(
+  static TaigaDataMPBLE _instantiate(DecodingData data) {
+    return TaigaDataMPBLE(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
         tags: data.dec(_f$tags),
@@ -109,54 +111,57 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
   @override
   final Function instantiate = _instantiate;
 
-  static TaigaData fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<TaigaData>(map);
+  static TaigaDataMPBLE fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaDataMPBLE>(map);
   }
 
-  static TaigaData fromJson(String json) {
-    return ensureInitialized().decodeJson<TaigaData>(json);
+  static TaigaDataMPBLE fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaDataMPBLE>(json);
   }
 }
 
-mixin TaigaDataMappable {
+mixin TaigaDataMPBLEMappable {
   String toJson() {
-    return TaigaDataMapper.ensureInitialized()
-        .encodeJson<TaigaData>(this as TaigaData);
+    return TaigaDataMPBLEMapper.ensureInitialized()
+        .encodeJson<TaigaDataMPBLE>(this as TaigaDataMPBLE);
   }
 
   Map<String, dynamic> toMap() {
-    return TaigaDataMapper.ensureInitialized()
-        .encodeMap<TaigaData>(this as TaigaData);
+    return TaigaDataMPBLEMapper.ensureInitialized()
+        .encodeMap<TaigaDataMPBLE>(this as TaigaDataMPBLE);
   }
 
-  TaigaDataCopyWith<TaigaData, TaigaData, TaigaData> get copyWith =>
-      _TaigaDataCopyWithImpl(this as TaigaData, $identity, $identity);
+  TaigaDataMPBLECopyWith<TaigaDataMPBLE, TaigaDataMPBLE, TaigaDataMPBLE>
+      get copyWith => _TaigaDataMPBLECopyWithImpl(
+          this as TaigaDataMPBLE, $identity, $identity);
   @override
   String toString() {
-    return TaigaDataMapper.ensureInitialized()
-        .stringifyValue(this as TaigaData);
+    return TaigaDataMPBLEMapper.ensureInitialized()
+        .stringifyValue(this as TaigaDataMPBLE);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            TaigaDataMapper.ensureInitialized()
-                .isValueEqual(this as TaigaData, other));
+            TaigaDataMPBLEMapper.ensureInitialized()
+                .isValueEqual(this as TaigaDataMPBLE, other));
   }
 
   @override
   int get hashCode {
-    return TaigaDataMapper.ensureInitialized().hashValue(this as TaigaData);
+    return TaigaDataMPBLEMapper.ensureInitialized()
+        .hashValue(this as TaigaDataMPBLE);
   }
 }
 
-extension TaigaDataValueCopy<$R, $Out> on ObjectCopyWith<$R, TaigaData, $Out> {
-  TaigaDataCopyWith<$R, TaigaData, $Out> get $asTaigaData =>
-      $base.as((v, t, t2) => _TaigaDataCopyWithImpl(v, t, t2));
+extension TaigaDataMPBLEValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaDataMPBLE, $Out> {
+  TaigaDataMPBLECopyWith<$R, TaigaDataMPBLE, $Out> get $asTaigaDataMPBLE =>
+      $base.as((v, t, t2) => _TaigaDataMPBLECopyWithImpl(v, t, t2));
 }
 
-abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
+abstract class TaigaDataMPBLECopyWith<$R, $In extends TaigaDataMPBLE, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?> get tags;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
@@ -181,17 +186,18 @@ abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
       DateTime? creationDate,
       DateTime? modifiedDate,
       TaigaCustomAttributes? customValues});
-  TaigaDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  TaigaDataMPBLECopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _TaigaDataCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, TaigaData, $Out>
-    implements TaigaDataCopyWith<$R, TaigaData, $Out> {
-  _TaigaDataCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaDataMPBLECopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaDataMPBLE, $Out>
+    implements TaigaDataMPBLECopyWith<$R, TaigaDataMPBLE, $Out> {
+  _TaigaDataMPBLECopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<TaigaData> $mapper =
-      TaigaDataMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaDataMPBLE> $mapper =
+      TaigaDataMPBLEMapper.ensureInitialized();
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?> get tags =>
       ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
@@ -252,7 +258,7 @@ class _TaigaDataCopyWithImpl<$R, $Out>
         if (customValues != $none) #customValues: customValues
       }));
   @override
-  TaigaData $make(CopyWithData data) => TaigaData(
+  TaigaDataMPBLE $make(CopyWithData data) => TaigaDataMPBLE(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
       tags: data.get(#tags, or: $value.tags),
@@ -269,19 +275,21 @@ class _TaigaDataCopyWithImpl<$R, $Out>
       customValues: data.get(#customValues, or: $value.customValues));
 
   @override
-  TaigaDataCopyWith<$R2, TaigaData, $Out2> $chain<$R2, $Out2>(
+  TaigaDataMPBLECopyWith<$R2, TaigaDataMPBLE, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
-      _TaigaDataCopyWithImpl($value, $cast, t);
+      _TaigaDataMPBLECopyWithImpl($value, $cast, t);
 }
 
-class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
-  TaigaUserStoryDataMapper._();
+class TaigaUserStoryDataMPBLEMapper
+    extends ClassMapperBase<TaigaUserStoryDataMPBLE> {
+  TaigaUserStoryDataMPBLEMapper._();
 
-  static TaigaUserStoryDataMapper? _instance;
-  static TaigaUserStoryDataMapper ensureInitialized() {
+  static TaigaUserStoryDataMPBLEMapper? _instance;
+  static TaigaUserStoryDataMPBLEMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = TaigaUserStoryDataMapper._());
-      TaigaDataMapper.ensureInitialized();
+      MapperContainer.globals
+          .use(_instance = TaigaUserStoryDataMPBLEMapper._());
+      TaigaDataMPBLEMapper.ensureInitialized();
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
@@ -293,96 +301,100 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   }
 
   @override
-  final String id = 'TaigaUserStoryData';
+  final String id = 'TaigaUserStoryDataMPBLE';
 
-  static int _$jobId(TaigaUserStoryData v) => v.jobId;
-  static const Field<TaigaUserStoryData, int> _f$jobId =
+  static int _$jobId(TaigaUserStoryDataMPBLE v) => v.jobId;
+  static const Field<TaigaUserStoryDataMPBLE, int> _f$jobId =
       Field('jobId', _$jobId, key: 'id');
-  static int _$referenceNumber(TaigaUserStoryData v) => v.referenceNumber;
-  static const Field<TaigaUserStoryData, int> _f$referenceNumber =
+  static int _$referenceNumber(TaigaUserStoryDataMPBLE v) => v.referenceNumber;
+  static const Field<TaigaUserStoryDataMPBLE, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaUserStoryData v) => v.tags;
-  static const Field<TaigaUserStoryData, List<dynamic>> _f$tags =
+  static List<dynamic> _$tags(TaigaUserStoryDataMPBLE v) => v.tags;
+  static const Field<TaigaUserStoryDataMPBLE, List<dynamic>> _f$tags =
       Field('tags', _$tags);
-  static TaigaUser _$jobOwner(TaigaUserStoryData v) => v.jobOwner;
-  static const Field<TaigaUserStoryData, TaigaUser> _f$jobOwner =
+  static TaigaUser _$jobOwner(TaigaUserStoryDataMPBLE v) => v.jobOwner;
+  static const Field<TaigaUserStoryDataMPBLE, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
-  static TaigaStatus _$jobStatus(TaigaUserStoryData v) => v.jobStatus;
-  static const Field<TaigaUserStoryData, TaigaStatus> _f$jobStatus =
+  static TaigaStatus _$jobStatus(TaigaUserStoryDataMPBLE v) => v.jobStatus;
+  static const Field<TaigaUserStoryDataMPBLE, TaigaStatus> _f$jobStatus =
       Field('jobStatus', _$jobStatus, key: 'status');
-  static TaigaProject _$fromProject(TaigaUserStoryData v) => v.fromProject;
-  static const Field<TaigaUserStoryData, TaigaProject> _f$fromProject =
+  static TaigaProject _$fromProject(TaigaUserStoryDataMPBLE v) => v.fromProject;
+  static const Field<TaigaUserStoryDataMPBLE, TaigaProject> _f$fromProject =
       Field('fromProject', _$fromProject, key: 'project');
-  static String _$jobName(TaigaUserStoryData v) => v.jobName;
-  static const Field<TaigaUserStoryData, String> _f$jobName =
+  static String _$jobName(TaigaUserStoryDataMPBLE v) => v.jobName;
+  static const Field<TaigaUserStoryDataMPBLE, String> _f$jobName =
       Field('jobName', _$jobName, key: 'subject');
-  static List<int> _$jobWatchers(TaigaUserStoryData v) => v.jobWatchers;
-  static const Field<TaigaUserStoryData, List<int>> _f$jobWatchers =
+  static List<int> _$jobWatchers(TaigaUserStoryDataMPBLE v) => v.jobWatchers;
+  static const Field<TaigaUserStoryDataMPBLE, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaUserStoryData v) => v.permalink;
-  static const Field<TaigaUserStoryData, String> _f$permalink =
+  static String _$permalink(TaigaUserStoryDataMPBLE v) => v.permalink;
+  static const Field<TaigaUserStoryDataMPBLE, String> _f$permalink =
       Field('permalink', _$permalink);
-  static TaigaUser? _$userAssigned(TaigaUserStoryData v) => v.userAssigned;
-  static const Field<TaigaUserStoryData, TaigaUser> _f$userAssigned =
+  static TaigaUser? _$userAssigned(TaigaUserStoryDataMPBLE v) => v.userAssigned;
+  static const Field<TaigaUserStoryDataMPBLE, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
-  static String? _$jobDescription(TaigaUserStoryData v) => v.jobDescription;
-  static const Field<TaigaUserStoryData, String> _f$jobDescription =
+  static String? _$jobDescription(TaigaUserStoryDataMPBLE v) =>
+      v.jobDescription;
+  static const Field<TaigaUserStoryDataMPBLE, String> _f$jobDescription =
       Field('jobDescription', _$jobDescription, key: 'description');
-  static DateTime _$creationDate(TaigaUserStoryData v) => v.creationDate;
-  static const Field<TaigaUserStoryData, DateTime> _f$creationDate =
+  static DateTime _$creationDate(TaigaUserStoryDataMPBLE v) => v.creationDate;
+  static const Field<TaigaUserStoryDataMPBLE, DateTime> _f$creationDate =
       Field('creationDate', _$creationDate, key: 'created_date');
-  static DateTime? _$modifiedDate(TaigaUserStoryData v) => v.modifiedDate;
-  static const Field<TaigaUserStoryData, DateTime> _f$modifiedDate =
+  static DateTime? _$modifiedDate(TaigaUserStoryDataMPBLE v) => v.modifiedDate;
+  static const Field<TaigaUserStoryDataMPBLE, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaUserStoryData v) =>
+  static TaigaCustomAttributes? _$customValues(TaigaUserStoryDataMPBLE v) =>
       v.customValues;
-  static const Field<TaigaUserStoryData, TaigaCustomAttributes>
+  static const Field<TaigaUserStoryDataMPBLE, TaigaCustomAttributes>
       _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
-  static List<int> _$assignedUsers(TaigaUserStoryData v) => v.assignedUsers;
-  static const Field<TaigaUserStoryData, List<int>> _f$assignedUsers =
+  static List<int> _$assignedUsers(TaigaUserStoryDataMPBLE v) =>
+      v.assignedUsers;
+  static const Field<TaigaUserStoryDataMPBLE, List<int>> _f$assignedUsers =
       Field('assignedUsers', _$assignedUsers, key: 'assigned_users');
-  static String _$blockedNote(TaigaUserStoryData v) => v.blockedNote;
-  static const Field<TaigaUserStoryData, String> _f$blockedNote =
+  static String _$blockedNote(TaigaUserStoryDataMPBLE v) => v.blockedNote;
+  static const Field<TaigaUserStoryDataMPBLE, String> _f$blockedNote =
       Field('blockedNote', _$blockedNote, key: 'blocked_note');
-  static bool _$clientRequirement(TaigaUserStoryData v) => v.clientRequirement;
-  static const Field<TaigaUserStoryData, bool> _f$clientRequirement = Field(
-      'clientRequirement', _$clientRequirement,
-      key: 'client_requirement');
-  static DateTime? _$dueDate(TaigaUserStoryData v) => v.dueDate;
-  static const Field<TaigaUserStoryData, DateTime> _f$dueDate =
+  static bool _$clientRequirement(TaigaUserStoryDataMPBLE v) =>
+      v.clientRequirement;
+  static const Field<TaigaUserStoryDataMPBLE, bool> _f$clientRequirement =
+      Field('clientRequirement', _$clientRequirement,
+          key: 'client_requirement');
+  static DateTime? _$dueDate(TaigaUserStoryDataMPBLE v) => v.dueDate;
+  static const Field<TaigaUserStoryDataMPBLE, DateTime> _f$dueDate =
       Field('dueDate', _$dueDate, key: 'due_date');
-  static String _$dueDateReason(TaigaUserStoryData v) => v.dueDateReason;
-  static const Field<TaigaUserStoryData, String> _f$dueDateReason =
+  static String _$dueDateReason(TaigaUserStoryDataMPBLE v) => v.dueDateReason;
+  static const Field<TaigaUserStoryDataMPBLE, String> _f$dueDateReason =
       Field('dueDateReason', _$dueDateReason, key: 'due_date_reason');
-  static DateTime? _$finishedDate(TaigaUserStoryData v) => v.finishedDate;
-  static const Field<TaigaUserStoryData, DateTime> _f$finishedDate =
+  static DateTime? _$finishedDate(TaigaUserStoryDataMPBLE v) => v.finishedDate;
+  static const Field<TaigaUserStoryDataMPBLE, DateTime> _f$finishedDate =
       Field('finishedDate', _$finishedDate, key: 'finish_date');
-  static String? _$taskReference(TaigaUserStoryData v) => v.taskReference;
-  static const Field<TaigaUserStoryData, String> _f$taskReference =
+  static String? _$taskReference(TaigaUserStoryDataMPBLE v) => v.taskReference;
+  static const Field<TaigaUserStoryDataMPBLE, String> _f$taskReference =
       Field('taskReference', _$taskReference, key: 'from_task_ref');
-  static int? _$issueReference(TaigaUserStoryData v) => v.issueReference;
-  static const Field<TaigaUserStoryData, int> _f$issueReference =
+  static int? _$issueReference(TaigaUserStoryDataMPBLE v) => v.issueReference;
+  static const Field<TaigaUserStoryDataMPBLE, int> _f$issueReference =
       Field('issueReference', _$issueReference, key: 'generated_from_issue');
-  static bool _$isBlocked(TaigaUserStoryData v) => v.isBlocked;
-  static const Field<TaigaUserStoryData, bool> _f$isBlocked =
+  static bool _$isBlocked(TaigaUserStoryDataMPBLE v) => v.isBlocked;
+  static const Field<TaigaUserStoryDataMPBLE, bool> _f$isBlocked =
       Field('isBlocked', _$isBlocked, key: 'is_blocked');
-  static bool _$isClosed(TaigaUserStoryData v) => v.isClosed;
-  static const Field<TaigaUserStoryData, bool> _f$isClosed =
+  static bool _$isClosed(TaigaUserStoryDataMPBLE v) => v.isClosed;
+  static const Field<TaigaUserStoryDataMPBLE, bool> _f$isClosed =
       Field('isClosed', _$isClosed, key: 'is_closed');
-  static DataMilestone? _$relatedMilestone(TaigaUserStoryData v) =>
+  static DataMilestone? _$relatedMilestone(TaigaUserStoryDataMPBLE v) =>
       v.relatedMilestone;
-  static const Field<TaigaUserStoryData, DataMilestone> _f$relatedMilestone =
+  static const Field<TaigaUserStoryDataMPBLE, DataMilestone>
+      _f$relatedMilestone =
       Field('relatedMilestone', _$relatedMilestone, key: 'milestone');
-  static List<DataPoint> _$points(TaigaUserStoryData v) => v.points;
-  static const Field<TaigaUserStoryData, List<DataPoint>> _f$points =
+  static List<DataPoint> _$points(TaigaUserStoryDataMPBLE v) => v.points;
+  static const Field<TaigaUserStoryDataMPBLE, List<DataPoint>> _f$points =
       Field('points', _$points);
-  static bool _$teamRequirement(TaigaUserStoryData v) => v.teamRequirement;
-  static const Field<TaigaUserStoryData, bool> _f$teamRequirement =
+  static bool _$teamRequirement(TaigaUserStoryDataMPBLE v) => v.teamRequirement;
+  static const Field<TaigaUserStoryDataMPBLE, bool> _f$teamRequirement =
       Field('teamRequirement', _$teamRequirement, key: 'team_requirement');
 
   @override
-  final Map<Symbol, Field<TaigaUserStoryData, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaUserStoryDataMPBLE, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
     #tags: _f$tags,
@@ -412,8 +424,8 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
     #teamRequirement: _f$teamRequirement,
   };
 
-  static TaigaUserStoryData _instantiate(DecodingData data) {
-    return TaigaUserStoryData(
+  static TaigaUserStoryDataMPBLE _instantiate(DecodingData data) {
+    return TaigaUserStoryDataMPBLE(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
         tags: data.dec(_f$tags),
@@ -446,60 +458,62 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   @override
   final Function instantiate = _instantiate;
 
-  static TaigaUserStoryData fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<TaigaUserStoryData>(map);
+  static TaigaUserStoryDataMPBLE fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaUserStoryDataMPBLE>(map);
   }
 
-  static TaigaUserStoryData fromJson(String json) {
-    return ensureInitialized().decodeJson<TaigaUserStoryData>(json);
+  static TaigaUserStoryDataMPBLE fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaUserStoryDataMPBLE>(json);
   }
 }
 
-mixin TaigaUserStoryDataMappable {
+mixin TaigaUserStoryDataMPBLEMappable {
   String toJson() {
-    return TaigaUserStoryDataMapper.ensureInitialized()
-        .encodeJson<TaigaUserStoryData>(this as TaigaUserStoryData);
+    return TaigaUserStoryDataMPBLEMapper.ensureInitialized()
+        .encodeJson<TaigaUserStoryDataMPBLE>(this as TaigaUserStoryDataMPBLE);
   }
 
   Map<String, dynamic> toMap() {
-    return TaigaUserStoryDataMapper.ensureInitialized()
-        .encodeMap<TaigaUserStoryData>(this as TaigaUserStoryData);
+    return TaigaUserStoryDataMPBLEMapper.ensureInitialized()
+        .encodeMap<TaigaUserStoryDataMPBLE>(this as TaigaUserStoryDataMPBLE);
   }
 
-  TaigaUserStoryDataCopyWith<TaigaUserStoryData, TaigaUserStoryData,
-          TaigaUserStoryData>
-      get copyWith => _TaigaUserStoryDataCopyWithImpl(
-          this as TaigaUserStoryData, $identity, $identity);
+  TaigaUserStoryDataMPBLECopyWith<TaigaUserStoryDataMPBLE,
+          TaigaUserStoryDataMPBLE, TaigaUserStoryDataMPBLE>
+      get copyWith => _TaigaUserStoryDataMPBLECopyWithImpl(
+          this as TaigaUserStoryDataMPBLE, $identity, $identity);
   @override
   String toString() {
-    return TaigaUserStoryDataMapper.ensureInitialized()
-        .stringifyValue(this as TaigaUserStoryData);
+    return TaigaUserStoryDataMPBLEMapper.ensureInitialized()
+        .stringifyValue(this as TaigaUserStoryDataMPBLE);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            TaigaUserStoryDataMapper.ensureInitialized()
-                .isValueEqual(this as TaigaUserStoryData, other));
+            TaigaUserStoryDataMPBLEMapper.ensureInitialized()
+                .isValueEqual(this as TaigaUserStoryDataMPBLE, other));
   }
 
   @override
   int get hashCode {
-    return TaigaUserStoryDataMapper.ensureInitialized()
-        .hashValue(this as TaigaUserStoryData);
+    return TaigaUserStoryDataMPBLEMapper.ensureInitialized()
+        .hashValue(this as TaigaUserStoryDataMPBLE);
   }
 }
 
-extension TaigaUserStoryDataValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, TaigaUserStoryData, $Out> {
-  TaigaUserStoryDataCopyWith<$R, TaigaUserStoryData, $Out>
-      get $asTaigaUserStoryData =>
-          $base.as((v, t, t2) => _TaigaUserStoryDataCopyWithImpl(v, t, t2));
+extension TaigaUserStoryDataMPBLEValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaUserStoryDataMPBLE, $Out> {
+  TaigaUserStoryDataMPBLECopyWith<$R, TaigaUserStoryDataMPBLE, $Out>
+      get $asTaigaUserStoryDataMPBLE => $base
+          .as((v, t, t2) => _TaigaUserStoryDataMPBLECopyWithImpl(v, t, t2));
 }
 
-abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
-    $Out> implements TaigaDataCopyWith<$R, $In, $Out> {
+abstract class TaigaUserStoryDataMPBLECopyWith<
+    $R,
+    $In extends TaigaUserStoryDataMPBLE,
+    $Out> implements TaigaDataMPBLECopyWith<$R, $In, $Out> {
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags;
   @override
@@ -548,18 +562,19 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
       DataMilestone? relatedMilestone,
       List<DataPoint>? points,
       bool? teamRequirement});
-  TaigaUserStoryDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+  TaigaUserStoryDataMPBLECopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
 
-class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, TaigaUserStoryData, $Out>
-    implements TaigaUserStoryDataCopyWith<$R, TaigaUserStoryData, $Out> {
-  _TaigaUserStoryDataCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaUserStoryDataMPBLECopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaUserStoryDataMPBLE, $Out>
+    implements
+        TaigaUserStoryDataMPBLECopyWith<$R, TaigaUserStoryDataMPBLE, $Out> {
+  _TaigaUserStoryDataMPBLECopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<TaigaUserStoryData> $mapper =
-      TaigaUserStoryDataMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaUserStoryDataMPBLE> $mapper =
+      TaigaUserStoryDataMPBLEMapper.ensureInitialized();
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags =>
       ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
@@ -660,7 +675,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
         if (teamRequirement != null) #teamRequirement: teamRequirement
       }));
   @override
-  TaigaUserStoryData $make(CopyWithData data) => TaigaUserStoryData(
+  TaigaUserStoryDataMPBLE $make(CopyWithData data) => TaigaUserStoryDataMPBLE(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
       tags: data.get(#tags, or: $value.tags),
@@ -692,112 +707,114 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
       teamRequirement: data.get(#teamRequirement, or: $value.teamRequirement));
 
   @override
-  TaigaUserStoryDataCopyWith<$R2, TaigaUserStoryData, $Out2> $chain<$R2, $Out2>(
-          Then<$Out2, $R2> t) =>
-      _TaigaUserStoryDataCopyWithImpl($value, $cast, t);
+  TaigaUserStoryDataMPBLECopyWith<$R2, TaigaUserStoryDataMPBLE, $Out2>
+      $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>
+          _TaigaUserStoryDataMPBLECopyWithImpl($value, $cast, t);
 }
 
-class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
-  TaigaTaskDataMapper._();
+class TaigaTaskDataMPBLEMapper extends ClassMapperBase<TaigaTaskDataMPBLE> {
+  TaigaTaskDataMPBLEMapper._();
 
-  static TaigaTaskDataMapper? _instance;
-  static TaigaTaskDataMapper ensureInitialized() {
+  static TaigaTaskDataMPBLEMapper? _instance;
+  static TaigaTaskDataMPBLEMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = TaigaTaskDataMapper._());
-      TaigaDataMapper.ensureInitialized();
+      MapperContainer.globals.use(_instance = TaigaTaskDataMPBLEMapper._());
+      TaigaDataMPBLEMapper.ensureInitialized();
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
       TaigaCustomAttributesMapper.ensureInitialized();
       DataMilestoneMapper.ensureInitialized();
-      TaigaUserStoryDataMapper.ensureInitialized();
+      TaigaUserStoryDataMPBLEMapper.ensureInitialized();
     }
     return _instance!;
   }
 
   @override
-  final String id = 'TaigaTaskData';
+  final String id = 'TaigaTaskDataMPBLE';
 
-  static int _$jobId(TaigaTaskData v) => v.jobId;
-  static const Field<TaigaTaskData, int> _f$jobId =
+  static int _$jobId(TaigaTaskDataMPBLE v) => v.jobId;
+  static const Field<TaigaTaskDataMPBLE, int> _f$jobId =
       Field('jobId', _$jobId, key: 'id');
-  static int _$referenceNumber(TaigaTaskData v) => v.referenceNumber;
-  static const Field<TaigaTaskData, int> _f$referenceNumber =
+  static int _$referenceNumber(TaigaTaskDataMPBLE v) => v.referenceNumber;
+  static const Field<TaigaTaskDataMPBLE, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaTaskData v) => v.tags;
-  static const Field<TaigaTaskData, List<dynamic>> _f$tags =
+  static List<dynamic> _$tags(TaigaTaskDataMPBLE v) => v.tags;
+  static const Field<TaigaTaskDataMPBLE, List<dynamic>> _f$tags =
       Field('tags', _$tags);
-  static TaigaUser _$jobOwner(TaigaTaskData v) => v.jobOwner;
-  static const Field<TaigaTaskData, TaigaUser> _f$jobOwner =
+  static TaigaUser _$jobOwner(TaigaTaskDataMPBLE v) => v.jobOwner;
+  static const Field<TaigaTaskDataMPBLE, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
-  static TaigaStatus _$jobStatus(TaigaTaskData v) => v.jobStatus;
-  static const Field<TaigaTaskData, TaigaStatus> _f$jobStatus =
+  static TaigaStatus _$jobStatus(TaigaTaskDataMPBLE v) => v.jobStatus;
+  static const Field<TaigaTaskDataMPBLE, TaigaStatus> _f$jobStatus =
       Field('jobStatus', _$jobStatus, key: 'status');
-  static TaigaProject _$fromProject(TaigaTaskData v) => v.fromProject;
-  static const Field<TaigaTaskData, TaigaProject> _f$fromProject =
+  static TaigaProject _$fromProject(TaigaTaskDataMPBLE v) => v.fromProject;
+  static const Field<TaigaTaskDataMPBLE, TaigaProject> _f$fromProject =
       Field('fromProject', _$fromProject, key: 'project');
-  static String _$jobName(TaigaTaskData v) => v.jobName;
-  static const Field<TaigaTaskData, String> _f$jobName =
+  static String _$jobName(TaigaTaskDataMPBLE v) => v.jobName;
+  static const Field<TaigaTaskDataMPBLE, String> _f$jobName =
       Field('jobName', _$jobName, key: 'subject');
-  static List<int> _$jobWatchers(TaigaTaskData v) => v.jobWatchers;
-  static const Field<TaigaTaskData, List<int>> _f$jobWatchers =
+  static List<int> _$jobWatchers(TaigaTaskDataMPBLE v) => v.jobWatchers;
+  static const Field<TaigaTaskDataMPBLE, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaTaskData v) => v.permalink;
-  static const Field<TaigaTaskData, String> _f$permalink =
+  static String _$permalink(TaigaTaskDataMPBLE v) => v.permalink;
+  static const Field<TaigaTaskDataMPBLE, String> _f$permalink =
       Field('permalink', _$permalink);
-  static TaigaUser? _$userAssigned(TaigaTaskData v) => v.userAssigned;
-  static const Field<TaigaTaskData, TaigaUser> _f$userAssigned =
+  static TaigaUser? _$userAssigned(TaigaTaskDataMPBLE v) => v.userAssigned;
+  static const Field<TaigaTaskDataMPBLE, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
-  static String? _$jobDescription(TaigaTaskData v) => v.jobDescription;
-  static const Field<TaigaTaskData, String> _f$jobDescription =
+  static String? _$jobDescription(TaigaTaskDataMPBLE v) => v.jobDescription;
+  static const Field<TaigaTaskDataMPBLE, String> _f$jobDescription =
       Field('jobDescription', _$jobDescription, key: 'description');
-  static DateTime _$creationDate(TaigaTaskData v) => v.creationDate;
-  static const Field<TaigaTaskData, DateTime> _f$creationDate =
+  static DateTime _$creationDate(TaigaTaskDataMPBLE v) => v.creationDate;
+  static const Field<TaigaTaskDataMPBLE, DateTime> _f$creationDate =
       Field('creationDate', _$creationDate, key: 'created_date');
-  static DateTime? _$modifiedDate(TaigaTaskData v) => v.modifiedDate;
-  static const Field<TaigaTaskData, DateTime> _f$modifiedDate =
+  static DateTime? _$modifiedDate(TaigaTaskDataMPBLE v) => v.modifiedDate;
+  static const Field<TaigaTaskDataMPBLE, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaTaskData v) =>
+  static TaigaCustomAttributes? _$customValues(TaigaTaskDataMPBLE v) =>
       v.customValues;
-  static const Field<TaigaTaskData, TaigaCustomAttributes> _f$customValues =
+  static const Field<TaigaTaskDataMPBLE, TaigaCustomAttributes>
+      _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
-  static String _$blockedNote(TaigaTaskData v) => v.blockedNote;
-  static const Field<TaigaTaskData, String> _f$blockedNote =
+  static String _$blockedNote(TaigaTaskDataMPBLE v) => v.blockedNote;
+  static const Field<TaigaTaskDataMPBLE, String> _f$blockedNote =
       Field('blockedNote', _$blockedNote, key: 'blocked_note');
-  static DateTime? _$dueDate(TaigaTaskData v) => v.dueDate;
-  static const Field<TaigaTaskData, DateTime> _f$dueDate =
+  static DateTime? _$dueDate(TaigaTaskDataMPBLE v) => v.dueDate;
+  static const Field<TaigaTaskDataMPBLE, DateTime> _f$dueDate =
       Field('dueDate', _$dueDate, key: 'due_date');
-  static String _$dueDateReason(TaigaTaskData v) => v.dueDateReason;
-  static const Field<TaigaTaskData, String> _f$dueDateReason =
+  static String _$dueDateReason(TaigaTaskDataMPBLE v) => v.dueDateReason;
+  static const Field<TaigaTaskDataMPBLE, String> _f$dueDateReason =
       Field('dueDateReason', _$dueDateReason, key: 'due_date_reason');
-  static DateTime? _$finishedDate(TaigaTaskData v) => v.finishedDate;
-  static const Field<TaigaTaskData, DateTime> _f$finishedDate =
+  static DateTime? _$finishedDate(TaigaTaskDataMPBLE v) => v.finishedDate;
+  static const Field<TaigaTaskDataMPBLE, DateTime> _f$finishedDate =
       Field('finishedDate', _$finishedDate, key: 'finished_date');
-  static bool _$isBlocked(TaigaTaskData v) => v.isBlocked;
-  static const Field<TaigaTaskData, bool> _f$isBlocked =
+  static bool _$isBlocked(TaigaTaskDataMPBLE v) => v.isBlocked;
+  static const Field<TaigaTaskDataMPBLE, bool> _f$isBlocked =
       Field('isBlocked', _$isBlocked, key: 'is_blocked');
-  static bool _$isIocaine(TaigaTaskData v) => v.isIocaine;
-  static const Field<TaigaTaskData, bool> _f$isIocaine =
+  static bool _$isIocaine(TaigaTaskDataMPBLE v) => v.isIocaine;
+  static const Field<TaigaTaskDataMPBLE, bool> _f$isIocaine =
       Field('isIocaine', _$isIocaine, key: 'is_iocaine');
-  static DataMilestone? _$relatedMilestone(TaigaTaskData v) =>
+  static DataMilestone? _$relatedMilestone(TaigaTaskDataMPBLE v) =>
       v.relatedMilestone;
-  static const Field<TaigaTaskData, DataMilestone> _f$relatedMilestone =
+  static const Field<TaigaTaskDataMPBLE, DataMilestone> _f$relatedMilestone =
       Field('relatedMilestone', _$relatedMilestone, key: 'milestone');
-  static List<dynamic> _$promotedTo(TaigaTaskData v) => v.promotedTo;
-  static const Field<TaigaTaskData, List<dynamic>> _f$promotedTo =
+  static List<dynamic> _$promotedTo(TaigaTaskDataMPBLE v) => v.promotedTo;
+  static const Field<TaigaTaskDataMPBLE, List<dynamic>> _f$promotedTo =
       Field('promotedTo', _$promotedTo, key: 'promoted_to');
-  static int _$taskboardOrder(TaigaTaskData v) => v.taskboardOrder;
-  static const Field<TaigaTaskData, int> _f$taskboardOrder =
+  static int _$taskboardOrder(TaigaTaskDataMPBLE v) => v.taskboardOrder;
+  static const Field<TaigaTaskDataMPBLE, int> _f$taskboardOrder =
       Field('taskboardOrder', _$taskboardOrder, key: 'taskboard_order');
-  static int _$usOrder(TaigaTaskData v) => v.usOrder;
-  static const Field<TaigaTaskData, int> _f$usOrder =
+  static int _$usOrder(TaigaTaskDataMPBLE v) => v.usOrder;
+  static const Field<TaigaTaskDataMPBLE, int> _f$usOrder =
       Field('usOrder', _$usOrder, key: 'us_order');
-  static TaigaUserStoryData _$userStory(TaigaTaskData v) => v.userStory;
-  static const Field<TaigaTaskData, TaigaUserStoryData> _f$userStory =
+  static TaigaUserStoryDataMPBLE _$userStory(TaigaTaskDataMPBLE v) =>
+      v.userStory;
+  static const Field<TaigaTaskDataMPBLE, TaigaUserStoryDataMPBLE> _f$userStory =
       Field('userStory', _$userStory, key: 'user_story');
 
   @override
-  final Map<Symbol, Field<TaigaTaskData, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaTaskDataMPBLE, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
     #tags: _f$tags,
@@ -825,8 +842,8 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
     #userStory: _f$userStory,
   };
 
-  static TaigaTaskData _instantiate(DecodingData data) {
-    return TaigaTaskData(
+  static TaigaTaskDataMPBLE _instantiate(DecodingData data) {
+    return TaigaTaskDataMPBLE(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
         tags: data.dec(_f$tags),
@@ -857,58 +874,60 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   @override
   final Function instantiate = _instantiate;
 
-  static TaigaTaskData fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<TaigaTaskData>(map);
+  static TaigaTaskDataMPBLE fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaTaskDataMPBLE>(map);
   }
 
-  static TaigaTaskData fromJson(String json) {
-    return ensureInitialized().decodeJson<TaigaTaskData>(json);
+  static TaigaTaskDataMPBLE fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaTaskDataMPBLE>(json);
   }
 }
 
-mixin TaigaTaskDataMappable {
+mixin TaigaTaskDataMPBLEMappable {
   String toJson() {
-    return TaigaTaskDataMapper.ensureInitialized()
-        .encodeJson<TaigaTaskData>(this as TaigaTaskData);
+    return TaigaTaskDataMPBLEMapper.ensureInitialized()
+        .encodeJson<TaigaTaskDataMPBLE>(this as TaigaTaskDataMPBLE);
   }
 
   Map<String, dynamic> toMap() {
-    return TaigaTaskDataMapper.ensureInitialized()
-        .encodeMap<TaigaTaskData>(this as TaigaTaskData);
+    return TaigaTaskDataMPBLEMapper.ensureInitialized()
+        .encodeMap<TaigaTaskDataMPBLE>(this as TaigaTaskDataMPBLE);
   }
 
-  TaigaTaskDataCopyWith<TaigaTaskData, TaigaTaskData, TaigaTaskData>
-      get copyWith => _TaigaTaskDataCopyWithImpl(
-          this as TaigaTaskData, $identity, $identity);
+  TaigaTaskDataMPBLECopyWith<TaigaTaskDataMPBLE, TaigaTaskDataMPBLE,
+          TaigaTaskDataMPBLE>
+      get copyWith => _TaigaTaskDataMPBLECopyWithImpl(
+          this as TaigaTaskDataMPBLE, $identity, $identity);
   @override
   String toString() {
-    return TaigaTaskDataMapper.ensureInitialized()
-        .stringifyValue(this as TaigaTaskData);
+    return TaigaTaskDataMPBLEMapper.ensureInitialized()
+        .stringifyValue(this as TaigaTaskDataMPBLE);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            TaigaTaskDataMapper.ensureInitialized()
-                .isValueEqual(this as TaigaTaskData, other));
+            TaigaTaskDataMPBLEMapper.ensureInitialized()
+                .isValueEqual(this as TaigaTaskDataMPBLE, other));
   }
 
   @override
   int get hashCode {
-    return TaigaTaskDataMapper.ensureInitialized()
-        .hashValue(this as TaigaTaskData);
+    return TaigaTaskDataMPBLEMapper.ensureInitialized()
+        .hashValue(this as TaigaTaskDataMPBLE);
   }
 }
 
-extension TaigaTaskDataValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, TaigaTaskData, $Out> {
-  TaigaTaskDataCopyWith<$R, TaigaTaskData, $Out> get $asTaigaTaskData =>
-      $base.as((v, t, t2) => _TaigaTaskDataCopyWithImpl(v, t, t2));
+extension TaigaTaskDataMPBLEValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaTaskDataMPBLE, $Out> {
+  TaigaTaskDataMPBLECopyWith<$R, TaigaTaskDataMPBLE, $Out>
+      get $asTaigaTaskDataMPBLE =>
+          $base.as((v, t, t2) => _TaigaTaskDataMPBLECopyWithImpl(v, t, t2));
 }
 
-abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
-    implements TaigaDataCopyWith<$R, $In, $Out> {
+abstract class TaigaTaskDataMPBLECopyWith<$R, $In extends TaigaTaskDataMPBLE,
+    $Out> implements TaigaDataMPBLECopyWith<$R, $In, $Out> {
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags;
   @override
@@ -927,8 +946,8 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
   DataMilestoneCopyWith<$R, DataMilestone, DataMilestone>? get relatedMilestone;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedTo;
-  TaigaUserStoryDataCopyWith<$R, TaigaUserStoryData, TaigaUserStoryData>
-      get userStory;
+  TaigaUserStoryDataMPBLECopyWith<$R, TaigaUserStoryDataMPBLE,
+      TaigaUserStoryDataMPBLE> get userStory;
   @override
   $R call(
       {int? jobId,
@@ -955,18 +974,19 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
       List<dynamic>? promotedTo,
       int? taskboardOrder,
       int? usOrder,
-      TaigaUserStoryData? userStory});
-  TaigaTaskDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+      TaigaUserStoryDataMPBLE? userStory});
+  TaigaTaskDataMPBLECopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _TaigaTaskDataCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, TaigaTaskData, $Out>
-    implements TaigaTaskDataCopyWith<$R, TaigaTaskData, $Out> {
-  _TaigaTaskDataCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaTaskDataMPBLECopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaTaskDataMPBLE, $Out>
+    implements TaigaTaskDataMPBLECopyWith<$R, TaigaTaskDataMPBLE, $Out> {
+  _TaigaTaskDataMPBLECopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<TaigaTaskData> $mapper =
-      TaigaTaskDataMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaTaskDataMPBLE> $mapper =
+      TaigaTaskDataMPBLEMapper.ensureInitialized();
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags =>
       ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
@@ -1005,7 +1025,8 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
           (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(promotedTo: v));
   @override
-  TaigaUserStoryDataCopyWith<$R, TaigaUserStoryData, TaigaUserStoryData>
+  TaigaUserStoryDataMPBLECopyWith<$R, TaigaUserStoryDataMPBLE,
+          TaigaUserStoryDataMPBLE>
       get userStory =>
           $value.userStory.copyWith.$chain((v) => call(userStory: v));
   @override
@@ -1034,7 +1055,7 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
           List<dynamic>? promotedTo,
           int? taskboardOrder,
           int? usOrder,
-          TaigaUserStoryData? userStory}) =>
+          TaigaUserStoryDataMPBLE? userStory}) =>
       $apply(FieldCopyWithData({
         if (jobId != null) #jobId: jobId,
         if (referenceNumber != null) #referenceNumber: referenceNumber,
@@ -1063,7 +1084,7 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
         if (userStory != null) #userStory: userStory
       }));
   @override
-  TaigaTaskData $make(CopyWithData data) => TaigaTaskData(
+  TaigaTaskDataMPBLE $make(CopyWithData data) => TaigaTaskDataMPBLE(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
       tags: data.get(#tags, or: $value.tags),
@@ -1092,19 +1113,19 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
       userStory: data.get(#userStory, or: $value.userStory));
 
   @override
-  TaigaTaskDataCopyWith<$R2, TaigaTaskData, $Out2> $chain<$R2, $Out2>(
+  TaigaTaskDataMPBLECopyWith<$R2, TaigaTaskDataMPBLE, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
-      _TaigaTaskDataCopyWithImpl($value, $cast, t);
+      _TaigaTaskDataMPBLECopyWithImpl($value, $cast, t);
 }
 
-class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
-  TaigaIssueDataMapper._();
+class TaigaIssueDataMPBLEMapper extends ClassMapperBase<TaigaIssueDataMPBLE> {
+  TaigaIssueDataMPBLEMapper._();
 
-  static TaigaIssueDataMapper? _instance;
-  static TaigaIssueDataMapper ensureInitialized() {
+  static TaigaIssueDataMPBLEMapper? _instance;
+  static TaigaIssueDataMPBLEMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = TaigaIssueDataMapper._());
-      TaigaDataMapper.ensureInitialized();
+      MapperContainer.globals.use(_instance = TaigaIssueDataMPBLEMapper._());
+      TaigaDataMPBLEMapper.ensureInitialized();
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
@@ -1116,78 +1137,79 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   }
 
   @override
-  final String id = 'TaigaIssueData';
+  final String id = 'TaigaIssueDataMPBLE';
 
-  static int _$jobId(TaigaIssueData v) => v.jobId;
-  static const Field<TaigaIssueData, int> _f$jobId =
+  static int _$jobId(TaigaIssueDataMPBLE v) => v.jobId;
+  static const Field<TaigaIssueDataMPBLE, int> _f$jobId =
       Field('jobId', _$jobId, key: 'id');
-  static int _$referenceNumber(TaigaIssueData v) => v.referenceNumber;
-  static const Field<TaigaIssueData, int> _f$referenceNumber =
+  static int _$referenceNumber(TaigaIssueDataMPBLE v) => v.referenceNumber;
+  static const Field<TaigaIssueDataMPBLE, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaIssueData v) => v.tags;
-  static const Field<TaigaIssueData, List<dynamic>> _f$tags =
+  static List<dynamic> _$tags(TaigaIssueDataMPBLE v) => v.tags;
+  static const Field<TaigaIssueDataMPBLE, List<dynamic>> _f$tags =
       Field('tags', _$tags);
-  static TaigaUser _$jobOwner(TaigaIssueData v) => v.jobOwner;
-  static const Field<TaigaIssueData, TaigaUser> _f$jobOwner =
+  static TaigaUser _$jobOwner(TaigaIssueDataMPBLE v) => v.jobOwner;
+  static const Field<TaigaIssueDataMPBLE, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
-  static TaigaStatus _$jobStatus(TaigaIssueData v) => v.jobStatus;
-  static const Field<TaigaIssueData, TaigaStatus> _f$jobStatus =
+  static TaigaStatus _$jobStatus(TaigaIssueDataMPBLE v) => v.jobStatus;
+  static const Field<TaigaIssueDataMPBLE, TaigaStatus> _f$jobStatus =
       Field('jobStatus', _$jobStatus, key: 'status');
-  static TaigaProject _$fromProject(TaigaIssueData v) => v.fromProject;
-  static const Field<TaigaIssueData, TaigaProject> _f$fromProject =
+  static TaigaProject _$fromProject(TaigaIssueDataMPBLE v) => v.fromProject;
+  static const Field<TaigaIssueDataMPBLE, TaigaProject> _f$fromProject =
       Field('fromProject', _$fromProject, key: 'project');
-  static String _$jobName(TaigaIssueData v) => v.jobName;
-  static const Field<TaigaIssueData, String> _f$jobName =
+  static String _$jobName(TaigaIssueDataMPBLE v) => v.jobName;
+  static const Field<TaigaIssueDataMPBLE, String> _f$jobName =
       Field('jobName', _$jobName, key: 'subject');
-  static List<int> _$jobWatchers(TaigaIssueData v) => v.jobWatchers;
-  static const Field<TaigaIssueData, List<int>> _f$jobWatchers =
+  static List<int> _$jobWatchers(TaigaIssueDataMPBLE v) => v.jobWatchers;
+  static const Field<TaigaIssueDataMPBLE, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaIssueData v) => v.permalink;
-  static const Field<TaigaIssueData, String> _f$permalink =
+  static String _$permalink(TaigaIssueDataMPBLE v) => v.permalink;
+  static const Field<TaigaIssueDataMPBLE, String> _f$permalink =
       Field('permalink', _$permalink);
-  static TaigaUser? _$userAssigned(TaigaIssueData v) => v.userAssigned;
-  static const Field<TaigaIssueData, TaigaUser> _f$userAssigned =
+  static TaigaUser? _$userAssigned(TaigaIssueDataMPBLE v) => v.userAssigned;
+  static const Field<TaigaIssueDataMPBLE, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
-  static String? _$jobDescription(TaigaIssueData v) => v.jobDescription;
-  static const Field<TaigaIssueData, String> _f$jobDescription =
+  static String? _$jobDescription(TaigaIssueDataMPBLE v) => v.jobDescription;
+  static const Field<TaigaIssueDataMPBLE, String> _f$jobDescription =
       Field('jobDescription', _$jobDescription, key: 'description');
-  static DateTime _$creationDate(TaigaIssueData v) => v.creationDate;
-  static const Field<TaigaIssueData, DateTime> _f$creationDate =
+  static DateTime _$creationDate(TaigaIssueDataMPBLE v) => v.creationDate;
+  static const Field<TaigaIssueDataMPBLE, DateTime> _f$creationDate =
       Field('creationDate', _$creationDate, key: 'created_date');
-  static DateTime? _$modifiedDate(TaigaIssueData v) => v.modifiedDate;
-  static const Field<TaigaIssueData, DateTime> _f$modifiedDate =
+  static DateTime? _$modifiedDate(TaigaIssueDataMPBLE v) => v.modifiedDate;
+  static const Field<TaigaIssueDataMPBLE, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaIssueData v) =>
+  static TaigaCustomAttributes? _$customValues(TaigaIssueDataMPBLE v) =>
       v.customValues;
-  static const Field<TaigaIssueData, TaigaCustomAttributes> _f$customValues =
+  static const Field<TaigaIssueDataMPBLE, TaigaCustomAttributes>
+      _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
-  static DateTime? _$dueDate(TaigaIssueData v) => v.dueDate;
-  static const Field<TaigaIssueData, DateTime> _f$dueDate =
+  static DateTime? _$dueDate(TaigaIssueDataMPBLE v) => v.dueDate;
+  static const Field<TaigaIssueDataMPBLE, DateTime> _f$dueDate =
       Field('dueDate', _$dueDate, key: 'due_date');
-  static String _$dueDateReason(TaigaIssueData v) => v.dueDateReason;
-  static const Field<TaigaIssueData, String> _f$dueDateReason =
+  static String _$dueDateReason(TaigaIssueDataMPBLE v) => v.dueDateReason;
+  static const Field<TaigaIssueDataMPBLE, String> _f$dueDateReason =
       Field('dueDateReason', _$dueDateReason, key: 'due_date_reason');
-  static DateTime? _$finishedDate(TaigaIssueData v) => v.finishedDate;
-  static const Field<TaigaIssueData, DateTime> _f$finishedDate =
+  static DateTime? _$finishedDate(TaigaIssueDataMPBLE v) => v.finishedDate;
+  static const Field<TaigaIssueDataMPBLE, DateTime> _f$finishedDate =
       Field('finishedDate', _$finishedDate, key: 'finished_date');
-  static DataMilestone? _$milestone(TaigaIssueData v) => v.milestone;
-  static const Field<TaigaIssueData, DataMilestone> _f$milestone =
+  static DataMilestone? _$milestone(TaigaIssueDataMPBLE v) => v.milestone;
+  static const Field<TaigaIssueDataMPBLE, DataMilestone> _f$milestone =
       Field('milestone', _$milestone);
-  static DataDetails _$priority(TaigaIssueData v) => v.priority;
-  static const Field<TaigaIssueData, DataDetails> _f$priority =
+  static DataDetails _$priority(TaigaIssueDataMPBLE v) => v.priority;
+  static const Field<TaigaIssueDataMPBLE, DataDetails> _f$priority =
       Field('priority', _$priority);
-  static List<int?> _$promotedTo(TaigaIssueData v) => v.promotedTo;
-  static const Field<TaigaIssueData, List<int?>> _f$promotedTo =
+  static List<int?> _$promotedTo(TaigaIssueDataMPBLE v) => v.promotedTo;
+  static const Field<TaigaIssueDataMPBLE, List<int?>> _f$promotedTo =
       Field('promotedTo', _$promotedTo, key: 'promoted_to');
-  static DataDetails _$severity(TaigaIssueData v) => v.severity;
-  static const Field<TaigaIssueData, DataDetails> _f$severity =
+  static DataDetails _$severity(TaigaIssueDataMPBLE v) => v.severity;
+  static const Field<TaigaIssueDataMPBLE, DataDetails> _f$severity =
       Field('severity', _$severity);
-  static DataDetails _$type(TaigaIssueData v) => v.type;
-  static const Field<TaigaIssueData, DataDetails> _f$type =
+  static DataDetails _$type(TaigaIssueDataMPBLE v) => v.type;
+  static const Field<TaigaIssueDataMPBLE, DataDetails> _f$type =
       Field('type', _$type);
 
   @override
-  final Map<Symbol, Field<TaigaIssueData, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaIssueDataMPBLE, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
     #tags: _f$tags,
@@ -1212,8 +1234,8 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
     #type: _f$type,
   };
 
-  static TaigaIssueData _instantiate(DecodingData data) {
-    return TaigaIssueData(
+  static TaigaIssueDataMPBLE _instantiate(DecodingData data) {
+    return TaigaIssueDataMPBLE(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
         tags: data.dec(_f$tags),
@@ -1241,58 +1263,60 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   @override
   final Function instantiate = _instantiate;
 
-  static TaigaIssueData fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<TaigaIssueData>(map);
+  static TaigaIssueDataMPBLE fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaIssueDataMPBLE>(map);
   }
 
-  static TaigaIssueData fromJson(String json) {
-    return ensureInitialized().decodeJson<TaigaIssueData>(json);
+  static TaigaIssueDataMPBLE fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaIssueDataMPBLE>(json);
   }
 }
 
-mixin TaigaIssueDataMappable {
+mixin TaigaIssueDataMPBLEMappable {
   String toJson() {
-    return TaigaIssueDataMapper.ensureInitialized()
-        .encodeJson<TaigaIssueData>(this as TaigaIssueData);
+    return TaigaIssueDataMPBLEMapper.ensureInitialized()
+        .encodeJson<TaigaIssueDataMPBLE>(this as TaigaIssueDataMPBLE);
   }
 
   Map<String, dynamic> toMap() {
-    return TaigaIssueDataMapper.ensureInitialized()
-        .encodeMap<TaigaIssueData>(this as TaigaIssueData);
+    return TaigaIssueDataMPBLEMapper.ensureInitialized()
+        .encodeMap<TaigaIssueDataMPBLE>(this as TaigaIssueDataMPBLE);
   }
 
-  TaigaIssueDataCopyWith<TaigaIssueData, TaigaIssueData, TaigaIssueData>
-      get copyWith => _TaigaIssueDataCopyWithImpl(
-          this as TaigaIssueData, $identity, $identity);
+  TaigaIssueDataMPBLECopyWith<TaigaIssueDataMPBLE, TaigaIssueDataMPBLE,
+          TaigaIssueDataMPBLE>
+      get copyWith => _TaigaIssueDataMPBLECopyWithImpl(
+          this as TaigaIssueDataMPBLE, $identity, $identity);
   @override
   String toString() {
-    return TaigaIssueDataMapper.ensureInitialized()
-        .stringifyValue(this as TaigaIssueData);
+    return TaigaIssueDataMPBLEMapper.ensureInitialized()
+        .stringifyValue(this as TaigaIssueDataMPBLE);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            TaigaIssueDataMapper.ensureInitialized()
-                .isValueEqual(this as TaigaIssueData, other));
+            TaigaIssueDataMPBLEMapper.ensureInitialized()
+                .isValueEqual(this as TaigaIssueDataMPBLE, other));
   }
 
   @override
   int get hashCode {
-    return TaigaIssueDataMapper.ensureInitialized()
-        .hashValue(this as TaigaIssueData);
+    return TaigaIssueDataMPBLEMapper.ensureInitialized()
+        .hashValue(this as TaigaIssueDataMPBLE);
   }
 }
 
-extension TaigaIssueDataValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, TaigaIssueData, $Out> {
-  TaigaIssueDataCopyWith<$R, TaigaIssueData, $Out> get $asTaigaIssueData =>
-      $base.as((v, t, t2) => _TaigaIssueDataCopyWithImpl(v, t, t2));
+extension TaigaIssueDataMPBLEValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaIssueDataMPBLE, $Out> {
+  TaigaIssueDataMPBLECopyWith<$R, TaigaIssueDataMPBLE, $Out>
+      get $asTaigaIssueDataMPBLE =>
+          $base.as((v, t, t2) => _TaigaIssueDataMPBLECopyWithImpl(v, t, t2));
 }
 
-abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
-    implements TaigaDataCopyWith<$R, $In, $Out> {
+abstract class TaigaIssueDataMPBLECopyWith<$R, $In extends TaigaIssueDataMPBLE,
+    $Out> implements TaigaDataMPBLECopyWith<$R, $In, $Out> {
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags;
   @override
@@ -1337,18 +1361,18 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
       List<int?>? promotedTo,
       DataDetails? severity,
       DataDetails? type});
-  TaigaIssueDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+  TaigaIssueDataMPBLECopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
 
-class _TaigaIssueDataCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, TaigaIssueData, $Out>
-    implements TaigaIssueDataCopyWith<$R, TaigaIssueData, $Out> {
-  _TaigaIssueDataCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaIssueDataMPBLECopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaIssueDataMPBLE, $Out>
+    implements TaigaIssueDataMPBLECopyWith<$R, TaigaIssueDataMPBLE, $Out> {
+  _TaigaIssueDataMPBLECopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<TaigaIssueData> $mapper =
-      TaigaIssueDataMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaIssueDataMPBLE> $mapper =
+      TaigaIssueDataMPBLEMapper.ensureInitialized();
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags =>
       ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
@@ -1441,7 +1465,7 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
         if (type != null) #type: type
       }));
   @override
-  TaigaIssueData $make(CopyWithData data) => TaigaIssueData(
+  TaigaIssueDataMPBLE $make(CopyWithData data) => TaigaIssueDataMPBLE(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
       tags: data.get(#tags, or: $value.tags),
@@ -1466,19 +1490,19 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
       type: data.get(#type, or: $value.type));
 
   @override
-  TaigaIssueDataCopyWith<$R2, TaigaIssueData, $Out2> $chain<$R2, $Out2>(
-          Then<$Out2, $R2> t) =>
-      _TaigaIssueDataCopyWithImpl($value, $cast, t);
+  TaigaIssueDataMPBLECopyWith<$R2, TaigaIssueDataMPBLE, $Out2>
+      $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>
+          _TaigaIssueDataMPBLECopyWithImpl($value, $cast, t);
 }
 
-class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
-  TaigaEpicDataMapper._();
+class TaigaEpicDataMPBLEMapper extends ClassMapperBase<TaigaEpicDataMPBLE> {
+  TaigaEpicDataMPBLEMapper._();
 
-  static TaigaEpicDataMapper? _instance;
-  static TaigaEpicDataMapper ensureInitialized() {
+  static TaigaEpicDataMPBLEMapper? _instance;
+  static TaigaEpicDataMPBLEMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = TaigaEpicDataMapper._());
-      TaigaDataMapper.ensureInitialized();
+      MapperContainer.globals.use(_instance = TaigaEpicDataMPBLEMapper._());
+      TaigaDataMPBLEMapper.ensureInitialized();
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
@@ -1488,66 +1512,68 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   }
 
   @override
-  final String id = 'TaigaEpicData';
+  final String id = 'TaigaEpicDataMPBLE';
 
-  static int _$jobId(TaigaEpicData v) => v.jobId;
-  static const Field<TaigaEpicData, int> _f$jobId =
+  static int _$jobId(TaigaEpicDataMPBLE v) => v.jobId;
+  static const Field<TaigaEpicDataMPBLE, int> _f$jobId =
       Field('jobId', _$jobId, key: 'id');
-  static int _$referenceNumber(TaigaEpicData v) => v.referenceNumber;
-  static const Field<TaigaEpicData, int> _f$referenceNumber =
+  static int _$referenceNumber(TaigaEpicDataMPBLE v) => v.referenceNumber;
+  static const Field<TaigaEpicDataMPBLE, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaEpicData v) => v.tags;
-  static const Field<TaigaEpicData, List<dynamic>> _f$tags =
+  static List<dynamic> _$tags(TaigaEpicDataMPBLE v) => v.tags;
+  static const Field<TaigaEpicDataMPBLE, List<dynamic>> _f$tags =
       Field('tags', _$tags);
-  static TaigaUser _$jobOwner(TaigaEpicData v) => v.jobOwner;
-  static const Field<TaigaEpicData, TaigaUser> _f$jobOwner =
+  static TaigaUser _$jobOwner(TaigaEpicDataMPBLE v) => v.jobOwner;
+  static const Field<TaigaEpicDataMPBLE, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
-  static TaigaStatus _$jobStatus(TaigaEpicData v) => v.jobStatus;
-  static const Field<TaigaEpicData, TaigaStatus> _f$jobStatus =
+  static TaigaStatus _$jobStatus(TaigaEpicDataMPBLE v) => v.jobStatus;
+  static const Field<TaigaEpicDataMPBLE, TaigaStatus> _f$jobStatus =
       Field('jobStatus', _$jobStatus, key: 'status');
-  static TaigaProject _$fromProject(TaigaEpicData v) => v.fromProject;
-  static const Field<TaigaEpicData, TaigaProject> _f$fromProject =
+  static TaigaProject _$fromProject(TaigaEpicDataMPBLE v) => v.fromProject;
+  static const Field<TaigaEpicDataMPBLE, TaigaProject> _f$fromProject =
       Field('fromProject', _$fromProject, key: 'project');
-  static String _$jobName(TaigaEpicData v) => v.jobName;
-  static const Field<TaigaEpicData, String> _f$jobName =
+  static String _$jobName(TaigaEpicDataMPBLE v) => v.jobName;
+  static const Field<TaigaEpicDataMPBLE, String> _f$jobName =
       Field('jobName', _$jobName, key: 'subject');
-  static List<int> _$jobWatchers(TaigaEpicData v) => v.jobWatchers;
-  static const Field<TaigaEpicData, List<int>> _f$jobWatchers =
+  static List<int> _$jobWatchers(TaigaEpicDataMPBLE v) => v.jobWatchers;
+  static const Field<TaigaEpicDataMPBLE, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaEpicData v) => v.permalink;
-  static const Field<TaigaEpicData, String> _f$permalink =
+  static String _$permalink(TaigaEpicDataMPBLE v) => v.permalink;
+  static const Field<TaigaEpicDataMPBLE, String> _f$permalink =
       Field('permalink', _$permalink);
-  static TaigaUser? _$userAssigned(TaigaEpicData v) => v.userAssigned;
-  static const Field<TaigaEpicData, TaigaUser> _f$userAssigned =
+  static TaigaUser? _$userAssigned(TaigaEpicDataMPBLE v) => v.userAssigned;
+  static const Field<TaigaEpicDataMPBLE, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
-  static String? _$jobDescription(TaigaEpicData v) => v.jobDescription;
-  static const Field<TaigaEpicData, String> _f$jobDescription =
+  static String? _$jobDescription(TaigaEpicDataMPBLE v) => v.jobDescription;
+  static const Field<TaigaEpicDataMPBLE, String> _f$jobDescription =
       Field('jobDescription', _$jobDescription, key: 'description');
-  static DateTime _$creationDate(TaigaEpicData v) => v.creationDate;
-  static const Field<TaigaEpicData, DateTime> _f$creationDate =
+  static DateTime _$creationDate(TaigaEpicDataMPBLE v) => v.creationDate;
+  static const Field<TaigaEpicDataMPBLE, DateTime> _f$creationDate =
       Field('creationDate', _$creationDate, key: 'created_date');
-  static DateTime? _$modifiedDate(TaigaEpicData v) => v.modifiedDate;
-  static const Field<TaigaEpicData, DateTime> _f$modifiedDate =
+  static DateTime? _$modifiedDate(TaigaEpicDataMPBLE v) => v.modifiedDate;
+  static const Field<TaigaEpicDataMPBLE, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaEpicData v) =>
+  static TaigaCustomAttributes? _$customValues(TaigaEpicDataMPBLE v) =>
       v.customValues;
-  static const Field<TaigaEpicData, TaigaCustomAttributes> _f$customValues =
+  static const Field<TaigaEpicDataMPBLE, TaigaCustomAttributes>
+      _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
-  static bool _$clientRequirement(TaigaEpicData v) => v.clientRequirement;
-  static const Field<TaigaEpicData, bool> _f$clientRequirement = Field(
+  static bool _$clientRequirement(TaigaEpicDataMPBLE v) => v.clientRequirement;
+  static const Field<TaigaEpicDataMPBLE, bool> _f$clientRequirement = Field(
       'clientRequirement', _$clientRequirement,
       key: 'client_requirement');
-  static String _$color(TaigaEpicData v) => v.color;
-  static const Field<TaigaEpicData, String> _f$color = Field('color', _$color);
-  static int _$epicsOrder(TaigaEpicData v) => v.epicsOrder;
-  static const Field<TaigaEpicData, int> _f$epicsOrder =
+  static String _$color(TaigaEpicDataMPBLE v) => v.color;
+  static const Field<TaigaEpicDataMPBLE, String> _f$color =
+      Field('color', _$color);
+  static int _$epicsOrder(TaigaEpicDataMPBLE v) => v.epicsOrder;
+  static const Field<TaigaEpicDataMPBLE, int> _f$epicsOrder =
       Field('epicsOrder', _$epicsOrder, key: 'epics_order');
-  static bool _$teamRequirement(TaigaEpicData v) => v.teamRequirement;
-  static const Field<TaigaEpicData, bool> _f$teamRequirement =
+  static bool _$teamRequirement(TaigaEpicDataMPBLE v) => v.teamRequirement;
+  static const Field<TaigaEpicDataMPBLE, bool> _f$teamRequirement =
       Field('teamRequirement', _$teamRequirement, key: 'team_requirement');
 
   @override
-  final Map<Symbol, Field<TaigaEpicData, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaEpicDataMPBLE, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
     #tags: _f$tags,
@@ -1568,8 +1594,8 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
     #teamRequirement: _f$teamRequirement,
   };
 
-  static TaigaEpicData _instantiate(DecodingData data) {
-    return TaigaEpicData(
+  static TaigaEpicDataMPBLE _instantiate(DecodingData data) {
+    return TaigaEpicDataMPBLE(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
         tags: data.dec(_f$tags),
@@ -1593,58 +1619,60 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   @override
   final Function instantiate = _instantiate;
 
-  static TaigaEpicData fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<TaigaEpicData>(map);
+  static TaigaEpicDataMPBLE fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaEpicDataMPBLE>(map);
   }
 
-  static TaigaEpicData fromJson(String json) {
-    return ensureInitialized().decodeJson<TaigaEpicData>(json);
+  static TaigaEpicDataMPBLE fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaEpicDataMPBLE>(json);
   }
 }
 
-mixin TaigaEpicDataMappable {
+mixin TaigaEpicDataMPBLEMappable {
   String toJson() {
-    return TaigaEpicDataMapper.ensureInitialized()
-        .encodeJson<TaigaEpicData>(this as TaigaEpicData);
+    return TaigaEpicDataMPBLEMapper.ensureInitialized()
+        .encodeJson<TaigaEpicDataMPBLE>(this as TaigaEpicDataMPBLE);
   }
 
   Map<String, dynamic> toMap() {
-    return TaigaEpicDataMapper.ensureInitialized()
-        .encodeMap<TaigaEpicData>(this as TaigaEpicData);
+    return TaigaEpicDataMPBLEMapper.ensureInitialized()
+        .encodeMap<TaigaEpicDataMPBLE>(this as TaigaEpicDataMPBLE);
   }
 
-  TaigaEpicDataCopyWith<TaigaEpicData, TaigaEpicData, TaigaEpicData>
-      get copyWith => _TaigaEpicDataCopyWithImpl(
-          this as TaigaEpicData, $identity, $identity);
+  TaigaEpicDataMPBLECopyWith<TaigaEpicDataMPBLE, TaigaEpicDataMPBLE,
+          TaigaEpicDataMPBLE>
+      get copyWith => _TaigaEpicDataMPBLECopyWithImpl(
+          this as TaigaEpicDataMPBLE, $identity, $identity);
   @override
   String toString() {
-    return TaigaEpicDataMapper.ensureInitialized()
-        .stringifyValue(this as TaigaEpicData);
+    return TaigaEpicDataMPBLEMapper.ensureInitialized()
+        .stringifyValue(this as TaigaEpicDataMPBLE);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            TaigaEpicDataMapper.ensureInitialized()
-                .isValueEqual(this as TaigaEpicData, other));
+            TaigaEpicDataMPBLEMapper.ensureInitialized()
+                .isValueEqual(this as TaigaEpicDataMPBLE, other));
   }
 
   @override
   int get hashCode {
-    return TaigaEpicDataMapper.ensureInitialized()
-        .hashValue(this as TaigaEpicData);
+    return TaigaEpicDataMPBLEMapper.ensureInitialized()
+        .hashValue(this as TaigaEpicDataMPBLE);
   }
 }
 
-extension TaigaEpicDataValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, TaigaEpicData, $Out> {
-  TaigaEpicDataCopyWith<$R, TaigaEpicData, $Out> get $asTaigaEpicData =>
-      $base.as((v, t, t2) => _TaigaEpicDataCopyWithImpl(v, t, t2));
+extension TaigaEpicDataMPBLEValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaEpicDataMPBLE, $Out> {
+  TaigaEpicDataMPBLECopyWith<$R, TaigaEpicDataMPBLE, $Out>
+      get $asTaigaEpicDataMPBLE =>
+          $base.as((v, t, t2) => _TaigaEpicDataMPBLECopyWithImpl(v, t, t2));
 }
 
-abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
-    implements TaigaDataCopyWith<$R, $In, $Out> {
+abstract class TaigaEpicDataMPBLECopyWith<$R, $In extends TaigaEpicDataMPBLE,
+    $Out> implements TaigaDataMPBLECopyWith<$R, $In, $Out> {
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags;
   @override
@@ -1680,17 +1708,18 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
       String? color,
       int? epicsOrder,
       bool? teamRequirement});
-  TaigaEpicDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  TaigaEpicDataMPBLECopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _TaigaEpicDataCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, TaigaEpicData, $Out>
-    implements TaigaEpicDataCopyWith<$R, TaigaEpicData, $Out> {
-  _TaigaEpicDataCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaEpicDataMPBLECopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaEpicDataMPBLE, $Out>
+    implements TaigaEpicDataMPBLECopyWith<$R, TaigaEpicDataMPBLE, $Out> {
+  _TaigaEpicDataMPBLECopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<TaigaEpicData> $mapper =
-      TaigaEpicDataMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaEpicDataMPBLE> $mapper =
+      TaigaEpicDataMPBLEMapper.ensureInitialized();
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags =>
       ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
@@ -1759,7 +1788,7 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
         if (teamRequirement != null) #teamRequirement: teamRequirement
       }));
   @override
-  TaigaEpicData $make(CopyWithData data) => TaigaEpicData(
+  TaigaEpicDataMPBLE $make(CopyWithData data) => TaigaEpicDataMPBLE(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
       tags: data.get(#tags, or: $value.tags),
@@ -1781,7 +1810,7 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
       teamRequirement: data.get(#teamRequirement, or: $value.teamRequirement));
 
   @override
-  TaigaEpicDataCopyWith<$R2, TaigaEpicData, $Out2> $chain<$R2, $Out2>(
+  TaigaEpicDataMPBLECopyWith<$R2, TaigaEpicDataMPBLE, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
-      _TaigaEpicDataCopyWithImpl($value, $cast, t);
+      _TaigaEpicDataMPBLECopyWithImpl($value, $cast, t);
 }
