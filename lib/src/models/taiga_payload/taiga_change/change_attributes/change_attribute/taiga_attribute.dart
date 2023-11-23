@@ -1,5 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_attributes/change_attribute/attribute_changed/attribute_changed.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_attributes/change_attribute/attribute_change/attribute_change.dart';
 
 part 'taiga_attribute.mapper.dart';
 
@@ -29,7 +29,7 @@ class TaigaAttribute with TaigaAttributeMappable {
   String? value;
 
   /// If a change was been made this will storage the data
-  TaigaAttributeChanged? changes;
+  TaigaCustomAttributesChange? changes;
 
   /// This storage the format value "<span>Sample</span><ins style=\"background:#e6ffe6;\">2</ins><span>.com</span>"
   String? valueDiff;

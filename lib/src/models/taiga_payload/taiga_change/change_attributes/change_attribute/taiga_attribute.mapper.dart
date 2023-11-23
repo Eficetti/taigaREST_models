@@ -13,7 +13,7 @@ class TaigaAttributeMapper extends ClassMapperBase<TaigaAttribute> {
   static TaigaAttributeMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = TaigaAttributeMapper._());
-      TaigaAttributeChangedMapper.ensureInitialized();
+      TaigaCustomAttributesChangeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -32,8 +32,8 @@ class TaigaAttributeMapper extends ClassMapperBase<TaigaAttribute> {
   static String? _$valueDiff(TaigaAttribute v) => v.valueDiff;
   static const Field<TaigaAttribute, String> _f$valueDiff =
       Field('valueDiff', _$valueDiff, key: 'value_diff');
-  static TaigaAttributeChanged? _$changes(TaigaAttribute v) => v.changes;
-  static const Field<TaigaAttribute, TaigaAttributeChanged> _f$changes =
+  static TaigaCustomAttributesChange? _$changes(TaigaAttribute v) => v.changes;
+  static const Field<TaigaAttribute, TaigaCustomAttributesChange> _f$changes =
       Field('changes', _$changes);
 
   @override
@@ -111,15 +111,15 @@ extension TaigaAttributeValueCopy<$R, $Out>
 
 abstract class TaigaAttributeCopyWith<$R, $In extends TaigaAttribute, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  TaigaAttributeChangedCopyWith<$R, TaigaAttributeChanged,
-      TaigaAttributeChanged>? get changes;
+  TaigaCustomAttributesChangeCopyWith<$R, TaigaCustomAttributesChange,
+      TaigaCustomAttributesChange>? get changes;
   $R call(
       {int? id,
       String? name,
       String? type,
       String? value,
       String? valueDiff,
-      TaigaAttributeChanged? changes});
+      TaigaCustomAttributesChange? changes});
   TaigaAttributeCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -133,8 +133,8 @@ class _TaigaAttributeCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaAttribute> $mapper =
       TaigaAttributeMapper.ensureInitialized();
   @override
-  TaigaAttributeChangedCopyWith<$R, TaigaAttributeChanged,
-          TaigaAttributeChanged>?
+  TaigaCustomAttributesChangeCopyWith<$R, TaigaCustomAttributesChange,
+          TaigaCustomAttributesChange>?
       get changes => $value.changes?.copyWith.$chain((v) => call(changes: v));
   @override
   $R call(
