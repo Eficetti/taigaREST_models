@@ -27,20 +27,19 @@ class TaigaDifferenceCustomAttributesMapper
           TaigaDifferenceCustomAttributes v) =>
       v.attributesNew;
   static const Field<TaigaDifferenceCustomAttributes, List<TaigaAttribute>>
-      _f$attributesNew =
-      Field('attributesNew', _$attributesNew, key: 'attributes_new');
+      _f$attributesNew = Field('attributesNew', _$attributesNew, key: 'new');
   static List<TaigaAttribute> _$attributesChanged(
           TaigaDifferenceCustomAttributes v) =>
       v.attributesChanged;
   static const Field<TaigaDifferenceCustomAttributes, List<TaigaAttribute>>
-      _f$attributesChanged = Field('attributesChanged', _$attributesChanged,
-          key: 'attributes_changed');
+      _f$attributesChanged =
+      Field('attributesChanged', _$attributesChanged, key: 'changed');
   static List<TaigaAttribute> _$attributesDeleted(
           TaigaDifferenceCustomAttributes v) =>
       v.attributesDeleted;
   static const Field<TaigaDifferenceCustomAttributes, List<TaigaAttribute>>
-      _f$attributesDeleted = Field('attributesDeleted', _$attributesDeleted,
-          key: 'attributes_deleted');
+      _f$attributesDeleted =
+      Field('attributesDeleted', _$attributesDeleted, key: 'deleted');
 
   @override
   final Map<Symbol, Field<TaigaDifferenceCustomAttributes, dynamic>> fields =

@@ -15,11 +15,14 @@ class TaigaDifferenceCustomAttributes
   });
 
   /// This is the new attribute added
+  @MappableField(key: 'new')
   List<TaigaAttribute> attributesNew;
 
   /// This will storage the change of an attribute
+  @MappableField(key: 'changed')
   List<TaigaAttribute> attributesChanged;
 
   /// This will storage if an attribute was deleted
+  @MappableField(key: 'deleted')
   List<TaigaAttribute> attributesDeleted;
 }
