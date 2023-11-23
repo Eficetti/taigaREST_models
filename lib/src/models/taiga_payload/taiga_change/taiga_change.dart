@@ -38,6 +38,7 @@ class TaigaChange with TaigaChangeMappable{
   DateTime? editCommentDate;
 
   /// Difference is used to save all the differences made on this change payload
+  @MappableField(key: 'diff')
   TaigaChangeDifference? difference;
 
   /// FromJson method, convert a json type object into this TaigaChange object
