@@ -25,13 +25,13 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
     required this.change,
   }) {
     switch (jobType) {
-      case 'Issue':
+      case 'issue':
         data = data as TaigaIssueDataMPBLE;
-      case 'UserStory':
+      case 'userstory':
         data = data as  TaigaUserStoryDataMPBLE;
-      case 'Task':
+      case 'task':
         data = data as TaigaTaskDataMPBLE;
-      case 'Epics':
+      case 'epics':
         data = data as  TaigaEpicDataMPBLE;
     }
   }
