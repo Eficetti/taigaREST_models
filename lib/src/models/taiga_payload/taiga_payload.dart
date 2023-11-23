@@ -56,7 +56,7 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
   /// This is the most important part of the Payload, this include all the
   /// information of the action made, the related project, the link of them,
   /// and also have custom types, for each jobType
-  late TaigaDataMPBLE data;
+  late dynamic data;
 
   /// This is the changes that were made on this payload, only exist if the
   /// actionType is change, otherwise it will be null
