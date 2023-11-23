@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_attachments/attachment_item/attachment_item.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_attributes/change_custom_attributes/taiga_custom_attributes.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_difference/taiga_difference_custom_attributes/change_difference_custom_attributes.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/point_difference/point_difference.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/taiga_from_to/taiga_from_to.dart';
 
@@ -103,7 +104,7 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
   TaigaFromTo? subject;
 
   /// Change made into a custom attribute
-  TaigaCustomAttributes? customAttributes;
+  TaigaDifferenceCustomAttributes? customAttributes;
 
   /// Change made into Design points
   PointDifference? points;
