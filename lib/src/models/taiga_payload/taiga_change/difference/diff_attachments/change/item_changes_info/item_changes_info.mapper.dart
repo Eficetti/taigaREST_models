@@ -20,10 +20,11 @@ class ItemChangesInfoMapper extends ClassMapperBase<ItemChangesInfo> {
   @override
   final String id = 'ItemChangesInfo';
 
-  static List<String> _$itemDescription(ItemChangesInfo v) => v.itemDescription;
+  static List<String>? _$itemDescription(ItemChangesInfo v) =>
+      v.itemDescription;
   static const Field<ItemChangesInfo, List<String>> _f$itemDescription =
       Field('itemDescription', _$itemDescription, key: 'description');
-  static List<bool> _$itemStatus(ItemChangesInfo v) => v.itemStatus;
+  static List<bool>? _$itemStatus(ItemChangesInfo v) => v.itemStatus;
   static const Field<ItemChangesInfo, List<bool>> _f$itemStatus =
       Field('itemStatus', _$itemStatus, key: 'is_deprecated');
 
@@ -94,9 +95,9 @@ extension ItemChangesInfoValueCopy<$R, $Out>
 
 abstract class ItemChangesInfoCopyWith<$R, $In extends ItemChangesInfo, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
       get itemDescription;
-  ListCopyWith<$R, bool, ObjectCopyWith<$R, bool, bool>> get itemStatus;
+  ListCopyWith<$R, bool, ObjectCopyWith<$R, bool, bool>>? get itemStatus;
   $R call({List<String>? itemDescription, List<bool>? itemStatus});
   ItemChangesInfoCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
@@ -111,20 +112,26 @@ class _ItemChangesInfoCopyWithImpl<$R, $Out>
   late final ClassMapperBase<ItemChangesInfo> $mapper =
       ItemChangesInfoMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>
-      get itemDescription => ListCopyWith(
-          $value.itemDescription,
-          (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(itemDescription: v));
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
+      get itemDescription => $value.itemDescription != null
+          ? ListCopyWith(
+              $value.itemDescription!,
+              (v, t) => ObjectCopyWith(v, $identity, t),
+              (v) => call(itemDescription: v))
+          : null;
   @override
-  ListCopyWith<$R, bool, ObjectCopyWith<$R, bool, bool>> get itemStatus =>
-      ListCopyWith($value.itemStatus, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(itemStatus: v));
+  ListCopyWith<$R, bool, ObjectCopyWith<$R, bool, bool>>? get itemStatus =>
+      $value.itemStatus != null
+          ? ListCopyWith(
+              $value.itemStatus!,
+              (v, t) => ObjectCopyWith(v, $identity, t),
+              (v) => call(itemStatus: v))
+          : null;
   @override
-  $R call({List<String>? itemDescription, List<bool>? itemStatus}) =>
+  $R call({Object? itemDescription = $none, Object? itemStatus = $none}) =>
       $apply(FieldCopyWithData({
-        if (itemDescription != null) #itemDescription: itemDescription,
-        if (itemStatus != null) #itemStatus: itemStatus
+        if (itemDescription != $none) #itemDescription: itemDescription,
+        if (itemStatus != $none) #itemStatus: itemStatus
       }));
   @override
   ItemChangesInfo $make(CopyWithData data) => ItemChangesInfo(

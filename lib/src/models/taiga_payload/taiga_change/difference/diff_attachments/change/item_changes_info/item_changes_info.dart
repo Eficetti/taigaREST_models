@@ -13,11 +13,11 @@ class ItemChangesInfo with ItemChangesInfoMappable {
 
   /// Description of the attachment
   @MappableField(key: 'description')
-  List<String> itemDescription;
+  List<String>? itemDescription;
 
   /// Is Deprecated taiga status of an attachment
   @MappableField(key: 'is_deprecated')
-  List<bool> itemStatus;
+  List<bool>? itemStatus;
 
   /// FromJson method, convert a json type object into this 
   /// ItemChangesInfo Object
