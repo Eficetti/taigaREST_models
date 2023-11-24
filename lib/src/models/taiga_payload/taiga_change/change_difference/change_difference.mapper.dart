@@ -38,9 +38,9 @@ class TaigaChangeDifferenceMapper
   static TaigaFromTo? _$status(TaigaChangeDifference v) => v.status;
   static const Field<TaigaChangeDifference, TaigaFromTo> _f$status =
       Field('status', _$status);
-  static TaigaFromTo? _$milestone(TaigaChangeDifference v) => v.milestone;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$milestone =
-      Field('milestone', _$milestone);
+  static TaigaFromTo? _$sprint(TaigaChangeDifference v) => v.sprint;
+  static const Field<TaigaChangeDifference, TaigaFromTo> _f$sprint =
+      Field('sprint', _$sprint);
   static TaigaFromTo? _$promotedTo(TaigaChangeDifference v) => v.promotedTo;
   static const Field<TaigaChangeDifference, TaigaFromTo> _f$promotedTo =
       Field('promotedTo', _$promotedTo, key: 'promoted_to');
@@ -111,7 +111,7 @@ class TaigaChangeDifferenceMapper
     #assignedTo: _f$assignedTo,
     #dueDate: _f$dueDate,
     #status: _f$status,
-    #milestone: _f$milestone,
+    #sprint: _f$sprint,
     #promotedTo: _f$promotedTo,
     #tags: _f$tags,
     #descriptionDiff: _f$descriptionDiff,
@@ -138,7 +138,7 @@ class TaigaChangeDifferenceMapper
         assignedTo: data.dec(_f$assignedTo),
         dueDate: data.dec(_f$dueDate),
         status: data.dec(_f$status),
-        milestone: data.dec(_f$milestone),
+        sprint: data.dec(_f$sprint),
         promotedTo: data.dec(_f$promotedTo),
         tags: data.dec(_f$tags),
         descriptionDiff: data.dec(_f$descriptionDiff),
@@ -222,7 +222,7 @@ abstract class TaigaChangeDifferenceCopyWith<
   TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get assignedTo;
   TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get dueDate;
   TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get status;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get milestone;
+  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get sprint;
   TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get promotedTo;
   TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get tags;
   TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get isClosed;
@@ -246,7 +246,7 @@ abstract class TaigaChangeDifferenceCopyWith<
       TaigaFromTo? assignedTo,
       TaigaFromTo? dueDate,
       TaigaFromTo? status,
-      TaigaFromTo? milestone,
+      TaigaFromTo? sprint,
       TaigaFromTo? promotedTo,
       TaigaFromTo? tags,
       String? descriptionDiff,
@@ -290,8 +290,8 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get status =>
       $value.status?.copyWith.$chain((v) => call(status: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get milestone =>
-      $value.milestone?.copyWith.$chain((v) => call(milestone: v));
+  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get sprint =>
+      $value.sprint?.copyWith.$chain((v) => call(sprint: v));
   @override
   TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get promotedTo =>
       $value.promotedTo?.copyWith.$chain((v) => call(promotedTo: v));
@@ -352,7 +352,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
           Object? assignedTo = $none,
           Object? dueDate = $none,
           Object? status = $none,
-          Object? milestone = $none,
+          Object? sprint = $none,
           Object? promotedTo = $none,
           Object? tags = $none,
           Object? descriptionDiff = $none,
@@ -376,7 +376,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
         if (assignedTo != $none) #assignedTo: assignedTo,
         if (dueDate != $none) #dueDate: dueDate,
         if (status != $none) #status: status,
-        if (milestone != $none) #milestone: milestone,
+        if (sprint != $none) #sprint: sprint,
         if (promotedTo != $none) #promotedTo: promotedTo,
         if (tags != $none) #tags: tags,
         if (descriptionDiff != $none) #descriptionDiff: descriptionDiff,
@@ -402,7 +402,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
       assignedTo: data.get(#assignedTo, or: $value.assignedTo),
       dueDate: data.get(#dueDate, or: $value.dueDate),
       status: data.get(#status, or: $value.status),
-      milestone: data.get(#milestone, or: $value.milestone),
+      sprint: data.get(#sprint, or: $value.sprint),
       promotedTo: data.get(#promotedTo, or: $value.promotedTo),
       tags: data.get(#tags, or: $value.tags),
       descriptionDiff: data.get(#descriptionDiff, or: $value.descriptionDiff),

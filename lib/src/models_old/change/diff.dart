@@ -16,7 +16,7 @@ class Diff {
     required this.assignedTo,
     required this.dueDate,
     required this.status,
-    required this.milestone,
+    required this.sprint,
     required this.promotedTo,
     required this.tags,
     required this.descriptionDiff,
@@ -52,8 +52,8 @@ class Diff {
       status: json['status'] != null
           ? FromTo.fromJson(json['status'] as Map<String, dynamic>)
           : null,
-      milestone: json['milestone'] != null
-          ? FromTo.fromJson(json['milestone'] as Map<String, dynamic>)
+      sprint: json['sprint'] != null
+          ? FromTo.fromJson(json['sprint'] as Map<String, dynamic>)
           : null,
       promotedTo: json['promoted_to'] != null
           ? FromTo.fromJson(json['promoted_to'] as Map<String, dynamic>)
@@ -128,8 +128,8 @@ class Diff {
   /// Changed made into the status
   FromTo? status;
 
-  /// Changed made into the milestone
-  FromTo? milestone;
+  /// Changed made into the sprint
+  FromTo? sprint;
 
   /// Change example:(If this is promoted into a user Story)
   FromTo? promotedTo;

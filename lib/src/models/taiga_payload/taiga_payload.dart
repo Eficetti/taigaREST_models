@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/taiga_change.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_sprint/data_sprint.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_user/taiga_user.dart';
 import 'package:taiga_rest_models/taiga_rest_models.dart';
 
@@ -13,7 +14,7 @@ part 'taiga_payload.mapper.dart';
 /// which has been made on Taiga, the type of Job related to the action,
 /// the user who made the action, the date when the action has been done,
 /// all the data related to the action (This is custom for each jobType), also
-/// it the type of action is a change, will receive the information in the
+/// if the type of action is "change", will receive the information in the
 /// "change" variable
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
@@ -26,6 +27,10 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
     required this.data,
     required this.change,
   }) {
+    /// This will generate the dataType correct for data based on the jobType
+    /// reading the data as Map<String, dynamic> first, then encode the data
+    /// into a json and calling the fromJson method inside of each dataType.
+    /// JobType: Sprint applies when you create a new sprint on scrum board
     switch (jobType) {
       case 'issue':
         data = TaigaIssueDataMPBLE.fromJson(jsonEncode(data));
@@ -35,6 +40,8 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
         data = TaigaTaskDataMPBLE.fromJson(jsonEncode(data));
       case 'epics':
         data = TaigaEpicDataMPBLE.fromJson(jsonEncode(data));
+      case 'sprint':
+        data = DataSprint.fromJson(jsonEncode(data));
     }
   }
 
@@ -48,16 +55,16 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
   @MappableField(key: 'type')
   String jobType;
 
-  /// performer is the user who made the action related to this payload
+  /// Performer is the user who made the action related to this payload
   @MappableField(key: 'by')
   TaigaUser performer;
 
-  /// This is the date when the action of this payload was done
+  /// This is the date when the action of this payload was made
   DateTime date;
 
   /// This is the most important part of the Payload, this include all the
   /// information of the action made, the related project, the link of them,
-  /// and also have custom types, for each jobType
+  /// and also have custom types, for each jobType.
   dynamic data;
 
   /// This is the changes that were made on this payload, only exist if the

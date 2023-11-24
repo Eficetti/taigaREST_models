@@ -294,7 +294,7 @@ class TaigaUserStoryDataMPBLEMapper
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
       TaigaCustomAttributesMapper.ensureInitialized();
-      DataMilestoneMapper.ensureInitialized();
+      DataSprintMapper.ensureInitialized();
       DataPointMapper.ensureInitialized();
     }
     return _instance!;
@@ -381,11 +381,10 @@ class TaigaUserStoryDataMPBLEMapper
   static bool _$isClosed(TaigaUserStoryDataMPBLE v) => v.isClosed;
   static const Field<TaigaUserStoryDataMPBLE, bool> _f$isClosed =
       Field('isClosed', _$isClosed, key: 'is_closed');
-  static DataMilestone? _$relatedMilestone(TaigaUserStoryDataMPBLE v) =>
-      v.relatedMilestone;
-  static const Field<TaigaUserStoryDataMPBLE, DataMilestone>
-      _f$relatedMilestone =
-      Field('relatedMilestone', _$relatedMilestone, key: 'milestone');
+  static DataSprint? _$relatedSprint(TaigaUserStoryDataMPBLE v) =>
+      v.relatedSprint;
+  static const Field<TaigaUserStoryDataMPBLE, DataSprint> _f$relatedSprint =
+      Field('relatedSprint', _$relatedSprint, key: 'sprint');
   static List<DataPoint> _$points(TaigaUserStoryDataMPBLE v) => v.points;
   static const Field<TaigaUserStoryDataMPBLE, List<DataPoint>> _f$points =
       Field('points', _$points);
@@ -419,7 +418,7 @@ class TaigaUserStoryDataMPBLEMapper
     #issueReference: _f$issueReference,
     #isBlocked: _f$isBlocked,
     #isClosed: _f$isClosed,
-    #relatedMilestone: _f$relatedMilestone,
+    #relatedSprint: _f$relatedSprint,
     #points: _f$points,
     #teamRequirement: _f$teamRequirement,
   };
@@ -450,7 +449,7 @@ class TaigaUserStoryDataMPBLEMapper
         issueReference: data.dec(_f$issueReference),
         isBlocked: data.dec(_f$isBlocked),
         isClosed: data.dec(_f$isClosed),
-        relatedMilestone: data.dec(_f$relatedMilestone),
+        relatedSprint: data.dec(_f$relatedSprint),
         points: data.dec(_f$points),
         teamRequirement: data.dec(_f$teamRequirement));
   }
@@ -530,7 +529,7 @@ abstract class TaigaUserStoryDataMPBLECopyWith<
   TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
       TaigaCustomAttributes>? get customValues;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers;
-  DataMilestoneCopyWith<$R, DataMilestone, DataMilestone>? get relatedMilestone;
+  DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, DataPoint, DataPointCopyWith<$R, DataPoint, DataPoint>>
       get points;
   @override
@@ -559,7 +558,7 @@ abstract class TaigaUserStoryDataMPBLECopyWith<
       int? issueReference,
       bool? isBlocked,
       bool? isClosed,
-      DataMilestone? relatedMilestone,
+      DataSprint? relatedSprint,
       List<DataPoint>? points,
       bool? teamRequirement});
   TaigaUserStoryDataMPBLECopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -609,9 +608,8 @@ class _TaigaUserStoryDataMPBLECopyWithImpl<$R, $Out>
           (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(assignedUsers: v));
   @override
-  DataMilestoneCopyWith<$R, DataMilestone, DataMilestone>?
-      get relatedMilestone => $value.relatedMilestone?.copyWith
-          .$chain((v) => call(relatedMilestone: v));
+  DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint =>
+      $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
   @override
   ListCopyWith<$R, DataPoint, DataPointCopyWith<$R, DataPoint, DataPoint>>
       get points => ListCopyWith($value.points, (v, t) => v.copyWith.$chain(t),
@@ -642,7 +640,7 @@ class _TaigaUserStoryDataMPBLECopyWithImpl<$R, $Out>
           Object? issueReference = $none,
           bool? isBlocked,
           bool? isClosed,
-          Object? relatedMilestone = $none,
+          Object? relatedSprint = $none,
           List<DataPoint>? points,
           bool? teamRequirement}) =>
       $apply(FieldCopyWithData({
@@ -670,7 +668,7 @@ class _TaigaUserStoryDataMPBLECopyWithImpl<$R, $Out>
         if (issueReference != $none) #issueReference: issueReference,
         if (isBlocked != null) #isBlocked: isBlocked,
         if (isClosed != null) #isClosed: isClosed,
-        if (relatedMilestone != $none) #relatedMilestone: relatedMilestone,
+        if (relatedSprint != $none) #relatedSprint: relatedSprint,
         if (points != null) #points: points,
         if (teamRequirement != null) #teamRequirement: teamRequirement
       }));
@@ -701,8 +699,7 @@ class _TaigaUserStoryDataMPBLECopyWithImpl<$R, $Out>
       issueReference: data.get(#issueReference, or: $value.issueReference),
       isBlocked: data.get(#isBlocked, or: $value.isBlocked),
       isClosed: data.get(#isClosed, or: $value.isClosed),
-      relatedMilestone:
-          data.get(#relatedMilestone, or: $value.relatedMilestone),
+      relatedSprint: data.get(#relatedSprint, or: $value.relatedSprint),
       points: data.get(#points, or: $value.points),
       teamRequirement: data.get(#teamRequirement, or: $value.teamRequirement));
 
@@ -724,7 +721,7 @@ class TaigaTaskDataMPBLEMapper extends ClassMapperBase<TaigaTaskDataMPBLE> {
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
       TaigaCustomAttributesMapper.ensureInitialized();
-      DataMilestoneMapper.ensureInitialized();
+      DataSprintMapper.ensureInitialized();
       TaigaUserStoryDataMPBLEMapper.ensureInitialized();
     }
     return _instance!;
@@ -795,10 +792,9 @@ class TaigaTaskDataMPBLEMapper extends ClassMapperBase<TaigaTaskDataMPBLE> {
   static bool _$isIocaine(TaigaTaskDataMPBLE v) => v.isIocaine;
   static const Field<TaigaTaskDataMPBLE, bool> _f$isIocaine =
       Field('isIocaine', _$isIocaine, key: 'is_iocaine');
-  static DataMilestone? _$relatedMilestone(TaigaTaskDataMPBLE v) =>
-      v.relatedMilestone;
-  static const Field<TaigaTaskDataMPBLE, DataMilestone> _f$relatedMilestone =
-      Field('relatedMilestone', _$relatedMilestone, key: 'milestone');
+  static DataSprint? _$relatedSprint(TaigaTaskDataMPBLE v) => v.relatedSprint;
+  static const Field<TaigaTaskDataMPBLE, DataSprint> _f$relatedSprint =
+      Field('relatedSprint', _$relatedSprint, key: 'sprint');
   static List<dynamic> _$promotedTo(TaigaTaskDataMPBLE v) => v.promotedTo;
   static const Field<TaigaTaskDataMPBLE, List<dynamic>> _f$promotedTo =
       Field('promotedTo', _$promotedTo, key: 'promoted_to');
@@ -835,7 +831,7 @@ class TaigaTaskDataMPBLEMapper extends ClassMapperBase<TaigaTaskDataMPBLE> {
     #finishedDate: _f$finishedDate,
     #isBlocked: _f$isBlocked,
     #isIocaine: _f$isIocaine,
-    #relatedMilestone: _f$relatedMilestone,
+    #relatedSprint: _f$relatedSprint,
     #promotedTo: _f$promotedTo,
     #taskboardOrder: _f$taskboardOrder,
     #usOrder: _f$usOrder,
@@ -864,7 +860,7 @@ class TaigaTaskDataMPBLEMapper extends ClassMapperBase<TaigaTaskDataMPBLE> {
         finishedDate: data.dec(_f$finishedDate),
         isBlocked: data.dec(_f$isBlocked),
         isIocaine: data.dec(_f$isIocaine),
-        relatedMilestone: data.dec(_f$relatedMilestone),
+        relatedSprint: data.dec(_f$relatedSprint),
         promotedTo: data.dec(_f$promotedTo),
         taskboardOrder: data.dec(_f$taskboardOrder),
         usOrder: data.dec(_f$usOrder),
@@ -943,7 +939,7 @@ abstract class TaigaTaskDataMPBLECopyWith<$R, $In extends TaigaTaskDataMPBLE,
   @override
   TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
       TaigaCustomAttributes>? get customValues;
-  DataMilestoneCopyWith<$R, DataMilestone, DataMilestone>? get relatedMilestone;
+  DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedTo;
   TaigaUserStoryDataMPBLECopyWith<$R, TaigaUserStoryDataMPBLE,
@@ -970,7 +966,7 @@ abstract class TaigaTaskDataMPBLECopyWith<$R, $In extends TaigaTaskDataMPBLE,
       DateTime? finishedDate,
       bool? isBlocked,
       bool? isIocaine,
-      DataMilestone? relatedMilestone,
+      DataSprint? relatedSprint,
       List<dynamic>? promotedTo,
       int? taskboardOrder,
       int? usOrder,
@@ -1015,9 +1011,8 @@ class _TaigaTaskDataMPBLECopyWithImpl<$R, $Out>
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
-  DataMilestoneCopyWith<$R, DataMilestone, DataMilestone>?
-      get relatedMilestone => $value.relatedMilestone?.copyWith
-          .$chain((v) => call(relatedMilestone: v));
+  DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint =>
+      $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedTo => ListCopyWith(
@@ -1051,7 +1046,7 @@ class _TaigaTaskDataMPBLECopyWithImpl<$R, $Out>
           Object? finishedDate = $none,
           bool? isBlocked,
           bool? isIocaine,
-          Object? relatedMilestone = $none,
+          Object? relatedSprint = $none,
           List<dynamic>? promotedTo,
           int? taskboardOrder,
           int? usOrder,
@@ -1077,7 +1072,7 @@ class _TaigaTaskDataMPBLECopyWithImpl<$R, $Out>
         if (finishedDate != $none) #finishedDate: finishedDate,
         if (isBlocked != null) #isBlocked: isBlocked,
         if (isIocaine != null) #isIocaine: isIocaine,
-        if (relatedMilestone != $none) #relatedMilestone: relatedMilestone,
+        if (relatedSprint != $none) #relatedSprint: relatedSprint,
         if (promotedTo != null) #promotedTo: promotedTo,
         if (taskboardOrder != null) #taskboardOrder: taskboardOrder,
         if (usOrder != null) #usOrder: usOrder,
@@ -1105,8 +1100,7 @@ class _TaigaTaskDataMPBLECopyWithImpl<$R, $Out>
       finishedDate: data.get(#finishedDate, or: $value.finishedDate),
       isBlocked: data.get(#isBlocked, or: $value.isBlocked),
       isIocaine: data.get(#isIocaine, or: $value.isIocaine),
-      relatedMilestone:
-          data.get(#relatedMilestone, or: $value.relatedMilestone),
+      relatedSprint: data.get(#relatedSprint, or: $value.relatedSprint),
       promotedTo: data.get(#promotedTo, or: $value.promotedTo),
       taskboardOrder: data.get(#taskboardOrder, or: $value.taskboardOrder),
       usOrder: data.get(#usOrder, or: $value.usOrder),
@@ -1130,7 +1124,7 @@ class TaigaIssueDataMPBLEMapper extends ClassMapperBase<TaigaIssueDataMPBLE> {
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
       TaigaCustomAttributesMapper.ensureInitialized();
-      DataMilestoneMapper.ensureInitialized();
+      DataSprintMapper.ensureInitialized();
       DataDetailsMapper.ensureInitialized();
     }
     return _instance!;
@@ -1192,9 +1186,9 @@ class TaigaIssueDataMPBLEMapper extends ClassMapperBase<TaigaIssueDataMPBLE> {
   static DateTime? _$finishedDate(TaigaIssueDataMPBLE v) => v.finishedDate;
   static const Field<TaigaIssueDataMPBLE, DateTime> _f$finishedDate =
       Field('finishedDate', _$finishedDate, key: 'finished_date');
-  static DataMilestone? _$milestone(TaigaIssueDataMPBLE v) => v.milestone;
-  static const Field<TaigaIssueDataMPBLE, DataMilestone> _f$milestone =
-      Field('milestone', _$milestone);
+  static DataSprint? _$sprint(TaigaIssueDataMPBLE v) => v.sprint;
+  static const Field<TaigaIssueDataMPBLE, DataSprint> _f$sprint =
+      Field('sprint', _$sprint);
   static DataDetails _$priority(TaigaIssueDataMPBLE v) => v.priority;
   static const Field<TaigaIssueDataMPBLE, DataDetails> _f$priority =
       Field('priority', _$priority);
@@ -1227,7 +1221,7 @@ class TaigaIssueDataMPBLEMapper extends ClassMapperBase<TaigaIssueDataMPBLE> {
     #dueDate: _f$dueDate,
     #dueDateReason: _f$dueDateReason,
     #finishedDate: _f$finishedDate,
-    #milestone: _f$milestone,
+    #sprint: _f$sprint,
     #priority: _f$priority,
     #promotedTo: _f$promotedTo,
     #severity: _f$severity,
@@ -1253,7 +1247,7 @@ class TaigaIssueDataMPBLEMapper extends ClassMapperBase<TaigaIssueDataMPBLE> {
         dueDate: data.dec(_f$dueDate),
         dueDateReason: data.dec(_f$dueDateReason),
         finishedDate: data.dec(_f$finishedDate),
-        milestone: data.dec(_f$milestone),
+        sprint: data.dec(_f$sprint),
         priority: data.dec(_f$priority),
         promotedTo: data.dec(_f$promotedTo),
         severity: data.dec(_f$severity),
@@ -1332,7 +1326,7 @@ abstract class TaigaIssueDataMPBLECopyWith<$R, $In extends TaigaIssueDataMPBLE,
   @override
   TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
       TaigaCustomAttributes>? get customValues;
-  DataMilestoneCopyWith<$R, DataMilestone, DataMilestone>? get milestone;
+  DataSprintCopyWith<$R, DataSprint, DataSprint>? get sprint;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get priority;
   ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedTo;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get severity;
@@ -1356,7 +1350,7 @@ abstract class TaigaIssueDataMPBLECopyWith<$R, $In extends TaigaIssueDataMPBLE,
       DateTime? dueDate,
       String? dueDateReason,
       DateTime? finishedDate,
-      DataMilestone? milestone,
+      DataSprint? sprint,
       DataDetails? priority,
       List<int?>? promotedTo,
       DataDetails? severity,
@@ -1401,8 +1395,8 @@ class _TaigaIssueDataMPBLECopyWithImpl<$R, $Out>
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
-  DataMilestoneCopyWith<$R, DataMilestone, DataMilestone>? get milestone =>
-      $value.milestone?.copyWith.$chain((v) => call(milestone: v));
+  DataSprintCopyWith<$R, DataSprint, DataSprint>? get sprint =>
+      $value.sprint?.copyWith.$chain((v) => call(sprint: v));
   @override
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get priority =>
       $value.priority.copyWith.$chain((v) => call(priority: v));
@@ -1435,7 +1429,7 @@ class _TaigaIssueDataMPBLECopyWithImpl<$R, $Out>
           Object? dueDate = $none,
           String? dueDateReason,
           Object? finishedDate = $none,
-          Object? milestone = $none,
+          Object? sprint = $none,
           DataDetails? priority,
           List<int?>? promotedTo,
           DataDetails? severity,
@@ -1458,7 +1452,7 @@ class _TaigaIssueDataMPBLECopyWithImpl<$R, $Out>
         if (dueDate != $none) #dueDate: dueDate,
         if (dueDateReason != null) #dueDateReason: dueDateReason,
         if (finishedDate != $none) #finishedDate: finishedDate,
-        if (milestone != $none) #milestone: milestone,
+        if (sprint != $none) #sprint: sprint,
         if (priority != null) #priority: priority,
         if (promotedTo != null) #promotedTo: promotedTo,
         if (severity != null) #severity: severity,
@@ -1483,7 +1477,7 @@ class _TaigaIssueDataMPBLECopyWithImpl<$R, $Out>
       dueDate: data.get(#dueDate, or: $value.dueDate),
       dueDateReason: data.get(#dueDateReason, or: $value.dueDateReason),
       finishedDate: data.get(#finishedDate, or: $value.finishedDate),
-      milestone: data.get(#milestone, or: $value.milestone),
+      sprint: data.get(#sprint, or: $value.sprint),
       priority: data.get(#priority, or: $value.priority),
       promotedTo: data.get(#promotedTo, or: $value.promotedTo),
       severity: data.get(#severity, or: $value.severity),

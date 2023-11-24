@@ -1,7 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_attributes/change_custom_attributes/taiga_custom_attributes.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_details/data_details.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_milestone/data_milestone.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_sprint/data_sprint.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_point/data_point.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_project/taiga_project.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_status/taiga_status.dart';
@@ -43,26 +43,26 @@ class TaigaDataMPBLE with TaigaDataMPBLEMappable {
   @MappableField(key: 'ref')
   int referenceNumber;
 
-  /// jobDescription is the description used on Taiga for the job, can came as 
-  /// null if the job has no description on it 
+  /// jobDescription is the description used on Taiga for the job, can came as
+  /// null if the job has no description on it
   @MappableField(key: 'description')
   String? jobDescription;
 
-  /// Tags, are all the tags added on the job, if the job have no tags, came as 
+  /// Tags, are all the tags added on the job, if the job have no tags, came as
   /// an empty list from Taiga
   List<dynamic> tags;
 
-  /// Owner of the Job, it will be an instance of user, and is the person who 
+  /// Owner of the Job, it will be an instance of user, and is the person who
   /// create the job on the Taiga project
   @MappableField(key: 'owner')
   TaigaUser jobOwner;
 
-  /// Status of the Job, this is a custom state you can put to your jobs, 
+  /// Status of the Job, this is a custom state you can put to your jobs,
   /// have his own id, name, color and a boolean value for the "is_closed" state
   @MappableField(key: 'status')
   TaigaStatus jobStatus;
 
-  /// FromProject have some project information related to this Job, like the 
+  /// FromProject have some project information related to this Job, like the
   /// id, link and name.
   @MappableField(key: 'project')
   TaigaProject fromProject;
@@ -79,7 +79,7 @@ class TaigaDataMPBLE with TaigaDataMPBLEMappable {
   /// Permanent link of the Job on Taiga
   String permalink;
 
-  /// UserAssigned is the person assigned to a task, can be null if no one is 
+  /// UserAssigned is the person assigned to a task, can be null if no one is
   /// assigned to it
   @MappableField(key: 'assigned_to')
   TaigaUser? userAssigned;
@@ -88,11 +88,11 @@ class TaigaDataMPBLE with TaigaDataMPBLEMappable {
   @MappableField(key: 'created_date')
   DateTime creationDate;
 
-  /// Date of the last modification, can be null 
+  /// Date of the last modification, can be null
   @MappableField(key: 'modified_date')
   DateTime? modifiedDate;
 
-  /// CustomValues is the custom fields you add on taiga, if you use this on 
+  /// CustomValues is the custom fields you add on taiga, if you use this on
   /// your project, I recommend modify the class "TaigaCustomAttributes" to map
   /// your values
   @MappableField(key: 'custom_attributes_values')
@@ -102,7 +102,8 @@ class TaigaDataMPBLE with TaigaDataMPBLEMappable {
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an UserStory jobType
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaUserStoryDataMPBLE extends TaigaDataMPBLE with TaigaUserStoryDataMPBLEMappable {
+class TaigaUserStoryDataMPBLE extends TaigaDataMPBLE
+    with TaigaUserStoryDataMPBLEMappable {
   /// Constructor of the TaigaUserStoryData class
   TaigaUserStoryDataMPBLE({
     required super.jobId,
@@ -130,7 +131,7 @@ class TaigaUserStoryDataMPBLE extends TaigaDataMPBLE with TaigaUserStoryDataMPBL
     required this.issueReference,
     required this.isBlocked,
     required this.isClosed,
-    required this.relatedMilestone,
+    required this.relatedSprint,
     required this.points,
     required this.teamRequirement,
   });
@@ -149,8 +150,8 @@ class TaigaUserStoryDataMPBLE extends TaigaDataMPBLE with TaigaUserStoryDataMPBL
   /// are customizable on Taiga
   DateTime? dueDate;
 
-  /// DueDateReason is the reason because it will be marked as expired, 
-  /// can come as an empty string: "" if the dueDate is null, or if is not 
+  /// DueDateReason is the reason because it will be marked as expired,
+  /// can come as an empty string: "" if the dueDate is null, or if is not
   /// assigned any reason
   String dueDateReason;
 
@@ -174,12 +175,12 @@ class TaigaUserStoryDataMPBLE extends TaigaDataMPBLE with TaigaUserStoryDataMPBL
   /// State of the UserStory Closed or not Closed
   bool isClosed;
 
-  /// Milestone related to the userStory
-  @MappableField(key: 'milestone')
-  DataMilestone? relatedMilestone;
+  /// Sprint related to the userStory
+  @MappableField(key: 'sprint')
+  DataSprint? relatedSprint;
 
   /// Thats are the points for each apart (Design/Front/Back/Project Manager),
-  /// all this values are customizable in Taiga 
+  /// all this values are customizable in Taiga
   List<DataPoint> points;
 
   /// Bool who says if is a Team requirement or not
@@ -193,7 +194,8 @@ class TaigaUserStoryDataMPBLE extends TaigaDataMPBLE with TaigaUserStoryDataMPBL
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to a Task jobType
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaTaskDataMPBLE extends TaigaDataMPBLE with TaigaTaskDataMPBLEMappable {
+class TaigaTaskDataMPBLE extends TaigaDataMPBLE
+    with TaigaTaskDataMPBLEMappable {
   /// Constructor of the class TaigaTaskData
   TaigaTaskDataMPBLE({
     required super.jobId,
@@ -217,7 +219,7 @@ class TaigaTaskDataMPBLE extends TaigaDataMPBLE with TaigaTaskDataMPBLEMappable 
     required this.finishedDate,
     required this.isBlocked,
     required this.isIocaine,
-    required this.relatedMilestone,
+    required this.relatedSprint,
     required this.promotedTo,
     required this.taskboardOrder,
     required this.usOrder,
@@ -227,14 +229,14 @@ class TaigaTaskDataMPBLE extends TaigaDataMPBLE with TaigaTaskDataMPBLEMappable 
   /// Date when the issue will be marked as expired, it can be null
   DateTime? dueDate;
 
-  /// DueDateReason is the reason because it will be marked as expired, 
-  /// can come as an empty string: "" if the dueDate is null, or if is not 
+  /// DueDateReason is the reason because it will be marked as expired,
+  /// can come as an empty string: "" if the dueDate is null, or if is not
   /// assigned any reason
   String dueDateReason;
 
-  /// Milestone related to the task
-  @MappableField(key: 'milestone')
-  DataMilestone? relatedMilestone;
+  /// Sprint related to the task
+  @MappableField(key: 'sprint')
+  DataSprint? relatedSprint;
 
   /// State of the Task Blocked or not Blocked
   bool isBlocked;
@@ -252,7 +254,7 @@ class TaigaTaskDataMPBLE extends TaigaDataMPBLE with TaigaTaskDataMPBLEMappable 
   /// list
   List<dynamic> promotedTo;
 
-  /// The date of the day it was marked as finished, if is not, 
+  /// The date of the day it was marked as finished, if is not,
   /// came as null value
   @MappableField(key: 'finished_date')
   DateTime? finishedDate;
@@ -272,7 +274,8 @@ class TaigaTaskDataMPBLE extends TaigaDataMPBLE with TaigaTaskDataMPBLEMappable 
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an Issue jobType
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaIssueDataMPBLE extends TaigaDataMPBLE with TaigaIssueDataMPBLEMappable {
+class TaigaIssueDataMPBLE extends TaigaDataMPBLE
+    with TaigaIssueDataMPBLEMappable {
   /// Constructor of the TaigaIssueData class
   TaigaIssueDataMPBLE({
     required super.jobId,
@@ -293,7 +296,7 @@ class TaigaIssueDataMPBLE extends TaigaDataMPBLE with TaigaIssueDataMPBLEMappabl
     required this.dueDate,
     required this.dueDateReason,
     required this.finishedDate,
-    required this.milestone,
+    required this.sprint,
     required this.priority,
     required this.promotedTo,
     required this.severity,
@@ -309,10 +312,10 @@ class TaigaIssueDataMPBLE extends TaigaDataMPBLE with TaigaIssueDataMPBLEMappabl
   /// Reason because it will be marked as expired, can come as an empty string
   String dueDateReason;
 
-  /// Milestone related to the taiga Issue
-  DataMilestone? milestone;
+  /// Sprint related to the taiga Issue
+  DataSprint? sprint;
 
-  /// Type of the Issue, this is a custom value you have to configure on 
+  /// Type of the Issue, this is a custom value you have to configure on
   /// Taiga
   DataDetails type;
 
@@ -335,7 +338,8 @@ class TaigaIssueDataMPBLE extends TaigaDataMPBLE with TaigaIssueDataMPBLEMappabl
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an Epic jobType
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaEpicDataMPBLE extends TaigaDataMPBLE with TaigaEpicDataMPBLEMappable {
+class TaigaEpicDataMPBLE extends TaigaDataMPBLE
+    with TaigaEpicDataMPBLEMappable {
   /// Constructor of the TaigaEpicData class
   TaigaEpicDataMPBLE({
     required super.jobId,

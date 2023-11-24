@@ -1,6 +1,6 @@
 import 'package:taiga_rest_models/src/models_old/data/custom_attributes_values.dart';
 import 'package:taiga_rest_models/src/models_old/data/details.dart';
-import 'package:taiga_rest_models/src/models_old/data/milestone.dart';
+import 'package:taiga_rest_models/src/models_old/data/sprint.dart';
 import 'package:taiga_rest_models/src/models_old/data/point.dart';
 import 'package:taiga_rest_models/src/models_old/data/project.dart';
 import 'package:taiga_rest_models/src/models_old/data/status.dart';
@@ -111,7 +111,7 @@ class TaigaUserStoryData extends TaigaData {
     required this.generatedFromTask,
     required this.isBlocked,
     required this.isClosed,
-    required this.milestone,
+    required this.sprint,
     required this.points,
     required this.teamRequirement,
     required this.tribeGig,
@@ -141,8 +141,8 @@ class TaigaUserStoryData extends TaigaData {
       tags: List<dynamic>.from(json['tags'] as List<dynamic>),
       permalink: json['permalink'] as String,
       project: Project.fromJson(json['project'] as Map<String, dynamic>),
-      milestone: json['milestone'] != null
-          ? Milestone.fromJson(json['milestone'] as Map<String, dynamic>)
+      sprint: json['sprint'] != null
+          ? Sprint.fromJson(json['sprint'] as Map<String, dynamic>)
           : null,
       owner: TaigaUser.fromJson(json['owner'] as Map<String, dynamic>),
       userAssigned: json['assigned_to'] != null
@@ -216,8 +216,8 @@ class TaigaUserStoryData extends TaigaData {
   /// State of the UserStory Closed or not Closed
   bool isClosed;
 
-  /// Milestone related to the userStory
-  Milestone? milestone;
+  /// Sprint related to the userStory
+  Sprint? sprint;
 
   /// Thats are the points for each apart (Design/Front/Back/Project Manager)
   List<Point> points;
@@ -256,7 +256,7 @@ class TaigaTaskData extends TaigaData {
     required this.finishedDate,
     required this.isBlocked,
     required this.isIocaine,
-    required this.milestone,
+    required this.sprint,
     required this.promotedTo,
     required this.taskboardOrder,
     required this.usOrder,
@@ -283,8 +283,8 @@ class TaigaTaskData extends TaigaData {
       tags: List<dynamic>.from(json['tags'] as List<dynamic>),
       permalink: json['permalink'] as String,
       project: Project.fromJson(json['project'] as Map<String, dynamic>),
-      milestone: json['milestone'] != null
-          ? Milestone.fromJson(json['milestone'] as Map<String, dynamic>)
+      sprint: json['sprint'] != null
+          ? Sprint.fromJson(json['sprint'] as Map<String, dynamic>)
           : null,
       owner: TaigaUser.fromJson(json['owner'] as Map<String, dynamic>),
       userAssigned: json['assigned_to'] != null
@@ -318,8 +318,8 @@ class TaigaTaskData extends TaigaData {
   /// externalReference, this value is not applied, always show as null
   String? externalReference;
 
-  /// Milestone related to the task
-  Milestone? milestone;
+  /// Sprint related to the task
+  Sprint? sprint;
 
   /// State of the Task Blocked or not Blocked
   bool isBlocked;
@@ -370,7 +370,7 @@ class TaigaIssueData extends TaigaData {
     required this.dueDateReason,
     required this.externalReference,
     required this.finishedDate,
-    required this.milestone,
+    required this.sprint,
     required this.priority,
     required this.promotedTo,
     required this.severity,
@@ -403,8 +403,8 @@ class TaigaIssueData extends TaigaData {
       tags: List<dynamic>.from(json['tags'] as List<dynamic>),
       permalink: json['permalink'] as String,
       project: Project.fromJson(json['project'] as Map<String, dynamic>),
-      milestone: json['milestone'] != null
-          ? Milestone.fromJson(json['milestone'] as Map<String, dynamic>)
+      sprint: json['sprint'] != null
+          ? Sprint.fromJson(json['sprint'] as Map<String, dynamic>)
           : null,
       owner: TaigaUser.fromJson(json['owner'] as Map<String, dynamic>),
       userAssigned: json['assigned_to'] != null
@@ -430,8 +430,8 @@ class TaigaIssueData extends TaigaData {
   /// externalReference, this value is not applied, always show as null
   String? externalReference;
 
-  /// Milestone related to the taiga Issue
-  Milestone? milestone;
+  /// Sprint related to the taiga Issue
+  Sprint? sprint;
 
   /// Type of the Issue
   Details type;
@@ -442,7 +442,7 @@ class TaigaIssueData extends TaigaData {
   /// Severity of the Issue, custom values
   Details severity;
 
-  /// PromotedTo 
+  /// PromotedTo
   List<int?> promotedTo;
 }
 
