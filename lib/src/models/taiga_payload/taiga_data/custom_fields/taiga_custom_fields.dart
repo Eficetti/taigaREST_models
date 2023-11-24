@@ -6,14 +6,15 @@ part 'taiga_custom_fields.mapper.dart';
 //! to use your own custom fields
 
 /// This class will storage all the custom fields on a object, if you create
-/// a taiga project, you will need to modify the CustomAttributes class 
+/// a taiga project, you will need to modify the CustomAttributes class
 /// and mapper to read your own values
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaCustomFields with TaigaCustomFieldsMappable {
   /// Constructor of the TaigaCustomAttributes class
   TaigaCustomFields({
-    required this.figmaUrl,
-    required this.bounty,
+    this.figmaUrl,
+    this.bounty,
+    this.figmaToDeveloped,
   });
 
   /// Url link of figma assigned to a UserStory

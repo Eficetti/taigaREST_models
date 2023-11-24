@@ -38,9 +38,9 @@ class TaigaChangeDifferenceMapper
   static FromTo? _$status(TaigaChangeDifference v) => v.status;
   static const Field<TaigaChangeDifference, FromTo> _f$status =
       Field('status', _$status, opt: true);
-  static FromTo? _$sprint(TaigaChangeDifference v) => v.sprint;
-  static const Field<TaigaChangeDifference, FromTo> _f$sprint =
-      Field('sprint', _$sprint, key: 'milestone', opt: true);
+  static FromTo? _$relatedSprint(TaigaChangeDifference v) => v.relatedSprint;
+  static const Field<TaigaChangeDifference, FromTo> _f$relatedSprint =
+      Field('relatedSprint', _$relatedSprint, key: 'milestone', opt: true);
   static FromTo? _$promotedTo(TaigaChangeDifference v) => v.promotedTo;
   static const Field<TaigaChangeDifference, FromTo> _f$promotedTo =
       Field('promotedTo', _$promotedTo, key: 'promoted_to', opt: true);
@@ -114,7 +114,7 @@ class TaigaChangeDifferenceMapper
     #assignedTo: _f$assignedTo,
     #dueDate: _f$dueDate,
     #status: _f$status,
-    #sprint: _f$sprint,
+    #relatedSprint: _f$relatedSprint,
     #promotedTo: _f$promotedTo,
     #tags: _f$tags,
     #descriptionDiff: _f$descriptionDiff,
@@ -141,7 +141,7 @@ class TaigaChangeDifferenceMapper
         assignedTo: data.dec(_f$assignedTo),
         dueDate: data.dec(_f$dueDate),
         status: data.dec(_f$status),
-        sprint: data.dec(_f$sprint),
+        relatedSprint: data.dec(_f$relatedSprint),
         promotedTo: data.dec(_f$promotedTo),
         tags: data.dec(_f$tags),
         descriptionDiff: data.dec(_f$descriptionDiff),
@@ -226,7 +226,7 @@ abstract class TaigaChangeDifferenceCopyWith<
   FromToCopyWith<$R, FromTo, FromTo>? get assignedTo;
   FromToCopyWith<$R, FromTo, FromTo>? get dueDate;
   FromToCopyWith<$R, FromTo, FromTo>? get status;
-  FromToCopyWith<$R, FromTo, FromTo>? get sprint;
+  FromToCopyWith<$R, FromTo, FromTo>? get relatedSprint;
   FromToCopyWith<$R, FromTo, FromTo>? get promotedTo;
   FromToCopyWith<$R, FromTo, FromTo>? get tags;
   FromToCopyWith<$R, FromTo, FromTo>? get isClosed;
@@ -250,7 +250,7 @@ abstract class TaigaChangeDifferenceCopyWith<
       FromTo? assignedTo,
       FromTo? dueDate,
       FromTo? status,
-      FromTo? sprint,
+      FromTo? relatedSprint,
       FromTo? promotedTo,
       FromTo? tags,
       String? descriptionDiff,
@@ -295,8 +295,8 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   FromToCopyWith<$R, FromTo, FromTo>? get status =>
       $value.status?.copyWith.$chain((v) => call(status: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get sprint =>
-      $value.sprint?.copyWith.$chain((v) => call(sprint: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get relatedSprint =>
+      $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
   @override
   FromToCopyWith<$R, FromTo, FromTo>? get promotedTo =>
       $value.promotedTo?.copyWith.$chain((v) => call(promotedTo: v));
@@ -357,7 +357,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
           Object? assignedTo = $none,
           Object? dueDate = $none,
           Object? status = $none,
-          Object? sprint = $none,
+          Object? relatedSprint = $none,
           Object? promotedTo = $none,
           Object? tags = $none,
           Object? descriptionDiff = $none,
@@ -381,7 +381,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
         if (assignedTo != $none) #assignedTo: assignedTo,
         if (dueDate != $none) #dueDate: dueDate,
         if (status != $none) #status: status,
-        if (sprint != $none) #sprint: sprint,
+        if (relatedSprint != $none) #relatedSprint: relatedSprint,
         if (promotedTo != $none) #promotedTo: promotedTo,
         if (tags != $none) #tags: tags,
         if (descriptionDiff != $none) #descriptionDiff: descriptionDiff,
@@ -407,7 +407,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
       assignedTo: data.get(#assignedTo, or: $value.assignedTo),
       dueDate: data.get(#dueDate, or: $value.dueDate),
       status: data.get(#status, or: $value.status),
-      sprint: data.get(#sprint, or: $value.sprint),
+      relatedSprint: data.get(#relatedSprint, or: $value.relatedSprint),
       promotedTo: data.get(#promotedTo, or: $value.promotedTo),
       tags: data.get(#tags, or: $value.tags),
       descriptionDiff: data.get(#descriptionDiff, or: $value.descriptionDiff),

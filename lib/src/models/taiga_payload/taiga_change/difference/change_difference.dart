@@ -19,7 +19,7 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
     this.assignedTo,
     this.dueDate,
     this.status,
-    this.sprint,
+    this.relatedSprint,
     this.promotedTo,
     this.tags,
     this.descriptionDiff,
@@ -54,7 +54,7 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
 
   /// Changed made into the sprint
   @MappableField(key: 'milestone')
-  FromTo? sprint;
+  FromTo? relatedSprint;
 
   /// Change example:(If this is promoted into a user Story)
   FromTo? promotedTo;

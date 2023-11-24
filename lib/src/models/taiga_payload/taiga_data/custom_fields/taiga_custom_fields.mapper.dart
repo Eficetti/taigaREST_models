@@ -22,14 +22,14 @@ class TaigaCustomFieldsMapper extends ClassMapperBase<TaigaCustomFields> {
 
   static String? _$figmaUrl(TaigaCustomFields v) => v.figmaUrl;
   static const Field<TaigaCustomFields, String> _f$figmaUrl =
-      Field('figmaUrl', _$figmaUrl, key: 'Pestaña del Figma');
+      Field('figmaUrl', _$figmaUrl, key: 'Pestaña del Figma', opt: true);
   static String? _$bounty(TaigaCustomFields v) => v.bounty;
   static const Field<TaigaCustomFields, String> _f$bounty =
-      Field('bounty', _$bounty, key: 'Bounty');
+      Field('bounty', _$bounty, key: 'Bounty', opt: true);
   static String? _$figmaToDeveloped(TaigaCustomFields v) => v.figmaToDeveloped;
   static const Field<TaigaCustomFields, String> _f$figmaToDeveloped = Field(
       'figmaToDeveloped', _$figmaToDeveloped,
-      key: 'Componente en el Figma');
+      key: 'Componente en el Figma', opt: true);
 
   @override
   final Map<Symbol, Field<TaigaCustomFields, dynamic>> fields = const {
@@ -40,7 +40,9 @@ class TaigaCustomFieldsMapper extends ClassMapperBase<TaigaCustomFields> {
 
   static TaigaCustomFields _instantiate(DecodingData data) {
     return TaigaCustomFields(
-        figmaUrl: data.dec(_f$figmaUrl), bounty: data.dec(_f$bounty));
+        figmaUrl: data.dec(_f$figmaUrl),
+        bounty: data.dec(_f$bounty),
+        figmaToDeveloped: data.dec(_f$figmaToDeveloped));
   }
 
   @override
@@ -100,7 +102,7 @@ extension TaigaCustomFieldsValueCopy<$R, $Out>
 
 abstract class TaigaCustomFieldsCopyWith<$R, $In extends TaigaCustomFields,
     $Out> implements ClassCopyWith<$R, $In, $Out> {
-  $R call({String? figmaUrl, String? bounty});
+  $R call({String? figmaUrl, String? bounty, String? figmaToDeveloped});
   TaigaCustomFieldsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -114,15 +116,21 @@ class _TaigaCustomFieldsCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaCustomFields> $mapper =
       TaigaCustomFieldsMapper.ensureInitialized();
   @override
-  $R call({Object? figmaUrl = $none, Object? bounty = $none}) =>
+  $R call(
+          {Object? figmaUrl = $none,
+          Object? bounty = $none,
+          Object? figmaToDeveloped = $none}) =>
       $apply(FieldCopyWithData({
         if (figmaUrl != $none) #figmaUrl: figmaUrl,
-        if (bounty != $none) #bounty: bounty
+        if (bounty != $none) #bounty: bounty,
+        if (figmaToDeveloped != $none) #figmaToDeveloped: figmaToDeveloped
       }));
   @override
   TaigaCustomFields $make(CopyWithData data) => TaigaCustomFields(
       figmaUrl: data.get(#figmaUrl, or: $value.figmaUrl),
-      bounty: data.get(#bounty, or: $value.bounty));
+      bounty: data.get(#bounty, or: $value.bounty),
+      figmaToDeveloped:
+          data.get(#figmaToDeveloped, or: $value.figmaToDeveloped));
 
   @override
   TaigaCustomFieldsCopyWith<$R2, TaigaCustomFields, $Out2> $chain<$R2, $Out2>(
