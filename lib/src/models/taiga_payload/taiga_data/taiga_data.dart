@@ -16,9 +16,9 @@ part 'taiga_data.mapper.dart';
 /// contains all the common data between the fourth types of job, which Taiga
 /// has
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaDataMPBLE with TaigaDataMPBLEMappable {
+class TaigaData with TaigaDataMappable {
   /// Constructor of the class TaigaData
-  TaigaDataMPBLE({
+  TaigaData({
     required this.jobId,
     required this.referenceNumber,
     required this.tags,
@@ -102,10 +102,9 @@ class TaigaDataMPBLE with TaigaDataMPBLEMappable {
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an UserStory jobType
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaUserStoryDataMPBLE extends TaigaDataMPBLE
-    with TaigaUserStoryDataMPBLEMappable {
+class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
   /// Constructor of the TaigaUserStoryData class
-  TaigaUserStoryDataMPBLE({
+  TaigaUserStoryData({
     required super.jobId,
     required super.referenceNumber,
     required super.tags,
@@ -188,16 +187,15 @@ class TaigaUserStoryDataMPBLE extends TaigaDataMPBLE
 
   /// FromJson method, convert a json type object into this
   /// TaigaUserStoryData Object
-  static const fromJson = TaigaUserStoryDataMPBLEMapper.fromJson;
+  static const fromJson = TaigaUserStoryDataMapper.fromJson;
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to a Task jobType
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaTaskDataMPBLE extends TaigaDataMPBLE
-    with TaigaTaskDataMPBLEMappable {
+class TaigaTaskData extends TaigaData with TaigaTaskDataMappable {
   /// Constructor of the class TaigaTaskData
-  TaigaTaskDataMPBLE({
+  TaigaTaskData({
     required super.jobId,
     required super.referenceNumber,
     required super.tags,
@@ -248,7 +246,7 @@ class TaigaTaskDataMPBLE extends TaigaDataMPBLE
   int usOrder;
 
   /// Is the userStory related to the task
-  TaigaUserStoryDataMPBLE userStory;
+  TaigaUserStoryData userStory;
 
   /// If the task is promoted into a UseStory, if is not can came as an empty
   /// list
@@ -268,16 +266,15 @@ class TaigaTaskDataMPBLE extends TaigaDataMPBLE
 
   /// FromJson method, convert a json type object into this
   /// TaigaTaskData Object
-  static const fromJson = TaigaTaskDataMPBLEMapper.fromJson;
+  static const fromJson = TaigaTaskDataMapper.fromJson;
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an Issue jobType
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaIssueDataMPBLE extends TaigaDataMPBLE
-    with TaigaIssueDataMPBLEMappable {
+class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
   /// Constructor of the TaigaIssueData class
-  TaigaIssueDataMPBLE({
+  TaigaIssueData({
     required super.jobId,
     required super.referenceNumber,
     required super.tags,
@@ -332,16 +329,15 @@ class TaigaIssueDataMPBLE extends TaigaDataMPBLE
 
   /// FromJson method, convert a json type object into this TaigaIssueData
   ///  Object
-  static const fromJson = TaigaIssueDataMPBLEMapper.fromJson;
+  static const fromJson = TaigaIssueDataMapper.fromJson;
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga
 /// related to an Epic jobType
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaEpicDataMPBLE extends TaigaDataMPBLE
-    with TaigaEpicDataMPBLEMappable {
+class TaigaEpicData extends TaigaData with TaigaEpicDataMappable {
   /// Constructor of the TaigaEpicData class
-  TaigaEpicDataMPBLE({
+  TaigaEpicData({
     required super.jobId,
     required super.referenceNumber,
     required super.tags,
@@ -377,5 +373,5 @@ class TaigaEpicDataMPBLE extends TaigaDataMPBLE
 
   /// FromJson method, convert a json type object into this TaigaEpicData
   /// Object
-  static const fromJson = TaigaEpicDataMPBLEMapper.fromJson;
+  static const fromJson = TaigaEpicDataMapper.fromJson;
 }

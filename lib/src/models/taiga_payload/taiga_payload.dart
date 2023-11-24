@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/taiga_change.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_sprint/data_sprint.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_user/taiga_user.dart';
 import 'package:taiga_rest_models/taiga_rest_models.dart';
 
@@ -17,9 +16,9 @@ part 'taiga_payload.mapper.dart';
 /// if the type of action is "change", will receive the information in the
 /// "change" variable
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
+class TaigaPayload with TaigaPayloadMappable {
   /// This is the Constructor of TaigaPayload
-  TaigaPayloadMPBLE({
+  TaigaPayload({
     required this.actionType,
     required this.jobType,
     required this.performer,
@@ -33,13 +32,13 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
     /// JobType: Sprint applies when you create a new sprint on scrum board
     switch (jobType) {
       case 'issue':
-        data = TaigaIssueDataMPBLE.fromJson(jsonEncode(data));
+        data = TaigaIssueData.fromJson(jsonEncode(data));
       case 'userstory':
-        data = TaigaUserStoryDataMPBLE.fromJson(jsonEncode(data));
+        data = TaigaUserStoryData.fromJson(jsonEncode(data));
       case 'task':
-        data = TaigaTaskDataMPBLE.fromJson(jsonEncode(data));
+        data = TaigaTaskData.fromJson(jsonEncode(data));
       case 'epics':
-        data = TaigaEpicDataMPBLE.fromJson(jsonEncode(data));
+        data = TaigaEpicData.fromJson(jsonEncode(data));
       case 'sprint':
         data = DataSprint.fromJson(jsonEncode(data));
     }
@@ -73,5 +72,5 @@ class TaigaPayloadMPBLE with TaigaPayloadMPBLEMappable {
 
   /// FromJson method, convert a json type object into this TaigaPayloadMapper
   /// object
-  static const fromJson = TaigaPayloadMPBLEMapper.fromJson;
+  static const fromJson = TaigaPayloadMapper.fromJson;
 }
