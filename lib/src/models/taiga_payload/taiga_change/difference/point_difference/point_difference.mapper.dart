@@ -23,16 +23,16 @@ class PointDifferenceMapper extends ClassMapperBase<PointDifference> {
 
   static FromTo? _$backPoints(PointDifference v) => v.backPoints;
   static const Field<PointDifference, FromTo> _f$backPoints =
-      Field('backPoints', _$backPoints, key: 'back_points');
+      Field('backPoints', _$backPoints, key: 'Back');
   static FromTo? _$frontPoints(PointDifference v) => v.frontPoints;
   static const Field<PointDifference, FromTo> _f$frontPoints =
-      Field('frontPoints', _$frontPoints, key: 'front_points');
+      Field('frontPoints', _$frontPoints, key: 'Front');
   static FromTo? _$designPoints(PointDifference v) => v.designPoints;
   static const Field<PointDifference, FromTo> _f$designPoints =
-      Field('designPoints', _$designPoints, key: 'design_points');
+      Field('designPoints', _$designPoints, key: 'Design');
   static FromTo? _$pmPoints(PointDifference v) => v.pmPoints;
   static const Field<PointDifference, FromTo> _f$pmPoints =
-      Field('pmPoints', _$pmPoints, key: 'pm_points');
+      Field('pmPoints', _$pmPoints, key: 'Project Manager');
 
   @override
   final Map<Symbol, Field<PointDifference, dynamic>> fields = const {

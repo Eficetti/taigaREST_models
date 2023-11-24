@@ -20,25 +20,28 @@ class DataDetailsMapper extends ClassMapperBase<DataDetails> {
   @override
   final String id = 'DataDetails';
 
-  static int _$id(DataDetails v) => v.id;
-  static const Field<DataDetails, int> _f$id = Field('id', _$id);
-  static String _$name(DataDetails v) => v.name;
-  static const Field<DataDetails, String> _f$name = Field('name', _$name);
-  static String _$color(DataDetails v) => v.color;
-  static const Field<DataDetails, String> _f$color = Field('color', _$color);
+  static int _$detailId(DataDetails v) => v.detailId;
+  static const Field<DataDetails, int> _f$detailId =
+      Field('detailId', _$detailId, key: 'id');
+  static String _$detailName(DataDetails v) => v.detailName;
+  static const Field<DataDetails, String> _f$detailName =
+      Field('detailName', _$detailName, key: 'name');
+  static String _$detailColor(DataDetails v) => v.detailColor;
+  static const Field<DataDetails, String> _f$detailColor =
+      Field('detailColor', _$detailColor, key: 'color');
 
   @override
   final Map<Symbol, Field<DataDetails, dynamic>> fields = const {
-    #id: _f$id,
-    #name: _f$name,
-    #color: _f$color,
+    #detailId: _f$detailId,
+    #detailName: _f$detailName,
+    #detailColor: _f$detailColor,
   };
 
   static DataDetails _instantiate(DecodingData data) {
     return DataDetails(
-        id: data.dec(_f$id),
-        name: data.dec(_f$name),
-        color: data.dec(_f$color));
+        detailId: data.dec(_f$detailId),
+        detailName: data.dec(_f$detailName),
+        detailColor: data.dec(_f$detailColor));
   }
 
   @override
@@ -94,7 +97,7 @@ extension DataDetailsValueCopy<$R, $Out>
 
 abstract class DataDetailsCopyWith<$R, $In extends DataDetails, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  $R call({int? id, String? name, String? color});
+  $R call({int? detailId, String? detailName, String? detailColor});
   DataDetailsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -107,16 +110,17 @@ class _DataDetailsCopyWithImpl<$R, $Out>
   late final ClassMapperBase<DataDetails> $mapper =
       DataDetailsMapper.ensureInitialized();
   @override
-  $R call({int? id, String? name, String? color}) => $apply(FieldCopyWithData({
-        if (id != null) #id: id,
-        if (name != null) #name: name,
-        if (color != null) #color: color
+  $R call({int? detailId, String? detailName, String? detailColor}) =>
+      $apply(FieldCopyWithData({
+        if (detailId != null) #detailId: detailId,
+        if (detailName != null) #detailName: detailName,
+        if (detailColor != null) #detailColor: detailColor
       }));
   @override
   DataDetails $make(CopyWithData data) => DataDetails(
-      id: data.get(#id, or: $value.id),
-      name: data.get(#name, or: $value.name),
-      color: data.get(#color, or: $value.color));
+      detailId: data.get(#detailId, or: $value.detailId),
+      detailName: data.get(#detailName, or: $value.detailName),
+      detailColor: data.get(#detailColor, or: $value.detailColor));
 
   @override
   DataDetailsCopyWith<$R2, DataDetails, $Out2> $chain<$R2, $Out2>(

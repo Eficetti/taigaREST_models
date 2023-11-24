@@ -3,8 +3,9 @@ import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/differen
 
 part 'item_changed.mapper.dart';
 
-/// This is the part of the attachments who saves all the things which has
-/// changed in the payload
+/// This is the part of the attachment item thats appear when a change is 
+/// committed, only will save you can only change the description, and the 
+/// status of an item, but it will generate a new URL for them
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class AttachmentItemChanged with AttachmentItemChangedMappable {
   /// Constructor of the Changed class

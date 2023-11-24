@@ -8,19 +8,22 @@ part 'data_details.mapper.dart';
 class DataDetails with DataDetailsMappable {
   /// Constructor of the Details class
   DataDetails({
-    required this.id,
-    required this.name,
-    required this.color,
+    required this.detailId,
+    required this.detailName,
+    required this.detailColor,
   });
 
   /// Id of the detail
-  int id;
+  @MappableField(key: 'id')
+  int detailId;
 
-  /// Name of the type of detail
-  String name;
+  /// Name of the type of detail, custom value 
+  @MappableField(key: 'name')
+  String detailName;
 
-  /// Color assigned to the detail
-  String color;
+  /// Color assigned to the detail, custom value
+  @MappableField(key: 'color')
+  String detailColor;
 
   /// FromJson method, convert a json type object into this DataDetails Object
   static const fromJson = DataDetailsMapper.fromJson;

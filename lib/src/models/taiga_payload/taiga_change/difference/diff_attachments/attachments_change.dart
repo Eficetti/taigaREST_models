@@ -5,8 +5,9 @@ import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/differen
 
 part 'attachments_change.mapper.dart';
 
-/// This class will storage the changes made into a custom attachment on Taiga
-/// it came as lists of Attachments
+/// This class will storage the changes made into an attachment on Taiga it
+/// came on three list, new, changed & deleted, any list can came as empty and
+/// only storage one item per payload
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class AttachmentsChange
     with AttachmentsChangeMappable {
@@ -17,11 +18,11 @@ class AttachmentsChange
     required this.attachmentDeleted,
   });
 
-  /// This is the new Attachment added
+  /// This is the new Attachment added into a job
   @MappableField(key: 'new')
   List<AttachmentItem> attachmentNew;
 
-  /// This will storage the change of an Attachment
+  /// This will storage the change made into an Attachment
   @MappableField(key: 'changed')
   List<AttachmentItemChanged> attachmentChanged;
 

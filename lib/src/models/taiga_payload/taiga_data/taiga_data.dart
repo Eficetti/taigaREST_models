@@ -1,5 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/change_attributes/custom_attributes/taiga_custom_attributes.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/custom_fields/taiga_custom_fields.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_details/data_details.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_point/data_point.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_project/taiga_project.dart';
@@ -21,13 +21,13 @@ class TaigaData with TaigaDataMappable {
   TaigaData({
     required this.jobId,
     required this.referenceNumber,
-    required this.tags,
+    required this.jobTags,
     required this.jobOwner,
     required this.jobStatus,
     required this.fromProject,
     required this.jobName,
     required this.jobWatchers,
-    required this.permalink,
+    required this.jobPermalink,
     required this.userAssigned,
     required this.jobDescription,
     required this.creationDate,
@@ -50,7 +50,8 @@ class TaigaData with TaigaDataMappable {
 
   /// Tags, are all the tags added on the job, if the job have no tags, came as
   /// an empty list from Taiga
-  List<dynamic> tags;
+  @MappableField(key: 'tags')
+  List<dynamic> jobTags;
 
   /// Owner of the Job, it will be an instance of user, and is the person who
   /// create the job on the Taiga project
@@ -77,7 +78,8 @@ class TaigaData with TaigaDataMappable {
   List<int> jobWatchers;
 
   /// Permanent link of the Job on Taiga
-  String permalink;
+  @MappableField(key: 'permalink')
+  String jobPermalink;
 
   /// UserAssigned is the person assigned to a task, can be null if no one is
   /// assigned to it
@@ -92,11 +94,11 @@ class TaigaData with TaigaDataMappable {
   @MappableField(key: 'modified_date')
   DateTime? modifiedDate;
 
-  /// CustomValues is the custom fields you add on taiga, if you use this on
-  /// your project, I recommend modify the class "TaigaCustomAttributes" to map
-  /// your values
+  /// CustomValues is the custom fields you add on Taiga, if you use this on
+  /// your Taiga project, modify the class "TaigaCustomFields" to map
+  /// your own values
   @MappableField(key: 'custom_attributes_values')
-  TaigaCustomAttributes? customValues;
+  TaigaCustomFields? customValues;
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga
@@ -107,13 +109,13 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
   TaigaUserStoryData({
     required super.jobId,
     required super.referenceNumber,
-    required super.tags,
+    required super.jobTags,
     required super.jobOwner,
     required super.jobStatus,
     required super.fromProject,
     required super.jobName,
     required super.jobWatchers,
-    required super.permalink,
+    required super.jobPermalink,
     required super.userAssigned,
     required super.jobDescription,
     required super.creationDate,
@@ -125,7 +127,7 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
     required this.clientRequirement,
     required this.dueDate,
     required this.dueDateReason,
-    required this.finishedDate,
+    required this.finishDate,
     required this.taskReference,
     required this.issueReference,
     required this.isBlocked,
@@ -155,8 +157,7 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
   String dueDateReason;
 
   /// Date when it was marked as finished (Its at the last part of the kanban)
-  @MappableField(key: 'finish_date')
-  DateTime? finishedDate;
+  DateTime? finishDate;
 
   /// This value appears when a userStory is created from a task, otherwise it
   /// will be null
@@ -175,7 +176,7 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
   bool isClosed;
 
   /// Sprint related to the userStory
-  @MappableField(key: 'sprint')
+  @MappableField(key: 'milestone')
   DataSprint? relatedSprint;
 
   /// Thats are the points for each apart (Design/Front/Back/Project Manager),
@@ -198,13 +199,13 @@ class TaigaTaskData extends TaigaData with TaigaTaskDataMappable {
   TaigaTaskData({
     required super.jobId,
     required super.referenceNumber,
-    required super.tags,
+    required super.jobTags,
     required super.jobOwner,
     required super.jobStatus,
     required super.fromProject,
     required super.jobName,
     required super.jobWatchers,
-    required super.permalink,
+    required super.jobPermalink,
     required super.userAssigned,
     required super.jobDescription,
     required super.creationDate,
@@ -277,13 +278,13 @@ class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
   TaigaIssueData({
     required super.jobId,
     required super.referenceNumber,
-    required super.tags,
+    required super.jobTags,
     required super.jobOwner,
     required super.jobStatus,
     required super.fromProject,
     required super.jobName,
     required super.jobWatchers,
-    required super.permalink,
+    required super.jobPermalink,
     required super.userAssigned,
     required super.jobDescription,
     required super.creationDate,
@@ -293,11 +294,11 @@ class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
     required this.dueDate,
     required this.dueDateReason,
     required this.finishedDate,
-    required this.sprint,
-    required this.priority,
+    required this.issueRelatedSprint,
+    required this.issuePriority,
     required this.promotedTo,
-    required this.severity,
-    required this.type,
+    required this.issueSeverity,
+    required this.issueType,
   });
 
   /// Date when the issue was marked as finished
@@ -310,17 +311,21 @@ class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
   String dueDateReason;
 
   /// Sprint related to the taiga Issue
-  DataSprint? sprint;
+  @MappableField(key: 'milestone')
+  DataSprint? issueRelatedSprint;
 
   /// Type of the Issue, this is a custom value you have to configure on
-  /// Taiga
-  DataDetails type;
+  /// Taiga Config
+  @MappableField(key: 'type')
+  DataDetails issueType;
 
-  /// Priority of the Issue, custom values you can modify this on Taiga
-  DataDetails priority;
+  /// Priority of the Issue, custom values you can modify this on Taiga Config
+  @MappableField(key: 'priority')
+  DataDetails issuePriority;
 
-  /// Severity of the Issue, custom values you can modify this on Taiga
-  DataDetails severity;
+  /// Severity of the Issue, custom values you can modify this on Taiga Config
+  @MappableField(key: 'severity')
+  DataDetails issueSeverity;
 
   /// PromotedTo, this value applies only when the issue is promoted into
   /// a userStory, and will have all the ids of the different userStory this
@@ -340,23 +345,23 @@ class TaigaEpicData extends TaigaData with TaigaEpicDataMappable {
   TaigaEpicData({
     required super.jobId,
     required super.referenceNumber,
-    required super.tags,
+    required super.jobTags,
     required super.jobOwner,
     required super.jobStatus,
     required super.fromProject,
     required super.jobName,
     required super.jobWatchers,
-    required super.permalink,
+    required super.jobPermalink,
     required super.userAssigned,
     required super.jobDescription,
     required super.creationDate,
     required super.modifiedDate,
     required super.customValues,
     // own
-    required this.clientRequirement,
     required this.color,
     required this.epicsOrder,
-    required this.teamRequirement,
+    required this.isClientRequirement,
+    required this.isTeamRequirement,
   });
 
   /// Color chosen in the Epic Creation
@@ -366,10 +371,12 @@ class TaigaEpicData extends TaigaData with TaigaEpicDataMappable {
   int epicsOrder;
 
   /// Value who indicates if it is a Team Requirement or not
-  bool teamRequirement;
+  @MappableField(key: 'team_requirement')
+  bool isTeamRequirement;
 
   /// Value who indicates if it is a Client Requirement or not
-  bool clientRequirement;
+  @MappableField(key: 'client_requirement')
+  bool isClientRequirement;
 
   /// FromJson method, convert a json type object into this TaigaEpicData
   /// Object

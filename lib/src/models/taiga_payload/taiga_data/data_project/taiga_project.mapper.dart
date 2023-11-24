@@ -20,31 +20,33 @@ class TaigaProjectMapper extends ClassMapperBase<TaigaProject> {
   @override
   final String id = 'TaigaProject';
 
-  static int _$id(TaigaProject v) => v.id;
-  static const Field<TaigaProject, int> _f$id = Field('id', _$id);
-  static String _$permalink(TaigaProject v) => v.permalink;
-  static const Field<TaigaProject, String> _f$permalink =
-      Field('permalink', _$permalink);
-  static String _$name(TaigaProject v) => v.name;
-  static const Field<TaigaProject, String> _f$name = Field('name', _$name);
-  static String? _$logoBigUrl(TaigaProject v) => v.logoBigUrl;
-  static const Field<TaigaProject, String> _f$logoBigUrl =
-      Field('logoBigUrl', _$logoBigUrl, key: 'logo_big_url');
+  static int _$projectId(TaigaProject v) => v.projectId;
+  static const Field<TaigaProject, int> _f$projectId =
+      Field('projectId', _$projectId, key: 'id');
+  static String _$projectPermalink(TaigaProject v) => v.projectPermalink;
+  static const Field<TaigaProject, String> _f$projectPermalink =
+      Field('projectPermalink', _$projectPermalink, key: 'permalink');
+  static String _$projectName(TaigaProject v) => v.projectName;
+  static const Field<TaigaProject, String> _f$projectName =
+      Field('projectName', _$projectName, key: 'name');
+  static String? _$projectLogoBigUrl(TaigaProject v) => v.projectLogoBigUrl;
+  static const Field<TaigaProject, String> _f$projectLogoBigUrl =
+      Field('projectLogoBigUrl', _$projectLogoBigUrl, key: 'logo_big_url');
 
   @override
   final Map<Symbol, Field<TaigaProject, dynamic>> fields = const {
-    #id: _f$id,
-    #permalink: _f$permalink,
-    #name: _f$name,
-    #logoBigUrl: _f$logoBigUrl,
+    #projectId: _f$projectId,
+    #projectPermalink: _f$projectPermalink,
+    #projectName: _f$projectName,
+    #projectLogoBigUrl: _f$projectLogoBigUrl,
   };
 
   static TaigaProject _instantiate(DecodingData data) {
     return TaigaProject(
-        id: data.dec(_f$id),
-        permalink: data.dec(_f$permalink),
-        name: data.dec(_f$name),
-        logoBigUrl: data.dec(_f$logoBigUrl));
+        projectId: data.dec(_f$projectId),
+        projectPermalink: data.dec(_f$projectPermalink),
+        projectName: data.dec(_f$projectName),
+        projectLogoBigUrl: data.dec(_f$projectLogoBigUrl));
   }
 
   @override
@@ -101,7 +103,11 @@ extension TaigaProjectValueCopy<$R, $Out>
 
 abstract class TaigaProjectCopyWith<$R, $In extends TaigaProject, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  $R call({int? id, String? permalink, String? name, String? logoBigUrl});
+  $R call(
+      {int? projectId,
+      String? projectPermalink,
+      String? projectName,
+      String? projectLogoBigUrl});
   TaigaProjectCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -115,22 +121,24 @@ class _TaigaProjectCopyWithImpl<$R, $Out>
       TaigaProjectMapper.ensureInitialized();
   @override
   $R call(
-          {int? id,
-          String? permalink,
-          String? name,
-          Object? logoBigUrl = $none}) =>
+          {int? projectId,
+          String? projectPermalink,
+          String? projectName,
+          Object? projectLogoBigUrl = $none}) =>
       $apply(FieldCopyWithData({
-        if (id != null) #id: id,
-        if (permalink != null) #permalink: permalink,
-        if (name != null) #name: name,
-        if (logoBigUrl != $none) #logoBigUrl: logoBigUrl
+        if (projectId != null) #projectId: projectId,
+        if (projectPermalink != null) #projectPermalink: projectPermalink,
+        if (projectName != null) #projectName: projectName,
+        if (projectLogoBigUrl != $none) #projectLogoBigUrl: projectLogoBigUrl
       }));
   @override
   TaigaProject $make(CopyWithData data) => TaigaProject(
-      id: data.get(#id, or: $value.id),
-      permalink: data.get(#permalink, or: $value.permalink),
-      name: data.get(#name, or: $value.name),
-      logoBigUrl: data.get(#logoBigUrl, or: $value.logoBigUrl));
+      projectId: data.get(#projectId, or: $value.projectId),
+      projectPermalink:
+          data.get(#projectPermalink, or: $value.projectPermalink),
+      projectName: data.get(#projectName, or: $value.projectName),
+      projectLogoBigUrl:
+          data.get(#projectLogoBigUrl, or: $value.projectLogoBigUrl));
 
   @override
   TaigaProjectCopyWith<$R2, TaigaProject, $Out2> $chain<$R2, $Out2>(

@@ -2,24 +2,28 @@ import 'package:dart_mappable/dart_mappable.dart';
 
 part 'data_point.mapper.dart';
 
-/// This class is to storage the points of a task
+/// This class is to storage the points of a userStory, this are customizable 
+/// values on Taiga Project
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class DataPoint with DataPointMappable {
   /// Constructor of the Point Class
   DataPoint({
-    required this.name,
-    required this.role,
-    required this.value,
+    required this.pointName,
+    required this.pointAssignedRole,
+    required this.pointValue,
   });
 
   /// Name of the value of points
-  String name;
+  @MappableField(key: 'name')
+  String pointName;
 
   /// Role points assigned to the points
-  String role;
+  @MappableField(key: 'role')
+  String pointAssignedRole;
 
   /// Points values
-  double? value;
+  @MappableField(key: 'value')
+  double? pointValue;
 
   /// FromJson method, convert a json type object into this DataPoint Object
   static const fromJson = DataPointMapper.fromJson;

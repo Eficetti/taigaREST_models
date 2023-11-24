@@ -1,6 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart';
 
-part 'taiga_custom_attributes.mapper.dart';
+part 'taiga_custom_fields.mapper.dart';
 
 //! This don't work with all custom fields, you need to modify this model
 //! to use your own custom fields
@@ -9,9 +9,9 @@ part 'taiga_custom_attributes.mapper.dart';
 /// a taiga project, you will need to modify the CustomAttributes class 
 /// and mapper to read your own values
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaCustomAttributes with TaigaCustomAttributesMappable {
+class TaigaCustomFields with TaigaCustomFieldsMappable {
   /// Constructor of the TaigaCustomAttributes class
-  TaigaCustomAttributes({
+  TaigaCustomFields({
     required this.figmaUrl,
     required this.bounty,
   });
@@ -30,5 +30,5 @@ class TaigaCustomAttributes with TaigaCustomAttributesMappable {
 
   /// FromJson method, convert a json type object into this
   /// TaigaCustomAttributes Object
-  static const fromJson = TaigaCustomAttributesMapper.fromJson;
+  static const fromJson = TaigaCustomFieldsMapper.fromJson;
 }

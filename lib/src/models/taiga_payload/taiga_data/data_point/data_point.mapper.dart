@@ -20,25 +20,28 @@ class DataPointMapper extends ClassMapperBase<DataPoint> {
   @override
   final String id = 'DataPoint';
 
-  static String _$name(DataPoint v) => v.name;
-  static const Field<DataPoint, String> _f$name = Field('name', _$name);
-  static String _$role(DataPoint v) => v.role;
-  static const Field<DataPoint, String> _f$role = Field('role', _$role);
-  static double? _$value(DataPoint v) => v.value;
-  static const Field<DataPoint, double> _f$value = Field('value', _$value);
+  static String _$pointName(DataPoint v) => v.pointName;
+  static const Field<DataPoint, String> _f$pointName =
+      Field('pointName', _$pointName, key: 'name');
+  static String _$pointAssignedRole(DataPoint v) => v.pointAssignedRole;
+  static const Field<DataPoint, String> _f$pointAssignedRole =
+      Field('pointAssignedRole', _$pointAssignedRole, key: 'role');
+  static double? _$pointValue(DataPoint v) => v.pointValue;
+  static const Field<DataPoint, double> _f$pointValue =
+      Field('pointValue', _$pointValue, key: 'value');
 
   @override
   final Map<Symbol, Field<DataPoint, dynamic>> fields = const {
-    #name: _f$name,
-    #role: _f$role,
-    #value: _f$value,
+    #pointName: _f$pointName,
+    #pointAssignedRole: _f$pointAssignedRole,
+    #pointValue: _f$pointValue,
   };
 
   static DataPoint _instantiate(DecodingData data) {
     return DataPoint(
-        name: data.dec(_f$name),
-        role: data.dec(_f$role),
-        value: data.dec(_f$value));
+        pointName: data.dec(_f$pointName),
+        pointAssignedRole: data.dec(_f$pointAssignedRole),
+        pointValue: data.dec(_f$pointValue));
   }
 
   @override
@@ -93,7 +96,7 @@ extension DataPointValueCopy<$R, $Out> on ObjectCopyWith<$R, DataPoint, $Out> {
 
 abstract class DataPointCopyWith<$R, $In extends DataPoint, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  $R call({String? name, String? role, double? value});
+  $R call({String? pointName, String? pointAssignedRole, double? pointValue});
   DataPointCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -106,17 +109,21 @@ class _DataPointCopyWithImpl<$R, $Out>
   late final ClassMapperBase<DataPoint> $mapper =
       DataPointMapper.ensureInitialized();
   @override
-  $R call({String? name, String? role, Object? value = $none}) =>
+  $R call(
+          {String? pointName,
+          String? pointAssignedRole,
+          Object? pointValue = $none}) =>
       $apply(FieldCopyWithData({
-        if (name != null) #name: name,
-        if (role != null) #role: role,
-        if (value != $none) #value: value
+        if (pointName != null) #pointName: pointName,
+        if (pointAssignedRole != null) #pointAssignedRole: pointAssignedRole,
+        if (pointValue != $none) #pointValue: pointValue
       }));
   @override
   DataPoint $make(CopyWithData data) => DataPoint(
-      name: data.get(#name, or: $value.name),
-      role: data.get(#role, or: $value.role),
-      value: data.get(#value, or: $value.value));
+      pointName: data.get(#pointName, or: $value.pointName),
+      pointAssignedRole:
+          data.get(#pointAssignedRole, or: $value.pointAssignedRole),
+      pointValue: data.get(#pointValue, or: $value.pointValue));
 
   @override
   DataPointCopyWith<$R2, DataPoint, $Out2> $chain<$R2, $Out2>(

@@ -12,14 +12,14 @@ class DataSprint with DataSprintMappable {
   DataSprint({
     required this.sprintId,
     required this.sprintName,
-    required this.slug,
+    required this.sprintSlug,
     required this.estimatedStartDate,
     required this.estimatedFinishDate,
     required this.creationDate,
     required this.modifiedDate,
-    required this.isClosed,
+    required this.sprintClosedStatus,
     required this.disponibility,
-    required this.permalink,
+    required this.sprintPermalink,
     required this.project,
     required this.createdBy,
   });
@@ -35,7 +35,8 @@ class DataSprint with DataSprintMappable {
   /// Slug of the sprint. Slug is the las part of the url related
   /// to this sprint.
   /// example: tree.taiga.io/project/<project-name>/taskboard/<"slug">
-  String slug;
+  @MappableField(key: 'slug')
+  String sprintSlug;
 
   /// Estimated start date of the sprint. This is defined at the creation
   /// of the sprint and can be edited.
@@ -56,7 +57,7 @@ class DataSprint with DataSprintMappable {
 
   /// Bool to storage the status of the sprint. If is closed or not
   @MappableField(key: 'closed')
-  bool isClosed;
+  bool sprintClosedStatus;
 
   // TODO(Nacho): Consultar como funciona disponibility
 
@@ -65,7 +66,8 @@ class DataSprint with DataSprintMappable {
 
   /// Permalink of the sprint will give you the complete url to the sprint
   /// example: "tree.taiga.io/project/<project-name>/taskboard/<slug>"
-  String permalink;
+  @MappableField(key: 'permalink')
+  String sprintPermalink;
 
   /// Data of the Project where the sprint is
   TaigaProject project;

@@ -16,7 +16,7 @@ class TaigaChangeDifferenceMapper
       MapperContainer.globals.use(_instance = TaigaChangeDifferenceMapper._());
       AttachmentsChangeMapper.ensureInitialized();
       FromToMapper.ensureInitialized();
-      CustomAttributesChangeMapper.ensureInitialized();
+      CustomValuesDataChangeMapper.ensureInitialized();
       PointDifferenceMapper.ensureInitialized();
     }
     return _instance!;
@@ -40,7 +40,7 @@ class TaigaChangeDifferenceMapper
       Field('status', _$status, opt: true);
   static FromTo? _$sprint(TaigaChangeDifference v) => v.sprint;
   static const Field<TaigaChangeDifference, FromTo> _f$sprint =
-      Field('sprint', _$sprint, opt: true);
+      Field('sprint', _$sprint, key: 'milestone', opt: true);
   static FromTo? _$promotedTo(TaigaChangeDifference v) => v.promotedTo;
   static const Field<TaigaChangeDifference, FromTo> _f$promotedTo =
       Field('promotedTo', _$promotedTo, key: 'promoted_to', opt: true);
@@ -84,9 +84,9 @@ class TaigaChangeDifferenceMapper
   static const Field<TaigaChangeDifference, FromTo> _f$teamRequirement = Field(
       'teamRequirement', _$teamRequirement,
       key: 'team_requirement', opt: true);
-  static CustomAttributesChange? _$customAttributes(TaigaChangeDifference v) =>
+  static CustomValuesDataChange? _$customAttributes(TaigaChangeDifference v) =>
       v.customAttributes;
-  static const Field<TaigaChangeDifference, CustomAttributesChange>
+  static const Field<TaigaChangeDifference, CustomValuesDataChange>
       _f$customAttributes = Field('customAttributes', _$customAttributes,
           key: 'custom_attributes', opt: true);
   static FromTo? _$isIocaine(TaigaChangeDifference v) => v.isIocaine;
@@ -237,8 +237,8 @@ abstract class TaigaChangeDifferenceCopyWith<
   FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteHtml;
   FromToCopyWith<$R, FromTo, FromTo>? get clientRequirement;
   FromToCopyWith<$R, FromTo, FromTo>? get teamRequirement;
-  CustomAttributesChangeCopyWith<$R, CustomAttributesChange,
-      CustomAttributesChange>? get customAttributes;
+  CustomValuesDataChangeCopyWith<$R, CustomValuesDataChange,
+      CustomValuesDataChange>? get customAttributes;
   FromToCopyWith<$R, FromTo, FromTo>? get isIocaine;
   PointDifferenceCopyWith<$R, PointDifference, PointDifference>? get points;
   FromToCopyWith<$R, FromTo, FromTo>? get priority;
@@ -262,7 +262,7 @@ abstract class TaigaChangeDifferenceCopyWith<
       FromTo? blockedNoteHtml,
       FromTo? clientRequirement,
       FromTo? teamRequirement,
-      CustomAttributesChange? customAttributes,
+      CustomValuesDataChange? customAttributes,
       FromTo? isIocaine,
       PointDifference? points,
       FromTo? priority,
@@ -329,8 +329,8 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   FromToCopyWith<$R, FromTo, FromTo>? get teamRequirement =>
       $value.teamRequirement?.copyWith.$chain((v) => call(teamRequirement: v));
   @override
-  CustomAttributesChangeCopyWith<$R, CustomAttributesChange,
-          CustomAttributesChange>?
+  CustomValuesDataChangeCopyWith<$R, CustomValuesDataChange,
+          CustomValuesDataChange>?
       get customAttributes => $value.customAttributes?.copyWith
           .$chain((v) => call(customAttributes: v));
   @override

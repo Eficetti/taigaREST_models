@@ -2,7 +2,9 @@ import 'package:dart_mappable/dart_mappable.dart';
 
 part 'item_changes_info.mapper.dart';
 
-/// This class manage save a description of all the changes on the taiga payload
+/// This class will storage the change madded into an attached item, there is
+/// only two changes you can made, the description and the status of the item
+/// both came in lists on the payload
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class ItemChangesInfo with ItemChangesInfoMappable {
   /// Constructor for the Changes class
@@ -11,11 +13,13 @@ class ItemChangesInfo with ItemChangesInfoMappable {
     required this.itemStatus,
   });
 
-  /// Description of the attachment
+  /// Description of the attachment item, list value index [0] will be the old 
+  /// value, and it can be an empty string: "" if was originally empty, 
+  /// list value index [1], is the new value of the description of the item
   @MappableField(key: 'description')
   List<String>? itemDescription;
 
-  /// Is Deprecated taiga status of an attachment
+  /// Taiga status of the attachment item, if is deprecated or not
   @MappableField(key: 'is_deprecated')
   List<bool>? itemStatus;
 

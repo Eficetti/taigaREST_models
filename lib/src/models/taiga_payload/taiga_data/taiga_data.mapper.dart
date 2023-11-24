@@ -20,7 +20,7 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomAttributesMapper.ensureInitialized();
+      TaigaCustomFieldsMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -34,8 +34,9 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
   static int _$referenceNumber(TaigaData v) => v.referenceNumber;
   static const Field<TaigaData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaData v) => v.tags;
-  static const Field<TaigaData, List<dynamic>> _f$tags = Field('tags', _$tags);
+  static List<dynamic> _$jobTags(TaigaData v) => v.jobTags;
+  static const Field<TaigaData, List<dynamic>> _f$jobTags =
+      Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaData v) => v.jobOwner;
   static const Field<TaigaData, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
@@ -51,9 +52,9 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
   static List<int> _$jobWatchers(TaigaData v) => v.jobWatchers;
   static const Field<TaigaData, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaData v) => v.permalink;
-  static const Field<TaigaData, String> _f$permalink =
-      Field('permalink', _$permalink);
+  static String _$jobPermalink(TaigaData v) => v.jobPermalink;
+  static const Field<TaigaData, String> _f$jobPermalink =
+      Field('jobPermalink', _$jobPermalink, key: 'permalink');
   static TaigaUser? _$userAssigned(TaigaData v) => v.userAssigned;
   static const Field<TaigaData, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
@@ -66,21 +67,21 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
   static DateTime? _$modifiedDate(TaigaData v) => v.modifiedDate;
   static const Field<TaigaData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaData v) => v.customValues;
-  static const Field<TaigaData, TaigaCustomAttributes> _f$customValues =
+  static TaigaCustomFields? _$customValues(TaigaData v) => v.customValues;
+  static const Field<TaigaData, TaigaCustomFields> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
 
   @override
   final Map<Symbol, Field<TaigaData, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
-    #tags: _f$tags,
+    #jobTags: _f$jobTags,
     #jobOwner: _f$jobOwner,
     #jobStatus: _f$jobStatus,
     #fromProject: _f$fromProject,
     #jobName: _f$jobName,
     #jobWatchers: _f$jobWatchers,
-    #permalink: _f$permalink,
+    #jobPermalink: _f$jobPermalink,
     #userAssigned: _f$userAssigned,
     #jobDescription: _f$jobDescription,
     #creationDate: _f$creationDate,
@@ -92,13 +93,13 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
     return TaigaData(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
-        tags: data.dec(_f$tags),
+        jobTags: data.dec(_f$jobTags),
         jobOwner: data.dec(_f$jobOwner),
         jobStatus: data.dec(_f$jobStatus),
         fromProject: data.dec(_f$fromProject),
         jobName: data.dec(_f$jobName),
         jobWatchers: data.dec(_f$jobWatchers),
-        permalink: data.dec(_f$permalink),
+        jobPermalink: data.dec(_f$jobPermalink),
         userAssigned: data.dec(_f$userAssigned),
         jobDescription: data.dec(_f$jobDescription),
         creationDate: data.dec(_f$creationDate),
@@ -158,29 +159,29 @@ extension TaigaDataValueCopy<$R, $Out> on ObjectCopyWith<$R, TaigaData, $Out> {
 
 abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?> get tags;
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?> get jobTags;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   TaigaStatusCopyWith<$R, TaigaStatus, TaigaStatus> get jobStatus;
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get fromProject;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>?> get jobWatchers;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-      TaigaCustomAttributes>? get customValues;
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
+      get customValues;
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? tags,
+      List<dynamic>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
       String? jobName,
       List<int>? jobWatchers,
-      String? permalink,
+      String? jobPermalink,
       TaigaUser? userAssigned,
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomAttributes? customValues});
+      TaigaCustomFields? customValues});
   TaigaDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -193,9 +194,9 @@ class _TaigaDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaData> $mapper =
       TaigaDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?> get tags =>
-      ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(tags: v));
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
+      get jobTags => ListCopyWith($value.jobTags,
+          (v, t) => ObjectCopyWith(v, $identity, t), (v) => call(jobTags: v));
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner =>
       $value.jobOwner.copyWith.$chain((v) => call(jobOwner: v));
@@ -215,21 +216,20 @@ class _TaigaDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-          TaigaCustomAttributes>?
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? tags,
+          List<dynamic>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
           String? jobName,
           List<int>? jobWatchers,
-          String? permalink,
+          String? jobPermalink,
           Object? userAssigned = $none,
           Object? jobDescription = $none,
           DateTime? creationDate,
@@ -238,13 +238,13 @@ class _TaigaDataCopyWithImpl<$R, $Out>
       $apply(FieldCopyWithData({
         if (jobId != null) #jobId: jobId,
         if (referenceNumber != null) #referenceNumber: referenceNumber,
-        if (tags != null) #tags: tags,
+        if (jobTags != null) #jobTags: jobTags,
         if (jobOwner != null) #jobOwner: jobOwner,
         if (jobStatus != null) #jobStatus: jobStatus,
         if (fromProject != null) #fromProject: fromProject,
         if (jobName != null) #jobName: jobName,
         if (jobWatchers != null) #jobWatchers: jobWatchers,
-        if (permalink != null) #permalink: permalink,
+        if (jobPermalink != null) #jobPermalink: jobPermalink,
         if (userAssigned != $none) #userAssigned: userAssigned,
         if (jobDescription != $none) #jobDescription: jobDescription,
         if (creationDate != null) #creationDate: creationDate,
@@ -255,13 +255,13 @@ class _TaigaDataCopyWithImpl<$R, $Out>
   TaigaData $make(CopyWithData data) => TaigaData(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
-      tags: data.get(#tags, or: $value.tags),
+      jobTags: data.get(#jobTags, or: $value.jobTags),
       jobOwner: data.get(#jobOwner, or: $value.jobOwner),
       jobStatus: data.get(#jobStatus, or: $value.jobStatus),
       fromProject: data.get(#fromProject, or: $value.fromProject),
       jobName: data.get(#jobName, or: $value.jobName),
       jobWatchers: data.get(#jobWatchers, or: $value.jobWatchers),
-      permalink: data.get(#permalink, or: $value.permalink),
+      jobPermalink: data.get(#jobPermalink, or: $value.jobPermalink),
       userAssigned: data.get(#userAssigned, or: $value.userAssigned),
       jobDescription: data.get(#jobDescription, or: $value.jobDescription),
       creationDate: data.get(#creationDate, or: $value.creationDate),
@@ -285,7 +285,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomAttributesMapper.ensureInitialized();
+      TaigaCustomFieldsMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       DataPointMapper.ensureInitialized();
     }
@@ -301,9 +301,9 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static int _$referenceNumber(TaigaUserStoryData v) => v.referenceNumber;
   static const Field<TaigaUserStoryData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaUserStoryData v) => v.tags;
-  static const Field<TaigaUserStoryData, List<dynamic>> _f$tags =
-      Field('tags', _$tags);
+  static List<dynamic> _$jobTags(TaigaUserStoryData v) => v.jobTags;
+  static const Field<TaigaUserStoryData, List<dynamic>> _f$jobTags =
+      Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaUserStoryData v) => v.jobOwner;
   static const Field<TaigaUserStoryData, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
@@ -319,9 +319,9 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static List<int> _$jobWatchers(TaigaUserStoryData v) => v.jobWatchers;
   static const Field<TaigaUserStoryData, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaUserStoryData v) => v.permalink;
-  static const Field<TaigaUserStoryData, String> _f$permalink =
-      Field('permalink', _$permalink);
+  static String _$jobPermalink(TaigaUserStoryData v) => v.jobPermalink;
+  static const Field<TaigaUserStoryData, String> _f$jobPermalink =
+      Field('jobPermalink', _$jobPermalink, key: 'permalink');
   static TaigaUser? _$userAssigned(TaigaUserStoryData v) => v.userAssigned;
   static const Field<TaigaUserStoryData, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
@@ -334,10 +334,9 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static DateTime? _$modifiedDate(TaigaUserStoryData v) => v.modifiedDate;
   static const Field<TaigaUserStoryData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaUserStoryData v) =>
+  static TaigaCustomFields? _$customValues(TaigaUserStoryData v) =>
       v.customValues;
-  static const Field<TaigaUserStoryData, TaigaCustomAttributes>
-      _f$customValues =
+  static const Field<TaigaUserStoryData, TaigaCustomFields> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static List<int> _$assignedUsers(TaigaUserStoryData v) => v.assignedUsers;
   static const Field<TaigaUserStoryData, List<int>> _f$assignedUsers =
@@ -355,9 +354,9 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static String _$dueDateReason(TaigaUserStoryData v) => v.dueDateReason;
   static const Field<TaigaUserStoryData, String> _f$dueDateReason =
       Field('dueDateReason', _$dueDateReason, key: 'due_date_reason');
-  static DateTime? _$finishedDate(TaigaUserStoryData v) => v.finishedDate;
-  static const Field<TaigaUserStoryData, DateTime> _f$finishedDate =
-      Field('finishedDate', _$finishedDate, key: 'finish_date');
+  static DateTime? _$finishDate(TaigaUserStoryData v) => v.finishDate;
+  static const Field<TaigaUserStoryData, DateTime> _f$finishDate =
+      Field('finishDate', _$finishDate, key: 'finish_date');
   static String? _$taskReference(TaigaUserStoryData v) => v.taskReference;
   static const Field<TaigaUserStoryData, String> _f$taskReference =
       Field('taskReference', _$taskReference, key: 'from_task_ref');
@@ -372,7 +371,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
       Field('isClosed', _$isClosed, key: 'is_closed');
   static DataSprint? _$relatedSprint(TaigaUserStoryData v) => v.relatedSprint;
   static const Field<TaigaUserStoryData, DataSprint> _f$relatedSprint =
-      Field('relatedSprint', _$relatedSprint, key: 'sprint');
+      Field('relatedSprint', _$relatedSprint, key: 'milestone');
   static List<DataPoint> _$points(TaigaUserStoryData v) => v.points;
   static const Field<TaigaUserStoryData, List<DataPoint>> _f$points =
       Field('points', _$points);
@@ -384,13 +383,13 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   final Map<Symbol, Field<TaigaUserStoryData, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
-    #tags: _f$tags,
+    #jobTags: _f$jobTags,
     #jobOwner: _f$jobOwner,
     #jobStatus: _f$jobStatus,
     #fromProject: _f$fromProject,
     #jobName: _f$jobName,
     #jobWatchers: _f$jobWatchers,
-    #permalink: _f$permalink,
+    #jobPermalink: _f$jobPermalink,
     #userAssigned: _f$userAssigned,
     #jobDescription: _f$jobDescription,
     #creationDate: _f$creationDate,
@@ -401,7 +400,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
     #clientRequirement: _f$clientRequirement,
     #dueDate: _f$dueDate,
     #dueDateReason: _f$dueDateReason,
-    #finishedDate: _f$finishedDate,
+    #finishDate: _f$finishDate,
     #taskReference: _f$taskReference,
     #issueReference: _f$issueReference,
     #isBlocked: _f$isBlocked,
@@ -415,13 +414,13 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
     return TaigaUserStoryData(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
-        tags: data.dec(_f$tags),
+        jobTags: data.dec(_f$jobTags),
         jobOwner: data.dec(_f$jobOwner),
         jobStatus: data.dec(_f$jobStatus),
         fromProject: data.dec(_f$fromProject),
         jobName: data.dec(_f$jobName),
         jobWatchers: data.dec(_f$jobWatchers),
-        permalink: data.dec(_f$permalink),
+        jobPermalink: data.dec(_f$jobPermalink),
         userAssigned: data.dec(_f$userAssigned),
         jobDescription: data.dec(_f$jobDescription),
         creationDate: data.dec(_f$creationDate),
@@ -432,7 +431,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
         clientRequirement: data.dec(_f$clientRequirement),
         dueDate: data.dec(_f$dueDate),
         dueDateReason: data.dec(_f$dueDateReason),
-        finishedDate: data.dec(_f$finishedDate),
+        finishDate: data.dec(_f$finishDate),
         taskReference: data.dec(_f$taskReference),
         issueReference: data.dec(_f$issueReference),
         isBlocked: data.dec(_f$isBlocked),
@@ -500,7 +499,7 @@ extension TaigaUserStoryDataValueCopy<$R, $Out>
 abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
     $Out> implements TaigaDataCopyWith<$R, $In, $Out> {
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags;
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   @override
@@ -512,8 +511,8 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-      TaigaCustomAttributes>? get customValues;
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
+      get customValues;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, DataPoint, DataPointCopyWith<$R, DataPoint, DataPoint>>
@@ -522,24 +521,24 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? tags,
+      List<dynamic>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
       String? jobName,
       List<int>? jobWatchers,
-      String? permalink,
+      String? jobPermalink,
       TaigaUser? userAssigned,
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomAttributes? customValues,
+      TaigaCustomFields? customValues,
       List<int>? assignedUsers,
       String? blockedNote,
       bool? clientRequirement,
       DateTime? dueDate,
       String? dueDateReason,
-      DateTime? finishedDate,
+      DateTime? finishDate,
       String? taskReference,
       int? issueReference,
       bool? isBlocked,
@@ -560,9 +559,9 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaUserStoryData> $mapper =
       TaigaUserStoryDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags =>
-      ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(tags: v));
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags =>
+      ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(jobTags: v));
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner =>
       $value.jobOwner.copyWith.$chain((v) => call(jobOwner: v));
@@ -582,8 +581,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-          TaigaCustomAttributes>?
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
@@ -603,13 +601,13 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? tags,
+          List<dynamic>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
           String? jobName,
           List<int>? jobWatchers,
-          String? permalink,
+          String? jobPermalink,
           Object? userAssigned = $none,
           Object? jobDescription = $none,
           DateTime? creationDate,
@@ -620,7 +618,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
           bool? clientRequirement,
           Object? dueDate = $none,
           String? dueDateReason,
-          Object? finishedDate = $none,
+          Object? finishDate = $none,
           Object? taskReference = $none,
           Object? issueReference = $none,
           bool? isBlocked,
@@ -631,13 +629,13 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
       $apply(FieldCopyWithData({
         if (jobId != null) #jobId: jobId,
         if (referenceNumber != null) #referenceNumber: referenceNumber,
-        if (tags != null) #tags: tags,
+        if (jobTags != null) #jobTags: jobTags,
         if (jobOwner != null) #jobOwner: jobOwner,
         if (jobStatus != null) #jobStatus: jobStatus,
         if (fromProject != null) #fromProject: fromProject,
         if (jobName != null) #jobName: jobName,
         if (jobWatchers != null) #jobWatchers: jobWatchers,
-        if (permalink != null) #permalink: permalink,
+        if (jobPermalink != null) #jobPermalink: jobPermalink,
         if (userAssigned != $none) #userAssigned: userAssigned,
         if (jobDescription != $none) #jobDescription: jobDescription,
         if (creationDate != null) #creationDate: creationDate,
@@ -648,7 +646,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
         if (clientRequirement != null) #clientRequirement: clientRequirement,
         if (dueDate != $none) #dueDate: dueDate,
         if (dueDateReason != null) #dueDateReason: dueDateReason,
-        if (finishedDate != $none) #finishedDate: finishedDate,
+        if (finishDate != $none) #finishDate: finishDate,
         if (taskReference != $none) #taskReference: taskReference,
         if (issueReference != $none) #issueReference: issueReference,
         if (isBlocked != null) #isBlocked: isBlocked,
@@ -661,13 +659,13 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   TaigaUserStoryData $make(CopyWithData data) => TaigaUserStoryData(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
-      tags: data.get(#tags, or: $value.tags),
+      jobTags: data.get(#jobTags, or: $value.jobTags),
       jobOwner: data.get(#jobOwner, or: $value.jobOwner),
       jobStatus: data.get(#jobStatus, or: $value.jobStatus),
       fromProject: data.get(#fromProject, or: $value.fromProject),
       jobName: data.get(#jobName, or: $value.jobName),
       jobWatchers: data.get(#jobWatchers, or: $value.jobWatchers),
-      permalink: data.get(#permalink, or: $value.permalink),
+      jobPermalink: data.get(#jobPermalink, or: $value.jobPermalink),
       userAssigned: data.get(#userAssigned, or: $value.userAssigned),
       jobDescription: data.get(#jobDescription, or: $value.jobDescription),
       creationDate: data.get(#creationDate, or: $value.creationDate),
@@ -679,7 +677,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
           data.get(#clientRequirement, or: $value.clientRequirement),
       dueDate: data.get(#dueDate, or: $value.dueDate),
       dueDateReason: data.get(#dueDateReason, or: $value.dueDateReason),
-      finishedDate: data.get(#finishedDate, or: $value.finishedDate),
+      finishDate: data.get(#finishDate, or: $value.finishDate),
       taskReference: data.get(#taskReference, or: $value.taskReference),
       issueReference: data.get(#issueReference, or: $value.issueReference),
       isBlocked: data.get(#isBlocked, or: $value.isBlocked),
@@ -705,7 +703,7 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomAttributesMapper.ensureInitialized();
+      TaigaCustomFieldsMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       TaigaUserStoryDataMapper.ensureInitialized();
     }
@@ -721,9 +719,9 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   static int _$referenceNumber(TaigaTaskData v) => v.referenceNumber;
   static const Field<TaigaTaskData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaTaskData v) => v.tags;
-  static const Field<TaigaTaskData, List<dynamic>> _f$tags =
-      Field('tags', _$tags);
+  static List<dynamic> _$jobTags(TaigaTaskData v) => v.jobTags;
+  static const Field<TaigaTaskData, List<dynamic>> _f$jobTags =
+      Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaTaskData v) => v.jobOwner;
   static const Field<TaigaTaskData, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
@@ -739,9 +737,9 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   static List<int> _$jobWatchers(TaigaTaskData v) => v.jobWatchers;
   static const Field<TaigaTaskData, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaTaskData v) => v.permalink;
-  static const Field<TaigaTaskData, String> _f$permalink =
-      Field('permalink', _$permalink);
+  static String _$jobPermalink(TaigaTaskData v) => v.jobPermalink;
+  static const Field<TaigaTaskData, String> _f$jobPermalink =
+      Field('jobPermalink', _$jobPermalink, key: 'permalink');
   static TaigaUser? _$userAssigned(TaigaTaskData v) => v.userAssigned;
   static const Field<TaigaTaskData, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
@@ -754,9 +752,8 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   static DateTime? _$modifiedDate(TaigaTaskData v) => v.modifiedDate;
   static const Field<TaigaTaskData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaTaskData v) =>
-      v.customValues;
-  static const Field<TaigaTaskData, TaigaCustomAttributes> _f$customValues =
+  static TaigaCustomFields? _$customValues(TaigaTaskData v) => v.customValues;
+  static const Field<TaigaTaskData, TaigaCustomFields> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static String _$blockedNote(TaigaTaskData v) => v.blockedNote;
   static const Field<TaigaTaskData, String> _f$blockedNote =
@@ -796,13 +793,13 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   final Map<Symbol, Field<TaigaTaskData, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
-    #tags: _f$tags,
+    #jobTags: _f$jobTags,
     #jobOwner: _f$jobOwner,
     #jobStatus: _f$jobStatus,
     #fromProject: _f$fromProject,
     #jobName: _f$jobName,
     #jobWatchers: _f$jobWatchers,
-    #permalink: _f$permalink,
+    #jobPermalink: _f$jobPermalink,
     #userAssigned: _f$userAssigned,
     #jobDescription: _f$jobDescription,
     #creationDate: _f$creationDate,
@@ -825,13 +822,13 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
     return TaigaTaskData(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
-        tags: data.dec(_f$tags),
+        jobTags: data.dec(_f$jobTags),
         jobOwner: data.dec(_f$jobOwner),
         jobStatus: data.dec(_f$jobStatus),
         fromProject: data.dec(_f$fromProject),
         jobName: data.dec(_f$jobName),
         jobWatchers: data.dec(_f$jobWatchers),
-        permalink: data.dec(_f$permalink),
+        jobPermalink: data.dec(_f$jobPermalink),
         userAssigned: data.dec(_f$userAssigned),
         jobDescription: data.dec(_f$jobDescription),
         creationDate: data.dec(_f$creationDate),
@@ -906,7 +903,7 @@ extension TaigaTaskDataValueCopy<$R, $Out>
 abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
     implements TaigaDataCopyWith<$R, $In, $Out> {
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags;
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   @override
@@ -918,8 +915,8 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-      TaigaCustomAttributes>? get customValues;
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
+      get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedTo;
@@ -929,18 +926,18 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? tags,
+      List<dynamic>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
       String? jobName,
       List<int>? jobWatchers,
-      String? permalink,
+      String? jobPermalink,
       TaigaUser? userAssigned,
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomAttributes? customValues,
+      TaigaCustomFields? customValues,
       String? blockedNote,
       DateTime? dueDate,
       String? dueDateReason,
@@ -964,9 +961,9 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaTaskData> $mapper =
       TaigaTaskDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags =>
-      ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(tags: v));
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags =>
+      ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(jobTags: v));
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner =>
       $value.jobOwner.copyWith.$chain((v) => call(jobOwner: v));
@@ -986,8 +983,7 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-          TaigaCustomAttributes>?
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
@@ -1007,13 +1003,13 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? tags,
+          List<dynamic>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
           String? jobName,
           List<int>? jobWatchers,
-          String? permalink,
+          String? jobPermalink,
           Object? userAssigned = $none,
           Object? jobDescription = $none,
           DateTime? creationDate,
@@ -1033,13 +1029,13 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
       $apply(FieldCopyWithData({
         if (jobId != null) #jobId: jobId,
         if (referenceNumber != null) #referenceNumber: referenceNumber,
-        if (tags != null) #tags: tags,
+        if (jobTags != null) #jobTags: jobTags,
         if (jobOwner != null) #jobOwner: jobOwner,
         if (jobStatus != null) #jobStatus: jobStatus,
         if (fromProject != null) #fromProject: fromProject,
         if (jobName != null) #jobName: jobName,
         if (jobWatchers != null) #jobWatchers: jobWatchers,
-        if (permalink != null) #permalink: permalink,
+        if (jobPermalink != null) #jobPermalink: jobPermalink,
         if (userAssigned != $none) #userAssigned: userAssigned,
         if (jobDescription != $none) #jobDescription: jobDescription,
         if (creationDate != null) #creationDate: creationDate,
@@ -1061,13 +1057,13 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   TaigaTaskData $make(CopyWithData data) => TaigaTaskData(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
-      tags: data.get(#tags, or: $value.tags),
+      jobTags: data.get(#jobTags, or: $value.jobTags),
       jobOwner: data.get(#jobOwner, or: $value.jobOwner),
       jobStatus: data.get(#jobStatus, or: $value.jobStatus),
       fromProject: data.get(#fromProject, or: $value.fromProject),
       jobName: data.get(#jobName, or: $value.jobName),
       jobWatchers: data.get(#jobWatchers, or: $value.jobWatchers),
-      permalink: data.get(#permalink, or: $value.permalink),
+      jobPermalink: data.get(#jobPermalink, or: $value.jobPermalink),
       userAssigned: data.get(#userAssigned, or: $value.userAssigned),
       jobDescription: data.get(#jobDescription, or: $value.jobDescription),
       creationDate: data.get(#creationDate, or: $value.creationDate),
@@ -1102,7 +1098,7 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomAttributesMapper.ensureInitialized();
+      TaigaCustomFieldsMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       DataDetailsMapper.ensureInitialized();
     }
@@ -1118,9 +1114,9 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static int _$referenceNumber(TaigaIssueData v) => v.referenceNumber;
   static const Field<TaigaIssueData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaIssueData v) => v.tags;
-  static const Field<TaigaIssueData, List<dynamic>> _f$tags =
-      Field('tags', _$tags);
+  static List<dynamic> _$jobTags(TaigaIssueData v) => v.jobTags;
+  static const Field<TaigaIssueData, List<dynamic>> _f$jobTags =
+      Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaIssueData v) => v.jobOwner;
   static const Field<TaigaIssueData, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
@@ -1136,9 +1132,9 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static List<int> _$jobWatchers(TaigaIssueData v) => v.jobWatchers;
   static const Field<TaigaIssueData, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaIssueData v) => v.permalink;
-  static const Field<TaigaIssueData, String> _f$permalink =
-      Field('permalink', _$permalink);
+  static String _$jobPermalink(TaigaIssueData v) => v.jobPermalink;
+  static const Field<TaigaIssueData, String> _f$jobPermalink =
+      Field('jobPermalink', _$jobPermalink, key: 'permalink');
   static TaigaUser? _$userAssigned(TaigaIssueData v) => v.userAssigned;
   static const Field<TaigaIssueData, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
@@ -1151,9 +1147,8 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static DateTime? _$modifiedDate(TaigaIssueData v) => v.modifiedDate;
   static const Field<TaigaIssueData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaIssueData v) =>
-      v.customValues;
-  static const Field<TaigaIssueData, TaigaCustomAttributes> _f$customValues =
+  static TaigaCustomFields? _$customValues(TaigaIssueData v) => v.customValues;
+  static const Field<TaigaIssueData, TaigaCustomFields> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static DateTime? _$dueDate(TaigaIssueData v) => v.dueDate;
   static const Field<TaigaIssueData, DateTime> _f$dueDate =
@@ -1164,33 +1159,34 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static DateTime? _$finishedDate(TaigaIssueData v) => v.finishedDate;
   static const Field<TaigaIssueData, DateTime> _f$finishedDate =
       Field('finishedDate', _$finishedDate, key: 'finished_date');
-  static DataSprint? _$sprint(TaigaIssueData v) => v.sprint;
-  static const Field<TaigaIssueData, DataSprint> _f$sprint =
-      Field('sprint', _$sprint);
-  static DataDetails _$priority(TaigaIssueData v) => v.priority;
-  static const Field<TaigaIssueData, DataDetails> _f$priority =
-      Field('priority', _$priority);
+  static DataSprint? _$issueRelatedSprint(TaigaIssueData v) =>
+      v.issueRelatedSprint;
+  static const Field<TaigaIssueData, DataSprint> _f$issueRelatedSprint =
+      Field('issueRelatedSprint', _$issueRelatedSprint, key: 'milestone');
+  static DataDetails _$issuePriority(TaigaIssueData v) => v.issuePriority;
+  static const Field<TaigaIssueData, DataDetails> _f$issuePriority =
+      Field('issuePriority', _$issuePriority, key: 'priority');
   static List<int?> _$promotedTo(TaigaIssueData v) => v.promotedTo;
   static const Field<TaigaIssueData, List<int?>> _f$promotedTo =
       Field('promotedTo', _$promotedTo, key: 'promoted_to');
-  static DataDetails _$severity(TaigaIssueData v) => v.severity;
-  static const Field<TaigaIssueData, DataDetails> _f$severity =
-      Field('severity', _$severity);
-  static DataDetails _$type(TaigaIssueData v) => v.type;
-  static const Field<TaigaIssueData, DataDetails> _f$type =
-      Field('type', _$type);
+  static DataDetails _$issueSeverity(TaigaIssueData v) => v.issueSeverity;
+  static const Field<TaigaIssueData, DataDetails> _f$issueSeverity =
+      Field('issueSeverity', _$issueSeverity, key: 'severity');
+  static DataDetails _$issueType(TaigaIssueData v) => v.issueType;
+  static const Field<TaigaIssueData, DataDetails> _f$issueType =
+      Field('issueType', _$issueType, key: 'type');
 
   @override
   final Map<Symbol, Field<TaigaIssueData, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
-    #tags: _f$tags,
+    #jobTags: _f$jobTags,
     #jobOwner: _f$jobOwner,
     #jobStatus: _f$jobStatus,
     #fromProject: _f$fromProject,
     #jobName: _f$jobName,
     #jobWatchers: _f$jobWatchers,
-    #permalink: _f$permalink,
+    #jobPermalink: _f$jobPermalink,
     #userAssigned: _f$userAssigned,
     #jobDescription: _f$jobDescription,
     #creationDate: _f$creationDate,
@@ -1199,24 +1195,24 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
     #dueDate: _f$dueDate,
     #dueDateReason: _f$dueDateReason,
     #finishedDate: _f$finishedDate,
-    #sprint: _f$sprint,
-    #priority: _f$priority,
+    #issueRelatedSprint: _f$issueRelatedSprint,
+    #issuePriority: _f$issuePriority,
     #promotedTo: _f$promotedTo,
-    #severity: _f$severity,
-    #type: _f$type,
+    #issueSeverity: _f$issueSeverity,
+    #issueType: _f$issueType,
   };
 
   static TaigaIssueData _instantiate(DecodingData data) {
     return TaigaIssueData(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
-        tags: data.dec(_f$tags),
+        jobTags: data.dec(_f$jobTags),
         jobOwner: data.dec(_f$jobOwner),
         jobStatus: data.dec(_f$jobStatus),
         fromProject: data.dec(_f$fromProject),
         jobName: data.dec(_f$jobName),
         jobWatchers: data.dec(_f$jobWatchers),
-        permalink: data.dec(_f$permalink),
+        jobPermalink: data.dec(_f$jobPermalink),
         userAssigned: data.dec(_f$userAssigned),
         jobDescription: data.dec(_f$jobDescription),
         creationDate: data.dec(_f$creationDate),
@@ -1225,11 +1221,11 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
         dueDate: data.dec(_f$dueDate),
         dueDateReason: data.dec(_f$dueDateReason),
         finishedDate: data.dec(_f$finishedDate),
-        sprint: data.dec(_f$sprint),
-        priority: data.dec(_f$priority),
+        issueRelatedSprint: data.dec(_f$issueRelatedSprint),
+        issuePriority: data.dec(_f$issuePriority),
         promotedTo: data.dec(_f$promotedTo),
-        severity: data.dec(_f$severity),
-        type: data.dec(_f$type));
+        issueSeverity: data.dec(_f$issueSeverity),
+        issueType: data.dec(_f$issueType));
   }
 
   @override
@@ -1288,7 +1284,7 @@ extension TaigaIssueDataValueCopy<$R, $Out>
 abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
     implements TaigaDataCopyWith<$R, $In, $Out> {
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags;
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   @override
@@ -1300,37 +1296,37 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-      TaigaCustomAttributes>? get customValues;
-  DataSprintCopyWith<$R, DataSprint, DataSprint>? get sprint;
-  DataDetailsCopyWith<$R, DataDetails, DataDetails> get priority;
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
+      get customValues;
+  DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint;
+  DataDetailsCopyWith<$R, DataDetails, DataDetails> get issuePriority;
   ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedTo;
-  DataDetailsCopyWith<$R, DataDetails, DataDetails> get severity;
-  DataDetailsCopyWith<$R, DataDetails, DataDetails> get type;
+  DataDetailsCopyWith<$R, DataDetails, DataDetails> get issueSeverity;
+  DataDetailsCopyWith<$R, DataDetails, DataDetails> get issueType;
   @override
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? tags,
+      List<dynamic>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
       String? jobName,
       List<int>? jobWatchers,
-      String? permalink,
+      String? jobPermalink,
       TaigaUser? userAssigned,
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomAttributes? customValues,
+      TaigaCustomFields? customValues,
       DateTime? dueDate,
       String? dueDateReason,
       DateTime? finishedDate,
-      DataSprint? sprint,
-      DataDetails? priority,
+      DataSprint? issueRelatedSprint,
+      DataDetails? issuePriority,
       List<int?>? promotedTo,
-      DataDetails? severity,
-      DataDetails? type});
+      DataDetails? issueSeverity,
+      DataDetails? issueType});
   TaigaIssueDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -1344,9 +1340,9 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaIssueData> $mapper =
       TaigaIssueDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags =>
-      ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(tags: v));
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags =>
+      ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(jobTags: v));
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner =>
       $value.jobOwner.copyWith.$chain((v) => call(jobOwner: v));
@@ -1366,37 +1362,37 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-          TaigaCustomAttributes>?
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
-  DataSprintCopyWith<$R, DataSprint, DataSprint>? get sprint =>
-      $value.sprint?.copyWith.$chain((v) => call(sprint: v));
+  DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint =>
+      $value.issueRelatedSprint?.copyWith
+          .$chain((v) => call(issueRelatedSprint: v));
   @override
-  DataDetailsCopyWith<$R, DataDetails, DataDetails> get priority =>
-      $value.priority.copyWith.$chain((v) => call(priority: v));
+  DataDetailsCopyWith<$R, DataDetails, DataDetails> get issuePriority =>
+      $value.issuePriority.copyWith.$chain((v) => call(issuePriority: v));
   @override
   ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedTo =>
       ListCopyWith($value.promotedTo, (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(promotedTo: v));
   @override
-  DataDetailsCopyWith<$R, DataDetails, DataDetails> get severity =>
-      $value.severity.copyWith.$chain((v) => call(severity: v));
+  DataDetailsCopyWith<$R, DataDetails, DataDetails> get issueSeverity =>
+      $value.issueSeverity.copyWith.$chain((v) => call(issueSeverity: v));
   @override
-  DataDetailsCopyWith<$R, DataDetails, DataDetails> get type =>
-      $value.type.copyWith.$chain((v) => call(type: v));
+  DataDetailsCopyWith<$R, DataDetails, DataDetails> get issueType =>
+      $value.issueType.copyWith.$chain((v) => call(issueType: v));
   @override
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? tags,
+          List<dynamic>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
           String? jobName,
           List<int>? jobWatchers,
-          String? permalink,
+          String? jobPermalink,
           Object? userAssigned = $none,
           Object? jobDescription = $none,
           DateTime? creationDate,
@@ -1405,21 +1401,21 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
           Object? dueDate = $none,
           String? dueDateReason,
           Object? finishedDate = $none,
-          Object? sprint = $none,
-          DataDetails? priority,
+          Object? issueRelatedSprint = $none,
+          DataDetails? issuePriority,
           List<int?>? promotedTo,
-          DataDetails? severity,
-          DataDetails? type}) =>
+          DataDetails? issueSeverity,
+          DataDetails? issueType}) =>
       $apply(FieldCopyWithData({
         if (jobId != null) #jobId: jobId,
         if (referenceNumber != null) #referenceNumber: referenceNumber,
-        if (tags != null) #tags: tags,
+        if (jobTags != null) #jobTags: jobTags,
         if (jobOwner != null) #jobOwner: jobOwner,
         if (jobStatus != null) #jobStatus: jobStatus,
         if (fromProject != null) #fromProject: fromProject,
         if (jobName != null) #jobName: jobName,
         if (jobWatchers != null) #jobWatchers: jobWatchers,
-        if (permalink != null) #permalink: permalink,
+        if (jobPermalink != null) #jobPermalink: jobPermalink,
         if (userAssigned != $none) #userAssigned: userAssigned,
         if (jobDescription != $none) #jobDescription: jobDescription,
         if (creationDate != null) #creationDate: creationDate,
@@ -1428,23 +1424,24 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
         if (dueDate != $none) #dueDate: dueDate,
         if (dueDateReason != null) #dueDateReason: dueDateReason,
         if (finishedDate != $none) #finishedDate: finishedDate,
-        if (sprint != $none) #sprint: sprint,
-        if (priority != null) #priority: priority,
+        if (issueRelatedSprint != $none)
+          #issueRelatedSprint: issueRelatedSprint,
+        if (issuePriority != null) #issuePriority: issuePriority,
         if (promotedTo != null) #promotedTo: promotedTo,
-        if (severity != null) #severity: severity,
-        if (type != null) #type: type
+        if (issueSeverity != null) #issueSeverity: issueSeverity,
+        if (issueType != null) #issueType: issueType
       }));
   @override
   TaigaIssueData $make(CopyWithData data) => TaigaIssueData(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
-      tags: data.get(#tags, or: $value.tags),
+      jobTags: data.get(#jobTags, or: $value.jobTags),
       jobOwner: data.get(#jobOwner, or: $value.jobOwner),
       jobStatus: data.get(#jobStatus, or: $value.jobStatus),
       fromProject: data.get(#fromProject, or: $value.fromProject),
       jobName: data.get(#jobName, or: $value.jobName),
       jobWatchers: data.get(#jobWatchers, or: $value.jobWatchers),
-      permalink: data.get(#permalink, or: $value.permalink),
+      jobPermalink: data.get(#jobPermalink, or: $value.jobPermalink),
       userAssigned: data.get(#userAssigned, or: $value.userAssigned),
       jobDescription: data.get(#jobDescription, or: $value.jobDescription),
       creationDate: data.get(#creationDate, or: $value.creationDate),
@@ -1453,11 +1450,12 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
       dueDate: data.get(#dueDate, or: $value.dueDate),
       dueDateReason: data.get(#dueDateReason, or: $value.dueDateReason),
       finishedDate: data.get(#finishedDate, or: $value.finishedDate),
-      sprint: data.get(#sprint, or: $value.sprint),
-      priority: data.get(#priority, or: $value.priority),
+      issueRelatedSprint:
+          data.get(#issueRelatedSprint, or: $value.issueRelatedSprint),
+      issuePriority: data.get(#issuePriority, or: $value.issuePriority),
       promotedTo: data.get(#promotedTo, or: $value.promotedTo),
-      severity: data.get(#severity, or: $value.severity),
-      type: data.get(#type, or: $value.type));
+      issueSeverity: data.get(#issueSeverity, or: $value.issueSeverity),
+      issueType: data.get(#issueType, or: $value.issueType));
 
   @override
   TaigaIssueDataCopyWith<$R2, TaigaIssueData, $Out2> $chain<$R2, $Out2>(
@@ -1476,7 +1474,7 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomAttributesMapper.ensureInitialized();
+      TaigaCustomFieldsMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -1490,9 +1488,9 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   static int _$referenceNumber(TaigaEpicData v) => v.referenceNumber;
   static const Field<TaigaEpicData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$tags(TaigaEpicData v) => v.tags;
-  static const Field<TaigaEpicData, List<dynamic>> _f$tags =
-      Field('tags', _$tags);
+  static List<dynamic> _$jobTags(TaigaEpicData v) => v.jobTags;
+  static const Field<TaigaEpicData, List<dynamic>> _f$jobTags =
+      Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaEpicData v) => v.jobOwner;
   static const Field<TaigaEpicData, TaigaUser> _f$jobOwner =
       Field('jobOwner', _$jobOwner, key: 'owner');
@@ -1508,9 +1506,9 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   static List<int> _$jobWatchers(TaigaEpicData v) => v.jobWatchers;
   static const Field<TaigaEpicData, List<int>> _f$jobWatchers =
       Field('jobWatchers', _$jobWatchers, key: 'watchers');
-  static String _$permalink(TaigaEpicData v) => v.permalink;
-  static const Field<TaigaEpicData, String> _f$permalink =
-      Field('permalink', _$permalink);
+  static String _$jobPermalink(TaigaEpicData v) => v.jobPermalink;
+  static const Field<TaigaEpicData, String> _f$jobPermalink =
+      Field('jobPermalink', _$jobPermalink, key: 'permalink');
   static TaigaUser? _$userAssigned(TaigaEpicData v) => v.userAssigned;
   static const Field<TaigaEpicData, TaigaUser> _f$userAssigned =
       Field('userAssigned', _$userAssigned, key: 'assigned_to');
@@ -1523,65 +1521,64 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   static DateTime? _$modifiedDate(TaigaEpicData v) => v.modifiedDate;
   static const Field<TaigaEpicData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomAttributes? _$customValues(TaigaEpicData v) =>
-      v.customValues;
-  static const Field<TaigaEpicData, TaigaCustomAttributes> _f$customValues =
+  static TaigaCustomFields? _$customValues(TaigaEpicData v) => v.customValues;
+  static const Field<TaigaEpicData, TaigaCustomFields> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
-  static bool _$clientRequirement(TaigaEpicData v) => v.clientRequirement;
-  static const Field<TaigaEpicData, bool> _f$clientRequirement = Field(
-      'clientRequirement', _$clientRequirement,
-      key: 'client_requirement');
   static String _$color(TaigaEpicData v) => v.color;
   static const Field<TaigaEpicData, String> _f$color = Field('color', _$color);
   static int _$epicsOrder(TaigaEpicData v) => v.epicsOrder;
   static const Field<TaigaEpicData, int> _f$epicsOrder =
       Field('epicsOrder', _$epicsOrder, key: 'epics_order');
-  static bool _$teamRequirement(TaigaEpicData v) => v.teamRequirement;
-  static const Field<TaigaEpicData, bool> _f$teamRequirement =
-      Field('teamRequirement', _$teamRequirement, key: 'team_requirement');
+  static bool _$isClientRequirement(TaigaEpicData v) => v.isClientRequirement;
+  static const Field<TaigaEpicData, bool> _f$isClientRequirement = Field(
+      'isClientRequirement', _$isClientRequirement,
+      key: 'client_requirement');
+  static bool _$isTeamRequirement(TaigaEpicData v) => v.isTeamRequirement;
+  static const Field<TaigaEpicData, bool> _f$isTeamRequirement =
+      Field('isTeamRequirement', _$isTeamRequirement, key: 'team_requirement');
 
   @override
   final Map<Symbol, Field<TaigaEpicData, dynamic>> fields = const {
     #jobId: _f$jobId,
     #referenceNumber: _f$referenceNumber,
-    #tags: _f$tags,
+    #jobTags: _f$jobTags,
     #jobOwner: _f$jobOwner,
     #jobStatus: _f$jobStatus,
     #fromProject: _f$fromProject,
     #jobName: _f$jobName,
     #jobWatchers: _f$jobWatchers,
-    #permalink: _f$permalink,
+    #jobPermalink: _f$jobPermalink,
     #userAssigned: _f$userAssigned,
     #jobDescription: _f$jobDescription,
     #creationDate: _f$creationDate,
     #modifiedDate: _f$modifiedDate,
     #customValues: _f$customValues,
-    #clientRequirement: _f$clientRequirement,
     #color: _f$color,
     #epicsOrder: _f$epicsOrder,
-    #teamRequirement: _f$teamRequirement,
+    #isClientRequirement: _f$isClientRequirement,
+    #isTeamRequirement: _f$isTeamRequirement,
   };
 
   static TaigaEpicData _instantiate(DecodingData data) {
     return TaigaEpicData(
         jobId: data.dec(_f$jobId),
         referenceNumber: data.dec(_f$referenceNumber),
-        tags: data.dec(_f$tags),
+        jobTags: data.dec(_f$jobTags),
         jobOwner: data.dec(_f$jobOwner),
         jobStatus: data.dec(_f$jobStatus),
         fromProject: data.dec(_f$fromProject),
         jobName: data.dec(_f$jobName),
         jobWatchers: data.dec(_f$jobWatchers),
-        permalink: data.dec(_f$permalink),
+        jobPermalink: data.dec(_f$jobPermalink),
         userAssigned: data.dec(_f$userAssigned),
         jobDescription: data.dec(_f$jobDescription),
         creationDate: data.dec(_f$creationDate),
         modifiedDate: data.dec(_f$modifiedDate),
         customValues: data.dec(_f$customValues),
-        clientRequirement: data.dec(_f$clientRequirement),
         color: data.dec(_f$color),
         epicsOrder: data.dec(_f$epicsOrder),
-        teamRequirement: data.dec(_f$teamRequirement));
+        isClientRequirement: data.dec(_f$isClientRequirement),
+        isTeamRequirement: data.dec(_f$isTeamRequirement));
   }
 
   @override
@@ -1640,7 +1637,7 @@ extension TaigaEpicDataValueCopy<$R, $Out>
 abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
     implements TaigaDataCopyWith<$R, $In, $Out> {
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags;
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   @override
@@ -1652,28 +1649,28 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-      TaigaCustomAttributes>? get customValues;
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
+      get customValues;
   @override
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? tags,
+      List<dynamic>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
       String? jobName,
       List<int>? jobWatchers,
-      String? permalink,
+      String? jobPermalink,
       TaigaUser? userAssigned,
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomAttributes? customValues,
-      bool? clientRequirement,
+      TaigaCustomFields? customValues,
       String? color,
       int? epicsOrder,
-      bool? teamRequirement});
+      bool? isClientRequirement,
+      bool? isTeamRequirement});
   TaigaEpicDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -1686,9 +1683,9 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaEpicData> $mapper =
       TaigaEpicDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get tags =>
-      ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(tags: v));
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags =>
+      ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(jobTags: v));
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner =>
       $value.jobOwner.copyWith.$chain((v) => call(jobOwner: v));
@@ -1708,71 +1705,72 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  TaigaCustomAttributesCopyWith<$R, TaigaCustomAttributes,
-          TaigaCustomAttributes>?
+  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? tags,
+          List<dynamic>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
           String? jobName,
           List<int>? jobWatchers,
-          String? permalink,
+          String? jobPermalink,
           Object? userAssigned = $none,
           Object? jobDescription = $none,
           DateTime? creationDate,
           Object? modifiedDate = $none,
           Object? customValues = $none,
-          bool? clientRequirement,
           String? color,
           int? epicsOrder,
-          bool? teamRequirement}) =>
+          bool? isClientRequirement,
+          bool? isTeamRequirement}) =>
       $apply(FieldCopyWithData({
         if (jobId != null) #jobId: jobId,
         if (referenceNumber != null) #referenceNumber: referenceNumber,
-        if (tags != null) #tags: tags,
+        if (jobTags != null) #jobTags: jobTags,
         if (jobOwner != null) #jobOwner: jobOwner,
         if (jobStatus != null) #jobStatus: jobStatus,
         if (fromProject != null) #fromProject: fromProject,
         if (jobName != null) #jobName: jobName,
         if (jobWatchers != null) #jobWatchers: jobWatchers,
-        if (permalink != null) #permalink: permalink,
+        if (jobPermalink != null) #jobPermalink: jobPermalink,
         if (userAssigned != $none) #userAssigned: userAssigned,
         if (jobDescription != $none) #jobDescription: jobDescription,
         if (creationDate != null) #creationDate: creationDate,
         if (modifiedDate != $none) #modifiedDate: modifiedDate,
         if (customValues != $none) #customValues: customValues,
-        if (clientRequirement != null) #clientRequirement: clientRequirement,
         if (color != null) #color: color,
         if (epicsOrder != null) #epicsOrder: epicsOrder,
-        if (teamRequirement != null) #teamRequirement: teamRequirement
+        if (isClientRequirement != null)
+          #isClientRequirement: isClientRequirement,
+        if (isTeamRequirement != null) #isTeamRequirement: isTeamRequirement
       }));
   @override
   TaigaEpicData $make(CopyWithData data) => TaigaEpicData(
       jobId: data.get(#jobId, or: $value.jobId),
       referenceNumber: data.get(#referenceNumber, or: $value.referenceNumber),
-      tags: data.get(#tags, or: $value.tags),
+      jobTags: data.get(#jobTags, or: $value.jobTags),
       jobOwner: data.get(#jobOwner, or: $value.jobOwner),
       jobStatus: data.get(#jobStatus, or: $value.jobStatus),
       fromProject: data.get(#fromProject, or: $value.fromProject),
       jobName: data.get(#jobName, or: $value.jobName),
       jobWatchers: data.get(#jobWatchers, or: $value.jobWatchers),
-      permalink: data.get(#permalink, or: $value.permalink),
+      jobPermalink: data.get(#jobPermalink, or: $value.jobPermalink),
       userAssigned: data.get(#userAssigned, or: $value.userAssigned),
       jobDescription: data.get(#jobDescription, or: $value.jobDescription),
       creationDate: data.get(#creationDate, or: $value.creationDate),
       modifiedDate: data.get(#modifiedDate, or: $value.modifiedDate),
       customValues: data.get(#customValues, or: $value.customValues),
-      clientRequirement:
-          data.get(#clientRequirement, or: $value.clientRequirement),
       color: data.get(#color, or: $value.color),
       epicsOrder: data.get(#epicsOrder, or: $value.epicsOrder),
-      teamRequirement: data.get(#teamRequirement, or: $value.teamRequirement));
+      isClientRequirement:
+          data.get(#isClientRequirement, or: $value.isClientRequirement),
+      isTeamRequirement:
+          data.get(#isTeamRequirement, or: $value.isTeamRequirement));
 
   @override
   TaigaEpicDataCopyWith<$R2, TaigaEpicData, $Out2> $chain<$R2, $Out2>(

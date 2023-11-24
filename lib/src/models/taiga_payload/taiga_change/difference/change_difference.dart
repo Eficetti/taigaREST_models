@@ -1,15 +1,16 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/attachments_change.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/diff_custom_attributes.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_values/diff_custom_fields.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/from_to/from_to.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/point_difference/point_difference.dart';
+
 
 // TODO(Nacho): Add variables if they appear on the payload
 
 part 'change_difference.mapper.dart';
 
 /// When a change is committed, will be storage in this class. Can be any type
-/// of change
+/// of change made inside of a Taiga project
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaChangeDifference with TaigaChangeDifferenceMappable {
   /// Constructor of the TaigaChangeDifference class
@@ -52,6 +53,7 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
   FromTo? status;
 
   /// Changed made into the sprint
+  @MappableField(key: 'milestone')
   FromTo? sprint;
 
   /// Change example:(If this is promoted into a user Story)
@@ -103,9 +105,9 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
   FromTo? subject;
 
   /// Change made into a custom attribute
-  CustomAttributesChange? customAttributes;
+  CustomValuesDataChange? customAttributes;
 
-  /// Change made into Design points
+  /// Change made into the points of an UserStory
   PointDifference? points;
 
   /// FromJson method, convert a json type object into this

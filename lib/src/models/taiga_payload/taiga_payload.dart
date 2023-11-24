@@ -39,7 +39,7 @@ class TaigaPayload with TaigaPayloadMappable {
         data = TaigaTaskData.fromJson(jsonEncode(data));
       case 'epics':
         data = TaigaEpicData.fromJson(jsonEncode(data));
-      case 'sprint':
+      case 'milestone':
         data = DataSprint.fromJson(jsonEncode(data));
     }
   }

@@ -7,23 +7,28 @@ part 'taiga_project.mapper.dart';
 class TaigaProject with TaigaProjectMappable {
   /// Constructor of the class Project
   TaigaProject({
-    required this.id,
-    required this.permalink,
-    required this.name,
-    required this.logoBigUrl,
+    required this.projectId,
+    required this.projectPermalink,
+    required this.projectName,
+    required this.projectLogoBigUrl,
   });
 
   /// Id of the project
-  int id;
+  @MappableField(key: 'id')
+  int projectId;
 
-  /// Permalink of the Project
-  String permalink;
+  /// Permalink of the project will give you the complete url to the project
+  /// example: "tree.taiga.io/project/<project-name>"
+  @MappableField(key: 'permalink')
+  String projectPermalink;
 
   /// Name of the Project
-  String name;
+  @MappableField(key: 'name')
+  String projectName;
 
   /// Url of the logo of the project (Can came as null)
-  String? logoBigUrl;
+  @MappableField(key: 'logo_big_url')
+  String? projectLogoBigUrl;
 
   /// FromJson method, convert a json type object into this TaigaProject Object
   static const fromJson = TaigaProjectMapper.fromJson;

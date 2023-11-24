@@ -28,8 +28,9 @@ class DataSprintMapper extends ClassMapperBase<DataSprint> {
   static String _$sprintName(DataSprint v) => v.sprintName;
   static const Field<DataSprint, String> _f$sprintName =
       Field('sprintName', _$sprintName, key: 'name');
-  static String _$slug(DataSprint v) => v.slug;
-  static const Field<DataSprint, String> _f$slug = Field('slug', _$slug);
+  static String _$sprintSlug(DataSprint v) => v.sprintSlug;
+  static const Field<DataSprint, String> _f$sprintSlug =
+      Field('sprintSlug', _$sprintSlug, key: 'slug');
   static DateTime _$estimatedStartDate(DataSprint v) => v.estimatedStartDate;
   static const Field<DataSprint, DateTime> _f$estimatedStartDate =
       Field('estimatedStartDate', _$estimatedStartDate, key: 'estimated_start');
@@ -43,15 +44,15 @@ class DataSprintMapper extends ClassMapperBase<DataSprint> {
   static DateTime _$modifiedDate(DataSprint v) => v.modifiedDate;
   static const Field<DataSprint, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static bool _$isClosed(DataSprint v) => v.isClosed;
-  static const Field<DataSprint, bool> _f$isClosed =
-      Field('isClosed', _$isClosed, key: 'closed');
+  static bool _$sprintClosedStatus(DataSprint v) => v.sprintClosedStatus;
+  static const Field<DataSprint, bool> _f$sprintClosedStatus =
+      Field('sprintClosedStatus', _$sprintClosedStatus, key: 'closed');
   static int _$disponibility(DataSprint v) => v.disponibility;
   static const Field<DataSprint, int> _f$disponibility =
       Field('disponibility', _$disponibility);
-  static String _$permalink(DataSprint v) => v.permalink;
-  static const Field<DataSprint, String> _f$permalink =
-      Field('permalink', _$permalink);
+  static String _$sprintPermalink(DataSprint v) => v.sprintPermalink;
+  static const Field<DataSprint, String> _f$sprintPermalink =
+      Field('sprintPermalink', _$sprintPermalink, key: 'permalink');
   static TaigaProject _$project(DataSprint v) => v.project;
   static const Field<DataSprint, TaigaProject> _f$project =
       Field('project', _$project);
@@ -63,14 +64,14 @@ class DataSprintMapper extends ClassMapperBase<DataSprint> {
   final Map<Symbol, Field<DataSprint, dynamic>> fields = const {
     #sprintId: _f$sprintId,
     #sprintName: _f$sprintName,
-    #slug: _f$slug,
+    #sprintSlug: _f$sprintSlug,
     #estimatedStartDate: _f$estimatedStartDate,
     #estimatedFinishDate: _f$estimatedFinishDate,
     #creationDate: _f$creationDate,
     #modifiedDate: _f$modifiedDate,
-    #isClosed: _f$isClosed,
+    #sprintClosedStatus: _f$sprintClosedStatus,
     #disponibility: _f$disponibility,
-    #permalink: _f$permalink,
+    #sprintPermalink: _f$sprintPermalink,
     #project: _f$project,
     #createdBy: _f$createdBy,
   };
@@ -79,14 +80,14 @@ class DataSprintMapper extends ClassMapperBase<DataSprint> {
     return DataSprint(
         sprintId: data.dec(_f$sprintId),
         sprintName: data.dec(_f$sprintName),
-        slug: data.dec(_f$slug),
+        sprintSlug: data.dec(_f$sprintSlug),
         estimatedStartDate: data.dec(_f$estimatedStartDate),
         estimatedFinishDate: data.dec(_f$estimatedFinishDate),
         creationDate: data.dec(_f$creationDate),
         modifiedDate: data.dec(_f$modifiedDate),
-        isClosed: data.dec(_f$isClosed),
+        sprintClosedStatus: data.dec(_f$sprintClosedStatus),
         disponibility: data.dec(_f$disponibility),
-        permalink: data.dec(_f$permalink),
+        sprintPermalink: data.dec(_f$sprintPermalink),
         project: data.dec(_f$project),
         createdBy: data.dec(_f$createdBy));
   }
@@ -149,14 +150,14 @@ abstract class DataSprintCopyWith<$R, $In extends DataSprint, $Out>
   $R call(
       {int? sprintId,
       String? sprintName,
-      String? slug,
+      String? sprintSlug,
       DateTime? estimatedStartDate,
       DateTime? estimatedFinishDate,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      bool? isClosed,
+      bool? sprintClosedStatus,
       int? disponibility,
-      String? permalink,
+      String? sprintPermalink,
       TaigaProject? project,
       TaigaUser? createdBy});
   DataSprintCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -180,28 +181,28 @@ class _DataSprintCopyWithImpl<$R, $Out>
   $R call(
           {int? sprintId,
           String? sprintName,
-          String? slug,
+          String? sprintSlug,
           DateTime? estimatedStartDate,
           DateTime? estimatedFinishDate,
           DateTime? creationDate,
           DateTime? modifiedDate,
-          bool? isClosed,
+          bool? sprintClosedStatus,
           int? disponibility,
-          String? permalink,
+          String? sprintPermalink,
           TaigaProject? project,
           TaigaUser? createdBy}) =>
       $apply(FieldCopyWithData({
         if (sprintId != null) #sprintId: sprintId,
         if (sprintName != null) #sprintName: sprintName,
-        if (slug != null) #slug: slug,
+        if (sprintSlug != null) #sprintSlug: sprintSlug,
         if (estimatedStartDate != null) #estimatedStartDate: estimatedStartDate,
         if (estimatedFinishDate != null)
           #estimatedFinishDate: estimatedFinishDate,
         if (creationDate != null) #creationDate: creationDate,
         if (modifiedDate != null) #modifiedDate: modifiedDate,
-        if (isClosed != null) #isClosed: isClosed,
+        if (sprintClosedStatus != null) #sprintClosedStatus: sprintClosedStatus,
         if (disponibility != null) #disponibility: disponibility,
-        if (permalink != null) #permalink: permalink,
+        if (sprintPermalink != null) #sprintPermalink: sprintPermalink,
         if (project != null) #project: project,
         if (createdBy != null) #createdBy: createdBy
       }));
@@ -209,16 +210,17 @@ class _DataSprintCopyWithImpl<$R, $Out>
   DataSprint $make(CopyWithData data) => DataSprint(
       sprintId: data.get(#sprintId, or: $value.sprintId),
       sprintName: data.get(#sprintName, or: $value.sprintName),
-      slug: data.get(#slug, or: $value.slug),
+      sprintSlug: data.get(#sprintSlug, or: $value.sprintSlug),
       estimatedStartDate:
           data.get(#estimatedStartDate, or: $value.estimatedStartDate),
       estimatedFinishDate:
           data.get(#estimatedFinishDate, or: $value.estimatedFinishDate),
       creationDate: data.get(#creationDate, or: $value.creationDate),
       modifiedDate: data.get(#modifiedDate, or: $value.modifiedDate),
-      isClosed: data.get(#isClosed, or: $value.isClosed),
+      sprintClosedStatus:
+          data.get(#sprintClosedStatus, or: $value.sprintClosedStatus),
       disponibility: data.get(#disponibility, or: $value.disponibility),
-      permalink: data.get(#permalink, or: $value.permalink),
+      sprintPermalink: data.get(#sprintPermalink, or: $value.sprintPermalink),
       project: data.get(#project, or: $value.project),
       createdBy: data.get(#createdBy, or: $value.createdBy));
 
