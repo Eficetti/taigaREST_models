@@ -1,6 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/change_attachments/attachment_item/attachment_item.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/change_attachments/attachment_item_change/item_changed.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/change/attachment_item/attachment_item.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/change/attachment_item_change/item_changed.dart';
 
 
 part 'attachments_change.mapper.dart';

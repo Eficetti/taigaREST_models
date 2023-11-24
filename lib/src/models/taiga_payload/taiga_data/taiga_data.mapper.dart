@@ -20,7 +20,7 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      CustomAttributeMapper.ensureInitialized();
+      TaigaAttributeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -66,8 +66,8 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
   static DateTime? _$modifiedDate(TaigaData v) => v.modifiedDate;
   static const Field<TaigaData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static CustomAttribute? _$customValues(TaigaData v) => v.customValues;
-  static const Field<TaigaData, CustomAttribute> _f$customValues =
+  static TaigaAttribute? _$customValues(TaigaData v) => v.customValues;
+  static const Field<TaigaData, TaigaAttribute> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
 
   @override
@@ -164,8 +164,7 @@ abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get fromProject;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>?> get jobWatchers;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
-      get customValues;
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>? get customValues;
   $R call(
       {int? jobId,
       int? referenceNumber,
@@ -180,7 +179,7 @@ abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      CustomAttribute? customValues});
+      TaigaAttribute? customValues});
   TaigaDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -215,7 +214,7 @@ class _TaigaDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
@@ -284,7 +283,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      CustomAttributeMapper.ensureInitialized();
+      TaigaAttributeMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       DataPointMapper.ensureInitialized();
     }
@@ -333,9 +332,8 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static DateTime? _$modifiedDate(TaigaUserStoryData v) => v.modifiedDate;
   static const Field<TaigaUserStoryData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static CustomAttribute? _$customValues(TaigaUserStoryData v) =>
-      v.customValues;
-  static const Field<TaigaUserStoryData, CustomAttribute> _f$customValues =
+  static TaigaAttribute? _$customValues(TaigaUserStoryData v) => v.customValues;
+  static const Field<TaigaUserStoryData, TaigaAttribute> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static List<int> _$assignedUsers(TaigaUserStoryData v) => v.assignedUsers;
   static const Field<TaigaUserStoryData, List<int>> _f$assignedUsers =
@@ -510,8 +508,7 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
-      get customValues;
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>? get customValues;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, DataPoint, DataPointCopyWith<$R, DataPoint, DataPoint>>
@@ -531,7 +528,7 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      CustomAttribute? customValues,
+      TaigaAttribute? customValues,
       List<int>? assignedUsers,
       String? blockedNote,
       bool? clientRequirement,
@@ -580,7 +577,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
@@ -702,7 +699,7 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      CustomAttributeMapper.ensureInitialized();
+      TaigaAttributeMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       TaigaUserStoryDataMapper.ensureInitialized();
     }
@@ -751,8 +748,8 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   static DateTime? _$modifiedDate(TaigaTaskData v) => v.modifiedDate;
   static const Field<TaigaTaskData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static CustomAttribute? _$customValues(TaigaTaskData v) => v.customValues;
-  static const Field<TaigaTaskData, CustomAttribute> _f$customValues =
+  static TaigaAttribute? _$customValues(TaigaTaskData v) => v.customValues;
+  static const Field<TaigaTaskData, TaigaAttribute> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static String _$blockedNote(TaigaTaskData v) => v.blockedNote;
   static const Field<TaigaTaskData, String> _f$blockedNote =
@@ -914,8 +911,7 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
-      get customValues;
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>? get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedTo;
@@ -936,7 +932,7 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      CustomAttribute? customValues,
+      TaigaAttribute? customValues,
       String? blockedNote,
       DateTime? dueDate,
       String? dueDateReason,
@@ -982,7 +978,7 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
@@ -1097,7 +1093,7 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      CustomAttributeMapper.ensureInitialized();
+      TaigaAttributeMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       DataDetailsMapper.ensureInitialized();
     }
@@ -1146,8 +1142,8 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static DateTime? _$modifiedDate(TaigaIssueData v) => v.modifiedDate;
   static const Field<TaigaIssueData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static CustomAttribute? _$customValues(TaigaIssueData v) => v.customValues;
-  static const Field<TaigaIssueData, CustomAttribute> _f$customValues =
+  static TaigaAttribute? _$customValues(TaigaIssueData v) => v.customValues;
+  static const Field<TaigaIssueData, TaigaAttribute> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static DateTime? _$dueDate(TaigaIssueData v) => v.dueDate;
   static const Field<TaigaIssueData, DateTime> _f$dueDate =
@@ -1294,8 +1290,7 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
-      get customValues;
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>? get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get sprint;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get priority;
   ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedTo;
@@ -1316,7 +1311,7 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      CustomAttribute? customValues,
+      TaigaAttribute? customValues,
       DateTime? dueDate,
       String? dueDateReason,
       DateTime? finishedDate,
@@ -1360,7 +1355,7 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
@@ -1469,7 +1464,7 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      CustomAttributeMapper.ensureInitialized();
+      TaigaAttributeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -1516,8 +1511,8 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   static DateTime? _$modifiedDate(TaigaEpicData v) => v.modifiedDate;
   static const Field<TaigaEpicData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static CustomAttribute? _$customValues(TaigaEpicData v) => v.customValues;
-  static const Field<TaigaEpicData, CustomAttribute> _f$customValues =
+  static TaigaAttribute? _$customValues(TaigaEpicData v) => v.customValues;
+  static const Field<TaigaEpicData, TaigaAttribute> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static bool _$clientRequirement(TaigaEpicData v) => v.clientRequirement;
   static const Field<TaigaEpicData, bool> _f$clientRequirement = Field(
@@ -1644,8 +1639,7 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
-      get customValues;
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>? get customValues;
   @override
   $R call(
       {int? jobId,
@@ -1661,7 +1655,7 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      CustomAttribute? customValues,
+      TaigaAttribute? customValues,
       bool? clientRequirement,
       String? color,
       int? epicsOrder,
@@ -1700,7 +1694,7 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
   @override
-  CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>?
+  TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>?
       get customValues =>
           $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override

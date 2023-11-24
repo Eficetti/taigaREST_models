@@ -4,7 +4,7 @@
 // ignore_for_file: unused_element, unnecessary_cast
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
-part of 'change_difference_custom_attributes.dart';
+part of 'diff_custom_attributes.dart';
 
 class CustomAttributesChangeMapper
     extends ClassMapperBase<CustomAttributesChange> {
@@ -14,7 +14,7 @@ class CustomAttributesChangeMapper
   static CustomAttributesChangeMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = CustomAttributesChangeMapper._());
-      CustomAttributeMapper.ensureInitialized();
+      TaigaAttributeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -22,18 +22,18 @@ class CustomAttributesChangeMapper
   @override
   final String id = 'CustomAttributesChange';
 
-  static List<CustomAttribute> _$attributesNew(CustomAttributesChange v) =>
+  static List<TaigaAttribute> _$attributesNew(CustomAttributesChange v) =>
       v.attributesNew;
-  static const Field<CustomAttributesChange, List<CustomAttribute>>
+  static const Field<CustomAttributesChange, List<TaigaAttribute>>
       _f$attributesNew = Field('attributesNew', _$attributesNew, key: 'new');
-  static List<CustomAttribute> _$attributesChanged(CustomAttributesChange v) =>
+  static List<TaigaAttribute> _$attributesChanged(CustomAttributesChange v) =>
       v.attributesChanged;
-  static const Field<CustomAttributesChange, List<CustomAttribute>>
+  static const Field<CustomAttributesChange, List<TaigaAttribute>>
       _f$attributesChanged =
       Field('attributesChanged', _$attributesChanged, key: 'changed');
-  static List<CustomAttribute> _$attributesDeleted(CustomAttributesChange v) =>
+  static List<TaigaAttribute> _$attributesDeleted(CustomAttributesChange v) =>
       v.attributesDeleted;
-  static const Field<CustomAttributesChange, List<CustomAttribute>>
+  static const Field<CustomAttributesChange, List<TaigaAttribute>>
       _f$attributesDeleted =
       Field('attributesDeleted', _$attributesDeleted, key: 'deleted');
 
@@ -110,19 +110,19 @@ abstract class CustomAttributesChangeCopyWith<
     $R,
     $In extends CustomAttributesChange,
     $Out> implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, CustomAttribute,
-          CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>>
+  ListCopyWith<$R, TaigaAttribute,
+          TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>>
       get attributesNew;
-  ListCopyWith<$R, CustomAttribute,
-          CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>>
+  ListCopyWith<$R, TaigaAttribute,
+          TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>>
       get attributesChanged;
-  ListCopyWith<$R, CustomAttribute,
-          CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>>
+  ListCopyWith<$R, TaigaAttribute,
+          TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>>
       get attributesDeleted;
   $R call(
-      {List<CustomAttribute>? attributesNew,
-      List<CustomAttribute>? attributesChanged,
-      List<CustomAttribute>? attributesDeleted});
+      {List<TaigaAttribute>? attributesNew,
+      List<TaigaAttribute>? attributesChanged,
+      List<TaigaAttribute>? attributesDeleted});
   CustomAttributesChangeCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -137,25 +137,25 @@ class _CustomAttributesChangeCopyWithImpl<$R, $Out>
   late final ClassMapperBase<CustomAttributesChange> $mapper =
       CustomAttributesChangeMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, CustomAttribute,
-          CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>>
+  ListCopyWith<$R, TaigaAttribute,
+          TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>>
       get attributesNew => ListCopyWith($value.attributesNew,
           (v, t) => v.copyWith.$chain(t), (v) => call(attributesNew: v));
   @override
-  ListCopyWith<$R, CustomAttribute,
-          CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>>
+  ListCopyWith<$R, TaigaAttribute,
+          TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>>
       get attributesChanged => ListCopyWith($value.attributesChanged,
           (v, t) => v.copyWith.$chain(t), (v) => call(attributesChanged: v));
   @override
-  ListCopyWith<$R, CustomAttribute,
-          CustomAttributeCopyWith<$R, CustomAttribute, CustomAttribute>>
+  ListCopyWith<$R, TaigaAttribute,
+          TaigaAttributeCopyWith<$R, TaigaAttribute, TaigaAttribute>>
       get attributesDeleted => ListCopyWith($value.attributesDeleted,
           (v, t) => v.copyWith.$chain(t), (v) => call(attributesDeleted: v));
   @override
   $R call(
-          {List<CustomAttribute>? attributesNew,
-          List<CustomAttribute>? attributesChanged,
-          List<CustomAttribute>? attributesDeleted}) =>
+          {List<TaigaAttribute>? attributesNew,
+          List<TaigaAttribute>? attributesChanged,
+          List<TaigaAttribute>? attributesDeleted}) =>
       $apply(FieldCopyWithData({
         if (attributesNew != null) #attributesNew: attributesNew,
         if (attributesChanged != null) #attributesChanged: attributesChanged,

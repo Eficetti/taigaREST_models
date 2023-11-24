@@ -6,40 +6,39 @@
 
 part of 'taiga_attribute.dart';
 
-class CustomAttributeMapper extends ClassMapperBase<CustomAttribute> {
-  CustomAttributeMapper._();
+class TaigaAttributeMapper extends ClassMapperBase<TaigaAttribute> {
+  TaigaAttributeMapper._();
 
-  static CustomAttributeMapper? _instance;
-  static CustomAttributeMapper ensureInitialized() {
+  static TaigaAttributeMapper? _instance;
+  static TaigaAttributeMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = CustomAttributeMapper._());
+      MapperContainer.globals.use(_instance = TaigaAttributeMapper._());
       CustomAttributesChangeValueMapper.ensureInitialized();
     }
     return _instance!;
   }
 
   @override
-  final String id = 'CustomAttribute';
+  final String id = 'TaigaAttribute';
 
-  static int? _$id(CustomAttribute v) => v.id;
-  static const Field<CustomAttribute, int> _f$id = Field('id', _$id);
-  static String? _$name(CustomAttribute v) => v.name;
-  static const Field<CustomAttribute, String> _f$name = Field('name', _$name);
-  static String? _$type(CustomAttribute v) => v.type;
-  static const Field<CustomAttribute, String> _f$type = Field('type', _$type);
-  static String? _$value(CustomAttribute v) => v.value;
-  static const Field<CustomAttribute, String> _f$value =
-      Field('value', _$value);
-  static String? _$valueDiff(CustomAttribute v) => v.valueDiff;
-  static const Field<CustomAttribute, String> _f$valueDiff =
+  static int? _$id(TaigaAttribute v) => v.id;
+  static const Field<TaigaAttribute, int> _f$id = Field('id', _$id);
+  static String? _$name(TaigaAttribute v) => v.name;
+  static const Field<TaigaAttribute, String> _f$name = Field('name', _$name);
+  static String? _$type(TaigaAttribute v) => v.type;
+  static const Field<TaigaAttribute, String> _f$type = Field('type', _$type);
+  static String? _$value(TaigaAttribute v) => v.value;
+  static const Field<TaigaAttribute, String> _f$value = Field('value', _$value);
+  static String? _$valueDiff(TaigaAttribute v) => v.valueDiff;
+  static const Field<TaigaAttribute, String> _f$valueDiff =
       Field('valueDiff', _$valueDiff, key: 'value_diff');
-  static CustomAttributesChangeValue? _$valueChanges(CustomAttribute v) =>
+  static CustomAttributesChangeValue? _$valueChanges(TaigaAttribute v) =>
       v.valueChanges;
-  static const Field<CustomAttribute, CustomAttributesChangeValue>
+  static const Field<TaigaAttribute, CustomAttributesChangeValue>
       _f$valueChanges = Field('valueChanges', _$valueChanges, key: 'changes');
 
   @override
-  final Map<Symbol, Field<CustomAttribute, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaAttribute, dynamic>> fields = const {
     #id: _f$id,
     #name: _f$name,
     #type: _f$type,
@@ -48,8 +47,8 @@ class CustomAttributeMapper extends ClassMapperBase<CustomAttribute> {
     #valueChanges: _f$valueChanges,
   };
 
-  static CustomAttribute _instantiate(DecodingData data) {
-    return CustomAttribute(
+  static TaigaAttribute _instantiate(DecodingData data) {
+    return TaigaAttribute(
         id: data.dec(_f$id),
         name: data.dec(_f$name),
         type: data.dec(_f$type),
@@ -61,57 +60,57 @@ class CustomAttributeMapper extends ClassMapperBase<CustomAttribute> {
   @override
   final Function instantiate = _instantiate;
 
-  static CustomAttribute fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<CustomAttribute>(map);
+  static TaigaAttribute fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaAttribute>(map);
   }
 
-  static CustomAttribute fromJson(String json) {
-    return ensureInitialized().decodeJson<CustomAttribute>(json);
+  static TaigaAttribute fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaAttribute>(json);
   }
 }
 
-mixin CustomAttributeMappable {
+mixin TaigaAttributeMappable {
   String toJson() {
-    return CustomAttributeMapper.ensureInitialized()
-        .encodeJson<CustomAttribute>(this as CustomAttribute);
+    return TaigaAttributeMapper.ensureInitialized()
+        .encodeJson<TaigaAttribute>(this as TaigaAttribute);
   }
 
   Map<String, dynamic> toMap() {
-    return CustomAttributeMapper.ensureInitialized()
-        .encodeMap<CustomAttribute>(this as CustomAttribute);
+    return TaigaAttributeMapper.ensureInitialized()
+        .encodeMap<TaigaAttribute>(this as TaigaAttribute);
   }
 
-  CustomAttributeCopyWith<CustomAttribute, CustomAttribute, CustomAttribute>
-      get copyWith => _CustomAttributeCopyWithImpl(
-          this as CustomAttribute, $identity, $identity);
+  TaigaAttributeCopyWith<TaigaAttribute, TaigaAttribute, TaigaAttribute>
+      get copyWith => _TaigaAttributeCopyWithImpl(
+          this as TaigaAttribute, $identity, $identity);
   @override
   String toString() {
-    return CustomAttributeMapper.ensureInitialized()
-        .stringifyValue(this as CustomAttribute);
+    return TaigaAttributeMapper.ensureInitialized()
+        .stringifyValue(this as TaigaAttribute);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            CustomAttributeMapper.ensureInitialized()
-                .isValueEqual(this as CustomAttribute, other));
+            TaigaAttributeMapper.ensureInitialized()
+                .isValueEqual(this as TaigaAttribute, other));
   }
 
   @override
   int get hashCode {
-    return CustomAttributeMapper.ensureInitialized()
-        .hashValue(this as CustomAttribute);
+    return TaigaAttributeMapper.ensureInitialized()
+        .hashValue(this as TaigaAttribute);
   }
 }
 
-extension CustomAttributeValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, CustomAttribute, $Out> {
-  CustomAttributeCopyWith<$R, CustomAttribute, $Out> get $asCustomAttribute =>
-      $base.as((v, t, t2) => _CustomAttributeCopyWithImpl(v, t, t2));
+extension TaigaAttributeValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaAttribute, $Out> {
+  TaigaAttributeCopyWith<$R, TaigaAttribute, $Out> get $asTaigaAttribute =>
+      $base.as((v, t, t2) => _TaigaAttributeCopyWithImpl(v, t, t2));
 }
 
-abstract class CustomAttributeCopyWith<$R, $In extends CustomAttribute, $Out>
+abstract class TaigaAttributeCopyWith<$R, $In extends TaigaAttribute, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   CustomAttributesChangeValueCopyWith<$R, CustomAttributesChangeValue,
       CustomAttributesChangeValue>? get valueChanges;
@@ -122,18 +121,18 @@ abstract class CustomAttributeCopyWith<$R, $In extends CustomAttribute, $Out>
       String? value,
       String? valueDiff,
       CustomAttributesChangeValue? valueChanges});
-  CustomAttributeCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+  TaigaAttributeCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
 
-class _CustomAttributeCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, CustomAttribute, $Out>
-    implements CustomAttributeCopyWith<$R, CustomAttribute, $Out> {
-  _CustomAttributeCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaAttributeCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaAttribute, $Out>
+    implements TaigaAttributeCopyWith<$R, TaigaAttribute, $Out> {
+  _TaigaAttributeCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<CustomAttribute> $mapper =
-      CustomAttributeMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaAttribute> $mapper =
+      TaigaAttributeMapper.ensureInitialized();
   @override
   CustomAttributesChangeValueCopyWith<$R, CustomAttributesChangeValue,
           CustomAttributesChangeValue>?
@@ -156,7 +155,7 @@ class _CustomAttributeCopyWithImpl<$R, $Out>
         if (valueChanges != $none) #valueChanges: valueChanges
       }));
   @override
-  CustomAttribute $make(CopyWithData data) => CustomAttribute(
+  TaigaAttribute $make(CopyWithData data) => TaigaAttribute(
       id: data.get(#id, or: $value.id),
       name: data.get(#name, or: $value.name),
       type: data.get(#type, or: $value.type),
@@ -165,7 +164,7 @@ class _CustomAttributeCopyWithImpl<$R, $Out>
       valueChanges: data.get(#valueChanges, or: $value.valueChanges));
 
   @override
-  CustomAttributeCopyWith<$R2, CustomAttribute, $Out2> $chain<$R2, $Out2>(
+  TaigaAttributeCopyWith<$R2, TaigaAttribute, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
-      _CustomAttributeCopyWithImpl($value, $cast, t);
+      _TaigaAttributeCopyWithImpl($value, $cast, t);
 }

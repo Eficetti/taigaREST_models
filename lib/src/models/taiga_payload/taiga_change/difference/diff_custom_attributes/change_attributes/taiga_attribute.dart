@@ -1,13 +1,13 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/change_attributes/custom_attribute_change/custom_attribute_change.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/change_attributes/custom_attribute_change/custom_attribute_change_value.dart';
 
 part 'taiga_attribute.mapper.dart';
 
 /// This class is made for storage all the data of an attribute
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class CustomAttribute with CustomAttributeMappable {
+class TaigaAttribute with TaigaAttributeMappable {
   /// Constructor of the CustomAttribute class
-  CustomAttribute({
+  TaigaAttribute({
     required this.id,
     required this.name,
     required this.type,
@@ -37,5 +37,5 @@ class CustomAttribute with CustomAttributeMappable {
 
   /// FromJson method, convert a json type object into this
   /// TaigaAttribute Object
-  static const fromJson = CustomAttributeMapper.fromJson;
+  static const fromJson = TaigaAttributeMapper.fromJson;
 }

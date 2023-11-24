@@ -1,5 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/change_attachments/attachment_item_change/item_changes_info/item_changes_info.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/change/item_changes_info/item_changes_info.dart';
 
 part 'item_changed.mapper.dart';
 

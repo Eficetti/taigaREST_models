@@ -1,6 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart';
 
-part 'custom_attribute_change.mapper.dart';
+part 'custom_attribute_change_value.mapper.dart';
 
 /// This class is made for storage the change made on an attribute
 @MappableClass()

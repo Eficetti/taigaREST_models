@@ -1,8 +1,8 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/attachments_change.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/change_difference_custom_attributes.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/from_to/from_to.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/point_difference/point_difference.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/diff_custom_attributes.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/from_to/from_to.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/point_difference/point_difference.dart';
 
 // TODO(Nacho): Add variables if they appear on the payload
 

@@ -96,7 +96,7 @@ class TaigaData with TaigaDataMappable {
   /// your project, I recommend modify the class "TaigaCustomAttributes" to map
   /// your values
   @MappableField(key: 'custom_attributes_values')
-  CustomAttribute? customValues;
+  TaigaAttribute? customValues;
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga

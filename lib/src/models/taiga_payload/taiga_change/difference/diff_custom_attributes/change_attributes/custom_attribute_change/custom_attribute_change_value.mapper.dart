@@ -4,7 +4,7 @@
 // ignore_for_file: unused_element, unnecessary_cast
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
-part of 'custom_attribute_change.dart';
+part of 'custom_attribute_change_value.dart';
 
 class CustomAttributesChangeValueMapper
     extends ClassMapperBase<CustomAttributesChangeValue> {
