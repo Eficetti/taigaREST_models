@@ -1,5 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/change_attributes/custom_attribute_change/custom_attribute_change_value.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/change_attributes/custom_attribute_change/attribute_change_value.dart';
 
 part 'taiga_attribute.mapper.dart';
 
