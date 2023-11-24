@@ -25,4 +25,8 @@ class TaigaDifferenceCustomAttributes
   /// This will storage if an attribute was deleted
   @MappableField(key: 'deleted')
   List<TaigaAttribute> attributesDeleted;
+
+  /// FromJson method, convert a json type object into this
+  /// TaigaDifferenceCustomAttributes Object
+  static const fromJson = TaigaDifferenceCustomAttributesMapper.fromJson;
 }

@@ -26,4 +26,8 @@ class ItemChanged with ItemChangedMappable {
 
   /// An specific description of what exactly has been changed
   ItemChangesInfo changes;
+
+  /// FromJson method, convert a json type object into this
+  /// ItemChanged Object
+  static const fromJson = ItemChangedMapper.fromJson;
 }

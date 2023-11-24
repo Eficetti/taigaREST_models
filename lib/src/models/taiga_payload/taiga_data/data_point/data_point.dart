@@ -20,4 +20,7 @@ class DataPoint with DataPointMappable {
 
   /// Points values
   double? value;
+
+  /// FromJson method, convert a json type object into this DataPoint Object
+  static const fromJson = DataPointMapper.fromJson;
 }

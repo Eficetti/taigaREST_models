@@ -16,4 +16,8 @@ class ItemChangesInfo with ItemChangesInfoMappable {
 
   /// Is Deprecated taiga status of an attachment
   List<bool> isDeprecated;
+
+  /// FromJson method, convert a json type object into this 
+  /// ItemChangesInfo Object
+  static const fromJson = ItemChangesInfoMapper.fromJson;
 }

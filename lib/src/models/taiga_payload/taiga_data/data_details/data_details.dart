@@ -21,4 +21,7 @@ class DataDetails with DataDetailsMappable {
 
   /// Color assigned to the detail
   String color;
+
+  /// FromJson method, convert a json type object into this DataDetails Object
+  static const fromJson = DataDetailsMapper.fromJson;
 }

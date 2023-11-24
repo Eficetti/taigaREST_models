@@ -43,4 +43,8 @@ class AttachmentDifference with AttachmentDifferenceMappable {
 
   /// Position of the attachment
   int order;
+
+  /// FromJson method, convert a json type object into this
+  /// AttachmentDifference Object
+  static const fromJson = AttachmentDifferenceMapper.fromJson;
 }
