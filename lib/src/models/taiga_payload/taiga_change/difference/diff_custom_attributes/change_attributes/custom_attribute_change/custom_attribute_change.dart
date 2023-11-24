@@ -1,12 +1,12 @@
 import 'package:dart_mappable/dart_mappable.dart';
 
-part 'attribute_change.mapper.dart';
+part 'custom_attribute_change.mapper.dart';
 
 /// This class is made for storage the change made on an attribute
 @MappableClass()
-class TaigaCustomAttributesChange with TaigaCustomAttributesChangeMappable {
+class CustomAttributesChangeValue with CustomAttributesChangeValueMappable {
   /// Constructor of the ChangesAttributes class
-  TaigaCustomAttributesChange({
+  CustomAttributesChangeValue({
     required this.value,
   });
 
@@ -15,5 +15,5 @@ class TaigaCustomAttributesChange with TaigaCustomAttributesChangeMappable {
 
   /// FromJson method, convert a json type object into this
   /// TaigaCustomAttributesChange Object
-  static const fromJson = TaigaCustomAttributesChangeMapper.fromJson;
+  static const fromJson = CustomAttributesChangeValueMapper.fromJson;
 }

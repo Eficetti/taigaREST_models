@@ -1,5 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/taiga_from_to/taiga_from_to.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/from_to/from_to.dart';
 
 part 'point_difference.mapper.dart';
 
@@ -15,16 +15,16 @@ class PointDifference with PointDifferenceMappable {
   });
 
   /// Change made into Design points
-  TaigaFromTo? designPoints;
+  FromTo? designPoints;
 
   /// Change made into Front points
-  TaigaFromTo? frontPoints;
+  FromTo? frontPoints;
 
   /// Change made into Back points
-  TaigaFromTo? backPoints;
+  FromTo? backPoints;
 
   /// Change made into Project Manager points
-  TaigaFromTo? pmPoints;
+  FromTo? pmPoints;
 
   /// FromJson method, convert a json type object into this PointDifference
   /// object

@@ -7,15 +7,17 @@ part 'item_changes_info.mapper.dart';
 class ItemChangesInfo with ItemChangesInfoMappable {
   /// Constructor for the Changes class
   ItemChangesInfo({
-    required this.description,
-    required this.isDeprecated,
+    required this.itemDescription,
+    required this.itemStatus,
   });
 
   /// Description of the attachment
-  List<String> description;
+  @MappableField(key: 'description')
+  List<String> itemDescription;
 
   /// Is Deprecated taiga status of an attachment
-  List<bool> isDeprecated;
+  @MappableField(key: 'is_deprecated')
+  List<bool> itemStatus;
 
   /// FromJson method, convert a json type object into this 
   /// ItemChangesInfo Object

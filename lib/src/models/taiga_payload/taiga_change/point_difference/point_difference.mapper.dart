@@ -13,7 +13,7 @@ class PointDifferenceMapper extends ClassMapperBase<PointDifference> {
   static PointDifferenceMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = PointDifferenceMapper._());
-      TaigaFromToMapper.ensureInitialized();
+      FromToMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -21,17 +21,17 @@ class PointDifferenceMapper extends ClassMapperBase<PointDifference> {
   @override
   final String id = 'PointDifference';
 
-  static TaigaFromTo? _$backPoints(PointDifference v) => v.backPoints;
-  static const Field<PointDifference, TaigaFromTo> _f$backPoints =
+  static FromTo? _$backPoints(PointDifference v) => v.backPoints;
+  static const Field<PointDifference, FromTo> _f$backPoints =
       Field('backPoints', _$backPoints, key: 'back_points');
-  static TaigaFromTo? _$frontPoints(PointDifference v) => v.frontPoints;
-  static const Field<PointDifference, TaigaFromTo> _f$frontPoints =
+  static FromTo? _$frontPoints(PointDifference v) => v.frontPoints;
+  static const Field<PointDifference, FromTo> _f$frontPoints =
       Field('frontPoints', _$frontPoints, key: 'front_points');
-  static TaigaFromTo? _$designPoints(PointDifference v) => v.designPoints;
-  static const Field<PointDifference, TaigaFromTo> _f$designPoints =
+  static FromTo? _$designPoints(PointDifference v) => v.designPoints;
+  static const Field<PointDifference, FromTo> _f$designPoints =
       Field('designPoints', _$designPoints, key: 'design_points');
-  static TaigaFromTo? _$pmPoints(PointDifference v) => v.pmPoints;
-  static const Field<PointDifference, TaigaFromTo> _f$pmPoints =
+  static FromTo? _$pmPoints(PointDifference v) => v.pmPoints;
+  static const Field<PointDifference, FromTo> _f$pmPoints =
       Field('pmPoints', _$pmPoints, key: 'pm_points');
 
   @override
@@ -105,15 +105,15 @@ extension PointDifferenceValueCopy<$R, $Out>
 
 abstract class PointDifferenceCopyWith<$R, $In extends PointDifference, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get backPoints;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get frontPoints;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get designPoints;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get pmPoints;
+  FromToCopyWith<$R, FromTo, FromTo>? get backPoints;
+  FromToCopyWith<$R, FromTo, FromTo>? get frontPoints;
+  FromToCopyWith<$R, FromTo, FromTo>? get designPoints;
+  FromToCopyWith<$R, FromTo, FromTo>? get pmPoints;
   $R call(
-      {TaigaFromTo? backPoints,
-      TaigaFromTo? frontPoints,
-      TaigaFromTo? designPoints,
-      TaigaFromTo? pmPoints});
+      {FromTo? backPoints,
+      FromTo? frontPoints,
+      FromTo? designPoints,
+      FromTo? pmPoints});
   PointDifferenceCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -127,16 +127,16 @@ class _PointDifferenceCopyWithImpl<$R, $Out>
   late final ClassMapperBase<PointDifference> $mapper =
       PointDifferenceMapper.ensureInitialized();
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get backPoints =>
+  FromToCopyWith<$R, FromTo, FromTo>? get backPoints =>
       $value.backPoints?.copyWith.$chain((v) => call(backPoints: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get frontPoints =>
+  FromToCopyWith<$R, FromTo, FromTo>? get frontPoints =>
       $value.frontPoints?.copyWith.$chain((v) => call(frontPoints: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get designPoints =>
+  FromToCopyWith<$R, FromTo, FromTo>? get designPoints =>
       $value.designPoints?.copyWith.$chain((v) => call(designPoints: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get pmPoints =>
+  FromToCopyWith<$R, FromTo, FromTo>? get pmPoints =>
       $value.pmPoints?.copyWith.$chain((v) => call(pmPoints: v));
   @override
   $R call(

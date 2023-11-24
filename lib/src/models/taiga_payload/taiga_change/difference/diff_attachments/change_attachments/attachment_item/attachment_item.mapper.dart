@@ -20,49 +20,51 @@ class AttachmentItemMapper extends ClassMapperBase<AttachmentItem> {
   @override
   final String id = 'AttachmentItem';
 
-  static int _$id(AttachmentItem v) => v.id;
-  static const Field<AttachmentItem, int> _f$id = Field('id', _$id);
+  static int _$itemId(AttachmentItem v) => v.itemId;
+  static const Field<AttachmentItem, int> _f$itemId =
+      Field('itemId', _$itemId, key: 'id');
   static String _$filename(AttachmentItem v) => v.filename;
   static const Field<AttachmentItem, String> _f$filename =
       Field('filename', _$filename);
-  static String _$url(AttachmentItem v) => v.url;
-  static const Field<AttachmentItem, String> _f$url = Field('url', _$url);
+  static String _$itemUrl(AttachmentItem v) => v.itemUrl;
+  static const Field<AttachmentItem, String> _f$itemUrl =
+      Field('itemUrl', _$itemUrl, key: 'url');
   static String _$attachedFile(AttachmentItem v) => v.attachedFile;
   static const Field<AttachmentItem, String> _f$attachedFile =
       Field('attachedFile', _$attachedFile, key: 'attached_file');
   static String? _$thumbnailFile(AttachmentItem v) => v.thumbnailFile;
   static const Field<AttachmentItem, String> _f$thumbnailFile =
       Field('thumbnailFile', _$thumbnailFile, key: 'thumbnail_file');
-  static bool _$isDeprecated(AttachmentItem v) => v.isDeprecated;
-  static const Field<AttachmentItem, bool> _f$isDeprecated =
-      Field('isDeprecated', _$isDeprecated, key: 'is_deprecated');
-  static String _$description(AttachmentItem v) => v.description;
-  static const Field<AttachmentItem, String> _f$description =
-      Field('description', _$description);
+  static bool _$itemStatus(AttachmentItem v) => v.itemStatus;
+  static const Field<AttachmentItem, bool> _f$itemStatus =
+      Field('itemStatus', _$itemStatus, key: 'is_deprecated');
+  static String _$itemDescription(AttachmentItem v) => v.itemDescription;
+  static const Field<AttachmentItem, String> _f$itemDescription =
+      Field('itemDescription', _$itemDescription, key: 'description');
   static int _$order(AttachmentItem v) => v.order;
   static const Field<AttachmentItem, int> _f$order = Field('order', _$order);
 
   @override
   final Map<Symbol, Field<AttachmentItem, dynamic>> fields = const {
-    #id: _f$id,
+    #itemId: _f$itemId,
     #filename: _f$filename,
-    #url: _f$url,
+    #itemUrl: _f$itemUrl,
     #attachedFile: _f$attachedFile,
     #thumbnailFile: _f$thumbnailFile,
-    #isDeprecated: _f$isDeprecated,
-    #description: _f$description,
+    #itemStatus: _f$itemStatus,
+    #itemDescription: _f$itemDescription,
     #order: _f$order,
   };
 
   static AttachmentItem _instantiate(DecodingData data) {
     return AttachmentItem(
-        id: data.dec(_f$id),
+        itemId: data.dec(_f$itemId),
         filename: data.dec(_f$filename),
-        url: data.dec(_f$url),
+        itemUrl: data.dec(_f$itemUrl),
         attachedFile: data.dec(_f$attachedFile),
         thumbnailFile: data.dec(_f$thumbnailFile),
-        isDeprecated: data.dec(_f$isDeprecated),
-        description: data.dec(_f$description),
+        itemStatus: data.dec(_f$itemStatus),
+        itemDescription: data.dec(_f$itemDescription),
         order: data.dec(_f$order));
   }
 
@@ -122,13 +124,13 @@ extension AttachmentItemValueCopy<$R, $Out>
 abstract class AttachmentItemCopyWith<$R, $In extends AttachmentItem, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call(
-      {int? id,
+      {int? itemId,
       String? filename,
-      String? url,
+      String? itemUrl,
       String? attachedFile,
       String? thumbnailFile,
-      bool? isDeprecated,
-      String? description,
+      bool? itemStatus,
+      String? itemDescription,
       int? order});
   AttachmentItemCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
@@ -144,33 +146,33 @@ class _AttachmentItemCopyWithImpl<$R, $Out>
       AttachmentItemMapper.ensureInitialized();
   @override
   $R call(
-          {int? id,
+          {int? itemId,
           String? filename,
-          String? url,
+          String? itemUrl,
           String? attachedFile,
           Object? thumbnailFile = $none,
-          bool? isDeprecated,
-          String? description,
+          bool? itemStatus,
+          String? itemDescription,
           int? order}) =>
       $apply(FieldCopyWithData({
-        if (id != null) #id: id,
+        if (itemId != null) #itemId: itemId,
         if (filename != null) #filename: filename,
-        if (url != null) #url: url,
+        if (itemUrl != null) #itemUrl: itemUrl,
         if (attachedFile != null) #attachedFile: attachedFile,
         if (thumbnailFile != $none) #thumbnailFile: thumbnailFile,
-        if (isDeprecated != null) #isDeprecated: isDeprecated,
-        if (description != null) #description: description,
+        if (itemStatus != null) #itemStatus: itemStatus,
+        if (itemDescription != null) #itemDescription: itemDescription,
         if (order != null) #order: order
       }));
   @override
   AttachmentItem $make(CopyWithData data) => AttachmentItem(
-      id: data.get(#id, or: $value.id),
+      itemId: data.get(#itemId, or: $value.itemId),
       filename: data.get(#filename, or: $value.filename),
-      url: data.get(#url, or: $value.url),
+      itemUrl: data.get(#itemUrl, or: $value.itemUrl),
       attachedFile: data.get(#attachedFile, or: $value.attachedFile),
       thumbnailFile: data.get(#thumbnailFile, or: $value.thumbnailFile),
-      isDeprecated: data.get(#isDeprecated, or: $value.isDeprecated),
-      description: data.get(#description, or: $value.description),
+      itemStatus: data.get(#itemStatus, or: $value.itemStatus),
+      itemDescription: data.get(#itemDescription, or: $value.itemDescription),
       order: data.get(#order, or: $value.order));
 
   @override

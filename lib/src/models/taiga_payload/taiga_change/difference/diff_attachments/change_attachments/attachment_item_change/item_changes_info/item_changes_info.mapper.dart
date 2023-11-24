@@ -20,23 +20,23 @@ class ItemChangesInfoMapper extends ClassMapperBase<ItemChangesInfo> {
   @override
   final String id = 'ItemChangesInfo';
 
-  static List<String> _$description(ItemChangesInfo v) => v.description;
-  static const Field<ItemChangesInfo, List<String>> _f$description =
-      Field('description', _$description);
-  static List<bool> _$isDeprecated(ItemChangesInfo v) => v.isDeprecated;
-  static const Field<ItemChangesInfo, List<bool>> _f$isDeprecated =
-      Field('isDeprecated', _$isDeprecated, key: 'is_deprecated');
+  static List<String> _$itemDescription(ItemChangesInfo v) => v.itemDescription;
+  static const Field<ItemChangesInfo, List<String>> _f$itemDescription =
+      Field('itemDescription', _$itemDescription, key: 'description');
+  static List<bool> _$itemStatus(ItemChangesInfo v) => v.itemStatus;
+  static const Field<ItemChangesInfo, List<bool>> _f$itemStatus =
+      Field('itemStatus', _$itemStatus, key: 'is_deprecated');
 
   @override
   final Map<Symbol, Field<ItemChangesInfo, dynamic>> fields = const {
-    #description: _f$description,
-    #isDeprecated: _f$isDeprecated,
+    #itemDescription: _f$itemDescription,
+    #itemStatus: _f$itemStatus,
   };
 
   static ItemChangesInfo _instantiate(DecodingData data) {
     return ItemChangesInfo(
-        description: data.dec(_f$description),
-        isDeprecated: data.dec(_f$isDeprecated));
+        itemDescription: data.dec(_f$itemDescription),
+        itemStatus: data.dec(_f$itemStatus));
   }
 
   @override
@@ -94,9 +94,10 @@ extension ItemChangesInfoValueCopy<$R, $Out>
 
 abstract class ItemChangesInfoCopyWith<$R, $In extends ItemChangesInfo, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get description;
-  ListCopyWith<$R, bool, ObjectCopyWith<$R, bool, bool>> get isDeprecated;
-  $R call({List<String>? description, List<bool>? isDeprecated});
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>
+      get itemDescription;
+  ListCopyWith<$R, bool, ObjectCopyWith<$R, bool, bool>> get itemStatus;
+  $R call({List<String>? itemDescription, List<bool>? itemStatus});
   ItemChangesInfoCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -111,26 +112,24 @@ class _ItemChangesInfoCopyWithImpl<$R, $Out>
       ItemChangesInfoMapper.ensureInitialized();
   @override
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>
-      get description => ListCopyWith(
-          $value.description,
+      get itemDescription => ListCopyWith(
+          $value.itemDescription,
           (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(description: v));
+          (v) => call(itemDescription: v));
   @override
-  ListCopyWith<$R, bool, ObjectCopyWith<$R, bool, bool>> get isDeprecated =>
-      ListCopyWith(
-          $value.isDeprecated,
-          (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(isDeprecated: v));
+  ListCopyWith<$R, bool, ObjectCopyWith<$R, bool, bool>> get itemStatus =>
+      ListCopyWith($value.itemStatus, (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(itemStatus: v));
   @override
-  $R call({List<String>? description, List<bool>? isDeprecated}) =>
+  $R call({List<String>? itemDescription, List<bool>? itemStatus}) =>
       $apply(FieldCopyWithData({
-        if (description != null) #description: description,
-        if (isDeprecated != null) #isDeprecated: isDeprecated
+        if (itemDescription != null) #itemDescription: itemDescription,
+        if (itemStatus != null) #itemStatus: itemStatus
       }));
   @override
   ItemChangesInfo $make(CopyWithData data) => ItemChangesInfo(
-      description: data.get(#description, or: $value.description),
-      isDeprecated: data.get(#isDeprecated, or: $value.isDeprecated));
+      itemDescription: data.get(#itemDescription, or: $value.itemDescription),
+      itemStatus: data.get(#itemStatus, or: $value.itemStatus));
 
   @override
   ItemChangesInfoCopyWith<$R2, ItemChangesInfo, $Out2> $chain<$R2, $Out2>(

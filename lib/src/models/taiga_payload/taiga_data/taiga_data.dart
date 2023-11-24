@@ -1,9 +1,9 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_attributes/change_custom_attributes/taiga_custom_attributes.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/change_attributes/taiga_attribute.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_details/data_details.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_sprint/data_sprint.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_point/data_point.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_project/taiga_project.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_sprint/data_sprint.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_status/taiga_status.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_user/taiga_user.dart';
 
@@ -96,7 +96,7 @@ class TaigaData with TaigaDataMappable {
   /// your project, I recommend modify the class "TaigaCustomAttributes" to map
   /// your values
   @MappableField(key: 'custom_attributes_values')
-  TaigaCustomAttributes? customValues;
+  CustomAttribute? customValues;
 }
 
 /// This Data class will storage all the important data of the Payload of Taiga

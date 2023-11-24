@@ -14,9 +14,9 @@ class TaigaChangeDifferenceMapper
   static TaigaChangeDifferenceMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = TaigaChangeDifferenceMapper._());
-      AttachmentItemMapper.ensureInitialized();
-      TaigaFromToMapper.ensureInitialized();
-      TaigaDifferenceCustomAttributesMapper.ensureInitialized();
+      AttachmentsChangeMapper.ensureInitialized();
+      FromToMapper.ensureInitialized();
+      CustomAttributesChangeMapper.ensureInitialized();
       PointDifferenceMapper.ensureInitialized();
     }
     return _instance!;
@@ -25,85 +25,88 @@ class TaigaChangeDifferenceMapper
   @override
   final String id = 'TaigaChangeDifference';
 
-  static AttachmentItem? _$attachments(TaigaChangeDifference v) =>
+  static AttachmentsChange? _$attachments(TaigaChangeDifference v) =>
       v.attachments;
-  static const Field<TaigaChangeDifference, AttachmentItem> _f$attachments =
-      Field('attachments', _$attachments);
-  static TaigaFromTo? _$assignedTo(TaigaChangeDifference v) => v.assignedTo;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$assignedTo =
-      Field('assignedTo', _$assignedTo, key: 'assigned_to');
-  static TaigaFromTo? _$dueDate(TaigaChangeDifference v) => v.dueDate;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$dueDate =
-      Field('dueDate', _$dueDate, key: 'due_date');
-  static TaigaFromTo? _$status(TaigaChangeDifference v) => v.status;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$status =
-      Field('status', _$status);
-  static TaigaFromTo? _$sprint(TaigaChangeDifference v) => v.sprint;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$sprint =
-      Field('sprint', _$sprint);
-  static TaigaFromTo? _$promotedTo(TaigaChangeDifference v) => v.promotedTo;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$promotedTo =
-      Field('promotedTo', _$promotedTo, key: 'promoted_to');
-  static TaigaFromTo? _$tags(TaigaChangeDifference v) => v.tags;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$tags =
-      Field('tags', _$tags);
+  static const Field<TaigaChangeDifference, AttachmentsChange> _f$attachments =
+      Field('attachments', _$attachments, opt: true);
+  static FromTo? _$assignedTo(TaigaChangeDifference v) => v.assignedTo;
+  static const Field<TaigaChangeDifference, FromTo> _f$assignedTo =
+      Field('assignedTo', _$assignedTo, key: 'assigned_to', opt: true);
+  static FromTo? _$dueDate(TaigaChangeDifference v) => v.dueDate;
+  static const Field<TaigaChangeDifference, FromTo> _f$dueDate =
+      Field('dueDate', _$dueDate, key: 'due_date', opt: true);
+  static FromTo? _$status(TaigaChangeDifference v) => v.status;
+  static const Field<TaigaChangeDifference, FromTo> _f$status =
+      Field('status', _$status, opt: true);
+  static FromTo? _$sprint(TaigaChangeDifference v) => v.sprint;
+  static const Field<TaigaChangeDifference, FromTo> _f$sprint =
+      Field('sprint', _$sprint, opt: true);
+  static FromTo? _$promotedTo(TaigaChangeDifference v) => v.promotedTo;
+  static const Field<TaigaChangeDifference, FromTo> _f$promotedTo =
+      Field('promotedTo', _$promotedTo, key: 'promoted_to', opt: true);
+  static FromTo? _$tags(TaigaChangeDifference v) => v.tags;
+  static const Field<TaigaChangeDifference, FromTo> _f$tags =
+      Field('tags', _$tags, opt: true);
   static String? _$descriptionDiff(TaigaChangeDifference v) =>
       v.descriptionDiff;
-  static const Field<TaigaChangeDifference, String> _f$descriptionDiff =
-      Field('descriptionDiff', _$descriptionDiff, key: 'description_diff');
-  static TaigaFromTo? _$isClosed(TaigaChangeDifference v) => v.isClosed;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$isClosed =
-      Field('isClosed', _$isClosed, key: 'is_closed');
-  static TaigaFromTo? _$kanbanOrder(TaigaChangeDifference v) => v.kanbanOrder;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$kanbanOrder =
-      Field('kanbanOrder', _$kanbanOrder, key: 'kanban_order');
-  static TaigaFromTo? _$finishDate(TaigaChangeDifference v) => v.finishDate;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$finishDate =
-      Field('finishDate', _$finishDate, key: 'finish_date');
-  static TaigaFromTo? _$isBlocked(TaigaChangeDifference v) => v.isBlocked;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$isBlocked =
-      Field('isBlocked', _$isBlocked, key: 'is_blocked');
-  static TaigaFromTo? _$blockedNoteDiff(TaigaChangeDifference v) =>
+  static const Field<TaigaChangeDifference, String> _f$descriptionDiff = Field(
+      'descriptionDiff', _$descriptionDiff,
+      key: 'description_diff', opt: true);
+  static FromTo? _$isClosed(TaigaChangeDifference v) => v.isClosed;
+  static const Field<TaigaChangeDifference, FromTo> _f$isClosed =
+      Field('isClosed', _$isClosed, key: 'is_closed', opt: true);
+  static FromTo? _$kanbanOrder(TaigaChangeDifference v) => v.kanbanOrder;
+  static const Field<TaigaChangeDifference, FromTo> _f$kanbanOrder =
+      Field('kanbanOrder', _$kanbanOrder, key: 'kanban_order', opt: true);
+  static FromTo? _$finishDate(TaigaChangeDifference v) => v.finishDate;
+  static const Field<TaigaChangeDifference, FromTo> _f$finishDate =
+      Field('finishDate', _$finishDate, key: 'finish_date', opt: true);
+  static FromTo? _$isBlocked(TaigaChangeDifference v) => v.isBlocked;
+  static const Field<TaigaChangeDifference, FromTo> _f$isBlocked =
+      Field('isBlocked', _$isBlocked, key: 'is_blocked', opt: true);
+  static FromTo? _$blockedNoteDiff(TaigaChangeDifference v) =>
       v.blockedNoteDiff;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$blockedNoteDiff =
-      Field('blockedNoteDiff', _$blockedNoteDiff, key: 'blocked_note_diff');
-  static TaigaFromTo? _$blockedNoteHtml(TaigaChangeDifference v) =>
+  static const Field<TaigaChangeDifference, FromTo> _f$blockedNoteDiff = Field(
+      'blockedNoteDiff', _$blockedNoteDiff,
+      key: 'blocked_note_diff', opt: true);
+  static FromTo? _$blockedNoteHtml(TaigaChangeDifference v) =>
       v.blockedNoteHtml;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$blockedNoteHtml =
-      Field('blockedNoteHtml', _$blockedNoteHtml, key: 'blocked_note_html');
-  static TaigaFromTo? _$clientRequirement(TaigaChangeDifference v) =>
+  static const Field<TaigaChangeDifference, FromTo> _f$blockedNoteHtml = Field(
+      'blockedNoteHtml', _$blockedNoteHtml,
+      key: 'blocked_note_html', opt: true);
+  static FromTo? _$clientRequirement(TaigaChangeDifference v) =>
       v.clientRequirement;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$clientRequirement =
+  static const Field<TaigaChangeDifference, FromTo> _f$clientRequirement =
       Field('clientRequirement', _$clientRequirement,
-          key: 'client_requirement');
-  static TaigaFromTo? _$teamRequirement(TaigaChangeDifference v) =>
+          key: 'client_requirement', opt: true);
+  static FromTo? _$teamRequirement(TaigaChangeDifference v) =>
       v.teamRequirement;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$teamRequirement =
-      Field('teamRequirement', _$teamRequirement, key: 'team_requirement');
-  static TaigaDifferenceCustomAttributes? _$customAttributes(
-          TaigaChangeDifference v) =>
+  static const Field<TaigaChangeDifference, FromTo> _f$teamRequirement = Field(
+      'teamRequirement', _$teamRequirement,
+      key: 'team_requirement', opt: true);
+  static CustomAttributesChange? _$customAttributes(TaigaChangeDifference v) =>
       v.customAttributes;
-  static const Field<TaigaChangeDifference, TaigaDifferenceCustomAttributes>
-      _f$customAttributes =
-      Field('customAttributes', _$customAttributes, key: 'custom_attributes');
-  static TaigaFromTo? _$isIocaine(TaigaChangeDifference v) => v.isIocaine;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$isIocaine =
-      Field('isIocaine', _$isIocaine, key: 'is_iocaine');
+  static const Field<TaigaChangeDifference, CustomAttributesChange>
+      _f$customAttributes = Field('customAttributes', _$customAttributes,
+          key: 'custom_attributes', opt: true);
+  static FromTo? _$isIocaine(TaigaChangeDifference v) => v.isIocaine;
+  static const Field<TaigaChangeDifference, FromTo> _f$isIocaine =
+      Field('isIocaine', _$isIocaine, key: 'is_iocaine', opt: true);
   static PointDifference? _$points(TaigaChangeDifference v) => v.points;
   static const Field<TaigaChangeDifference, PointDifference> _f$points =
-      Field('points', _$points);
-  static TaigaFromTo? _$priority(TaigaChangeDifference v) => v.priority;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$priority =
-      Field('priority', _$priority);
-  static TaigaFromTo? _$severity(TaigaChangeDifference v) => v.severity;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$severity =
-      Field('severity', _$severity);
-  static TaigaFromTo? _$type(TaigaChangeDifference v) => v.type;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$type =
-      Field('type', _$type);
-  static TaigaFromTo? _$subject(TaigaChangeDifference v) => v.subject;
-  static const Field<TaigaChangeDifference, TaigaFromTo> _f$subject =
-      Field('subject', _$subject);
+      Field('points', _$points, opt: true);
+  static FromTo? _$priority(TaigaChangeDifference v) => v.priority;
+  static const Field<TaigaChangeDifference, FromTo> _f$priority =
+      Field('priority', _$priority, opt: true);
+  static FromTo? _$severity(TaigaChangeDifference v) => v.severity;
+  static const Field<TaigaChangeDifference, FromTo> _f$severity =
+      Field('severity', _$severity, opt: true);
+  static FromTo? _$type(TaigaChangeDifference v) => v.type;
+  static const Field<TaigaChangeDifference, FromTo> _f$type =
+      Field('type', _$type, opt: true);
+  static FromTo? _$subject(TaigaChangeDifference v) => v.subject;
+  static const Field<TaigaChangeDifference, FromTo> _f$subject =
+      Field('subject', _$subject, opt: true);
 
   @override
   final Map<Symbol, Field<TaigaChangeDifference, dynamic>> fields = const {
@@ -218,53 +221,54 @@ abstract class TaigaChangeDifferenceCopyWith<
     $R,
     $In extends TaigaChangeDifference,
     $Out> implements ClassCopyWith<$R, $In, $Out> {
-  AttachmentItemCopyWith<$R, AttachmentItem, AttachmentItem>? get attachments;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get assignedTo;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get dueDate;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get status;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get sprint;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get promotedTo;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get tags;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get isClosed;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get kanbanOrder;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get finishDate;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get isBlocked;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get blockedNoteDiff;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get blockedNoteHtml;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get clientRequirement;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get teamRequirement;
-  TaigaDifferenceCustomAttributesCopyWith<$R, TaigaDifferenceCustomAttributes,
-      TaigaDifferenceCustomAttributes>? get customAttributes;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get isIocaine;
+  AttachmentsChangeCopyWith<$R, AttachmentsChange, AttachmentsChange>?
+      get attachments;
+  FromToCopyWith<$R, FromTo, FromTo>? get assignedTo;
+  FromToCopyWith<$R, FromTo, FromTo>? get dueDate;
+  FromToCopyWith<$R, FromTo, FromTo>? get status;
+  FromToCopyWith<$R, FromTo, FromTo>? get sprint;
+  FromToCopyWith<$R, FromTo, FromTo>? get promotedTo;
+  FromToCopyWith<$R, FromTo, FromTo>? get tags;
+  FromToCopyWith<$R, FromTo, FromTo>? get isClosed;
+  FromToCopyWith<$R, FromTo, FromTo>? get kanbanOrder;
+  FromToCopyWith<$R, FromTo, FromTo>? get finishDate;
+  FromToCopyWith<$R, FromTo, FromTo>? get isBlocked;
+  FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteDiff;
+  FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteHtml;
+  FromToCopyWith<$R, FromTo, FromTo>? get clientRequirement;
+  FromToCopyWith<$R, FromTo, FromTo>? get teamRequirement;
+  CustomAttributesChangeCopyWith<$R, CustomAttributesChange,
+      CustomAttributesChange>? get customAttributes;
+  FromToCopyWith<$R, FromTo, FromTo>? get isIocaine;
   PointDifferenceCopyWith<$R, PointDifference, PointDifference>? get points;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get priority;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get severity;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get type;
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get subject;
+  FromToCopyWith<$R, FromTo, FromTo>? get priority;
+  FromToCopyWith<$R, FromTo, FromTo>? get severity;
+  FromToCopyWith<$R, FromTo, FromTo>? get type;
+  FromToCopyWith<$R, FromTo, FromTo>? get subject;
   $R call(
-      {AttachmentItem? attachments,
-      TaigaFromTo? assignedTo,
-      TaigaFromTo? dueDate,
-      TaigaFromTo? status,
-      TaigaFromTo? sprint,
-      TaigaFromTo? promotedTo,
-      TaigaFromTo? tags,
+      {AttachmentsChange? attachments,
+      FromTo? assignedTo,
+      FromTo? dueDate,
+      FromTo? status,
+      FromTo? sprint,
+      FromTo? promotedTo,
+      FromTo? tags,
       String? descriptionDiff,
-      TaigaFromTo? isClosed,
-      TaigaFromTo? kanbanOrder,
-      TaigaFromTo? finishDate,
-      TaigaFromTo? isBlocked,
-      TaigaFromTo? blockedNoteDiff,
-      TaigaFromTo? blockedNoteHtml,
-      TaigaFromTo? clientRequirement,
-      TaigaFromTo? teamRequirement,
-      TaigaDifferenceCustomAttributes? customAttributes,
-      TaigaFromTo? isIocaine,
+      FromTo? isClosed,
+      FromTo? kanbanOrder,
+      FromTo? finishDate,
+      FromTo? isBlocked,
+      FromTo? blockedNoteDiff,
+      FromTo? blockedNoteHtml,
+      FromTo? clientRequirement,
+      FromTo? teamRequirement,
+      CustomAttributesChange? customAttributes,
+      FromTo? isIocaine,
       PointDifference? points,
-      TaigaFromTo? priority,
-      TaigaFromTo? severity,
-      TaigaFromTo? type,
-      TaigaFromTo? subject});
+      FromTo? priority,
+      FromTo? severity,
+      FromTo? type,
+      FromTo? subject});
   TaigaChangeDifferenceCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -278,73 +282,74 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaChangeDifference> $mapper =
       TaigaChangeDifferenceMapper.ensureInitialized();
   @override
-  AttachmentItemCopyWith<$R, AttachmentItem, AttachmentItem>? get attachments =>
-      $value.attachments?.copyWith.$chain((v) => call(attachments: v));
+  AttachmentsChangeCopyWith<$R, AttachmentsChange, AttachmentsChange>?
+      get attachments =>
+          $value.attachments?.copyWith.$chain((v) => call(attachments: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get assignedTo =>
+  FromToCopyWith<$R, FromTo, FromTo>? get assignedTo =>
       $value.assignedTo?.copyWith.$chain((v) => call(assignedTo: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get dueDate =>
+  FromToCopyWith<$R, FromTo, FromTo>? get dueDate =>
       $value.dueDate?.copyWith.$chain((v) => call(dueDate: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get status =>
+  FromToCopyWith<$R, FromTo, FromTo>? get status =>
       $value.status?.copyWith.$chain((v) => call(status: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get sprint =>
+  FromToCopyWith<$R, FromTo, FromTo>? get sprint =>
       $value.sprint?.copyWith.$chain((v) => call(sprint: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get promotedTo =>
+  FromToCopyWith<$R, FromTo, FromTo>? get promotedTo =>
       $value.promotedTo?.copyWith.$chain((v) => call(promotedTo: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get tags =>
+  FromToCopyWith<$R, FromTo, FromTo>? get tags =>
       $value.tags?.copyWith.$chain((v) => call(tags: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get isClosed =>
+  FromToCopyWith<$R, FromTo, FromTo>? get isClosed =>
       $value.isClosed?.copyWith.$chain((v) => call(isClosed: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get kanbanOrder =>
+  FromToCopyWith<$R, FromTo, FromTo>? get kanbanOrder =>
       $value.kanbanOrder?.copyWith.$chain((v) => call(kanbanOrder: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get finishDate =>
+  FromToCopyWith<$R, FromTo, FromTo>? get finishDate =>
       $value.finishDate?.copyWith.$chain((v) => call(finishDate: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get isBlocked =>
+  FromToCopyWith<$R, FromTo, FromTo>? get isBlocked =>
       $value.isBlocked?.copyWith.$chain((v) => call(isBlocked: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get blockedNoteDiff =>
+  FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteDiff =>
       $value.blockedNoteDiff?.copyWith.$chain((v) => call(blockedNoteDiff: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get blockedNoteHtml =>
+  FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteHtml =>
       $value.blockedNoteHtml?.copyWith.$chain((v) => call(blockedNoteHtml: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get clientRequirement =>
+  FromToCopyWith<$R, FromTo, FromTo>? get clientRequirement =>
       $value.clientRequirement?.copyWith
           .$chain((v) => call(clientRequirement: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get teamRequirement =>
+  FromToCopyWith<$R, FromTo, FromTo>? get teamRequirement =>
       $value.teamRequirement?.copyWith.$chain((v) => call(teamRequirement: v));
   @override
-  TaigaDifferenceCustomAttributesCopyWith<$R, TaigaDifferenceCustomAttributes,
-          TaigaDifferenceCustomAttributes>?
+  CustomAttributesChangeCopyWith<$R, CustomAttributesChange,
+          CustomAttributesChange>?
       get customAttributes => $value.customAttributes?.copyWith
           .$chain((v) => call(customAttributes: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get isIocaine =>
+  FromToCopyWith<$R, FromTo, FromTo>? get isIocaine =>
       $value.isIocaine?.copyWith.$chain((v) => call(isIocaine: v));
   @override
   PointDifferenceCopyWith<$R, PointDifference, PointDifference>? get points =>
       $value.points?.copyWith.$chain((v) => call(points: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get priority =>
+  FromToCopyWith<$R, FromTo, FromTo>? get priority =>
       $value.priority?.copyWith.$chain((v) => call(priority: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get severity =>
+  FromToCopyWith<$R, FromTo, FromTo>? get severity =>
       $value.severity?.copyWith.$chain((v) => call(severity: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get type =>
+  FromToCopyWith<$R, FromTo, FromTo>? get type =>
       $value.type?.copyWith.$chain((v) => call(type: v));
   @override
-  TaigaFromToCopyWith<$R, TaigaFromTo, TaigaFromTo>? get subject =>
+  FromToCopyWith<$R, FromTo, FromTo>? get subject =>
       $value.subject?.copyWith.$chain((v) => call(subject: v));
   @override
   $R call(

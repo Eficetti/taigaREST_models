@@ -1,14 +1,15 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_attributes/change_attribute/taiga_attribute.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_custom_attributes/change_attributes/taiga_attribute.dart';
 
 part 'change_difference_custom_attributes.mapper.dart';
 
-/// This class is made for storage custom attributes of Taiga
+/// This class will storage the changes made into a custom attribute on Taiga
+/// it came as lists of Attributes
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaDifferenceCustomAttributes
-    with TaigaDifferenceCustomAttributesMappable {
+class CustomAttributesChange
+    with CustomAttributesChangeMappable {
   /// Constructor of the CustomAttributes class
-  TaigaDifferenceCustomAttributes({
+  CustomAttributesChange({
     required this.attributesNew,
     required this.attributesChanged,
     required this.attributesDeleted,
@@ -16,17 +17,17 @@ class TaigaDifferenceCustomAttributes
 
   /// This is the new attribute added
   @MappableField(key: 'new')
-  List<TaigaAttribute> attributesNew;
+  List<CustomAttribute> attributesNew;
 
   /// This will storage the change of an attribute
   @MappableField(key: 'changed')
-  List<TaigaAttribute> attributesChanged;
+  List<CustomAttribute> attributesChanged;
 
   /// This will storage if an attribute was deleted
   @MappableField(key: 'deleted')
-  List<TaigaAttribute> attributesDeleted;
+  List<CustomAttribute> attributesDeleted;
 
   /// FromJson method, convert a json type object into this
   /// TaigaDifferenceCustomAttributes Object
-  static const fromJson = TaigaDifferenceCustomAttributesMapper.fromJson;
+  static const fromJson = CustomAttributesChangeMapper.fromJson;
 }

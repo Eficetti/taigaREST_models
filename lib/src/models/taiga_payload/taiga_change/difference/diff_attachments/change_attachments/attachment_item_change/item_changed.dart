@@ -1,14 +1,14 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_attachments/attachment_item_change/item_changes_info/item_changes_info.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/diff_attachments/change_attachments/attachment_item_change/item_changes_info/item_changes_info.dart';
 
 part 'item_changed.mapper.dart';
 
 /// This is the part of the attachments who saves all the things which has
-/// changed in this payload
+/// changed in the payload
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class ItemChanged with ItemChangedMappable {
-  /// constructor of the Changed class
-  ItemChanged({
+class AttachmentItemChanged with AttachmentItemChangedMappable {
+  /// Constructor of the Changed class
+  AttachmentItemChanged({
     required this.filename,
     required this.url,
     required this.thumbUrl,
@@ -29,5 +29,5 @@ class ItemChanged with ItemChangedMappable {
 
   /// FromJson method, convert a json type object into this
   /// ItemChanged Object
-  static const fromJson = ItemChangedMapper.fromJson;
+  static const fromJson = AttachmentItemChangedMapper.fromJson;
 }

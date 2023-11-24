@@ -1,7 +1,7 @@
 
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_comment_version/taiga_comment_version.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/change_difference/change_difference.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/change_difference.dart';
 
 part 'taiga_change.mapper.dart';
 
@@ -19,11 +19,10 @@ class TaigaChange with TaigaChangeMappable{
     required this.difference,
   });
 
-  /// Commentary on payload. It will have all the information of the change made
-  /// also it can come as an empty value
+  /// If a change was made into a comment, it will be here
   String? comment;
 
-  /// Comment html, same as 'comment', but it come with html tags
+  /// Comment html, same as 'comment', but it came with html tags
   String? commentHtml;
 
   /// DeleteCommentDate will have the date of deletion of a comment
@@ -37,7 +36,8 @@ class TaigaChange with TaigaChangeMappable{
   /// comment
   DateTime? editCommentDate;
 
-  /// Difference is used to save all the differences made on this change payload
+  /// Difference is used to save all the differences made on this "change" type
+  /// payload
   @MappableField(key: 'diff')
   TaigaChangeDifference? difference;
 
