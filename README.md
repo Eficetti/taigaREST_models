@@ -7,7 +7,7 @@
 TaigaRest models is a package created to consume the data from Taiga (tree.taiga.io) webhooks, and put it
 inside of Dart models, to use it on a project. We are using mappable models (<https://pub.dev/packages/dart_mappable>)  
 
-> ## <ins> How to use (?) </ins>
+## <ins> How to use (?) </ins>
 
 First of all, you have to connect the taiga webhooks to your project on Dart (There is a guide: <https://docs.taiga.io/webhooks-configuration.html#_developing_your_own_integration>), once it is connected you have to decode the data using
 the 'dart:convert' library (<https://api.dart.dev/stable/3.2.1/dart-convert/dart-convert-library.html>) and then use the fromJson method of the TaigaPayload model.   
@@ -37,7 +37,7 @@ class RouteRoot extends WidgetRoute {
 
 This will create the model with all the data you receive from Taiga. Is recommended to validate this data before using it, but this is pending. If you want to do it by yourself: <https://docs.taiga.io/webhooks.html#_verify_signature>  
 
-> ## <ins> How to use custom fields (?) </ins>
+## <ins> How to use custom fields (?) </ins>
 For using custom fields of taiga (<https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150>) by the moment you have to modify the TaigaCustomFields model 'lib\src\models\taiga_payload\taiga_data\custom_fields\taiga_custom_fields.dart'.   
 
 ```
@@ -56,7 +56,7 @@ dart run build_runner build --delete-conflicting-outputs
 ```
 ---
 
-> ## <ins> Working with the data </ins>  
+## <ins> Working with the data </ins>  
 To understand this models you need to know, the payload of Taiga webhook, always came with the same values:
 (Docs: https://docs.taiga.io/webhooks.html#_test_payload)  
 {  
@@ -82,7 +82,7 @@ To understand this models you need to know, the payload of Taiga webhook, always
 
 - The change field (only present on change notifications) contains the information about the changes made.  
 
-> ## <ins> Important Fields </ins>  
+## <ins> Important Fields </ins>  
 
 ### <ins> Explaining TaigaUser</ins>  
 
