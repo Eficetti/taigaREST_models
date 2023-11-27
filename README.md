@@ -4,7 +4,7 @@
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
-TaigaRest models is a package created to consume the data from Taiga (tree.taiga.io) webhooks, and put it
+TaigaRest models is a package created to consume the data from Taiga (<tree.taiga.io>) webhooks, and put it
 inside of Dart models, to use it on a project. We are using mappable models (<https://pub.dev/packages/dart_mappable>)  
 
 ## <ins> How to use (?) </ins>
