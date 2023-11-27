@@ -5,7 +5,7 @@ import 'package:taiga_rest_models/src/models/taiga_payload/taiga_user/taiga_user
 part 'data_sprint.mapper.dart';
 
 /// This class will storage all the data related to an sprint coming from the
-/// payload
+/// payload of Taiga
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class DataSprint with DataSprintMappable {
   /// Constructor of the DataSprint class
@@ -32,9 +32,10 @@ class DataSprint with DataSprintMappable {
   @MappableField(key: 'name')
   String sprintName;
 
-  /// Slug of the sprint. Slug is the las part of the url related
-  /// to this sprint.
-  /// example: tree.taiga.io/project/<project-name>/taskboard/<"slug">
+  /// Slug of the sprint. Slug is used to keep the human-readable part in, 
+  /// in all cases will have the same value as name, but it is on slug format:
+  /// 'name example', slug: 'name-example'.
+  /// also is used on taiga urls.
   @MappableField(key: 'slug')
   String sprintSlug;
 
@@ -65,7 +66,7 @@ class DataSprint with DataSprintMappable {
   int disponibility;
 
   /// Permalink of the sprint will give you the complete url to the sprint
-  /// example: "tree.taiga.io/project/<project-name>/taskboard/<slug>"
+  /// example: "tree.taiga.io/project/<project-name>/taskboard/<sprint-name>"
   @MappableField(key: 'permalink')
   String sprintPermalink;
 

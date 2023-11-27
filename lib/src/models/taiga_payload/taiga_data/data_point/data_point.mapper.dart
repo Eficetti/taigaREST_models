@@ -6,39 +6,39 @@
 
 part of 'data_point.dart';
 
-class DataPointMapper extends ClassMapperBase<DataPoint> {
-  DataPointMapper._();
+class DataStoryPointMapper extends ClassMapperBase<DataStoryPoint> {
+  DataStoryPointMapper._();
 
-  static DataPointMapper? _instance;
-  static DataPointMapper ensureInitialized() {
+  static DataStoryPointMapper? _instance;
+  static DataStoryPointMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = DataPointMapper._());
+      MapperContainer.globals.use(_instance = DataStoryPointMapper._());
     }
     return _instance!;
   }
 
   @override
-  final String id = 'DataPoint';
+  final String id = 'DataStoryPoint';
 
-  static String _$pointName(DataPoint v) => v.pointName;
-  static const Field<DataPoint, String> _f$pointName =
+  static String _$pointName(DataStoryPoint v) => v.pointName;
+  static const Field<DataStoryPoint, String> _f$pointName =
       Field('pointName', _$pointName, key: 'name');
-  static String _$pointAssignedRole(DataPoint v) => v.pointAssignedRole;
-  static const Field<DataPoint, String> _f$pointAssignedRole =
+  static String _$pointAssignedRole(DataStoryPoint v) => v.pointAssignedRole;
+  static const Field<DataStoryPoint, String> _f$pointAssignedRole =
       Field('pointAssignedRole', _$pointAssignedRole, key: 'role');
-  static double? _$pointValue(DataPoint v) => v.pointValue;
-  static const Field<DataPoint, double> _f$pointValue =
+  static double? _$pointValue(DataStoryPoint v) => v.pointValue;
+  static const Field<DataStoryPoint, double> _f$pointValue =
       Field('pointValue', _$pointValue, key: 'value');
 
   @override
-  final Map<Symbol, Field<DataPoint, dynamic>> fields = const {
+  final Map<Symbol, Field<DataStoryPoint, dynamic>> fields = const {
     #pointName: _f$pointName,
     #pointAssignedRole: _f$pointAssignedRole,
     #pointValue: _f$pointValue,
   };
 
-  static DataPoint _instantiate(DecodingData data) {
-    return DataPoint(
+  static DataStoryPoint _instantiate(DecodingData data) {
+    return DataStoryPoint(
         pointName: data.dec(_f$pointName),
         pointAssignedRole: data.dec(_f$pointAssignedRole),
         pointValue: data.dec(_f$pointValue));
@@ -47,67 +47,71 @@ class DataPointMapper extends ClassMapperBase<DataPoint> {
   @override
   final Function instantiate = _instantiate;
 
-  static DataPoint fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<DataPoint>(map);
+  static DataStoryPoint fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<DataStoryPoint>(map);
   }
 
-  static DataPoint fromJson(String json) {
-    return ensureInitialized().decodeJson<DataPoint>(json);
+  static DataStoryPoint fromJson(String json) {
+    return ensureInitialized().decodeJson<DataStoryPoint>(json);
   }
 }
 
-mixin DataPointMappable {
+mixin DataStoryPointMappable {
   String toJson() {
-    return DataPointMapper.ensureInitialized()
-        .encodeJson<DataPoint>(this as DataPoint);
+    return DataStoryPointMapper.ensureInitialized()
+        .encodeJson<DataStoryPoint>(this as DataStoryPoint);
   }
 
   Map<String, dynamic> toMap() {
-    return DataPointMapper.ensureInitialized()
-        .encodeMap<DataPoint>(this as DataPoint);
+    return DataStoryPointMapper.ensureInitialized()
+        .encodeMap<DataStoryPoint>(this as DataStoryPoint);
   }
 
-  DataPointCopyWith<DataPoint, DataPoint, DataPoint> get copyWith =>
-      _DataPointCopyWithImpl(this as DataPoint, $identity, $identity);
+  DataStoryPointCopyWith<DataStoryPoint, DataStoryPoint, DataStoryPoint>
+      get copyWith => _DataStoryPointCopyWithImpl(
+          this as DataStoryPoint, $identity, $identity);
   @override
   String toString() {
-    return DataPointMapper.ensureInitialized()
-        .stringifyValue(this as DataPoint);
+    return DataStoryPointMapper.ensureInitialized()
+        .stringifyValue(this as DataStoryPoint);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            DataPointMapper.ensureInitialized()
-                .isValueEqual(this as DataPoint, other));
+            DataStoryPointMapper.ensureInitialized()
+                .isValueEqual(this as DataStoryPoint, other));
   }
 
   @override
   int get hashCode {
-    return DataPointMapper.ensureInitialized().hashValue(this as DataPoint);
+    return DataStoryPointMapper.ensureInitialized()
+        .hashValue(this as DataStoryPoint);
   }
 }
 
-extension DataPointValueCopy<$R, $Out> on ObjectCopyWith<$R, DataPoint, $Out> {
-  DataPointCopyWith<$R, DataPoint, $Out> get $asDataPoint =>
-      $base.as((v, t, t2) => _DataPointCopyWithImpl(v, t, t2));
+extension DataStoryPointValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, DataStoryPoint, $Out> {
+  DataStoryPointCopyWith<$R, DataStoryPoint, $Out> get $asDataStoryPoint =>
+      $base.as((v, t, t2) => _DataStoryPointCopyWithImpl(v, t, t2));
 }
 
-abstract class DataPointCopyWith<$R, $In extends DataPoint, $Out>
+abstract class DataStoryPointCopyWith<$R, $In extends DataStoryPoint, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call({String? pointName, String? pointAssignedRole, double? pointValue});
-  DataPointCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  DataStoryPointCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _DataPointCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, DataPoint, $Out>
-    implements DataPointCopyWith<$R, DataPoint, $Out> {
-  _DataPointCopyWithImpl(super.value, super.then, super.then2);
+class _DataStoryPointCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, DataStoryPoint, $Out>
+    implements DataStoryPointCopyWith<$R, DataStoryPoint, $Out> {
+  _DataStoryPointCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<DataPoint> $mapper =
-      DataPointMapper.ensureInitialized();
+  late final ClassMapperBase<DataStoryPoint> $mapper =
+      DataStoryPointMapper.ensureInitialized();
   @override
   $R call(
           {String? pointName,
@@ -119,14 +123,14 @@ class _DataPointCopyWithImpl<$R, $Out>
         if (pointValue != $none) #pointValue: pointValue
       }));
   @override
-  DataPoint $make(CopyWithData data) => DataPoint(
+  DataStoryPoint $make(CopyWithData data) => DataStoryPoint(
       pointName: data.get(#pointName, or: $value.pointName),
       pointAssignedRole:
           data.get(#pointAssignedRole, or: $value.pointAssignedRole),
       pointValue: data.get(#pointValue, or: $value.pointValue));
 
   @override
-  DataPointCopyWith<$R2, DataPoint, $Out2> $chain<$R2, $Out2>(
+  DataStoryPointCopyWith<$R2, DataStoryPoint, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
-      _DataPointCopyWithImpl($value, $cast, t);
+      _DataStoryPointCopyWithImpl($value, $cast, t);
 }

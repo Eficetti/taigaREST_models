@@ -7,23 +7,26 @@ part 'taiga_comment_version.mapper.dart';
 class TaigaCommentVersion with TaigaCommentVersionMappable {
   /// Construct of of the CommentVersion class
   TaigaCommentVersion({
-    required this.date,
+    required this.modificationDate,
     required this.comment,
     required this.commentHtml,
-    required this.user,
+    required this.userOwner,
   });
 
-  /// Date of the change
-  DateTime date;
+  /// Date of when the change was committed
+  @MappableField(key: 'date')
+  DateTime modificationDate;
 
-  /// Data of the comment
+  /// The comment itself
+  @MappableField(key: 'date')
   String comment;
 
-  /// Comment with html tags
+  /// The comment, but it have html tags on it
   String commentHtml;
 
-  /// User owner of the comment
-  int? user;
+  /// User id from the owner of the comment
+  @MappableField(key: 'user')
+  int? userOwner;
 
   /// FromJson method, convert a json type object into this
   /// TaigaCommentVersion object

@@ -20,6 +20,6 @@ class FromTo with FromToMappable {
   @MappableField(key: 'to')
   dynamic newValue;
 
-  /// FromJson method, convert a json type object into this TaigaFromTo object
+  /// FromJson method, convert a json type object into this FromTo object
   static const fromJson = FromToMapper.fromJson;
 }

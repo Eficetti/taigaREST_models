@@ -52,18 +52,12 @@ class TaigaChangeDifferenceMapper
   static const Field<TaigaChangeDifference, String> _f$descriptionDiff = Field(
       'descriptionDiff', _$descriptionDiff,
       key: 'description_diff', opt: true);
-  static FromTo? _$isClosed(TaigaChangeDifference v) => v.isClosed;
-  static const Field<TaigaChangeDifference, FromTo> _f$isClosed =
-      Field('isClosed', _$isClosed, key: 'is_closed', opt: true);
   static FromTo? _$kanbanOrder(TaigaChangeDifference v) => v.kanbanOrder;
   static const Field<TaigaChangeDifference, FromTo> _f$kanbanOrder =
       Field('kanbanOrder', _$kanbanOrder, key: 'kanban_order', opt: true);
   static FromTo? _$finishDate(TaigaChangeDifference v) => v.finishDate;
   static const Field<TaigaChangeDifference, FromTo> _f$finishDate =
       Field('finishDate', _$finishDate, key: 'finish_date', opt: true);
-  static FromTo? _$isBlocked(TaigaChangeDifference v) => v.isBlocked;
-  static const Field<TaigaChangeDifference, FromTo> _f$isBlocked =
-      Field('isBlocked', _$isBlocked, key: 'is_blocked', opt: true);
   static FromTo? _$blockedNoteDiff(TaigaChangeDifference v) =>
       v.blockedNoteDiff;
   static const Field<TaigaChangeDifference, FromTo> _f$blockedNoteDiff = Field(
@@ -74,39 +68,48 @@ class TaigaChangeDifferenceMapper
   static const Field<TaigaChangeDifference, FromTo> _f$blockedNoteHtml = Field(
       'blockedNoteHtml', _$blockedNoteHtml,
       key: 'blocked_note_html', opt: true);
-  static FromTo? _$clientRequirement(TaigaChangeDifference v) =>
-      v.clientRequirement;
-  static const Field<TaigaChangeDifference, FromTo> _f$clientRequirement =
-      Field('clientRequirement', _$clientRequirement,
-          key: 'client_requirement', opt: true);
-  static FromTo? _$teamRequirement(TaigaChangeDifference v) =>
-      v.teamRequirement;
-  static const Field<TaigaChangeDifference, FromTo> _f$teamRequirement = Field(
-      'teamRequirement', _$teamRequirement,
-      key: 'team_requirement', opt: true);
   static CustomValuesDataChange? _$customAttributes(TaigaChangeDifference v) =>
       v.customAttributes;
   static const Field<TaigaChangeDifference, CustomValuesDataChange>
       _f$customAttributes = Field('customAttributes', _$customAttributes,
           key: 'custom_attributes', opt: true);
-  static FromTo? _$isIocaine(TaigaChangeDifference v) => v.isIocaine;
-  static const Field<TaigaChangeDifference, FromTo> _f$isIocaine =
-      Field('isIocaine', _$isIocaine, key: 'is_iocaine', opt: true);
-  static PointDifference? _$points(TaigaChangeDifference v) => v.points;
-  static const Field<TaigaChangeDifference, PointDifference> _f$points =
-      Field('points', _$points, opt: true);
-  static FromTo? _$priority(TaigaChangeDifference v) => v.priority;
-  static const Field<TaigaChangeDifference, FromTo> _f$priority =
-      Field('priority', _$priority, opt: true);
-  static FromTo? _$severity(TaigaChangeDifference v) => v.severity;
-  static const Field<TaigaChangeDifference, FromTo> _f$severity =
-      Field('severity', _$severity, opt: true);
-  static FromTo? _$type(TaigaChangeDifference v) => v.type;
-  static const Field<TaigaChangeDifference, FromTo> _f$type =
-      Field('type', _$type, opt: true);
-  static FromTo? _$subject(TaigaChangeDifference v) => v.subject;
-  static const Field<TaigaChangeDifference, FromTo> _f$subject =
-      Field('subject', _$subject, opt: true);
+  static FromTo? _$isClosedStatus(TaigaChangeDifference v) => v.isClosedStatus;
+  static const Field<TaigaChangeDifference, FromTo> _f$isClosedStatus =
+      Field('isClosedStatus', _$isClosedStatus, key: 'is_closed', opt: true);
+  static FromTo? _$isBlockedStatus(TaigaChangeDifference v) =>
+      v.isBlockedStatus;
+  static const Field<TaigaChangeDifference, FromTo> _f$isBlockedStatus =
+      Field('isBlockedStatus', _$isBlockedStatus, key: 'is_blocked', opt: true);
+  static FromTo? _$clientRequirementStatus(TaigaChangeDifference v) =>
+      v.clientRequirementStatus;
+  static const Field<TaigaChangeDifference, FromTo> _f$clientRequirementStatus =
+      Field('clientRequirementStatus', _$clientRequirementStatus,
+          key: 'client_requirement', opt: true);
+  static FromTo? _$teamRequirementStatus(TaigaChangeDifference v) =>
+      v.teamRequirementStatus;
+  static const Field<TaigaChangeDifference, FromTo> _f$teamRequirementStatus =
+      Field('teamRequirementStatus', _$teamRequirementStatus,
+          key: 'team_requirement', opt: true);
+  static FromTo? _$isIocaineStatus(TaigaChangeDifference v) =>
+      v.isIocaineStatus;
+  static const Field<TaigaChangeDifference, FromTo> _f$isIocaineStatus =
+      Field('isIocaineStatus', _$isIocaineStatus, key: 'is_iocaine', opt: true);
+  static FromTo? _$priorityStatus(TaigaChangeDifference v) => v.priorityStatus;
+  static const Field<TaigaChangeDifference, FromTo> _f$priorityStatus =
+      Field('priorityStatus', _$priorityStatus, key: 'priority', opt: true);
+  static FromTo? _$severityStatus(TaigaChangeDifference v) => v.severityStatus;
+  static const Field<TaigaChangeDifference, FromTo> _f$severityStatus =
+      Field('severityStatus', _$severityStatus, key: 'severity', opt: true);
+  static FromTo? _$typeStatus(TaigaChangeDifference v) => v.typeStatus;
+  static const Field<TaigaChangeDifference, FromTo> _f$typeStatus =
+      Field('typeStatus', _$typeStatus, key: 'type', opt: true);
+  static PointDifference? _$storyPoints(TaigaChangeDifference v) =>
+      v.storyPoints;
+  static const Field<TaigaChangeDifference, PointDifference> _f$storyPoints =
+      Field('storyPoints', _$storyPoints, key: 'points', opt: true);
+  static FromTo? _$name(TaigaChangeDifference v) => v.name;
+  static const Field<TaigaChangeDifference, FromTo> _f$name =
+      Field('name', _$name, key: 'subject', opt: true);
 
   @override
   final Map<Symbol, Field<TaigaChangeDifference, dynamic>> fields = const {
@@ -118,21 +121,21 @@ class TaigaChangeDifferenceMapper
     #promotedTo: _f$promotedTo,
     #tags: _f$tags,
     #descriptionDiff: _f$descriptionDiff,
-    #isClosed: _f$isClosed,
     #kanbanOrder: _f$kanbanOrder,
     #finishDate: _f$finishDate,
-    #isBlocked: _f$isBlocked,
     #blockedNoteDiff: _f$blockedNoteDiff,
     #blockedNoteHtml: _f$blockedNoteHtml,
-    #clientRequirement: _f$clientRequirement,
-    #teamRequirement: _f$teamRequirement,
     #customAttributes: _f$customAttributes,
-    #isIocaine: _f$isIocaine,
-    #points: _f$points,
-    #priority: _f$priority,
-    #severity: _f$severity,
-    #type: _f$type,
-    #subject: _f$subject,
+    #isClosedStatus: _f$isClosedStatus,
+    #isBlockedStatus: _f$isBlockedStatus,
+    #clientRequirementStatus: _f$clientRequirementStatus,
+    #teamRequirementStatus: _f$teamRequirementStatus,
+    #isIocaineStatus: _f$isIocaineStatus,
+    #priorityStatus: _f$priorityStatus,
+    #severityStatus: _f$severityStatus,
+    #typeStatus: _f$typeStatus,
+    #storyPoints: _f$storyPoints,
+    #name: _f$name,
   };
 
   static TaigaChangeDifference _instantiate(DecodingData data) {
@@ -145,21 +148,21 @@ class TaigaChangeDifferenceMapper
         promotedTo: data.dec(_f$promotedTo),
         tags: data.dec(_f$tags),
         descriptionDiff: data.dec(_f$descriptionDiff),
-        isClosed: data.dec(_f$isClosed),
         kanbanOrder: data.dec(_f$kanbanOrder),
         finishDate: data.dec(_f$finishDate),
-        isBlocked: data.dec(_f$isBlocked),
         blockedNoteDiff: data.dec(_f$blockedNoteDiff),
         blockedNoteHtml: data.dec(_f$blockedNoteHtml),
-        clientRequirement: data.dec(_f$clientRequirement),
-        teamRequirement: data.dec(_f$teamRequirement),
         customAttributes: data.dec(_f$customAttributes),
-        isIocaine: data.dec(_f$isIocaine),
-        points: data.dec(_f$points),
-        priority: data.dec(_f$priority),
-        severity: data.dec(_f$severity),
-        type: data.dec(_f$type),
-        subject: data.dec(_f$subject));
+        isClosedStatus: data.dec(_f$isClosedStatus),
+        isBlockedStatus: data.dec(_f$isBlockedStatus),
+        clientRequirementStatus: data.dec(_f$clientRequirementStatus),
+        teamRequirementStatus: data.dec(_f$teamRequirementStatus),
+        isIocaineStatus: data.dec(_f$isIocaineStatus),
+        priorityStatus: data.dec(_f$priorityStatus),
+        severityStatus: data.dec(_f$severityStatus),
+        typeStatus: data.dec(_f$typeStatus),
+        storyPoints: data.dec(_f$storyPoints),
+        name: data.dec(_f$name));
   }
 
   @override
@@ -229,22 +232,23 @@ abstract class TaigaChangeDifferenceCopyWith<
   FromToCopyWith<$R, FromTo, FromTo>? get relatedSprint;
   FromToCopyWith<$R, FromTo, FromTo>? get promotedTo;
   FromToCopyWith<$R, FromTo, FromTo>? get tags;
-  FromToCopyWith<$R, FromTo, FromTo>? get isClosed;
   FromToCopyWith<$R, FromTo, FromTo>? get kanbanOrder;
   FromToCopyWith<$R, FromTo, FromTo>? get finishDate;
-  FromToCopyWith<$R, FromTo, FromTo>? get isBlocked;
   FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteDiff;
   FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteHtml;
-  FromToCopyWith<$R, FromTo, FromTo>? get clientRequirement;
-  FromToCopyWith<$R, FromTo, FromTo>? get teamRequirement;
   CustomValuesDataChangeCopyWith<$R, CustomValuesDataChange,
       CustomValuesDataChange>? get customAttributes;
-  FromToCopyWith<$R, FromTo, FromTo>? get isIocaine;
-  PointDifferenceCopyWith<$R, PointDifference, PointDifference>? get points;
-  FromToCopyWith<$R, FromTo, FromTo>? get priority;
-  FromToCopyWith<$R, FromTo, FromTo>? get severity;
-  FromToCopyWith<$R, FromTo, FromTo>? get type;
-  FromToCopyWith<$R, FromTo, FromTo>? get subject;
+  FromToCopyWith<$R, FromTo, FromTo>? get isClosedStatus;
+  FromToCopyWith<$R, FromTo, FromTo>? get isBlockedStatus;
+  FromToCopyWith<$R, FromTo, FromTo>? get clientRequirementStatus;
+  FromToCopyWith<$R, FromTo, FromTo>? get teamRequirementStatus;
+  FromToCopyWith<$R, FromTo, FromTo>? get isIocaineStatus;
+  FromToCopyWith<$R, FromTo, FromTo>? get priorityStatus;
+  FromToCopyWith<$R, FromTo, FromTo>? get severityStatus;
+  FromToCopyWith<$R, FromTo, FromTo>? get typeStatus;
+  PointDifferenceCopyWith<$R, PointDifference, PointDifference>?
+      get storyPoints;
+  FromToCopyWith<$R, FromTo, FromTo>? get name;
   $R call(
       {AttachmentsChange? attachments,
       FromTo? assignedTo,
@@ -254,21 +258,21 @@ abstract class TaigaChangeDifferenceCopyWith<
       FromTo? promotedTo,
       FromTo? tags,
       String? descriptionDiff,
-      FromTo? isClosed,
       FromTo? kanbanOrder,
       FromTo? finishDate,
-      FromTo? isBlocked,
       FromTo? blockedNoteDiff,
       FromTo? blockedNoteHtml,
-      FromTo? clientRequirement,
-      FromTo? teamRequirement,
       CustomValuesDataChange? customAttributes,
-      FromTo? isIocaine,
-      PointDifference? points,
-      FromTo? priority,
-      FromTo? severity,
-      FromTo? type,
-      FromTo? subject});
+      FromTo? isClosedStatus,
+      FromTo? isBlockedStatus,
+      FromTo? clientRequirementStatus,
+      FromTo? teamRequirementStatus,
+      FromTo? isIocaineStatus,
+      FromTo? priorityStatus,
+      FromTo? severityStatus,
+      FromTo? typeStatus,
+      PointDifference? storyPoints,
+      FromTo? name});
   TaigaChangeDifferenceCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -304,17 +308,11 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   FromToCopyWith<$R, FromTo, FromTo>? get tags =>
       $value.tags?.copyWith.$chain((v) => call(tags: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get isClosed =>
-      $value.isClosed?.copyWith.$chain((v) => call(isClosed: v));
-  @override
   FromToCopyWith<$R, FromTo, FromTo>? get kanbanOrder =>
       $value.kanbanOrder?.copyWith.$chain((v) => call(kanbanOrder: v));
   @override
   FromToCopyWith<$R, FromTo, FromTo>? get finishDate =>
       $value.finishDate?.copyWith.$chain((v) => call(finishDate: v));
-  @override
-  FromToCopyWith<$R, FromTo, FromTo>? get isBlocked =>
-      $value.isBlocked?.copyWith.$chain((v) => call(isBlocked: v));
   @override
   FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteDiff =>
       $value.blockedNoteDiff?.copyWith.$chain((v) => call(blockedNoteDiff: v));
@@ -322,35 +320,43 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteHtml =>
       $value.blockedNoteHtml?.copyWith.$chain((v) => call(blockedNoteHtml: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get clientRequirement =>
-      $value.clientRequirement?.copyWith
-          .$chain((v) => call(clientRequirement: v));
-  @override
-  FromToCopyWith<$R, FromTo, FromTo>? get teamRequirement =>
-      $value.teamRequirement?.copyWith.$chain((v) => call(teamRequirement: v));
-  @override
   CustomValuesDataChangeCopyWith<$R, CustomValuesDataChange,
           CustomValuesDataChange>?
       get customAttributes => $value.customAttributes?.copyWith
           .$chain((v) => call(customAttributes: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get isIocaine =>
-      $value.isIocaine?.copyWith.$chain((v) => call(isIocaine: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get isClosedStatus =>
+      $value.isClosedStatus?.copyWith.$chain((v) => call(isClosedStatus: v));
   @override
-  PointDifferenceCopyWith<$R, PointDifference, PointDifference>? get points =>
-      $value.points?.copyWith.$chain((v) => call(points: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get isBlockedStatus =>
+      $value.isBlockedStatus?.copyWith.$chain((v) => call(isBlockedStatus: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get priority =>
-      $value.priority?.copyWith.$chain((v) => call(priority: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get clientRequirementStatus =>
+      $value.clientRequirementStatus?.copyWith
+          .$chain((v) => call(clientRequirementStatus: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get severity =>
-      $value.severity?.copyWith.$chain((v) => call(severity: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get teamRequirementStatus =>
+      $value.teamRequirementStatus?.copyWith
+          .$chain((v) => call(teamRequirementStatus: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get type =>
-      $value.type?.copyWith.$chain((v) => call(type: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get isIocaineStatus =>
+      $value.isIocaineStatus?.copyWith.$chain((v) => call(isIocaineStatus: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get subject =>
-      $value.subject?.copyWith.$chain((v) => call(subject: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get priorityStatus =>
+      $value.priorityStatus?.copyWith.$chain((v) => call(priorityStatus: v));
+  @override
+  FromToCopyWith<$R, FromTo, FromTo>? get severityStatus =>
+      $value.severityStatus?.copyWith.$chain((v) => call(severityStatus: v));
+  @override
+  FromToCopyWith<$R, FromTo, FromTo>? get typeStatus =>
+      $value.typeStatus?.copyWith.$chain((v) => call(typeStatus: v));
+  @override
+  PointDifferenceCopyWith<$R, PointDifference, PointDifference>?
+      get storyPoints =>
+          $value.storyPoints?.copyWith.$chain((v) => call(storyPoints: v));
+  @override
+  FromToCopyWith<$R, FromTo, FromTo>? get name =>
+      $value.name?.copyWith.$chain((v) => call(name: v));
   @override
   $R call(
           {Object? attachments = $none,
@@ -361,21 +367,21 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
           Object? promotedTo = $none,
           Object? tags = $none,
           Object? descriptionDiff = $none,
-          Object? isClosed = $none,
           Object? kanbanOrder = $none,
           Object? finishDate = $none,
-          Object? isBlocked = $none,
           Object? blockedNoteDiff = $none,
           Object? blockedNoteHtml = $none,
-          Object? clientRequirement = $none,
-          Object? teamRequirement = $none,
           Object? customAttributes = $none,
-          Object? isIocaine = $none,
-          Object? points = $none,
-          Object? priority = $none,
-          Object? severity = $none,
-          Object? type = $none,
-          Object? subject = $none}) =>
+          Object? isClosedStatus = $none,
+          Object? isBlockedStatus = $none,
+          Object? clientRequirementStatus = $none,
+          Object? teamRequirementStatus = $none,
+          Object? isIocaineStatus = $none,
+          Object? priorityStatus = $none,
+          Object? severityStatus = $none,
+          Object? typeStatus = $none,
+          Object? storyPoints = $none,
+          Object? name = $none}) =>
       $apply(FieldCopyWithData({
         if (attachments != $none) #attachments: attachments,
         if (assignedTo != $none) #assignedTo: assignedTo,
@@ -385,21 +391,23 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
         if (promotedTo != $none) #promotedTo: promotedTo,
         if (tags != $none) #tags: tags,
         if (descriptionDiff != $none) #descriptionDiff: descriptionDiff,
-        if (isClosed != $none) #isClosed: isClosed,
         if (kanbanOrder != $none) #kanbanOrder: kanbanOrder,
         if (finishDate != $none) #finishDate: finishDate,
-        if (isBlocked != $none) #isBlocked: isBlocked,
         if (blockedNoteDiff != $none) #blockedNoteDiff: blockedNoteDiff,
         if (blockedNoteHtml != $none) #blockedNoteHtml: blockedNoteHtml,
-        if (clientRequirement != $none) #clientRequirement: clientRequirement,
-        if (teamRequirement != $none) #teamRequirement: teamRequirement,
         if (customAttributes != $none) #customAttributes: customAttributes,
-        if (isIocaine != $none) #isIocaine: isIocaine,
-        if (points != $none) #points: points,
-        if (priority != $none) #priority: priority,
-        if (severity != $none) #severity: severity,
-        if (type != $none) #type: type,
-        if (subject != $none) #subject: subject
+        if (isClosedStatus != $none) #isClosedStatus: isClosedStatus,
+        if (isBlockedStatus != $none) #isBlockedStatus: isBlockedStatus,
+        if (clientRequirementStatus != $none)
+          #clientRequirementStatus: clientRequirementStatus,
+        if (teamRequirementStatus != $none)
+          #teamRequirementStatus: teamRequirementStatus,
+        if (isIocaineStatus != $none) #isIocaineStatus: isIocaineStatus,
+        if (priorityStatus != $none) #priorityStatus: priorityStatus,
+        if (severityStatus != $none) #severityStatus: severityStatus,
+        if (typeStatus != $none) #typeStatus: typeStatus,
+        if (storyPoints != $none) #storyPoints: storyPoints,
+        if (name != $none) #name: name
       }));
   @override
   TaigaChangeDifference $make(CopyWithData data) => TaigaChangeDifference(
@@ -411,23 +419,24 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
       promotedTo: data.get(#promotedTo, or: $value.promotedTo),
       tags: data.get(#tags, or: $value.tags),
       descriptionDiff: data.get(#descriptionDiff, or: $value.descriptionDiff),
-      isClosed: data.get(#isClosed, or: $value.isClosed),
       kanbanOrder: data.get(#kanbanOrder, or: $value.kanbanOrder),
       finishDate: data.get(#finishDate, or: $value.finishDate),
-      isBlocked: data.get(#isBlocked, or: $value.isBlocked),
       blockedNoteDiff: data.get(#blockedNoteDiff, or: $value.blockedNoteDiff),
       blockedNoteHtml: data.get(#blockedNoteHtml, or: $value.blockedNoteHtml),
-      clientRequirement:
-          data.get(#clientRequirement, or: $value.clientRequirement),
-      teamRequirement: data.get(#teamRequirement, or: $value.teamRequirement),
       customAttributes:
           data.get(#customAttributes, or: $value.customAttributes),
-      isIocaine: data.get(#isIocaine, or: $value.isIocaine),
-      points: data.get(#points, or: $value.points),
-      priority: data.get(#priority, or: $value.priority),
-      severity: data.get(#severity, or: $value.severity),
-      type: data.get(#type, or: $value.type),
-      subject: data.get(#subject, or: $value.subject));
+      isClosedStatus: data.get(#isClosedStatus, or: $value.isClosedStatus),
+      isBlockedStatus: data.get(#isBlockedStatus, or: $value.isBlockedStatus),
+      clientRequirementStatus: data.get(#clientRequirementStatus,
+          or: $value.clientRequirementStatus),
+      teamRequirementStatus:
+          data.get(#teamRequirementStatus, or: $value.teamRequirementStatus),
+      isIocaineStatus: data.get(#isIocaineStatus, or: $value.isIocaineStatus),
+      priorityStatus: data.get(#priorityStatus, or: $value.priorityStatus),
+      severityStatus: data.get(#severityStatus, or: $value.severityStatus),
+      typeStatus: data.get(#typeStatus, or: $value.typeStatus),
+      storyPoints: data.get(#storyPoints, or: $value.storyPoints),
+      name: data.get(#name, or: $value.name));
 
   @override
   TaigaChangeDifferenceCopyWith<$R2, TaigaChangeDifference, $Out2>

@@ -287,7 +287,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
       TaigaProjectMapper.ensureInitialized();
       TaigaCustomFieldsMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
-      DataPointMapper.ensureInitialized();
+      DataStoryPointMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -344,10 +344,11 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static String _$blockedNote(TaigaUserStoryData v) => v.blockedNote;
   static const Field<TaigaUserStoryData, String> _f$blockedNote =
       Field('blockedNote', _$blockedNote, key: 'blocked_note');
-  static bool _$clientRequirement(TaigaUserStoryData v) => v.clientRequirement;
-  static const Field<TaigaUserStoryData, bool> _f$clientRequirement = Field(
-      'clientRequirement', _$clientRequirement,
-      key: 'client_requirement');
+  static bool _$clientRequirementStatus(TaigaUserStoryData v) =>
+      v.clientRequirementStatus;
+  static const Field<TaigaUserStoryData, bool> _f$clientRequirementStatus =
+      Field('clientRequirementStatus', _$clientRequirementStatus,
+          key: 'client_requirement');
   static DateTime? _$dueDate(TaigaUserStoryData v) => v.dueDate;
   static const Field<TaigaUserStoryData, DateTime> _f$dueDate =
       Field('dueDate', _$dueDate, key: 'due_date');
@@ -363,21 +364,24 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static int? _$issueReference(TaigaUserStoryData v) => v.issueReference;
   static const Field<TaigaUserStoryData, int> _f$issueReference =
       Field('issueReference', _$issueReference, key: 'generated_from_issue');
-  static bool _$isBlocked(TaigaUserStoryData v) => v.isBlocked;
-  static const Field<TaigaUserStoryData, bool> _f$isBlocked =
-      Field('isBlocked', _$isBlocked, key: 'is_blocked');
+  static bool _$isBlockedStatus(TaigaUserStoryData v) => v.isBlockedStatus;
+  static const Field<TaigaUserStoryData, bool> _f$isBlockedStatus =
+      Field('isBlockedStatus', _$isBlockedStatus, key: 'is_blocked');
   static bool _$isClosed(TaigaUserStoryData v) => v.isClosed;
   static const Field<TaigaUserStoryData, bool> _f$isClosed =
       Field('isClosed', _$isClosed, key: 'is_closed');
   static DataSprint? _$relatedSprint(TaigaUserStoryData v) => v.relatedSprint;
   static const Field<TaigaUserStoryData, DataSprint> _f$relatedSprint =
       Field('relatedSprint', _$relatedSprint, key: 'milestone');
-  static List<DataPoint> _$points(TaigaUserStoryData v) => v.points;
-  static const Field<TaigaUserStoryData, List<DataPoint>> _f$points =
-      Field('points', _$points);
-  static bool _$teamRequirement(TaigaUserStoryData v) => v.teamRequirement;
-  static const Field<TaigaUserStoryData, bool> _f$teamRequirement =
-      Field('teamRequirement', _$teamRequirement, key: 'team_requirement');
+  static List<DataStoryPoint> _$storyPoints(TaigaUserStoryData v) =>
+      v.storyPoints;
+  static const Field<TaigaUserStoryData, List<DataStoryPoint>> _f$storyPoints =
+      Field('storyPoints', _$storyPoints, key: 'points');
+  static bool _$teamRequirementStatus(TaigaUserStoryData v) =>
+      v.teamRequirementStatus;
+  static const Field<TaigaUserStoryData, bool> _f$teamRequirementStatus = Field(
+      'teamRequirementStatus', _$teamRequirementStatus,
+      key: 'team_requirement');
 
   @override
   final Map<Symbol, Field<TaigaUserStoryData, dynamic>> fields = const {
@@ -397,17 +401,17 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
     #customValues: _f$customValues,
     #assignedUsers: _f$assignedUsers,
     #blockedNote: _f$blockedNote,
-    #clientRequirement: _f$clientRequirement,
+    #clientRequirementStatus: _f$clientRequirementStatus,
     #dueDate: _f$dueDate,
     #dueDateReason: _f$dueDateReason,
     #finishDate: _f$finishDate,
     #taskReference: _f$taskReference,
     #issueReference: _f$issueReference,
-    #isBlocked: _f$isBlocked,
+    #isBlockedStatus: _f$isBlockedStatus,
     #isClosed: _f$isClosed,
     #relatedSprint: _f$relatedSprint,
-    #points: _f$points,
-    #teamRequirement: _f$teamRequirement,
+    #storyPoints: _f$storyPoints,
+    #teamRequirementStatus: _f$teamRequirementStatus,
   };
 
   static TaigaUserStoryData _instantiate(DecodingData data) {
@@ -428,17 +432,17 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
         customValues: data.dec(_f$customValues),
         assignedUsers: data.dec(_f$assignedUsers),
         blockedNote: data.dec(_f$blockedNote),
-        clientRequirement: data.dec(_f$clientRequirement),
+        clientRequirementStatus: data.dec(_f$clientRequirementStatus),
         dueDate: data.dec(_f$dueDate),
         dueDateReason: data.dec(_f$dueDateReason),
         finishDate: data.dec(_f$finishDate),
         taskReference: data.dec(_f$taskReference),
         issueReference: data.dec(_f$issueReference),
-        isBlocked: data.dec(_f$isBlocked),
+        isBlockedStatus: data.dec(_f$isBlockedStatus),
         isClosed: data.dec(_f$isClosed),
         relatedSprint: data.dec(_f$relatedSprint),
-        points: data.dec(_f$points),
-        teamRequirement: data.dec(_f$teamRequirement));
+        storyPoints: data.dec(_f$storyPoints),
+        teamRequirementStatus: data.dec(_f$teamRequirementStatus));
   }
 
   @override
@@ -515,8 +519,9 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
       get customValues;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
-  ListCopyWith<$R, DataPoint, DataPointCopyWith<$R, DataPoint, DataPoint>>
-      get points;
+  ListCopyWith<$R, DataStoryPoint,
+          DataStoryPointCopyWith<$R, DataStoryPoint, DataStoryPoint>>
+      get storyPoints;
   @override
   $R call(
       {int? jobId,
@@ -535,17 +540,17 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
       TaigaCustomFields? customValues,
       List<int>? assignedUsers,
       String? blockedNote,
-      bool? clientRequirement,
+      bool? clientRequirementStatus,
       DateTime? dueDate,
       String? dueDateReason,
       DateTime? finishDate,
       String? taskReference,
       int? issueReference,
-      bool? isBlocked,
+      bool? isBlockedStatus,
       bool? isClosed,
       DataSprint? relatedSprint,
-      List<DataPoint>? points,
-      bool? teamRequirement});
+      List<DataStoryPoint>? storyPoints,
+      bool? teamRequirementStatus});
   TaigaUserStoryDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -594,9 +599,10 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint =>
       $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
   @override
-  ListCopyWith<$R, DataPoint, DataPointCopyWith<$R, DataPoint, DataPoint>>
-      get points => ListCopyWith($value.points, (v, t) => v.copyWith.$chain(t),
-          (v) => call(points: v));
+  ListCopyWith<$R, DataStoryPoint,
+          DataStoryPointCopyWith<$R, DataStoryPoint, DataStoryPoint>>
+      get storyPoints => ListCopyWith($value.storyPoints,
+          (v, t) => v.copyWith.$chain(t), (v) => call(storyPoints: v));
   @override
   $R call(
           {int? jobId,
@@ -615,17 +621,17 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
           Object? customValues = $none,
           List<int>? assignedUsers,
           String? blockedNote,
-          bool? clientRequirement,
+          bool? clientRequirementStatus,
           Object? dueDate = $none,
           String? dueDateReason,
           Object? finishDate = $none,
           Object? taskReference = $none,
           Object? issueReference = $none,
-          bool? isBlocked,
+          bool? isBlockedStatus,
           bool? isClosed,
           Object? relatedSprint = $none,
-          List<DataPoint>? points,
-          bool? teamRequirement}) =>
+          List<DataStoryPoint>? storyPoints,
+          bool? teamRequirementStatus}) =>
       $apply(FieldCopyWithData({
         if (jobId != null) #jobId: jobId,
         if (referenceNumber != null) #referenceNumber: referenceNumber,
@@ -643,17 +649,19 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
         if (customValues != $none) #customValues: customValues,
         if (assignedUsers != null) #assignedUsers: assignedUsers,
         if (blockedNote != null) #blockedNote: blockedNote,
-        if (clientRequirement != null) #clientRequirement: clientRequirement,
+        if (clientRequirementStatus != null)
+          #clientRequirementStatus: clientRequirementStatus,
         if (dueDate != $none) #dueDate: dueDate,
         if (dueDateReason != null) #dueDateReason: dueDateReason,
         if (finishDate != $none) #finishDate: finishDate,
         if (taskReference != $none) #taskReference: taskReference,
         if (issueReference != $none) #issueReference: issueReference,
-        if (isBlocked != null) #isBlocked: isBlocked,
+        if (isBlockedStatus != null) #isBlockedStatus: isBlockedStatus,
         if (isClosed != null) #isClosed: isClosed,
         if (relatedSprint != $none) #relatedSprint: relatedSprint,
-        if (points != null) #points: points,
-        if (teamRequirement != null) #teamRequirement: teamRequirement
+        if (storyPoints != null) #storyPoints: storyPoints,
+        if (teamRequirementStatus != null)
+          #teamRequirementStatus: teamRequirementStatus
       }));
   @override
   TaigaUserStoryData $make(CopyWithData data) => TaigaUserStoryData(
@@ -673,18 +681,19 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
       customValues: data.get(#customValues, or: $value.customValues),
       assignedUsers: data.get(#assignedUsers, or: $value.assignedUsers),
       blockedNote: data.get(#blockedNote, or: $value.blockedNote),
-      clientRequirement:
-          data.get(#clientRequirement, or: $value.clientRequirement),
+      clientRequirementStatus: data.get(#clientRequirementStatus,
+          or: $value.clientRequirementStatus),
       dueDate: data.get(#dueDate, or: $value.dueDate),
       dueDateReason: data.get(#dueDateReason, or: $value.dueDateReason),
       finishDate: data.get(#finishDate, or: $value.finishDate),
       taskReference: data.get(#taskReference, or: $value.taskReference),
       issueReference: data.get(#issueReference, or: $value.issueReference),
-      isBlocked: data.get(#isBlocked, or: $value.isBlocked),
+      isBlockedStatus: data.get(#isBlockedStatus, or: $value.isBlockedStatus),
       isClosed: data.get(#isClosed, or: $value.isClosed),
       relatedSprint: data.get(#relatedSprint, or: $value.relatedSprint),
-      points: data.get(#points, or: $value.points),
-      teamRequirement: data.get(#teamRequirement, or: $value.teamRequirement));
+      storyPoints: data.get(#storyPoints, or: $value.storyPoints),
+      teamRequirementStatus:
+          data.get(#teamRequirementStatus, or: $value.teamRequirementStatus));
 
   @override
   TaigaUserStoryDataCopyWith<$R2, TaigaUserStoryData, $Out2> $chain<$R2, $Out2>(
@@ -767,18 +776,18 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   static DateTime? _$finishedDate(TaigaTaskData v) => v.finishedDate;
   static const Field<TaigaTaskData, DateTime> _f$finishedDate =
       Field('finishedDate', _$finishedDate, key: 'finished_date');
-  static bool _$isBlocked(TaigaTaskData v) => v.isBlocked;
-  static const Field<TaigaTaskData, bool> _f$isBlocked =
-      Field('isBlocked', _$isBlocked, key: 'is_blocked');
-  static bool _$isIocaine(TaigaTaskData v) => v.isIocaine;
-  static const Field<TaigaTaskData, bool> _f$isIocaine =
-      Field('isIocaine', _$isIocaine, key: 'is_iocaine');
+  static bool _$isBlockedStatus(TaigaTaskData v) => v.isBlockedStatus;
+  static const Field<TaigaTaskData, bool> _f$isBlockedStatus =
+      Field('isBlockedStatus', _$isBlockedStatus, key: 'is_blocked');
+  static bool _$isIocaineStatus(TaigaTaskData v) => v.isIocaineStatus;
+  static const Field<TaigaTaskData, bool> _f$isIocaineStatus =
+      Field('isIocaineStatus', _$isIocaineStatus, key: 'is_iocaine');
   static DataSprint? _$relatedSprint(TaigaTaskData v) => v.relatedSprint;
   static const Field<TaigaTaskData, DataSprint> _f$relatedSprint =
       Field('relatedSprint', _$relatedSprint, key: 'sprint');
-  static List<dynamic> _$promotedTo(TaigaTaskData v) => v.promotedTo;
-  static const Field<TaigaTaskData, List<dynamic>> _f$promotedTo =
-      Field('promotedTo', _$promotedTo, key: 'promoted_to');
+  static List<dynamic> _$promotedToList(TaigaTaskData v) => v.promotedToList;
+  static const Field<TaigaTaskData, List<dynamic>> _f$promotedToList =
+      Field('promotedToList', _$promotedToList, key: 'promoted_to');
   static int _$taskboardOrder(TaigaTaskData v) => v.taskboardOrder;
   static const Field<TaigaTaskData, int> _f$taskboardOrder =
       Field('taskboardOrder', _$taskboardOrder, key: 'taskboard_order');
@@ -809,10 +818,10 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
     #dueDate: _f$dueDate,
     #dueDateReason: _f$dueDateReason,
     #finishedDate: _f$finishedDate,
-    #isBlocked: _f$isBlocked,
-    #isIocaine: _f$isIocaine,
+    #isBlockedStatus: _f$isBlockedStatus,
+    #isIocaineStatus: _f$isIocaineStatus,
     #relatedSprint: _f$relatedSprint,
-    #promotedTo: _f$promotedTo,
+    #promotedToList: _f$promotedToList,
     #taskboardOrder: _f$taskboardOrder,
     #usOrder: _f$usOrder,
     #userStory: _f$userStory,
@@ -838,10 +847,10 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
         dueDate: data.dec(_f$dueDate),
         dueDateReason: data.dec(_f$dueDateReason),
         finishedDate: data.dec(_f$finishedDate),
-        isBlocked: data.dec(_f$isBlocked),
-        isIocaine: data.dec(_f$isIocaine),
+        isBlockedStatus: data.dec(_f$isBlockedStatus),
+        isIocaineStatus: data.dec(_f$isIocaineStatus),
         relatedSprint: data.dec(_f$relatedSprint),
-        promotedTo: data.dec(_f$promotedTo),
+        promotedToList: data.dec(_f$promotedToList),
         taskboardOrder: data.dec(_f$taskboardOrder),
         usOrder: data.dec(_f$usOrder),
         userStory: data.dec(_f$userStory));
@@ -919,7 +928,7 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
       get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
-      get promotedTo;
+      get promotedToList;
   TaigaUserStoryDataCopyWith<$R, TaigaUserStoryData, TaigaUserStoryData>
       get userStory;
   @override
@@ -942,10 +951,10 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
       DateTime? dueDate,
       String? dueDateReason,
       DateTime? finishedDate,
-      bool? isBlocked,
-      bool? isIocaine,
+      bool? isBlockedStatus,
+      bool? isIocaineStatus,
       DataSprint? relatedSprint,
-      List<dynamic>? promotedTo,
+      List<dynamic>? promotedToList,
       int? taskboardOrder,
       int? usOrder,
       TaigaUserStoryData? userStory});
@@ -991,10 +1000,10 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
       $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
-      get promotedTo => ListCopyWith(
-          $value.promotedTo,
+      get promotedToList => ListCopyWith(
+          $value.promotedToList,
           (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(promotedTo: v));
+          (v) => call(promotedToList: v));
   @override
   TaigaUserStoryDataCopyWith<$R, TaigaUserStoryData, TaigaUserStoryData>
       get userStory =>
@@ -1019,10 +1028,10 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
           Object? dueDate = $none,
           String? dueDateReason,
           Object? finishedDate = $none,
-          bool? isBlocked,
-          bool? isIocaine,
+          bool? isBlockedStatus,
+          bool? isIocaineStatus,
           Object? relatedSprint = $none,
-          List<dynamic>? promotedTo,
+          List<dynamic>? promotedToList,
           int? taskboardOrder,
           int? usOrder,
           TaigaUserStoryData? userStory}) =>
@@ -1045,10 +1054,10 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
         if (dueDate != $none) #dueDate: dueDate,
         if (dueDateReason != null) #dueDateReason: dueDateReason,
         if (finishedDate != $none) #finishedDate: finishedDate,
-        if (isBlocked != null) #isBlocked: isBlocked,
-        if (isIocaine != null) #isIocaine: isIocaine,
+        if (isBlockedStatus != null) #isBlockedStatus: isBlockedStatus,
+        if (isIocaineStatus != null) #isIocaineStatus: isIocaineStatus,
         if (relatedSprint != $none) #relatedSprint: relatedSprint,
-        if (promotedTo != null) #promotedTo: promotedTo,
+        if (promotedToList != null) #promotedToList: promotedToList,
         if (taskboardOrder != null) #taskboardOrder: taskboardOrder,
         if (usOrder != null) #usOrder: usOrder,
         if (userStory != null) #userStory: userStory
@@ -1073,10 +1082,10 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
       dueDate: data.get(#dueDate, or: $value.dueDate),
       dueDateReason: data.get(#dueDateReason, or: $value.dueDateReason),
       finishedDate: data.get(#finishedDate, or: $value.finishedDate),
-      isBlocked: data.get(#isBlocked, or: $value.isBlocked),
-      isIocaine: data.get(#isIocaine, or: $value.isIocaine),
+      isBlockedStatus: data.get(#isBlockedStatus, or: $value.isBlockedStatus),
+      isIocaineStatus: data.get(#isIocaineStatus, or: $value.isIocaineStatus),
       relatedSprint: data.get(#relatedSprint, or: $value.relatedSprint),
-      promotedTo: data.get(#promotedTo, or: $value.promotedTo),
+      promotedToList: data.get(#promotedToList, or: $value.promotedToList),
       taskboardOrder: data.get(#taskboardOrder, or: $value.taskboardOrder),
       usOrder: data.get(#usOrder, or: $value.usOrder),
       userStory: data.get(#userStory, or: $value.userStory));
@@ -1166,9 +1175,9 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static DataDetails _$issuePriority(TaigaIssueData v) => v.issuePriority;
   static const Field<TaigaIssueData, DataDetails> _f$issuePriority =
       Field('issuePriority', _$issuePriority, key: 'priority');
-  static List<int?> _$promotedTo(TaigaIssueData v) => v.promotedTo;
-  static const Field<TaigaIssueData, List<int?>> _f$promotedTo =
-      Field('promotedTo', _$promotedTo, key: 'promoted_to');
+  static List<int?> _$promotedToList(TaigaIssueData v) => v.promotedToList;
+  static const Field<TaigaIssueData, List<int?>> _f$promotedToList =
+      Field('promotedToList', _$promotedToList, key: 'promoted_to');
   static DataDetails _$issueSeverity(TaigaIssueData v) => v.issueSeverity;
   static const Field<TaigaIssueData, DataDetails> _f$issueSeverity =
       Field('issueSeverity', _$issueSeverity, key: 'severity');
@@ -1197,7 +1206,7 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
     #finishedDate: _f$finishedDate,
     #issueRelatedSprint: _f$issueRelatedSprint,
     #issuePriority: _f$issuePriority,
-    #promotedTo: _f$promotedTo,
+    #promotedToList: _f$promotedToList,
     #issueSeverity: _f$issueSeverity,
     #issueType: _f$issueType,
   };
@@ -1223,7 +1232,7 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
         finishedDate: data.dec(_f$finishedDate),
         issueRelatedSprint: data.dec(_f$issueRelatedSprint),
         issuePriority: data.dec(_f$issuePriority),
-        promotedTo: data.dec(_f$promotedTo),
+        promotedToList: data.dec(_f$promotedToList),
         issueSeverity: data.dec(_f$issueSeverity),
         issueType: data.dec(_f$issueType));
   }
@@ -1300,7 +1309,7 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
       get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issuePriority;
-  ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedTo;
+  ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedToList;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issueSeverity;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issueType;
   @override
@@ -1324,7 +1333,7 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
       DateTime? finishedDate,
       DataSprint? issueRelatedSprint,
       DataDetails? issuePriority,
-      List<int?>? promotedTo,
+      List<int?>? promotedToList,
       DataDetails? issueSeverity,
       DataDetails? issueType});
   TaigaIssueDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -1373,9 +1382,11 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issuePriority =>
       $value.issuePriority.copyWith.$chain((v) => call(issuePriority: v));
   @override
-  ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedTo =>
-      ListCopyWith($value.promotedTo, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(promotedTo: v));
+  ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedToList =>
+      ListCopyWith(
+          $value.promotedToList,
+          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(promotedToList: v));
   @override
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issueSeverity =>
       $value.issueSeverity.copyWith.$chain((v) => call(issueSeverity: v));
@@ -1403,7 +1414,7 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
           Object? finishedDate = $none,
           Object? issueRelatedSprint = $none,
           DataDetails? issuePriority,
-          List<int?>? promotedTo,
+          List<int?>? promotedToList,
           DataDetails? issueSeverity,
           DataDetails? issueType}) =>
       $apply(FieldCopyWithData({
@@ -1427,7 +1438,7 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
         if (issueRelatedSprint != $none)
           #issueRelatedSprint: issueRelatedSprint,
         if (issuePriority != null) #issuePriority: issuePriority,
-        if (promotedTo != null) #promotedTo: promotedTo,
+        if (promotedToList != null) #promotedToList: promotedToList,
         if (issueSeverity != null) #issueSeverity: issueSeverity,
         if (issueType != null) #issueType: issueType
       }));
@@ -1453,7 +1464,7 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
       issueRelatedSprint:
           data.get(#issueRelatedSprint, or: $value.issueRelatedSprint),
       issuePriority: data.get(#issuePriority, or: $value.issuePriority),
-      promotedTo: data.get(#promotedTo, or: $value.promotedTo),
+      promotedToList: data.get(#promotedToList, or: $value.promotedToList),
       issueSeverity: data.get(#issueSeverity, or: $value.issueSeverity),
       issueType: data.get(#issueType, or: $value.issueType));
 
@@ -1529,13 +1540,16 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   static int _$epicsOrder(TaigaEpicData v) => v.epicsOrder;
   static const Field<TaigaEpicData, int> _f$epicsOrder =
       Field('epicsOrder', _$epicsOrder, key: 'epics_order');
-  static bool _$isClientRequirement(TaigaEpicData v) => v.isClientRequirement;
-  static const Field<TaigaEpicData, bool> _f$isClientRequirement = Field(
-      'isClientRequirement', _$isClientRequirement,
+  static bool _$teamRequirementStatus(TaigaEpicData v) =>
+      v.teamRequirementStatus;
+  static const Field<TaigaEpicData, bool> _f$teamRequirementStatus = Field(
+      'teamRequirementStatus', _$teamRequirementStatus,
+      key: 'team_requirement');
+  static bool _$clientRequirementStatus(TaigaEpicData v) =>
+      v.clientRequirementStatus;
+  static const Field<TaigaEpicData, bool> _f$clientRequirementStatus = Field(
+      'clientRequirementStatus', _$clientRequirementStatus,
       key: 'client_requirement');
-  static bool _$isTeamRequirement(TaigaEpicData v) => v.isTeamRequirement;
-  static const Field<TaigaEpicData, bool> _f$isTeamRequirement =
-      Field('isTeamRequirement', _$isTeamRequirement, key: 'team_requirement');
 
   @override
   final Map<Symbol, Field<TaigaEpicData, dynamic>> fields = const {
@@ -1555,8 +1569,8 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
     #customValues: _f$customValues,
     #color: _f$color,
     #epicsOrder: _f$epicsOrder,
-    #isClientRequirement: _f$isClientRequirement,
-    #isTeamRequirement: _f$isTeamRequirement,
+    #teamRequirementStatus: _f$teamRequirementStatus,
+    #clientRequirementStatus: _f$clientRequirementStatus,
   };
 
   static TaigaEpicData _instantiate(DecodingData data) {
@@ -1577,8 +1591,8 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
         customValues: data.dec(_f$customValues),
         color: data.dec(_f$color),
         epicsOrder: data.dec(_f$epicsOrder),
-        isClientRequirement: data.dec(_f$isClientRequirement),
-        isTeamRequirement: data.dec(_f$isTeamRequirement));
+        teamRequirementStatus: data.dec(_f$teamRequirementStatus),
+        clientRequirementStatus: data.dec(_f$clientRequirementStatus));
   }
 
   @override
@@ -1669,8 +1683,8 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
       TaigaCustomFields? customValues,
       String? color,
       int? epicsOrder,
-      bool? isClientRequirement,
-      bool? isTeamRequirement});
+      bool? teamRequirementStatus,
+      bool? clientRequirementStatus});
   TaigaEpicDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -1726,8 +1740,8 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
           Object? customValues = $none,
           String? color,
           int? epicsOrder,
-          bool? isClientRequirement,
-          bool? isTeamRequirement}) =>
+          bool? teamRequirementStatus,
+          bool? clientRequirementStatus}) =>
       $apply(FieldCopyWithData({
         if (jobId != null) #jobId: jobId,
         if (referenceNumber != null) #referenceNumber: referenceNumber,
@@ -1745,9 +1759,10 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
         if (customValues != $none) #customValues: customValues,
         if (color != null) #color: color,
         if (epicsOrder != null) #epicsOrder: epicsOrder,
-        if (isClientRequirement != null)
-          #isClientRequirement: isClientRequirement,
-        if (isTeamRequirement != null) #isTeamRequirement: isTeamRequirement
+        if (teamRequirementStatus != null)
+          #teamRequirementStatus: teamRequirementStatus,
+        if (clientRequirementStatus != null)
+          #clientRequirementStatus: clientRequirementStatus
       }));
   @override
   TaigaEpicData $make(CopyWithData data) => TaigaEpicData(
@@ -1767,10 +1782,10 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
       customValues: data.get(#customValues, or: $value.customValues),
       color: data.get(#color, or: $value.color),
       epicsOrder: data.get(#epicsOrder, or: $value.epicsOrder),
-      isClientRequirement:
-          data.get(#isClientRequirement, or: $value.isClientRequirement),
-      isTeamRequirement:
-          data.get(#isTeamRequirement, or: $value.isTeamRequirement));
+      teamRequirementStatus:
+          data.get(#teamRequirementStatus, or: $value.teamRequirementStatus),
+      clientRequirementStatus: data.get(#clientRequirementStatus,
+          or: $value.clientRequirementStatus));
 
   @override
   TaigaEpicDataCopyWith<$R2, TaigaEpicData, $Out2> $chain<$R2, $Out2>(

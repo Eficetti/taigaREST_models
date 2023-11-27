@@ -3,7 +3,8 @@ import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/differen
 
 part 'point_difference.mapper.dart';
 
-/// This class store all the changes made on the points of a userStory
+/// This class store all the changes made into the points of a 'userStory' 
+/// jobType 
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class PointDifference with PointDifferenceMappable {
   /// Constructor of the PointDiff class
@@ -14,19 +15,23 @@ class PointDifference with PointDifferenceMappable {
     required this.pmPoints,
   });
 
-  /// Change made into Design points
+  /// Change made into Design points, this will storage the old value, and the
+  /// new one
   @MappableField(key: 'Design')
   FromTo? designPoints;
 
-  /// Change made into Front points
+  /// Change made into Front points, this will storage the old value, and the
+  /// new one
   @MappableField(key: 'Front')
   FromTo? frontPoints;
 
-  /// Change made into Back points
+  /// Change made into Back points, this will storage the old value, and the
+  /// new one
   @MappableField(key: 'Back')
   FromTo? backPoints;
 
-  /// Change made into Project Manager points
+  /// Change made into Project Manager points, this will storage the old value,
+  /// and the new one
   @MappableField(key: 'Project Manager')
   FromTo? pmPoints;
 

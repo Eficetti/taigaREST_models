@@ -2,8 +2,9 @@ import 'package:dart_mappable/dart_mappable.dart';
 
 part 'data_details.mapper.dart';
 
-/// Is the details of the Issue, it comes from taiga as a custom value
-/// Used for custom status, and colors, etc.
+/// Is the details, comes from taiga as a custom value used for custom status
+/// you can assign into an issue, this is part of taiga customization:
+/// https://community.taiga.io/t/customisation-for-your-projects/127
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class DataDetails with DataDetailsMappable {
   /// Constructor of the Details class

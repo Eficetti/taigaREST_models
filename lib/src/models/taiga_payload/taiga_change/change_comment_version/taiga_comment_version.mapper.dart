@@ -20,32 +20,34 @@ class TaigaCommentVersionMapper extends ClassMapperBase<TaigaCommentVersion> {
   @override
   final String id = 'TaigaCommentVersion';
 
-  static DateTime _$date(TaigaCommentVersion v) => v.date;
-  static const Field<TaigaCommentVersion, DateTime> _f$date =
-      Field('date', _$date);
+  static DateTime _$modificationDate(TaigaCommentVersion v) =>
+      v.modificationDate;
+  static const Field<TaigaCommentVersion, DateTime> _f$modificationDate =
+      Field('modificationDate', _$modificationDate, key: 'date');
   static String _$comment(TaigaCommentVersion v) => v.comment;
   static const Field<TaigaCommentVersion, String> _f$comment =
-      Field('comment', _$comment);
+      Field('comment', _$comment, key: 'date');
   static String _$commentHtml(TaigaCommentVersion v) => v.commentHtml;
   static const Field<TaigaCommentVersion, String> _f$commentHtml =
       Field('commentHtml', _$commentHtml, key: 'comment_html');
-  static int? _$user(TaigaCommentVersion v) => v.user;
-  static const Field<TaigaCommentVersion, int> _f$user = Field('user', _$user);
+  static int? _$userOwner(TaigaCommentVersion v) => v.userOwner;
+  static const Field<TaigaCommentVersion, int> _f$userOwner =
+      Field('userOwner', _$userOwner, key: 'user');
 
   @override
   final Map<Symbol, Field<TaigaCommentVersion, dynamic>> fields = const {
-    #date: _f$date,
+    #modificationDate: _f$modificationDate,
     #comment: _f$comment,
     #commentHtml: _f$commentHtml,
-    #user: _f$user,
+    #userOwner: _f$userOwner,
   };
 
   static TaigaCommentVersion _instantiate(DecodingData data) {
     return TaigaCommentVersion(
-        date: data.dec(_f$date),
+        modificationDate: data.dec(_f$modificationDate),
         comment: data.dec(_f$comment),
         commentHtml: data.dec(_f$commentHtml),
-        user: data.dec(_f$user));
+        userOwner: data.dec(_f$userOwner));
   }
 
   @override
@@ -105,7 +107,11 @@ extension TaigaCommentVersionValueCopy<$R, $Out>
 
 abstract class TaigaCommentVersionCopyWith<$R, $In extends TaigaCommentVersion,
     $Out> implements ClassCopyWith<$R, $In, $Out> {
-  $R call({DateTime? date, String? comment, String? commentHtml, int? user});
+  $R call(
+      {DateTime? modificationDate,
+      String? comment,
+      String? commentHtml,
+      int? userOwner});
   TaigaCommentVersionCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -120,22 +126,23 @@ class _TaigaCommentVersionCopyWithImpl<$R, $Out>
       TaigaCommentVersionMapper.ensureInitialized();
   @override
   $R call(
-          {DateTime? date,
+          {DateTime? modificationDate,
           String? comment,
           String? commentHtml,
-          Object? user = $none}) =>
+          Object? userOwner = $none}) =>
       $apply(FieldCopyWithData({
-        if (date != null) #date: date,
+        if (modificationDate != null) #modificationDate: modificationDate,
         if (comment != null) #comment: comment,
         if (commentHtml != null) #commentHtml: commentHtml,
-        if (user != $none) #user: user
+        if (userOwner != $none) #userOwner: userOwner
       }));
   @override
   TaigaCommentVersion $make(CopyWithData data) => TaigaCommentVersion(
-      date: data.get(#date, or: $value.date),
+      modificationDate:
+          data.get(#modificationDate, or: $value.modificationDate),
       comment: data.get(#comment, or: $value.comment),
       commentHtml: data.get(#commentHtml, or: $value.commentHtml),
-      user: data.get(#user, or: $value.user));
+      userOwner: data.get(#userOwner, or: $value.userOwner));
 
   @override
   TaigaCommentVersionCopyWith<$R2, TaigaCommentVersion, $Out2>

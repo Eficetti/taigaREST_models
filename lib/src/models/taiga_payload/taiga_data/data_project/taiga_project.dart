@@ -2,7 +2,7 @@ import 'package:dart_mappable/dart_mappable.dart';
 
 part 'taiga_project.mapper.dart';
 
-/// This class is madded for save all the details from a project
+/// This class is madded for save the details from a project of Taiga
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaProject with TaigaProjectMappable {
   /// Constructor of the class Project

@@ -21,7 +21,7 @@ class TaigaChange with TaigaChangeMappable{
   });
 
   /// If a change was made into a comment, it will be here. When a new comment
-  /// appears it came here
+  /// appears it came here. 
   String? comment;
 
   /// Comment html, same as 'comment', but it came with html tags
@@ -30,11 +30,11 @@ class TaigaChange with TaigaChangeMappable{
   /// DeleteCommentDate will have the date of deletion of a comment
   DateTime? deleteCommentDate;
 
-  /// CommentVersions will have the old version of the comment, and the details
-  /// about
+  /// CommentVersions when you modify a comment this will have the old version 
+  /// of the comment, and the details about
   List<TaigaCommentVersion>? commentVersions;
 
-  /// EditCommentDate will have the date of the last time someone edit the 
+  /// EditCommentDate will have the date of the last time someone edit a
   /// comment
   DateTime? editCommentDate;
 

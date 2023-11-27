@@ -14,7 +14,7 @@ part 'taiga_data.mapper.dart';
 
 /// This Data class will storage all the important data of the Payload of Taiga
 /// contains all the common data between the fourth types of job, which Taiga
-/// has
+/// has (Task, UserStory, Epic, issue). 
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaData with TaigaDataMappable {
   /// Constructor of the class TaigaData
@@ -101,8 +101,8 @@ class TaigaData with TaigaDataMappable {
   TaigaCustomFields? customValues;
 }
 
-/// This Data class will storage all the important data of the Payload of Taiga
-/// related to an UserStory jobType
+/// This Data class is customized to storage the data section of the payload
+/// when the jobType is 'UserStory', having the necessary values to do that
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
   /// Constructor of the TaigaUserStoryData class
@@ -124,31 +124,32 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
     // Own
     required this.assignedUsers,
     required this.blockedNote,
-    required this.clientRequirement,
+    required this.clientRequirementStatus,
     required this.dueDate,
     required this.dueDateReason,
     required this.finishDate,
     required this.taskReference,
     required this.issueReference,
-    required this.isBlocked,
+    required this.isBlockedStatus,
     required this.isClosed,
     required this.relatedSprint,
-    required this.points,
-    required this.teamRequirement,
+    required this.storyPoints,
+    required this.teamRequirementStatus,
   });
 
   /// List of all the users assigned on the userStory
   List<int> assignedUsers;
 
   /// If this is an client requirement or not
-  bool clientRequirement;
+  @MappableField(key: 'client_requirement')
+  bool clientRequirementStatus;
 
   /// This is a note for the task when its blocked, if is not, it came as an
   /// empty string: ""
   String blockedNote;
 
-  /// Date when the issue will be marked as expired, it can be null. This values
-  /// are customizable on Taiga
+  /// Date when the issue will be marked as expired, it can be null if is not 
+  /// assigned on the userStory
   DateTime? dueDate;
 
   /// DueDateReason is the reason because it will be marked as expired,
@@ -170,7 +171,8 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
   int? issueReference;
 
   /// State of the UserStory Blocked or not Blocked
-  bool isBlocked;
+  @MappableField(key: 'is_blocked')
+  bool isBlockedStatus;
 
   /// State of the UserStory Closed or not Closed
   bool isClosed;
@@ -181,18 +183,20 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
 
   /// Thats are the points for each apart (Design/Front/Back/Project Manager),
   /// all this values are customizable in Taiga
-  List<DataPoint> points;
+  @MappableField(key: 'points')
+  List<DataStoryPoint> storyPoints;
 
   /// Bool who says if is a Team requirement or not
-  bool teamRequirement;
+  @MappableField(key: 'team_requirement')
+  bool teamRequirementStatus;
 
   /// FromJson method, convert a json type object into this
   /// TaigaUserStoryData Object
   static const fromJson = TaigaUserStoryDataMapper.fromJson;
 }
 
-/// This Data class will storage all the important data of the Payload of Taiga
-/// related to a Task jobType
+/// This Data class is customized to storage the data section of the payload
+/// when the jobType is 'Task', having the necessary values to do that
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaTaskData extends TaigaData with TaigaTaskDataMappable {
   /// Constructor of the class TaigaTaskData
@@ -216,16 +220,17 @@ class TaigaTaskData extends TaigaData with TaigaTaskDataMappable {
     required this.dueDate,
     required this.dueDateReason,
     required this.finishedDate,
-    required this.isBlocked,
-    required this.isIocaine,
+    required this.isBlockedStatus,
+    required this.isIocaineStatus,
     required this.relatedSprint,
-    required this.promotedTo,
+    required this.promotedToList,
     required this.taskboardOrder,
     required this.usOrder,
     required this.userStory,
   });
 
-  /// Date when the issue will be marked as expired, it can be null
+  /// Date when the issue will be marked as expired, it can be null if is not 
+  /// assigned on the task
   DateTime? dueDate;
 
   /// DueDateReason is the reason because it will be marked as expired,
@@ -237,10 +242,12 @@ class TaigaTaskData extends TaigaData with TaigaTaskDataMappable {
   @MappableField(key: 'sprint')
   DataSprint? relatedSprint;
 
-  /// State of the Task Blocked or not Blocked
-  bool isBlocked;
+  /// State of the Task is it Blocked or not 
+  @MappableField(key: 'is_blocked')
+  bool isBlockedStatus;
 
-  /// Reason because is blocked, can came as an empty String: ""
+  /// Reason because is blocked, can came as an empty String: "" if the status
+  /// is not blocked
   String blockedNote;
 
   /// Task order, taiga value //TODO: Consultar que onda este valor para la docu
@@ -249,9 +256,11 @@ class TaigaTaskData extends TaigaData with TaigaTaskDataMappable {
   /// Is the userStory related to the task
   TaigaUserStoryData userStory;
 
-  /// If the task is promoted into a UseStory, if is not can came as an empty
-  /// list
-  List<dynamic> promotedTo;
+  /// If the task is promoted into a UseStory will came with the id of that 
+  /// UserStory (Can be more than one UserStory), if is not can came as an 
+  /// empty list
+  @MappableField(key: 'promoted_to')
+  List<dynamic> promotedToList;
 
   /// The date of the day it was marked as finished, if is not,
   /// came as null value
@@ -262,16 +271,19 @@ class TaigaTaskData extends TaigaData with TaigaTaskDataMappable {
   @MappableField(key: 'taskboard_order')
   int taskboardOrder;
 
-  /// State indicator about Iocaine
-  bool isIocaine;
+  /// State indicator about Iocaine,  this value is used in Taiga to warn other 
+  /// group members that this task is a bit heavy for the person assigned to it:
+  /// https://community.taiga.io/t/what-is-this-iocaine-thing-in-taiga-and-how-should-i-use-it/153
+  @MappableField(key: 'is_iocaine')
+  bool isIocaineStatus;
 
   /// FromJson method, convert a json type object into this
   /// TaigaTaskData Object
   static const fromJson = TaigaTaskDataMapper.fromJson;
 }
 
-/// This Data class will storage all the important data of the Payload of Taiga
-/// related to an Issue jobType
+/// This Data class is customized to storage the data section of the payload
+/// when the jobType is 'Issue', having the necessary values to do that
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
   /// Constructor of the TaigaIssueData class
@@ -296,7 +308,7 @@ class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
     required this.finishedDate,
     required this.issueRelatedSprint,
     required this.issuePriority,
-    required this.promotedTo,
+    required this.promotedToList,
     required this.issueSeverity,
     required this.issueType,
   });
@@ -304,13 +316,15 @@ class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
   /// Date when the issue was marked as finished
   DateTime? finishedDate;
 
-  /// Date when the issue will be marked as expired, it can be null
+  /// Date when the issue will be marked as expired, it can be null if is not 
+  /// assigned on the issue
   DateTime? dueDate;
 
-  /// Reason because it will be marked as expired, can come as an empty string
+  /// Reason because it will be marked as expired, can came as an empty string
   String dueDateReason;
 
-  /// Sprint related to the taiga Issue
+  /// Sprint related to the taiga Issue, this value appears when you attach
+  /// an issue into an sprint
   @MappableField(key: 'milestone')
   DataSprint? issueRelatedSprint;
 
@@ -329,8 +343,9 @@ class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
 
   /// PromotedTo, this value applies only when the issue is promoted into
   /// a userStory, and will have all the ids of the different userStory this
-  /// issue is promoted (Can be more than one)
-  List<int?> promotedTo;
+  /// issue has been promoted
+  @MappableField(key: 'promoted_to')
+  List<int?> promotedToList;
 
   /// FromJson method, convert a json type object into this TaigaIssueData
   ///  Object
@@ -360,8 +375,8 @@ class TaigaEpicData extends TaigaData with TaigaEpicDataMappable {
     // own
     required this.color,
     required this.epicsOrder,
-    required this.isClientRequirement,
-    required this.isTeamRequirement,
+    required this.teamRequirementStatus,
+    required this.clientRequirementStatus,
   });
 
   /// Color chosen in the Epic Creation
@@ -372,11 +387,11 @@ class TaigaEpicData extends TaigaData with TaigaEpicDataMappable {
 
   /// Value who indicates if it is a Team Requirement or not
   @MappableField(key: 'team_requirement')
-  bool isTeamRequirement;
+  bool teamRequirementStatus;
 
   /// Value who indicates if it is a Client Requirement or not
   @MappableField(key: 'client_requirement')
-  bool isClientRequirement;
+  bool clientRequirementStatus;
 
   /// FromJson method, convert a json type object into this TaigaEpicData
   /// Object

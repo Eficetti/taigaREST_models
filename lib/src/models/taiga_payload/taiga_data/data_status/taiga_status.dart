@@ -2,8 +2,8 @@ import 'package:dart_mappable/dart_mappable.dart';
 
 part 'taiga_status.mapper.dart';
 
-/// This class is for save an status record of the payload, according to your
-/// project configuration
+/// This class is for save an status record of the job in the payload, according
+/// to your project configuration statuses
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaStatus with TaigaStatusMappable {
   /// Constructor for the class Status
@@ -12,18 +12,20 @@ class TaigaStatus with TaigaStatusMappable {
     required this.statusName,
     required this.statusSlug,
     required this.statusColor,
-    required this.isClosed,
+    required this.isClosedStatus,
   });
 
   /// Id of the Status
   @MappableField(key: 'id')
   int statusId;
 
-  /// Status name
+  /// Name assigned to the status
   @MappableField(key: 'name')
   String statusName;
 
-  /// Status slug
+  /// Status slug, slug is used to keep the human-readable part in , in all 
+  /// cases will have the same value as name, but it is on slug format:
+  /// 'name example', slug: 'name-example' 
   @MappableField(key: 'slug')
   String statusSlug;
 
@@ -33,7 +35,8 @@ class TaigaStatus with TaigaStatusMappable {
 
   /// Status bool indicating if the Job is Closed or not, depend on the 
   /// configuration you give to the status in your project
-  bool isClosed;
+  @MappableField(key: 'is_closed')
+  bool isClosedStatus;
 
   /// FromJson method, convert a json type object into this TaigaStatus Object
   static const fromJson = TaigaStatusMapper.fromJson;

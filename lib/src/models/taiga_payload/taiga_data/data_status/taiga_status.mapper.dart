@@ -32,9 +32,9 @@ class TaigaStatusMapper extends ClassMapperBase<TaigaStatus> {
   static String _$statusColor(TaigaStatus v) => v.statusColor;
   static const Field<TaigaStatus, String> _f$statusColor =
       Field('statusColor', _$statusColor, key: 'color');
-  static bool _$isClosed(TaigaStatus v) => v.isClosed;
-  static const Field<TaigaStatus, bool> _f$isClosed =
-      Field('isClosed', _$isClosed, key: 'is_closed');
+  static bool _$isClosedStatus(TaigaStatus v) => v.isClosedStatus;
+  static const Field<TaigaStatus, bool> _f$isClosedStatus =
+      Field('isClosedStatus', _$isClosedStatus, key: 'is_closed');
 
   @override
   final Map<Symbol, Field<TaigaStatus, dynamic>> fields = const {
@@ -42,7 +42,7 @@ class TaigaStatusMapper extends ClassMapperBase<TaigaStatus> {
     #statusName: _f$statusName,
     #statusSlug: _f$statusSlug,
     #statusColor: _f$statusColor,
-    #isClosed: _f$isClosed,
+    #isClosedStatus: _f$isClosedStatus,
   };
 
   static TaigaStatus _instantiate(DecodingData data) {
@@ -51,7 +51,7 @@ class TaigaStatusMapper extends ClassMapperBase<TaigaStatus> {
         statusName: data.dec(_f$statusName),
         statusSlug: data.dec(_f$statusSlug),
         statusColor: data.dec(_f$statusColor),
-        isClosed: data.dec(_f$isClosed));
+        isClosedStatus: data.dec(_f$isClosedStatus));
   }
 
   @override
@@ -112,7 +112,7 @@ abstract class TaigaStatusCopyWith<$R, $In extends TaigaStatus, $Out>
       String? statusName,
       String? statusSlug,
       String? statusColor,
-      bool? isClosed});
+      bool? isClosedStatus});
   TaigaStatusCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -130,13 +130,13 @@ class _TaigaStatusCopyWithImpl<$R, $Out>
           String? statusName,
           String? statusSlug,
           String? statusColor,
-          bool? isClosed}) =>
+          bool? isClosedStatus}) =>
       $apply(FieldCopyWithData({
         if (statusId != null) #statusId: statusId,
         if (statusName != null) #statusName: statusName,
         if (statusSlug != null) #statusSlug: statusSlug,
         if (statusColor != null) #statusColor: statusColor,
-        if (isClosed != null) #isClosed: isClosed
+        if (isClosedStatus != null) #isClosedStatus: isClosedStatus
       }));
   @override
   TaigaStatus $make(CopyWithData data) => TaigaStatus(
@@ -144,7 +144,7 @@ class _TaigaStatusCopyWithImpl<$R, $Out>
       statusName: data.get(#statusName, or: $value.statusName),
       statusSlug: data.get(#statusSlug, or: $value.statusSlug),
       statusColor: data.get(#statusColor, or: $value.statusColor),
-      isClosed: data.get(#isClosed, or: $value.isClosed));
+      isClosedStatus: data.get(#isClosedStatus, or: $value.isClosedStatus));
 
   @override
   TaigaStatusCopyWith<$R2, TaigaStatus, $Out2> $chain<$R2, $Out2>(

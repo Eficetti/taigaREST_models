@@ -3,7 +3,8 @@ import 'package:dart_mappable/dart_mappable.dart';
 part 'taiga_custom_fields.mapper.dart';
 
 //! This don't work with all custom fields, you need to modify this model
-//! to use your own custom fields
+//! to use your own custom fields. How to (?):
+//! https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150
 
 /// This class will storage all the custom fields on a object, if you create
 /// a taiga project, you will need to modify the CustomAttributes class

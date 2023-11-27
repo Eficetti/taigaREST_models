@@ -4,7 +4,57 @@
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
-TaigaRest models
+TaigaRest models is a package created to consume the data from Taiga (tree.taiga.io) webhooks, and put it
+inside of Dart models, to use it on a project. We are using mappable models (https://pub.dev/packages/dart_mappable)
+
+<ins> How to use (?) </ins>
+
+First of all, you have to connect the taiga webhooks to your project on Dart (There is a guide: https://docs.taiga.io/webhooks-configuration.html#_developing_your_own_integration), once it is connected you have to decode the data using
+the 'dart:convert' library (https://api.dart.dev/stable/3.2.1/dart-convert/dart-convert-library.html). 
+
+This is the route where the webhook is hitting:
+```
+import 'dart:convert';
+import 'dart:io';
+
+class RouteRoot extends WidgetRoute {
+  @override
+  Future<Widget> build(Session session, HttpRequest request) async {
+    final decodedBody = await utf8.decodeStream(request);
+    final body = json.decode(decodedBody);
+    
+    // Convert the webhook payload into a dart model using 'fromJson' method
+    final payload = TaigaPayload.fromJson(decodedBody);
+    
+    // Add your custom code to manage what to do after generate the model
+    print(payload);
+
+    return WebHooksView(webhookData: body);
+  }
+}
+```
+
+this will create the model with all the data you receive from Taiga. Is recommended to validate this data before using it, but is pending this. If you want to do it by yourself: https://docs.taiga.io/webhooks.html#_verify_signature
+
+<ins> How to use custom fields (?) </ins>
+For using custom fields of taiga (https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150) you have to modify the TaigaCustomFields model, in 'lib\src\models\taiga_payload\taiga_data\custom_fields\taiga_custom_fields.dart' by the moment. 
+
+```
+TaigaCustomFields({
+    this.yourField,
+  });
+
+  /// Documentation of your field
+  @MappableField(key: 'Name of your field')
+  String? yourField;
+```
+
+remind the key is how it came from the Taiga webhook, and it will be the exact same name you put in your custom fields configuration on your Taiga project. Once you have done, then you have to generate the mappable models using:
+```
+dart run build_runner build --delete-conflicting-outputs
+```
+
+
 
 ## Installation 💻
 
