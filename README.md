@@ -7,10 +7,10 @@
 TaigaRest models is a package created to consume the data from Taiga (tree.taiga.io) webhooks, and put it
 inside of Dart models, to use it on a project. We are using mappable models (https://pub.dev/packages/dart_mappable)
 
-<ins> How to use (?) </ins>
+## <ins> How to use (?) </ins>
 
 First of all, you have to connect the taiga webhooks to your project on Dart (There is a guide: https://docs.taiga.io/webhooks-configuration.html#_developing_your_own_integration), once it is connected you have to decode the data using
-the 'dart:convert' library (https://api.dart.dev/stable/3.2.1/dart-convert/dart-convert-library.html). 
+the 'dart:convert' library (https://api.dart.dev/stable/3.2.1/dart-convert/dart-convert-library.html) and then use the fromJson method of the TaigaPayload model. 
 
 This is the route where the webhook is hitting:
 ```
@@ -34,9 +34,9 @@ class RouteRoot extends WidgetRoute {
 }
 ```
 
-this will create the model with all the data you receive from Taiga. Is recommended to validate this data before using it, but is pending this. If you want to do it by yourself: https://docs.taiga.io/webhooks.html#_verify_signature
+This will create the model with all the data you receive from Taiga. Is recommended to validate this data before using it, but this is pending. If you want to do it by yourself: https://docs.taiga.io/webhooks.html#_verify_signature
 
-<ins> How to use custom fields (?) </ins>
+## <ins> How to use custom fields (?) </ins>
 For using custom fields of taiga (https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150) you have to modify the TaigaCustomFields model, in 'lib\src\models\taiga_payload\taiga_data\custom_fields\taiga_custom_fields.dart' by the moment. 
 
 ```
