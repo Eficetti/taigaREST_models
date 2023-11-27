@@ -22,39 +22,40 @@ class TaigaUserMapper extends ClassMapperBase<TaigaUser> {
 
   static int _$id(TaigaUser v) => v.id;
   static const Field<TaigaUser, int> _f$id = Field('id', _$id);
-  static String _$permalink(TaigaUser v) => v.permalink;
-  static const Field<TaigaUser, String> _f$permalink =
-      Field('permalink', _$permalink);
+  static String _$taigaProfileUrl(TaigaUser v) => v.taigaProfileUrl;
+  static const Field<TaigaUser, String> _f$taigaProfileUrl =
+      Field('taigaProfileUrl', _$taigaProfileUrl, key: 'permalink');
   static String _$username(TaigaUser v) => v.username;
   static const Field<TaigaUser, String> _f$username =
       Field('username', _$username);
   static String _$fullName(TaigaUser v) => v.fullName;
   static const Field<TaigaUser, String> _f$fullName =
       Field('fullName', _$fullName, key: 'full_name');
-  static String _$photo(TaigaUser v) => v.photo;
-  static const Field<TaigaUser, String> _f$photo = Field('photo', _$photo);
-  static String _$gravatarId(TaigaUser v) => v.gravatarId;
-  static const Field<TaigaUser, String> _f$gravatarId =
-      Field('gravatarId', _$gravatarId, key: 'gravatar_id');
+  static String _$profilePicUrl(TaigaUser v) => v.profilePicUrl;
+  static const Field<TaigaUser, String> _f$profilePicUrl =
+      Field('profilePicUrl', _$profilePicUrl, key: 'photo');
+  static String _$gravatarServiceId(TaigaUser v) => v.gravatarServiceId;
+  static const Field<TaigaUser, String> _f$gravatarServiceId =
+      Field('gravatarServiceId', _$gravatarServiceId, key: 'gravatar_id');
 
   @override
   final Map<Symbol, Field<TaigaUser, dynamic>> fields = const {
     #id: _f$id,
-    #permalink: _f$permalink,
+    #taigaProfileUrl: _f$taigaProfileUrl,
     #username: _f$username,
     #fullName: _f$fullName,
-    #photo: _f$photo,
-    #gravatarId: _f$gravatarId,
+    #profilePicUrl: _f$profilePicUrl,
+    #gravatarServiceId: _f$gravatarServiceId,
   };
 
   static TaigaUser _instantiate(DecodingData data) {
     return TaigaUser(
         id: data.dec(_f$id),
-        permalink: data.dec(_f$permalink),
+        taigaProfileUrl: data.dec(_f$taigaProfileUrl),
         username: data.dec(_f$username),
         fullName: data.dec(_f$fullName),
-        photo: data.dec(_f$photo),
-        gravatarId: data.dec(_f$gravatarId));
+        profilePicUrl: data.dec(_f$profilePicUrl),
+        gravatarServiceId: data.dec(_f$gravatarServiceId));
   }
 
   @override
@@ -111,11 +112,11 @@ abstract class TaigaUserCopyWith<$R, $In extends TaigaUser, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call(
       {int? id,
-      String? permalink,
+      String? taigaProfileUrl,
       String? username,
       String? fullName,
-      String? photo,
-      String? gravatarId});
+      String? profilePicUrl,
+      String? gravatarServiceId});
   TaigaUserCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -130,27 +131,28 @@ class _TaigaUserCopyWithImpl<$R, $Out>
   @override
   $R call(
           {int? id,
-          String? permalink,
+          String? taigaProfileUrl,
           String? username,
           String? fullName,
-          String? photo,
-          String? gravatarId}) =>
+          String? profilePicUrl,
+          String? gravatarServiceId}) =>
       $apply(FieldCopyWithData({
         if (id != null) #id: id,
-        if (permalink != null) #permalink: permalink,
+        if (taigaProfileUrl != null) #taigaProfileUrl: taigaProfileUrl,
         if (username != null) #username: username,
         if (fullName != null) #fullName: fullName,
-        if (photo != null) #photo: photo,
-        if (gravatarId != null) #gravatarId: gravatarId
+        if (profilePicUrl != null) #profilePicUrl: profilePicUrl,
+        if (gravatarServiceId != null) #gravatarServiceId: gravatarServiceId
       }));
   @override
   TaigaUser $make(CopyWithData data) => TaigaUser(
       id: data.get(#id, or: $value.id),
-      permalink: data.get(#permalink, or: $value.permalink),
+      taigaProfileUrl: data.get(#taigaProfileUrl, or: $value.taigaProfileUrl),
       username: data.get(#username, or: $value.username),
       fullName: data.get(#fullName, or: $value.fullName),
-      photo: data.get(#photo, or: $value.photo),
-      gravatarId: data.get(#gravatarId, or: $value.gravatarId));
+      profilePicUrl: data.get(#profilePicUrl, or: $value.profilePicUrl),
+      gravatarServiceId:
+          data.get(#gravatarServiceId, or: $value.gravatarServiceId));
 
   @override
   TaigaUserCopyWith<$R2, TaigaUser, $Out2> $chain<$R2, $Out2>(

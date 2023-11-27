@@ -11,18 +11,19 @@ class TaigaUser with TaigaUserMappable {
   /// Constructor of TaigaUser class
   TaigaUser({
     required this.id,
-    required this.permalink,
+    required this.taigaProfileUrl,
     required this.username,
     required this.fullName,
-    required this.photo,
-    required this.gravatarId,
+    required this.profilePicUrl,
+    required this.gravatarServiceId,
   });
 
   /// Id of the user related on Taiga
   int id;
 
   /// Permanent Link to the user profile related on Taiga
-  String permalink;
+  @MappableField(key: 'permalink')
+  String taigaProfileUrl;
 
   /// Taiga Username of the user related on Taiga
   String username;
@@ -31,11 +32,13 @@ class TaigaUser with TaigaUserMappable {
   String fullName;
 
   /// Photo link url of the user related on Taiga
-  String photo;
+  @MappableField(key: 'photo')
+  String profilePicUrl;
 
   /// Id of the user avatar on the gravatar service
   /// (Gravatar service url: https://docs.gravatar.com/)
-  String gravatarId;
+  @MappableField(key: 'gravatar_id')
+  String gravatarServiceId;
 
   /// FromJson method, convert a json type object into this TaigaUserObject
   static const fromJson = TaigaUserMapper.fromJson;
