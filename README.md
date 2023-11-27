@@ -88,17 +88,17 @@ To understand this models you need to know, the payload of Taiga webhook, always
 
 TaigaUser is used on different instances and it have the next values:   
 
-- id: id is just like any id from an user, in this case it refers to one user on the Taiga platform  
+- **id**: id is just like any id from an user, in this case it refers to one user on the Taiga platform  
 
-- taigaProfileUrl: Is the permanent url to the user profile on Taiga  
+- **taigaProfileUrl**: Is the permanent url to the user profile on Taiga  
 
-- username: Is the username of the user on Taiga  
+- **username**: Is the username of the user on Taiga  
 
-- fullName: Is the full name of the user related on Taiga  
+- **fullName**: Is the full name of the user related on Taiga  
 
-- profilePicUrl: Is the link of his actual profile picture  
+- **profilePicUrl**: Is the link of his actual profile picture  
 
-- gravatarServiceId: Is the Id of the user avatar on the gravatar service(Gravatar service url: https://docs.gravatar.com/)  
+- **gravatarServiceId**: Is the Id of the user avatar on the gravatar service(Gravatar service url: https://docs.gravatar.com/)  
 
 ### <ins> Explaining Data </ins>
 
