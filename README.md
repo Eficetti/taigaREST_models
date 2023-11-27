@@ -70,17 +70,17 @@ To understand this models you need to know, the payload of Taiga webhook, always
 
 ### <ins> Explaining those values</ins>  
 
-- The action (In the models appears as '**actionType**') field contains notification type with values: "create", "delete", "change" or "test".  
+- *Action* (In the models appears as '**actionType**') field contains notification type with values: "create", "delete", "change" or "test".  
 
-- The type (In the models appears as '**jobType**') field contains the type of object with values: "milestone", "userstory", "task", "issue", "epic", "wikipage" or "test".  
+- *Type* (In the models appears as '**jobType**') field contains the type of object with values: "milestone", "userstory", "task", "issue", "epic", "wikipage" or "test".  
 
-- The by (In the models appears as '**performer**') field contains the information of the user that generate the notification.  
+- *By* (In the models appears as '**performer**') field contains the information of the user that generate the notification.  
 
-- The date field contains the date and time of the current notification.  
+- *Date* field contains the date and time of the current notification.  
 
-- The data field contains the current object information.  
+- *Data* field contains the current object information.  
 
-- The change field (only present on change notifications) contains the information about the changes made.  
+- *Change* field (only present on change notifications) contains the information about the changes made.  
 
 ## <ins> Important Fields </ins>  
 
