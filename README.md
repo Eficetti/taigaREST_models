@@ -111,23 +111,23 @@ final payload = TaigaPayload.fromJson(decodedBody);
 /// Based on the each jobType 
 switch (payload.jobType) {
 
-    /// Convert into a epic
+    /// Convert into epic
     case 'epic':
         TaigaEpicData correctDataType = payload.data as TaigaEpicData;
     
-    /// Convert into a task
+    /// Convert into task
     case 'task':
         TaigaTaskData correctDataType = payload.data as TaigaTaskData;
 
-    /// Convert into a issue
+    /// Convert into issue
     case 'issue':
         TaigaIssueData correctDataType = payload.data as TaigaIssueData;
 
-    /// Convert into a userstory
+    /// Convert into userstory
     case 'userstory':
         TaigaUserStoryData correctDataType = payload.data as TaigaUserStoryData;
 
-    /// Convert into a milestone(Sprint)
+    /// Convert into milestone(Sprint)
     case 'milestone':
         DataSprint correctDataType = payload.data as DataSprint;
 
