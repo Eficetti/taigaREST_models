@@ -26,7 +26,7 @@ class AttachmentItem with AttachmentItemMappable {
   String filename;
 
   /// Url of the attachments. Example:
-  /// https://media-protected.taiga.io/<ATTACHMENT-PATH>?token=<TOKEN>"
+  /// https://media-protected.taiga.io/ATTACHMENT-PATH?token=TOKEN"
   @MappableField(key: 'url')
   String itemUrl;
 

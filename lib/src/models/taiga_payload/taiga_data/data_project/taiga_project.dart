@@ -18,7 +18,7 @@ class TaigaProject with TaigaProjectMappable {
   int projectId;
 
   /// Permalink of the project will give you the complete url to the project
-  /// example: "tree.taiga.io/project/<project-name>"
+  /// example: "tree.taiga.io/project/project-name"
   @MappableField(key: 'permalink')
   String projectPermalink;
 

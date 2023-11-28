@@ -26,22 +26,22 @@ class DataStoryPointMapper extends ClassMapperBase<DataStoryPoint> {
   static String _$pointAssignedRole(DataStoryPoint v) => v.pointAssignedRole;
   static const Field<DataStoryPoint, String> _f$pointAssignedRole =
       Field('pointAssignedRole', _$pointAssignedRole, key: 'role');
-  static double? _$pointValue(DataStoryPoint v) => v.pointValue;
-  static const Field<DataStoryPoint, double> _f$pointValue =
-      Field('pointValue', _$pointValue, key: 'value');
+  static double? _$pointAmount(DataStoryPoint v) => v.pointAmount;
+  static const Field<DataStoryPoint, double> _f$pointAmount =
+      Field('pointAmount', _$pointAmount, key: 'value');
 
   @override
   final Map<Symbol, Field<DataStoryPoint, dynamic>> fields = const {
     #pointName: _f$pointName,
     #pointAssignedRole: _f$pointAssignedRole,
-    #pointValue: _f$pointValue,
+    #pointAmount: _f$pointAmount,
   };
 
   static DataStoryPoint _instantiate(DecodingData data) {
     return DataStoryPoint(
         pointName: data.dec(_f$pointName),
         pointAssignedRole: data.dec(_f$pointAssignedRole),
-        pointValue: data.dec(_f$pointValue));
+        pointAmount: data.dec(_f$pointAmount));
   }
 
   @override
@@ -99,7 +99,7 @@ extension DataStoryPointValueCopy<$R, $Out>
 
 abstract class DataStoryPointCopyWith<$R, $In extends DataStoryPoint, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  $R call({String? pointName, String? pointAssignedRole, double? pointValue});
+  $R call({String? pointName, String? pointAssignedRole, double? pointAmount});
   DataStoryPointCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -116,18 +116,18 @@ class _DataStoryPointCopyWithImpl<$R, $Out>
   $R call(
           {String? pointName,
           String? pointAssignedRole,
-          Object? pointValue = $none}) =>
+          Object? pointAmount = $none}) =>
       $apply(FieldCopyWithData({
         if (pointName != null) #pointName: pointName,
         if (pointAssignedRole != null) #pointAssignedRole: pointAssignedRole,
-        if (pointValue != $none) #pointValue: pointValue
+        if (pointAmount != $none) #pointAmount: pointAmount
       }));
   @override
   DataStoryPoint $make(CopyWithData data) => DataStoryPoint(
       pointName: data.get(#pointName, or: $value.pointName),
       pointAssignedRole:
           data.get(#pointAssignedRole, or: $value.pointAssignedRole),
-      pointValue: data.get(#pointValue, or: $value.pointValue));
+      pointAmount: data.get(#pointAmount, or: $value.pointAmount));
 
   @override
   DataStoryPointCopyWith<$R2, DataStoryPoint, $Out2> $chain<$R2, $Out2>(

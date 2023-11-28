@@ -66,7 +66,7 @@ class DataSprint with DataSprintMappable {
   int disponibility;
 
   /// Permalink of the sprint will give you the complete url to the sprint
-  /// example: "tree.taiga.io/project/<project-name>/taskboard/<sprint-name>"
+  /// example: "tree.taiga.io/project/project-name/taskboard/sprint-name"
   @MappableField(key: 'permalink')
   String sprintPermalink;
 

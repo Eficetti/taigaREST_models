@@ -12,7 +12,7 @@ class CustomField with CustomFieldMappable {
     required this.customFieldName,
     required this.customFieldType,
     required this.customFieldValue,
-    required this.customFieldValueDiff,
+    required this.customFieldValueHtml,
     required this.valueChanges,
   });
 
@@ -36,9 +36,9 @@ class CustomField with CustomFieldMappable {
   @MappableField(key: 'changes')
   CustomFieldsChange? valueChanges;
 
-  /// This storage the format value "<span>Sample</span><ins style=\"background:#e6ffe6;\">2</ins><span>.com</span>"
+  /// This storage the html format value 
   @MappableField(key: 'value_diff')
-  String? customFieldValueDiff;
+  String? customFieldValueHtml;
 
   /// FromJson method, convert a json type object into this
   /// CustomValue Object

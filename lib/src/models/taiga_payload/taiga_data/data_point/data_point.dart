@@ -11,20 +11,20 @@ class DataStoryPoint with DataStoryPointMappable {
   DataStoryPoint({
     required this.pointName,
     required this.pointAssignedRole,
-    required this.pointValue,
+    required this.pointAmount,
   });
 
   /// Name of the value of points
   @MappableField(key: 'name')
   String pointName;
 
-  /// Role points assigned to the points
+  /// Role assigned to the points
   @MappableField(key: 'role')
   String pointAssignedRole;
 
-  /// Points values
+  /// Is the amount of points assigned
   @MappableField(key: 'value')
-  double? pointValue;
+  double? pointAmount;
 
   /// FromJson method, convert a json type object into this DataPoint Object
   static const fromJson = DataStoryPointMapper.fromJson;

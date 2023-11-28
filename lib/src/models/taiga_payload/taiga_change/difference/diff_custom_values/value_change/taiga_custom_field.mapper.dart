@@ -33,10 +33,10 @@ class CustomFieldMapper extends ClassMapperBase<CustomField> {
   static String? _$customFieldValue(CustomField v) => v.customFieldValue;
   static const Field<CustomField, String> _f$customFieldValue =
       Field('customFieldValue', _$customFieldValue, key: 'value');
-  static String? _$customFieldValueDiff(CustomField v) =>
-      v.customFieldValueDiff;
-  static const Field<CustomField, String> _f$customFieldValueDiff =
-      Field('customFieldValueDiff', _$customFieldValueDiff, key: 'value_diff');
+  static String? _$customFieldValueHtml(CustomField v) =>
+      v.customFieldValueHtml;
+  static const Field<CustomField, String> _f$customFieldValueHtml =
+      Field('customFieldValueHtml', _$customFieldValueHtml, key: 'value_diff');
   static CustomFieldsChange? _$valueChanges(CustomField v) => v.valueChanges;
   static const Field<CustomField, CustomFieldsChange> _f$valueChanges =
       Field('valueChanges', _$valueChanges, key: 'changes');
@@ -47,7 +47,7 @@ class CustomFieldMapper extends ClassMapperBase<CustomField> {
     #customFieldName: _f$customFieldName,
     #customFieldType: _f$customFieldType,
     #customFieldValue: _f$customFieldValue,
-    #customFieldValueDiff: _f$customFieldValueDiff,
+    #customFieldValueHtml: _f$customFieldValueHtml,
     #valueChanges: _f$valueChanges,
   };
 
@@ -57,7 +57,7 @@ class CustomFieldMapper extends ClassMapperBase<CustomField> {
         customFieldName: data.dec(_f$customFieldName),
         customFieldType: data.dec(_f$customFieldType),
         customFieldValue: data.dec(_f$customFieldValue),
-        customFieldValueDiff: data.dec(_f$customFieldValueDiff),
+        customFieldValueHtml: data.dec(_f$customFieldValueHtml),
         valueChanges: data.dec(_f$valueChanges));
   }
 
@@ -121,7 +121,7 @@ abstract class CustomFieldCopyWith<$R, $In extends CustomField, $Out>
       String? customFieldName,
       String? customFieldType,
       String? customFieldValue,
-      String? customFieldValueDiff,
+      String? customFieldValueHtml,
       CustomFieldsChange? valueChanges});
   CustomFieldCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -144,15 +144,15 @@ class _CustomFieldCopyWithImpl<$R, $Out>
           Object? customFieldName = $none,
           Object? customFieldType = $none,
           Object? customFieldValue = $none,
-          Object? customFieldValueDiff = $none,
+          Object? customFieldValueHtml = $none,
           Object? valueChanges = $none}) =>
       $apply(FieldCopyWithData({
         if (customFieldId != $none) #customFieldId: customFieldId,
         if (customFieldName != $none) #customFieldName: customFieldName,
         if (customFieldType != $none) #customFieldType: customFieldType,
         if (customFieldValue != $none) #customFieldValue: customFieldValue,
-        if (customFieldValueDiff != $none)
-          #customFieldValueDiff: customFieldValueDiff,
+        if (customFieldValueHtml != $none)
+          #customFieldValueHtml: customFieldValueHtml,
         if (valueChanges != $none) #valueChanges: valueChanges
       }));
   @override
@@ -162,8 +162,8 @@ class _CustomFieldCopyWithImpl<$R, $Out>
       customFieldType: data.get(#customFieldType, or: $value.customFieldType),
       customFieldValue:
           data.get(#customFieldValue, or: $value.customFieldValue),
-      customFieldValueDiff:
-          data.get(#customFieldValueDiff, or: $value.customFieldValueDiff),
+      customFieldValueHtml:
+          data.get(#customFieldValueHtml, or: $value.customFieldValueHtml),
       valueChanges: data.get(#valueChanges, or: $value.valueChanges));
 
   @override
