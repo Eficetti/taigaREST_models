@@ -72,12 +72,12 @@ class TaigaPayload with TaigaPayloadMappable {
   /// information of the action made, and its a different object based on his
   /// `jobType`. <br>
   /// The types of object can be the next: <br>
-  /// `TaigaIssueData` <br>
-  /// `TaigaUserStoryData` <br>
-  /// `TaigaTaskData` <br>
-  /// `TaigaEpicData` <br>
-  /// `DataSprint` <br>
-  /// `DataWikiPage` <br>
+  /// [TaigaIssueData] <br>
+  /// [TaigaUserStoryData] <br>
+  /// [TaigaTaskData] <br>
+  /// [TaigaEpicData] <br>
+  /// [DataSprint] <br>
+  /// [DataWikiPage] <br>
   dynamic data;
 
   /// This is the changes that were made on this payload, this only exist if the
