@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/taiga_change.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_wiki/data_wiki.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_user/taiga_user.dart';
 import 'package:taiga_rest_models/taiga_rest_models.dart';
 
@@ -14,7 +15,9 @@ part 'taiga_payload.mapper.dart';
 /// the user who made the action, the date when the action has been done,
 /// all the data related to the action (This is custom for each jobType), also
 /// if the type of action is "change", will receive the information in the
-/// "change" variable
+/// "change" variable.
+/// For more info about, Taiga webhooks:
+/// https://docs.taiga.io/webhooks.html
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaPayload with TaigaPayloadMappable {
   /// This is the Constructor of TaigaPayload
@@ -29,7 +32,6 @@ class TaigaPayload with TaigaPayloadMappable {
     /// This will generate the dataType correct for data based on the jobType
     /// reading the data as Map<String, dynamic> first, then encode the data
     /// into a json and calling the fromJson method inside of each dataType.
-    /// JobType: Sprint applies when you create a new sprint on scrum board
     switch (jobType) {
       case 'issue':
         data = TaigaIssueData.fromJson(jsonEncode(data));
@@ -41,6 +43,8 @@ class TaigaPayload with TaigaPayloadMappable {
         data = TaigaEpicData.fromJson(jsonEncode(data));
       case 'milestone':
         data = DataSprint.fromJson(jsonEncode(data));
+      case 'wikipage':
+        data = DataWikiPage.fromJson(jsonEncode(data));
     }
   }
 
@@ -50,7 +54,7 @@ class TaigaPayload with TaigaPayloadMappable {
   String actionType;
 
   /// jobType is the type job related to Taiga, jobsType can came as:
-  /// Issue, UserStory, Task or Epics
+  /// Issue, UserStory, Task, Epics, Milestone (Sprint), and WikiPage
   @MappableField(key: 'type')
   String jobType;
 
@@ -58,7 +62,7 @@ class TaigaPayload with TaigaPayloadMappable {
   @MappableField(key: 'by')
   TaigaUser performer;
 
-  /// This is the date when the action of this payload was made
+  /// This is the date when the action of this payload was performed
   DateTime date;
 
   /// This is the most important part of the Payload, this include all the
@@ -70,7 +74,7 @@ class TaigaPayload with TaigaPayloadMappable {
   /// actionType is change, otherwise it will be null
   TaigaChange? change;
 
-  /// FromJson method, convert a json type object into this TaigaPayloadMapper
+  /// FromJson method, convert a json type object into this TaigaPayload
   /// object
   static const fromJson = TaigaPayloadMapper.fromJson;
 }

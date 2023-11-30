@@ -110,6 +110,13 @@ class TaigaChangeDifferenceMapper
   static FromTo? _$name(TaigaChangeDifference v) => v.name;
   static const Field<TaigaChangeDifference, FromTo> _f$name =
       Field('name', _$name, key: 'subject', opt: true);
+  static FromTo? _$htmlWikiContent(TaigaChangeDifference v) =>
+      v.htmlWikiContent;
+  static const Field<TaigaChangeDifference, FromTo> _f$htmlWikiContent =
+      Field('htmlWikiContent', _$htmlWikiContent, key: 'content_html');
+  static FromTo? _$wikiContent(TaigaChangeDifference v) => v.wikiContent;
+  static const Field<TaigaChangeDifference, FromTo> _f$wikiContent =
+      Field('wikiContent', _$wikiContent, key: 'content_diff');
 
   @override
   final Map<Symbol, Field<TaigaChangeDifference, dynamic>> fields = const {
@@ -136,6 +143,8 @@ class TaigaChangeDifferenceMapper
     #typeStatus: _f$typeStatus,
     #storyPoints: _f$storyPoints,
     #name: _f$name,
+    #htmlWikiContent: _f$htmlWikiContent,
+    #wikiContent: _f$wikiContent,
   };
 
   static TaigaChangeDifference _instantiate(DecodingData data) {

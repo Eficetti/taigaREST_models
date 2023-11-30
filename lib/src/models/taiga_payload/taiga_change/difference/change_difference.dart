@@ -77,7 +77,7 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
 
   /// Change made into the description of a job. This value can't be saved
   /// because always its 'Check the history API for the exact diff' there is
-  /// no useful data 
+  /// no useful data
   String? descriptionDiff;
 
   /// Change made into the isClosed bool status. This will storage the old and
@@ -150,11 +150,21 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
   /// deleted and changed. If a change is committed, will storage the difference
   CustomValuesDataChange? customAttributes;
 
-  /// Change made into the story points of an UserStory, this will be divided 
+  /// Change made into the story points of an UserStory, this will be divided
   /// into Design, Back, Front, and Project Manager points, and will be saved
   /// the old value, and the new one.
   @MappableField(key: 'points')
   PointDifference? storyPoints;
+
+  // TODO(Nacho): Ver bien como funcionan los valores que vienen de la wiki 
+
+  /// Change made into the content of a wikipage on HTML format
+  @MappableField(key: 'content_html')
+  FromTo? htmlWikiContent;
+
+  /// Change made into the content of a wikipage
+  @MappableField(key: 'content_diff')
+  FromTo? wikiContent;
 
   /// FromJson method, convert a json type object into this
   /// TaigaChangeDifference object
