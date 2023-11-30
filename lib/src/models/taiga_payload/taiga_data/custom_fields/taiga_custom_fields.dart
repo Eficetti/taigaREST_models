@@ -18,7 +18,7 @@ class TaigaCustomFields with TaigaCustomFieldsMappable {
     this.figmaToDeveloped,
   });
 
-  /// `figmaUrl:` Its tje Url link of figma assigned to a `UserStory`.
+  /// `figmaUrl:` Its the Url link of figma assigned to a `UserStory`.
   @MappableField(key: 'Pestaña del Figma')
   String? figmaUrl;
 
