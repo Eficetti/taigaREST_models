@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/taiga_change.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_sprint/data_sprint.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_wiki/data_wiki.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/taiga_data.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_user/taiga_user.dart';
-import 'package:taiga_rest_models/taiga_rest_models.dart';
 
 part 'taiga_payload.mapper.dart';
 

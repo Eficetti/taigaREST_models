@@ -101,7 +101,7 @@ class TaigaData with TaigaDataMappable {
   @MappableField(key: 'modified_date')
   DateTime? modifiedDate;
 
-  // TODO(Nacho) Ver si se deja asi o se modifica TaigaCustomFields
+  // TODO(Nacho): Ver si se deja asi o se modifica TaigaCustomFields
 
   /// `customValues:` Is the custom fields you add on Taiga, if you use this on
   /// your Taiga project, modify the class "TaigaCustomFields" to map
