@@ -15,23 +15,23 @@ class PointDifference with PointDifferenceMappable {
     required this.pmPoints,
   });
 
-  /// Change made into Design points, this will storage the old value, and the
-  /// new one
+  /// `designPoints:` Storage the changes made into `Design` points, this will 
+  /// storage the old value, and the new one.
   @MappableField(key: 'Design')
   FromTo? designPoints;
 
-  /// Change made into Front points, this will storage the old value, and the
-  /// new one
+  /// `frontPoints:` Storage the changes made into `Front` points, this will 
+  /// storage the old value, and the new one.
   @MappableField(key: 'Front')
   FromTo? frontPoints;
 
-  /// Change made into Back points, this will storage the old value, and the
-  /// new one
+  /// `backPoints:` Storage the changes made into `Back` points, this will 
+  /// storage the old value, and the new one.
   @MappableField(key: 'Back')
   FromTo? backPoints;
 
-  /// Change made into Project Manager points, this will storage the old value,
-  /// and the new one
+  /// `pmPoints:` Storage the changes made into `Project Manager` points, this 
+  /// will storage the old value, and the new one.
   @MappableField(key: 'Project Manager')
   FromTo? pmPoints;
 

@@ -44,9 +44,9 @@ class TaigaChangeDifferenceMapper
   static FromTo? _$promotedTo(TaigaChangeDifference v) => v.promotedTo;
   static const Field<TaigaChangeDifference, FromTo> _f$promotedTo =
       Field('promotedTo', _$promotedTo, key: 'promoted_to', opt: true);
-  static FromTo? _$tags(TaigaChangeDifference v) => v.tags;
-  static const Field<TaigaChangeDifference, FromTo> _f$tags =
-      Field('tags', _$tags, opt: true);
+  static FromTo? _$changeTags(TaigaChangeDifference v) => v.changeTags;
+  static const Field<TaigaChangeDifference, FromTo> _f$changeTags =
+      Field('changeTags', _$changeTags, key: 'tags', opt: true);
   static String? _$descriptionDiff(TaigaChangeDifference v) =>
       v.descriptionDiff;
   static const Field<TaigaChangeDifference, String> _f$descriptionDiff = Field(
@@ -126,7 +126,7 @@ class TaigaChangeDifferenceMapper
     #status: _f$status,
     #relatedSprint: _f$relatedSprint,
     #promotedTo: _f$promotedTo,
-    #tags: _f$tags,
+    #changeTags: _f$changeTags,
     #descriptionDiff: _f$descriptionDiff,
     #kanbanOrder: _f$kanbanOrder,
     #finishDate: _f$finishDate,
@@ -155,7 +155,7 @@ class TaigaChangeDifferenceMapper
         status: data.dec(_f$status),
         relatedSprint: data.dec(_f$relatedSprint),
         promotedTo: data.dec(_f$promotedTo),
-        tags: data.dec(_f$tags),
+        changeTags: data.dec(_f$changeTags),
         descriptionDiff: data.dec(_f$descriptionDiff),
         kanbanOrder: data.dec(_f$kanbanOrder),
         finishDate: data.dec(_f$finishDate),
@@ -240,7 +240,7 @@ abstract class TaigaChangeDifferenceCopyWith<
   FromToCopyWith<$R, FromTo, FromTo>? get status;
   FromToCopyWith<$R, FromTo, FromTo>? get relatedSprint;
   FromToCopyWith<$R, FromTo, FromTo>? get promotedTo;
-  FromToCopyWith<$R, FromTo, FromTo>? get tags;
+  FromToCopyWith<$R, FromTo, FromTo>? get changeTags;
   FromToCopyWith<$R, FromTo, FromTo>? get kanbanOrder;
   FromToCopyWith<$R, FromTo, FromTo>? get finishDate;
   FromToCopyWith<$R, FromTo, FromTo>? get blockedNoteDiff;
@@ -265,7 +265,7 @@ abstract class TaigaChangeDifferenceCopyWith<
       FromTo? status,
       FromTo? relatedSprint,
       FromTo? promotedTo,
-      FromTo? tags,
+      FromTo? changeTags,
       String? descriptionDiff,
       FromTo? kanbanOrder,
       FromTo? finishDate,
@@ -314,8 +314,8 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   FromToCopyWith<$R, FromTo, FromTo>? get promotedTo =>
       $value.promotedTo?.copyWith.$chain((v) => call(promotedTo: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get tags =>
-      $value.tags?.copyWith.$chain((v) => call(tags: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get changeTags =>
+      $value.changeTags?.copyWith.$chain((v) => call(changeTags: v));
   @override
   FromToCopyWith<$R, FromTo, FromTo>? get kanbanOrder =>
       $value.kanbanOrder?.copyWith.$chain((v) => call(kanbanOrder: v));
@@ -374,7 +374,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
           Object? status = $none,
           Object? relatedSprint = $none,
           Object? promotedTo = $none,
-          Object? tags = $none,
+          Object? changeTags = $none,
           Object? descriptionDiff = $none,
           Object? kanbanOrder = $none,
           Object? finishDate = $none,
@@ -398,7 +398,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
         if (status != $none) #status: status,
         if (relatedSprint != $none) #relatedSprint: relatedSprint,
         if (promotedTo != $none) #promotedTo: promotedTo,
-        if (tags != $none) #tags: tags,
+        if (changeTags != $none) #changeTags: changeTags,
         if (descriptionDiff != $none) #descriptionDiff: descriptionDiff,
         if (kanbanOrder != $none) #kanbanOrder: kanbanOrder,
         if (finishDate != $none) #finishDate: finishDate,
@@ -426,7 +426,7 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
       status: data.get(#status, or: $value.status),
       relatedSprint: data.get(#relatedSprint, or: $value.relatedSprint),
       promotedTo: data.get(#promotedTo, or: $value.promotedTo),
-      tags: data.get(#tags, or: $value.tags),
+      changeTags: data.get(#changeTags, or: $value.changeTags),
       descriptionDiff: data.get(#descriptionDiff, or: $value.descriptionDiff),
       kanbanOrder: data.get(#kanbanOrder, or: $value.kanbanOrder),
       finishDate: data.get(#finishDate, or: $value.finishDate),

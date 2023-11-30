@@ -9,14 +9,14 @@ import 'package:taiga_rest_models/taiga_rest_models.dart';
 part 'taiga_payload.mapper.dart';
 
 /// This Class is for grabbing the data which came on a Taiga Payload, and turn
-/// it into an usable Dart object, with all the data it has.
-/// In this case this model includes all the basic stuff, the type of action
-/// which has been made on Taiga, the type of Job related to the action,
+/// it into an usable Dart object, with all the data it has. <br><br>
+/// In this case this model includes all the basic stuff, like the type of 
+/// action which has been made on Taiga, the type of Job related to the action,
 /// the user who made the action, the date when the action has been done,
 /// all the data related to the action (This is custom for each jobType), also
 /// if the type of action is "change", will receive the information in the
-/// "change" variable.
-/// For more info about, Taiga webhooks:
+/// "change" variable. <br><br>
+/// For more info about, check Taiga webhooks official doc: <br>
 /// https://docs.taiga.io/webhooks.html
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaPayload with TaigaPayloadMappable {
@@ -29,9 +29,9 @@ class TaigaPayload with TaigaPayloadMappable {
     required this.data,
     required this.change,
   }) {
-    /// This will generate the dataType correct for data based on the jobType
-    /// reading the data as Map<String, dynamic> first, then encode the data
-    /// into a json and calling the fromJson method inside of each dataType.
+    // This will generate the dataType correct for data based on the jobType
+    // reading the data as Map<String, dynamic> first, then encode the data
+    // into a json and calling the fromJson method inside of each dataType.
     switch (jobType) {
       case 'issue':
         data = TaigaIssueData.fromJson(jsonEncode(data));
@@ -48,30 +48,41 @@ class TaigaPayload with TaigaPayloadMappable {
     }
   }
 
-  /// actionType It is the type of action that was carried out in Taiga,
-  /// this can be of type: Create, Delete or Change for each jobType
+  /// `actionType:` It is the type of action that was carried out in Taiga,
+  /// this can be of type: Create, Delete or Change for each `jobType`
   @MappableField(key: 'action')
   String actionType;
 
-  /// jobType is the type job related to Taiga, jobsType can came as:
-  /// Issue, UserStory, Task, Epics, Milestone (Sprint), and WikiPage
+  /// `jobType:` It is the type of work related to Taiga, it can and can be of 
+  /// the following types: `Issue`, `UserStory`, `Task`, `Epics`, `Milestone 
+  /// (Sprint)` and `WikiPage`.
   @MappableField(key: 'type')
   String jobType;
 
-  /// Performer is the user who made the action related to this payload
+  /// `performer:` Is the user who made the action related to this payload. <br>
+  /// Came as `by` from taiga, and its converted into a `TaigaUser` object type.
   @MappableField(key: 'by')
   TaigaUser performer;
 
-  /// This is the date when the action of this payload was performed
+  /// `Date:` This is the date when the action of this payload was performed
   DateTime date;
 
-  /// This is the most important part of the Payload, this include all the
-  /// information of the action made, the related project, the link of them,
-  /// and also have custom types, for each jobType.
+  /// `data:` Is the most important part of the Payload, this include all the
+  /// information of the action made, and its a different object based on his
+  /// `jobType`. <br>
+  /// The types of object can be the next: <br>
+  /// `TaigaIssueData` <br>
+  /// `TaigaUserStoryData` <br>
+  /// `TaigaTaskData` <br>
+  /// `TaigaEpicData` <br>
+  /// `DataSprint` <br>
+  /// `DataWikiPage` <br>
   dynamic data;
 
-  /// This is the changes that were made on this payload, only exist if the
-  /// actionType is change, otherwise it will be null
+  /// This is the changes that were made on this payload, this only exist if the
+  /// `actionType` is `change`, otherwise it will be null. <br>
+  /// This is converted into a `TaigaChange` object. And map all the types off 
+  /// changes in that one object
   TaigaChange? change;
 
   /// FromJson method, convert a json type object into this TaigaPayload

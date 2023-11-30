@@ -20,7 +20,7 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
     this.status,
     this.relatedSprint,
     this.promotedTo,
-    this.tags,
+    this.changeTags,
     this.descriptionDiff,
     this.kanbanOrder,
     this.finishDate,
@@ -39,130 +39,168 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
     this.name,
   });
 
-  /// Changes made to the attachments in the task. It has his custom class to
-  /// storage the changes, divided on sections, new, deleted and changed.
+  /// `attachments:` Storage changes made to the attachments. It has his custom
+  /// class to storage the changes, divided on sections, new, deleted and
+  /// changed. Its an [AttachmentsChange] instance.
   AttachmentsChange? attachments;
 
-  // TODO(Nacho): Ver si es el userId o el FullName
-
-  /// Changes made on the guy assigned to the job, will storage the old value
-  /// that can came as null or userId and the new one, also can be null or
-  /// userId
+  /// [FromTo] Instance. <br>
+  /// `assignedTo:` Storage changes made on the guy assigned to the job, will
+  /// storage the old value that can came as null or userId and the new one,
+  /// also can be null or userId.
+  /// This will bring the `full name` of the user on `Taiga`.
   FromTo? assignedTo;
 
-  /// Changed made into the due date of the job, will storage the old value
-  /// and the new one. Both cases can be null, or type DateTime
+  /// [FromTo] Instance. <br>
+  /// `dueDate:` Storage changes made into the due date of the job, will storage
+  /// the old value and the new one. Both cases can be a `null` value, or type
+  /// `DateTime`.
   FromTo? dueDate;
 
-  /// Changed made into the status of the job, will storage the old value
-  /// and the new one
+  /// [FromTo] Instance. <br>
+  /// `status:` Storage changes made into the status of the job, will storage
+  /// the old value and the new one.
   FromTo? status;
 
-  /// Changed made into the sprint of the job, will storage the old value
-  /// and the new one. Both cases can be null, or type sprintId
+  /// [FromTo] Instance. <br>
+  /// `relatedSprint:` Storage changes made into the sprint of the job, will
+  /// storage the old value and the new one. Both cases can be null, or type
+  /// sprintId.
   @MappableField(key: 'milestone')
   FromTo? relatedSprint;
 
-  /// If this is promoted into a new userStory for example this will have the
-  /// old values can be others 'userStory' ids, or null, and the new ones, will
-  /// be an id from a userStory
+  /// [FromTo] Instance. <br>
+  /// `promotedTo` Will If this is promoted into a new userStory for example
+  /// this will have the old values can be others 'userStory' ids, or `null`,
+  /// and the new ones will be an `id` from a `userStory`.
   FromTo? promotedTo;
 
-  /// Change made into the Tags of one job, this will storage all the tags
-  /// and the change committed, saving the old Tag List, and the new one after
-  /// the change
-  FromTo? tags;
+  /// [FromTo] Instance. <br>
+  /// `changeTags:` Storage the changes made into the `Tags` of one job, this
+  /// will storage all the tags and the change committed, saving the old Tag
+  /// List, and the new one after the change.
+  @MappableField(key: 'tags')
+  FromTo? changeTags;
 
-  // TODO(Nacho): Agregar Doc
-
-  /// Change made into the description of a job. This value can't be saved
-  /// because always its 'Check the history API for the exact diff' there is
-  /// no useful data
+  /// `descriptionDiff:` Storage the changes made into the description of a job.
+  /// <br>
+  /// This value can't be saved because always came as 'Check the history API
+  /// for the exact diff' there is no useful data actually.
   String? descriptionDiff;
 
-  /// Change made into the isClosed bool status. This will storage the old and
-  /// the new value, in this case both values will be a Bool, so can be True or
-  /// False
+  /// [FromTo] Instance. <br>
+  /// `isClosedStatus:` Storage the changes made into the `isClosed` bool status
+  /// . This will storage the old and the new value, in this case both values
+  /// will be a `Bool`, so can be `True` or `False`.
   @MappableField(key: 'is_closed')
   FromTo? isClosedStatus;
 
-  /// Change made into blocked status. This will storage the old and
-  /// the new value, in this case both values will be a Bool, so can be True or
-  /// False
+  /// [FromTo] Instance. <br>
+  /// `isBlockedStatus:` Storage the changes made into blocked status. <br>
+  /// This will storage the old and the new value, in this case both values will
+  /// be a `Bool`, so can be `True` or `False`.
   @MappableField(key: 'is_blocked')
   FromTo? isBlockedStatus;
 
-  // TODO(Nacho): Agregar Doc
-
-  /// Change made into the blockedNote on html format
+  /// [FromTo] Instance. <br>
+  /// `blockedNoteDiff:` Storage the changes made into the blocked note, will
+  /// receive the old value, and the new one on a [FromTo] object type.
   FromTo? blockedNoteDiff;
 
-  /// Change made into the blockedNote on html format
+  /// [FromTo] Instance. <br>
+  /// `blockedNoteHtml:` Storage the changes made into the blockedNote on html
+  /// format.<br>
+  /// <h4> Example: </h4>
+  /// Blocked Note: Its blocked because we don't need this now <br>
+  /// Blocked NoteHTML: < p> Its blocked because we don't need this now < /p>
+
   FromTo? blockedNoteHtml;
 
-  /// Change made into the finish date of the job, will storage the old value
-  /// and the new one. Both cases can be null, or type DateTime
+  /// [FromTo] Instance. <br>
+  /// `finishDate:` Storage the changes made into the finish date of the job,
+  /// will storage the old value and the new one. Both cases can be `null`, or
+  /// type `DateTime`.
   FromTo? finishDate;
 
-  // TODO(Nacho): Agregar Doc
-
-  /// Change made into the kanban order
+  /// [FromTo] Instance. <br>
+  /// `kanbanOrder:` Change made into the kanban board order. will storage the
+  /// old value and the new one.
   FromTo? kanbanOrder;
 
-  /// Change made into the status of Client Requirement. This will storage the
-  /// old and the new value, in this case both values will be a Bool, so can be
-  /// True or False
+  /// [FromTo] Instance. <br>
+  /// `clientRequirementStatus:` Storage the change made into the status of
+  /// Client Requirement. This will storage the old and the new value, in this
+  /// case both values will be a `Bool`, so it can be /// `True` or `False`.
   @MappableField(key: 'client_requirement')
   FromTo? clientRequirementStatus;
 
-  /// Change made into the status of Team Requirement. This will storage the
-  /// old and the new value, in this case both values will be a Bool, so can be
-  /// True or False
+  /// [FromTo] Instance. <br>
+  /// `teamRequirementStatus:` Storage the changes made into the status of
+  /// Team Requirement. This will storage the old and the new value, in this
+  /// case both values will be a `Bool`, so can be `True` or `False`.
   @MappableField(key: 'team_requirement')
   FromTo? teamRequirementStatus;
 
+  /// [FromTo] Instance. <br>
   /// Change made into Iocaine status. This will storage the
-  /// old and the new value, in this case both values will be a Bool, so can be
-  /// True or False
+  /// old and the new value, in this case both values will be a [bool], so can
+  /// be `True` or `False`
   @MappableField(key: 'is_iocaine')
   FromTo? isIocaineStatus;
 
-  // TODO(Nacho): Agregar Doc
-
-  /// Change made into the priority
+  /// [FromTo] Instance. <br>
+  /// `priorityStatus:` Storage the changes made into the `priority`. <br>
+  /// This will storage the old and the new value. This are customizable values
+  /// that are [String] type.
   @MappableField(key: 'priority')
   FromTo? priorityStatus;
 
-  /// Change made into the severity
+  /// [FromTo] Instance. <br>
+  /// `severityStatus:` Storage the changes made into the `severity`. <br>
+  /// This will storage the old and the new value. This are customizable values
+  /// that are [String] type.
   @MappableField(key: 'severity')
   FromTo? severityStatus;
 
-  /// Change made into the type
+  /// [FromTo] Instance. <br>
+  /// `typeStatus:` Storage the changes made into the `type`. <br>
+  /// This will storage the old and the new value. This are customizable values
+  /// that are [String] type.
   @MappableField(key: 'type')
   FromTo? typeStatus;
 
-  /// Change made into the name of the job. This will storage the old value of
-  /// the name of one job, and the new one.
+  /// [FromTo] Instance. <br>
+  /// `name:` Storage the changes made into the name of the job. This will 
+  /// storage the old value of the name of one job, and the new one.
   @MappableField(key: 'subject')
   FromTo? name;
 
-  /// Change made into a custom attributes, this is divided on three, new,
-  /// deleted and changed. If a change is committed, will storage the difference
+  /// [CustomValuesDataChange] Instance. <br>
+  /// `customAttributes:` Storage the changes made into a custom attributes, 
+  /// this is divided on three, new, deleted and changed. If a change is 
+  /// committed, will storage the difference. <br> 
+  /// I recommend to see the [CustomValuesDataChange] object, for more info.
   CustomValuesDataChange? customAttributes;
 
+  /// [PointDifference] Instance. <br>
   /// Change made into the story points of an UserStory, this will be divided
   /// into Design, Back, Front, and Project Manager points, and will be saved
-  /// the old value, and the new one.
+  /// the old value, and the new one. <br>
+  /// I recommend to see the [PointDifference] object, for more info.
   @MappableField(key: 'points')
   PointDifference? storyPoints;
 
-  // TODO(Nacho): Ver bien como funcionan los valores que vienen de la wiki 
-
-  /// Change made into the content of a wikipage on HTML format
+  /// [FromTo] Instance. <br>
+  /// `htmlWikiContent:` Storage the changes made into the content of a wikipage
+  /// on HTML format. This will storage the old and the new value. <br> 
+  /// Usually came with `< p>` tags 
   @MappableField(key: 'content_html')
   FromTo? htmlWikiContent;
 
-  /// Change made into the content of a wikipage
+  /// [FromTo] Instance. <br>
+  /// `wikiContent:` Storage the changes made into the content of a wikipage,
+  /// this will storage the old and the new value. <br>
+  /// This came as [String] but in HTML format, with custom styles, etc.
   @MappableField(key: 'content_diff')
   FromTo? wikiContent;
 

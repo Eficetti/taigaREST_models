@@ -18,28 +18,30 @@ class TaigaUser with TaigaUserMappable {
     required this.gravatarServiceId,
   });
 
-  /// Id of the user related on Taiga
+  /// `Id:` Is the id of the user related on `Taiga`.
   int id;
 
-  /// Permanent Link to the user profile related on Taiga
+  /// `taigaProfileUrl:` Is the permanent link to the user profile related on
+  /// `Taiga`
   @MappableField(key: 'permalink')
   String taigaProfileUrl;
 
-  /// Taiga Username of the user related on Taiga
+  /// `username:` Is the actual Username of the user related on `Taiga`
   String username;
 
-  /// FullName of the user related on Taiga
+  /// `fullName:` Is the full name of the user related on `Taiga`
   String fullName;
 
-  /// Photo link url of the user related on Taiga
+  /// `profilePicUrl:` Is the photo link url of the user related on `Taiga`
   @MappableField(key: 'photo')
   String profilePicUrl;
 
-  /// Id of the user avatar on the gravatar service
-  /// (Gravatar service url: https://docs.gravatar.com/)
+  /// `gravatarServiceId:` Is the Id of the user avatar on the `gravatar` 
+  /// service. <br>
+  /// Gravatar service url: https://docs.gravatar.com/
   @MappableField(key: 'gravatar_id')
   String gravatarServiceId;
 
-  /// FromJson method, convert a json type object into this TaigaUserObject
+  /// FromJson method, convert a json type object into this TaigaUser Object
   static const fromJson = TaigaUserMapper.fromJson;
 }

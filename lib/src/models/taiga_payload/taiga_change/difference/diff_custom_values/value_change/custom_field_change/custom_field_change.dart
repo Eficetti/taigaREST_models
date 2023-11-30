@@ -2,8 +2,8 @@ import 'package:dart_mappable/dart_mappable.dart';
 
 part 'custom_field_change.mapper.dart';
 
-/// This class is made for storage the change made on an custom field,
-/// only storage the values inside
+/// This `CustomFieldsChange` class is made for storage the changes made on an 
+/// custom field, only storage the values inside
 @MappableClass()
 class CustomFieldsChange with CustomFieldsChangeMappable {
   /// Constructor of the ChangesAttributes class
@@ -11,8 +11,8 @@ class CustomFieldsChange with CustomFieldsChangeMappable {
     required this.valueChange,
   });
 
-  /// Change made will be a list of 2 values, old and new. Always will be
-  /// Old index [0], and the new will be index [1]
+  /// `valueChange:` Storage the changes made will be a [List] of 2 values, old
+  /// and new. Always will be Old index [0], and the new will be index [1].
   @MappableField(key: 'value')
   List<String> valueChange;
 

@@ -13,20 +13,21 @@ class TaigaProject with TaigaProjectMappable {
     required this.projectLogoBigUrl,
   });
 
-  /// Id of the project
+  /// `projectId:` Its the `Id` of the `project` on `Taiga`.
   @MappableField(key: 'id')
   int projectId;
 
-  /// Permalink of the project will give you the complete url to the project
+  /// `projectPermalink:` Its the permanent link to the `Project` <br>
   /// example: "tree.taiga.io/project/project-name"
   @MappableField(key: 'permalink')
   String projectPermalink;
 
-  /// Name of the Project
+  /// `projectName:` Its the assigned name to the `Project` on `Taiga` 
   @MappableField(key: 'name')
   String projectName;
 
-  /// Url of the logo of the project (Can came as null)
+  /// `projectLogoBigUrl:` Url of the logo of the `Project` 
+  /// (Can came as a `null` value)
   @MappableField(key: 'logo_big_url')
   String? projectLogoBigUrl;
 

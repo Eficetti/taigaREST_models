@@ -3,8 +3,8 @@ import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/differen
 
 part 'diff_custom_fields.mapper.dart';
 
-/// This class will storage the changes made into a custom attribute on Taiga
-/// it came as lists of Values
+/// This `CustomValuesDataChange` class will storage the changes made into a 
+/// custom attribute on Taiga it came as lists of Values
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class CustomValuesDataChange
     with CustomValuesDataChangeMappable {
@@ -15,15 +15,20 @@ class CustomValuesDataChange
     required this.customValuesDeleted,
   });
 
-  /// This is the new customValues added
+  /// [CustomField] instance. <br>
+  /// `customValuesNew:` This is the new customValues added
   @MappableField(key: 'new')
   List<CustomField> customValuesNew;
 
-  /// This will storage the change of a customValues
+  /// [CustomField] instance. <br>
+  /// `customValuesChanged:` This Will storage the changes committed to a
+  /// customValues
   @MappableField(key: 'changed')
   List<CustomField> customValuesChanged;
 
-  /// This will storage if an customValues was deleted
+  /// [CustomField] instance. <br>
+  /// `customValuesDeleted:` This will storage if an customValues that was 
+  /// deleted
   @MappableField(key: 'deleted')
   List<CustomField> customValuesDeleted;
 

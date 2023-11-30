@@ -18,15 +18,16 @@ class TaigaCustomFields with TaigaCustomFieldsMappable {
     this.figmaToDeveloped,
   });
 
-  /// Url link of figma assigned to a UserStory
+  /// `figmaUrl:` Its tje Url link of figma assigned to a `UserStory`.
   @MappableField(key: 'Pestaña del Figma')
   String? figmaUrl;
 
-  /// Url link of figma to be developed, this is related to a Task
+  /// `figmaToDeveloped:` Url link of figma to be developed, this is related to 
+  /// a `jobType: Task`
   @MappableField(key: 'Componente en el Figma')
   String? figmaToDeveloped;
 
-  /// Bounty for a task
+  /// `bounty:` Its tje Bounty assigned to a `task`
   @MappableField(key: 'Bounty')
   String? bounty;
 

@@ -24,8 +24,9 @@ class DataWikiPageMapper extends ClassMapperBase<DataWikiPage> {
 
   static int _$id(DataWikiPage v) => v.id;
   static const Field<DataWikiPage, int> _f$id = Field('id', _$id);
-  static String _$slug(DataWikiPage v) => v.slug;
-  static const Field<DataWikiPage, String> _f$slug = Field('slug', _$slug);
+  static String _$wikiSlug(DataWikiPage v) => v.wikiSlug;
+  static const Field<DataWikiPage, String> _f$wikiSlug =
+      Field('wikiSlug', _$wikiSlug, key: 'slug');
   static String _$content(DataWikiPage v) => v.content;
   static const Field<DataWikiPage, String> _f$content =
       Field('content', _$content);
@@ -51,7 +52,7 @@ class DataWikiPageMapper extends ClassMapperBase<DataWikiPage> {
   @override
   final Map<Symbol, Field<DataWikiPage, dynamic>> fields = const {
     #id: _f$id,
-    #slug: _f$slug,
+    #wikiSlug: _f$wikiSlug,
     #content: _f$content,
     #creationDate: _f$creationDate,
     #modifiedDate: _f$modifiedDate,
@@ -64,7 +65,7 @@ class DataWikiPageMapper extends ClassMapperBase<DataWikiPage> {
   static DataWikiPage _instantiate(DecodingData data) {
     return DataWikiPage(
         id: data.dec(_f$id),
-        slug: data.dec(_f$slug),
+        wikiSlug: data.dec(_f$wikiSlug),
         content: data.dec(_f$content),
         creationDate: data.dec(_f$creationDate),
         modifiedDate: data.dec(_f$modifiedDate),
@@ -133,7 +134,7 @@ abstract class DataWikiPageCopyWith<$R, $In extends DataWikiPage, $Out>
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get lastUserModifier;
   $R call(
       {int? id,
-      String? slug,
+      String? wikiSlug,
       String? content,
       String? creationDate,
       String? modifiedDate,
@@ -164,7 +165,7 @@ class _DataWikiPageCopyWithImpl<$R, $Out>
   @override
   $R call(
           {int? id,
-          String? slug,
+          String? wikiSlug,
           String? content,
           String? creationDate,
           String? modifiedDate,
@@ -174,7 +175,7 @@ class _DataWikiPageCopyWithImpl<$R, $Out>
           TaigaUser? lastUserModifier}) =>
       $apply(FieldCopyWithData({
         if (id != null) #id: id,
-        if (slug != null) #slug: slug,
+        if (wikiSlug != null) #wikiSlug: wikiSlug,
         if (content != null) #content: content,
         if (creationDate != null) #creationDate: creationDate,
         if (modifiedDate != null) #modifiedDate: modifiedDate,
@@ -186,7 +187,7 @@ class _DataWikiPageCopyWithImpl<$R, $Out>
   @override
   DataWikiPage $make(CopyWithData data) => DataWikiPage(
       id: data.get(#id, or: $value.id),
-      slug: data.get(#slug, or: $value.slug),
+      wikiSlug: data.get(#wikiSlug, or: $value.wikiSlug),
       content: data.get(#content, or: $value.content),
       creationDate: data.get(#creationDate, or: $value.creationDate),
       modifiedDate: data.get(#modifiedDate, or: $value.modifiedDate),

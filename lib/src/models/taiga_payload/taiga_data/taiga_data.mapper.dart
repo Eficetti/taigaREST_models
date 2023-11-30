@@ -34,8 +34,8 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
   static int _$referenceNumber(TaigaData v) => v.referenceNumber;
   static const Field<TaigaData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$jobTags(TaigaData v) => v.jobTags;
-  static const Field<TaigaData, List<dynamic>> _f$jobTags =
+  static List<String> _$jobTags(TaigaData v) => v.jobTags;
+  static const Field<TaigaData, List<String>> _f$jobTags =
       Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaData v) => v.jobOwner;
   static const Field<TaigaData, TaigaUser> _f$jobOwner =
@@ -159,7 +159,7 @@ extension TaigaDataValueCopy<$R, $Out> on ObjectCopyWith<$R, TaigaData, $Out> {
 
 abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?> get jobTags;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>?> get jobTags;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   TaigaStatusCopyWith<$R, TaigaStatus, TaigaStatus> get jobStatus;
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get fromProject;
@@ -170,7 +170,7 @@ abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? jobTags,
+      List<String>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
@@ -194,9 +194,9 @@ class _TaigaDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaData> $mapper =
       TaigaDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
-      get jobTags => ListCopyWith($value.jobTags,
-          (v, t) => ObjectCopyWith(v, $identity, t), (v) => call(jobTags: v));
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>?> get jobTags =>
+      ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(jobTags: v));
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner =>
       $value.jobOwner.copyWith.$chain((v) => call(jobOwner: v));
@@ -223,7 +223,7 @@ class _TaigaDataCopyWithImpl<$R, $Out>
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? jobTags,
+          List<String>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
@@ -301,8 +301,8 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static int _$referenceNumber(TaigaUserStoryData v) => v.referenceNumber;
   static const Field<TaigaUserStoryData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$jobTags(TaigaUserStoryData v) => v.jobTags;
-  static const Field<TaigaUserStoryData, List<dynamic>> _f$jobTags =
+  static List<String> _$jobTags(TaigaUserStoryData v) => v.jobTags;
+  static const Field<TaigaUserStoryData, List<String>> _f$jobTags =
       Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaUserStoryData v) => v.jobOwner;
   static const Field<TaigaUserStoryData, TaigaUser> _f$jobOwner =
@@ -367,9 +367,9 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static bool _$isBlockedStatus(TaigaUserStoryData v) => v.isBlockedStatus;
   static const Field<TaigaUserStoryData, bool> _f$isBlockedStatus =
       Field('isBlockedStatus', _$isBlockedStatus, key: 'is_blocked');
-  static bool _$isClosed(TaigaUserStoryData v) => v.isClosed;
-  static const Field<TaigaUserStoryData, bool> _f$isClosed =
-      Field('isClosed', _$isClosed, key: 'is_closed');
+  static bool _$isClosedStatus(TaigaUserStoryData v) => v.isClosedStatus;
+  static const Field<TaigaUserStoryData, bool> _f$isClosedStatus =
+      Field('isClosedStatus', _$isClosedStatus, key: 'is_closed_status');
   static DataSprint? _$relatedSprint(TaigaUserStoryData v) => v.relatedSprint;
   static const Field<TaigaUserStoryData, DataSprint> _f$relatedSprint =
       Field('relatedSprint', _$relatedSprint, key: 'milestone');
@@ -408,7 +408,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
     #taskReference: _f$taskReference,
     #issueReference: _f$issueReference,
     #isBlockedStatus: _f$isBlockedStatus,
-    #isClosed: _f$isClosed,
+    #isClosedStatus: _f$isClosedStatus,
     #relatedSprint: _f$relatedSprint,
     #storyPoints: _f$storyPoints,
     #teamRequirementStatus: _f$teamRequirementStatus,
@@ -439,7 +439,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
         taskReference: data.dec(_f$taskReference),
         issueReference: data.dec(_f$issueReference),
         isBlockedStatus: data.dec(_f$isBlockedStatus),
-        isClosed: data.dec(_f$isClosed),
+        isClosedStatus: data.dec(_f$isClosedStatus),
         relatedSprint: data.dec(_f$relatedSprint),
         storyPoints: data.dec(_f$storyPoints),
         teamRequirementStatus: data.dec(_f$teamRequirementStatus));
@@ -503,7 +503,7 @@ extension TaigaUserStoryDataValueCopy<$R, $Out>
 abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
     $Out> implements TaigaDataCopyWith<$R, $In, $Out> {
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get jobTags;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   @override
@@ -526,7 +526,7 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? jobTags,
+      List<String>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
@@ -547,7 +547,7 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
       String? taskReference,
       int? issueReference,
       bool? isBlockedStatus,
-      bool? isClosed,
+      bool? isClosedStatus,
       DataSprint? relatedSprint,
       List<DataStoryPoint>? storyPoints,
       bool? teamRequirementStatus});
@@ -564,7 +564,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaUserStoryData> $mapper =
       TaigaUserStoryDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags =>
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get jobTags =>
       ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(jobTags: v));
   @override
@@ -607,7 +607,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? jobTags,
+          List<String>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
@@ -628,7 +628,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
           Object? taskReference = $none,
           Object? issueReference = $none,
           bool? isBlockedStatus,
-          bool? isClosed,
+          bool? isClosedStatus,
           Object? relatedSprint = $none,
           List<DataStoryPoint>? storyPoints,
           bool? teamRequirementStatus}) =>
@@ -657,7 +657,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
         if (taskReference != $none) #taskReference: taskReference,
         if (issueReference != $none) #issueReference: issueReference,
         if (isBlockedStatus != null) #isBlockedStatus: isBlockedStatus,
-        if (isClosed != null) #isClosed: isClosed,
+        if (isClosedStatus != null) #isClosedStatus: isClosedStatus,
         if (relatedSprint != $none) #relatedSprint: relatedSprint,
         if (storyPoints != null) #storyPoints: storyPoints,
         if (teamRequirementStatus != null)
@@ -689,7 +689,7 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
       taskReference: data.get(#taskReference, or: $value.taskReference),
       issueReference: data.get(#issueReference, or: $value.issueReference),
       isBlockedStatus: data.get(#isBlockedStatus, or: $value.isBlockedStatus),
-      isClosed: data.get(#isClosed, or: $value.isClosed),
+      isClosedStatus: data.get(#isClosedStatus, or: $value.isClosedStatus),
       relatedSprint: data.get(#relatedSprint, or: $value.relatedSprint),
       storyPoints: data.get(#storyPoints, or: $value.storyPoints),
       teamRequirementStatus:
@@ -728,8 +728,8 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   static int _$referenceNumber(TaigaTaskData v) => v.referenceNumber;
   static const Field<TaigaTaskData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$jobTags(TaigaTaskData v) => v.jobTags;
-  static const Field<TaigaTaskData, List<dynamic>> _f$jobTags =
+  static List<String> _$jobTags(TaigaTaskData v) => v.jobTags;
+  static const Field<TaigaTaskData, List<String>> _f$jobTags =
       Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaTaskData v) => v.jobOwner;
   static const Field<TaigaTaskData, TaigaUser> _f$jobOwner =
@@ -784,7 +784,7 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
       Field('isIocaineStatus', _$isIocaineStatus, key: 'is_iocaine');
   static DataSprint? _$relatedSprint(TaigaTaskData v) => v.relatedSprint;
   static const Field<TaigaTaskData, DataSprint> _f$relatedSprint =
-      Field('relatedSprint', _$relatedSprint, key: 'sprint');
+      Field('relatedSprint', _$relatedSprint, key: 'milestone');
   static List<dynamic> _$promotedToList(TaigaTaskData v) => v.promotedToList;
   static const Field<TaigaTaskData, List<dynamic>> _f$promotedToList =
       Field('promotedToList', _$promotedToList, key: 'promoted_to');
@@ -912,7 +912,7 @@ extension TaigaTaskDataValueCopy<$R, $Out>
 abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
     implements TaigaDataCopyWith<$R, $In, $Out> {
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get jobTags;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   @override
@@ -935,7 +935,7 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? jobTags,
+      List<String>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
@@ -970,7 +970,7 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaTaskData> $mapper =
       TaigaTaskDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags =>
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get jobTags =>
       ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(jobTags: v));
   @override
@@ -1012,7 +1012,7 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? jobTags,
+          List<String>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
@@ -1123,8 +1123,8 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static int _$referenceNumber(TaigaIssueData v) => v.referenceNumber;
   static const Field<TaigaIssueData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$jobTags(TaigaIssueData v) => v.jobTags;
-  static const Field<TaigaIssueData, List<dynamic>> _f$jobTags =
+  static List<String> _$jobTags(TaigaIssueData v) => v.jobTags;
+  static const Field<TaigaIssueData, List<String>> _f$jobTags =
       Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaIssueData v) => v.jobOwner;
   static const Field<TaigaIssueData, TaigaUser> _f$jobOwner =
@@ -1293,7 +1293,7 @@ extension TaigaIssueDataValueCopy<$R, $Out>
 abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
     implements TaigaDataCopyWith<$R, $In, $Out> {
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get jobTags;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   @override
@@ -1316,7 +1316,7 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? jobTags,
+      List<String>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
@@ -1349,7 +1349,7 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaIssueData> $mapper =
       TaigaIssueDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags =>
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get jobTags =>
       ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(jobTags: v));
   @override
@@ -1397,7 +1397,7 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? jobTags,
+          List<String>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,
@@ -1499,8 +1499,8 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   static int _$referenceNumber(TaigaEpicData v) => v.referenceNumber;
   static const Field<TaigaEpicData, int> _f$referenceNumber =
       Field('referenceNumber', _$referenceNumber, key: 'ref');
-  static List<dynamic> _$jobTags(TaigaEpicData v) => v.jobTags;
-  static const Field<TaigaEpicData, List<dynamic>> _f$jobTags =
+  static List<String> _$jobTags(TaigaEpicData v) => v.jobTags;
+  static const Field<TaigaEpicData, List<String>> _f$jobTags =
       Field('jobTags', _$jobTags, key: 'tags');
   static TaigaUser _$jobOwner(TaigaEpicData v) => v.jobOwner;
   static const Field<TaigaEpicData, TaigaUser> _f$jobOwner =
@@ -1651,7 +1651,7 @@ extension TaigaEpicDataValueCopy<$R, $Out>
 abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
     implements TaigaDataCopyWith<$R, $In, $Out> {
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get jobTags;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get jobOwner;
   @override
@@ -1669,7 +1669,7 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
   $R call(
       {int? jobId,
       int? referenceNumber,
-      List<dynamic>? jobTags,
+      List<String>? jobTags,
       TaigaUser? jobOwner,
       TaigaStatus? jobStatus,
       TaigaProject? fromProject,
@@ -1697,7 +1697,7 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaEpicData> $mapper =
       TaigaEpicDataMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get jobTags =>
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get jobTags =>
       ListCopyWith($value.jobTags, (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(jobTags: v));
   @override
@@ -1726,7 +1726,7 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
   $R call(
           {int? jobId,
           int? referenceNumber,
-          List<dynamic>? jobTags,
+          List<String>? jobTags,
           TaigaUser? jobOwner,
           TaigaStatus? jobStatus,
           TaigaProject? fromProject,

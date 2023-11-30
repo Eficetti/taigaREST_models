@@ -17,16 +17,18 @@ class AttachmentsChange
     required this.attachmentChanged,
     required this.attachmentDeleted,
   });
-
-  /// This is the new Attachment added into a job
+  /// [AttachmentItem] instance.
+  /// `attachmentNew:` This is the new Attachment added into a job
   @MappableField(key: 'new')
   List<AttachmentItem> attachmentNew;
 
-  /// This will storage the change made into an Attachment
+  /// [AttachmentItemChanged] instance.
+  /// `attachmentChanged:` This will storage the change made into an Attachment
   @MappableField(key: 'changed')
   List<AttachmentItemChanged> attachmentChanged;
 
-  /// This will storage if an attachment was deleted
+  /// [AttachmentItem] instance.
+  /// `attachmentDeleted:` This will storage if an attachment was deleted
   @MappableField(key: 'deleted')
   List<AttachmentItem> attachmentDeleted;
 

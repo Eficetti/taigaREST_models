@@ -16,16 +16,17 @@ class AttachmentItemChanged with AttachmentItemChangedMappable {
     required this.changes,
   });
 
-  /// Name of the attachment related
+  /// `filename:` Name of the attachment related
   String filename;
 
-  /// Url of the attachment related
+  /// `urlUrl:` of the attachment related
   String url;
 
-  /// Thumbnail Url of the attachment related
+  /// `thumbUrl:` Thumbnail Url of the attachment related
   String? thumbUrl;
-
-  /// An specific description of what exactly has been changed
+  
+  ///[ItemChangesInfo] instance. <br>
+  /// `changes:` An specific description of what exactly has been changed
   ItemChangesInfo changes;
 
   /// FromJson method, convert a json type object into this

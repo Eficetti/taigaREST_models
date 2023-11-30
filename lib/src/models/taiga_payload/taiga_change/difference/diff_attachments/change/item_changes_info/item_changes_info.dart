@@ -13,13 +13,15 @@ class ItemChangesInfo with ItemChangesInfoMappable {
     required this.itemStatus,
   });
 
-  /// Description of the attachment item, list value index [0] will be the old 
-  /// value, and it can be an empty string: "" if was originally empty, 
-  /// list value index [1], is the new value of the description of the item
+  /// `itemDescription:` Its the Description of the attachment item, list value 
+  /// index [0] will be the old  value, and it can be an empty string: `""` if 
+  /// was originally empty, list value index [1], is the new value of the 
+  /// description of the item
   @MappableField(key: 'description')
   List<String>? itemDescription;
 
-  /// Taiga status of the attachment item, if is deprecated or not
+  /// `itemStatus:` `Taiga` status of the attachment item, if is deprecated or 
+  /// not. Its a [bool] so can be `True` or `False`
   @MappableField(key: 'is_deprecated')
   List<bool>? itemStatus;
 

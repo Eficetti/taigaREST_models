@@ -3,7 +3,9 @@ import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/differen
 
 part 'taiga_custom_field.mapper.dart';
 
-/// This class is made for storage all the data of an custom value
+/// This `CustomField` class is made for storage all the data of an custom field
+/// <h4>Taiga documentation about custom fields url:</h4>
+/// https://taiga.pm/adding-custom-fields/ 
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class CustomField with CustomFieldMappable {
   /// Constructor of the CustomValue class
@@ -16,27 +18,29 @@ class CustomField with CustomFieldMappable {
     required this.valueChanges,
   });
 
-  /// Id of the attribute
+  /// 'customFieldId:' This is the `Id` of the custom field on `Taiga` Project.
   @MappableField(key: 'id')
   int? customFieldId;
 
-  /// Name of the attribute
+  /// `customFieldName:` Name of the custom field on `Taiga` Project.
   @MappableField(key: 'name')
   String? customFieldName;
 
-  /// Type of the attribute
+  /// `customFieldType:` Type of the custom field on `Taiga` Project.
   @MappableField(key: 'type')
   String? customFieldType;
 
-  /// Value of the attribute
+  /// `customFieldValue:` Value  of the custom field on `Taiga` Project.
   @MappableField(key: 'value')
   String? customFieldValue;
 
-  /// If a change was been made this will storage the data
+  /// [CustomFieldsChange] instance <br>.
+  /// `valueChanges:` If a change was been made this will storage the data about
+  /// what happen
   @MappableField(key: 'changes')
   CustomFieldsChange? valueChanges;
 
-  /// This storage the html format value 
+  /// `customFieldValueHtml:` This storage the html format value 
   @MappableField(key: 'value_diff')
   String? customFieldValueHtml;
 

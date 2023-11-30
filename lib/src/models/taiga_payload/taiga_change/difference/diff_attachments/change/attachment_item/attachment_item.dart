@@ -18,35 +18,39 @@ class AttachmentItem with AttachmentItemMappable {
     required this.order,
   });
 
-  /// Id of the new attachment on Taiga
+  /// `itemId` Id of the new attachment on `Taiga`.
   @MappableField(key: 'id')
   int itemId;
 
-  /// Name of the file of item
+  /// `filename:` Name of the file of item.
   String filename;
 
-  /// Url of the attachments. Example:
+  /// `itemUrl:` Url of the attachments. Example:
   /// https://media-protected.taiga.io/ATTACHMENT-PATH?token=TOKEN"
   @MappableField(key: 'url')
   String itemUrl;
 
-  /// attachedFile, custom taiga path
+  /// `attachedFile:` Its a custom `Taiga` path where the file is saved
   String attachedFile;
 
-  /// thumbnailFile, custom taiga path
+  /// `thumbnailFile` Its a custom `Taiga` path
   String? thumbnailFile;
 
-  /// Its just a bool showing an status of the attachment
+  /// `itemStatus:` Its just a bool showing an status of the attachment, if
+  /// is deprecated or not deprecated. Came as a [bool], so can be
+  /// `True` or `False`.
   @MappableField(key: 'is_deprecated')
   bool itemStatus;
 
-  /// Its the description for the attachment, if don't have any, it just
-  /// came as an empty string ""
+  /// `itemDescription:` Its the description for the attachment, if don't have
+  /// any, it just came as an empty string: `""`.
   @MappableField(key: 'description')
   String itemDescription;
 
-  // TODO(Nacho): Ver como funciona exactamente order
-
-  /// Position of the attachment
+  /// `order:` Its the Position of the attachment.
   int order;
+
+  /// FromJson method, convert a json type object into this
+  /// ItemChanged Object
+  static const fromJson = AttachmentItemMapper.fromJson;
 }

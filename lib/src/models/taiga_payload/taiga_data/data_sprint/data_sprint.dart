@@ -32,31 +32,35 @@ class DataSprint with DataSprintMappable {
   @MappableField(key: 'name')
   String sprintName;
 
-  /// Slug of the sprint. Slug is used to keep the human-readable part in, 
-  /// in all cases will have the same value as name, but it is on slug format:
-  /// 'name example', slug: 'name-example'.
-  /// also is used on taiga urls.
+  /// `sprintSlug:` `slug` it's a human-readable part of a URL that identifies 
+  /// a particular resource, are usually created by converting text into a 
+  /// URL-friendly format, often by replacing spaces and special characters 
+  /// with dashes or underscores, removing accents, and converting the text to 
+  /// lowercase. <br> <br>
+  /// In this case its means the las part of the url of Taiga. Example: <br>
+  /// `https://tree.taiga.io/project/<project-name>/taskboard/<slug>`
   @MappableField(key: 'slug')
   String sprintSlug;
 
-  /// Estimated start date of the sprint. This is defined at the creation
-  /// of the sprint and can be edited.
+  /// `estimatedStartDate:` Its the estimated start date of the sprint. 
+  /// This is defined at the creation of the `sprint` and can be edited.
   @MappableField(key: 'estimated_start')
   DateTime estimatedStartDate;
 
-  /// Estimated finish date of the sprint. This is defined at the creation
-  /// of the sprint and can be edited.
+  /// `estimatedFinishDate:` Its the Estimated finish date of the sprint. 
+  /// This is defined at the creation of the `sprint` and can be edited.
   @MappableField(key: 'estimated_finish')
   DateTime estimatedFinishDate;
 
-  /// Creation date of the sprint
+  /// `creationDate:` Its the creation date of the `sprint`.
   @MappableField(key: 'created_date')
   DateTime creationDate;
 
-  /// Last time the sprint receive a modification
+  /// `modifiedDate:` Its the last time that the sprint receive a modification.
   DateTime modifiedDate;
 
-  /// Bool to storage the status of the sprint. If is closed or not
+  /// `sprintClosedStatus:` Its a Bool to storage the status of the sprint. 
+  /// If is closed or not. Can came as `True` or `False`
   @MappableField(key: 'closed')
   bool sprintClosedStatus;
 

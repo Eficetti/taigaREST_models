@@ -3,7 +3,10 @@ import 'package:dart_mappable/dart_mappable.dart';
 part 'taiga_status.mapper.dart';
 
 /// This class is for save an status record of the job in the payload, according
-/// to your project configuration statuses
+/// to your project configuration.
+/// <h4> If you need more info about hot to customize status on a taiga
+/// project:</h4>
+/// https://taiga.pm/status/
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaStatus with TaigaStatusMappable {
   /// Constructor for the class Status
@@ -15,26 +18,44 @@ class TaigaStatus with TaigaStatusMappable {
     required this.isClosedStatus,
   });
 
-  /// Id of the Status
+  /// `statusId:` This is the `Id` of the `Status` on `Taiga`. <Br>
+  /// <h4> If you need more info about hot to customize status on a taiga
+  /// project:</h4>
+  /// https://taiga.pm/status/
   @MappableField(key: 'id')
   int statusId;
 
-  /// Name assigned to the status
+  /// `statusName:` Its the assigned name to the `Status` on Taiga<Br>
+  /// <h4> If you need more info about hot to customize status on a taiga
+  /// project:</h4>
+  /// https://taiga.pm/status/
   @MappableField(key: 'name')
   String statusName;
 
-  /// Status slug, slug is used to keep the human-readable part in , in all 
-  /// cases will have the same value as name, but it is on slug format:
-  /// 'name example', slug: 'name-example' 
+  /// "slug" it's a human-readable part of a URL that identifies a particular
+  /// resource, are usually created by converting text into a URL-friendly
+  /// format, often by replacing spaces and special characters with dashes or
+  /// underscores, removing accents, and converting the text to lowercase. <br>
+  /// <br>
+  /// In this case its the name with hyphens and lowercase, Example: <br>
+  /// Normal name: Status NEW
+  /// Slug name: status-new
   @MappableField(key: 'slug')
   String statusSlug;
 
-  /// Status color
+  /// `statusColor:` Is the color assigned to the `Status` on Taiga <Br>
+  /// <h4> If you need more info about hot to customize status on a taiga
+  /// project:</h4>
+  /// https://taiga.pm/status/
   @MappableField(key: 'color')
   String statusColor;
 
-  /// Status bool indicating if the Job is Closed or not, depend on the 
-  /// configuration you give to the status in your project
+  /// `isClosedStatus:` Its a bool indicating if the Job is Closed or not, this
+  /// value depend on the configuration you give to the status in your project.
+  /// <Br>
+  /// <h4> If you need more info about hot to customize status on a taiga
+  /// project:</h4>
+  /// https://taiga.pm/status/
   @MappableField(key: 'is_closed')
   bool isClosedStatus;
 

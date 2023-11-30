@@ -14,15 +14,19 @@ class DataDetails with DataDetailsMappable {
     required this.detailColor,
   });
 
-  /// Id of the detail
+  /// `detailId:` Its the `Id` of the `Detail` on `Taiga`.
   @MappableField(key: 'id')
   int detailId;
 
-  /// Name of the type of detail, custom value 
+  /// `detailName:` Its the name of the type of detail, custom value. <br>
+  /// This is part of taiga customization:
+  /// https://community.taiga.io/t/customisation-for-your-projects/127
   @MappableField(key: 'name')
   String detailName;
 
-  /// Color assigned to the detail, custom value
+  /// `detailColor:` Its the color assigned to the detail, custom value. <br>
+  /// This is part of taiga customization:
+  /// https://community.taiga.io/t/customisation-for-your-projects/127
   @MappableField(key: 'color')
   String detailColor;
 

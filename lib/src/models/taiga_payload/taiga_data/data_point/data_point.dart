@@ -14,15 +14,15 @@ class DataStoryPoint with DataStoryPointMappable {
     required this.pointAmount,
   });
 
-  /// Name of the value of points
+  /// `pointName:`Its the name assigned to this Story Point
   @MappableField(key: 'name')
   String pointName;
 
-  /// Role assigned to the points
+  /// `pointAssignedRole:`Its the role assigned to this Story Point
   @MappableField(key: 'role')
   String pointAssignedRole;
 
-  /// Is the amount of points assigned
+  /// `pointAmount:`Its the amount of points assigned to this Story Point
   @MappableField(key: 'value')
   double? pointAmount;
 

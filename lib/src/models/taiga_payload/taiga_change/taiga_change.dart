@@ -20,26 +20,27 @@ class TaigaChange with TaigaChangeMappable{
     required this.difference,
   });
 
-  /// If a change was made into a comment, it will be here. When a new comment
-  /// appears it came here. 
+  /// `comment:` If a change was made into a comment, it will be here. 
+  /// When a new comment appears it also came here. 
   String? comment;
 
-  /// Comment html, same as 'comment', but it came with html tags
+  /// `commentHtml:` Its same as 'comment', but it came with html tags
   String? commentHtml;
 
-  /// DeleteCommentDate will have the date of deletion of a comment
+  /// `deleteCommentDate:` This will have the date of deletion of a comment
   DateTime? deleteCommentDate;
 
-  /// CommentVersions when you modify a comment this will have the old version 
-  /// of the comment, and the details about
+  /// `commentVersions:` When you modify a comment this will storage the olds
+  ///  version of the comment, and the details about
   List<TaigaCommentVersion>? commentVersions;
 
-  /// EditCommentDate will have the date of the last time someone edit a
+  /// `editCommentDate:` This will have the date of the last time someone edit a
   /// comment
   DateTime? editCommentDate;
 
-  /// Difference is used to save all the differences made on this "change" type
-  /// payload. Storage all types of diff
+  /// `difference:` is used to save all the differences made on this "change"
+  /// type payload. Storage all types of diff. Came from `Taiga` as `diff`, and 
+  /// its converted into a [TaigaChangeDifference] instance.
   @MappableField(key: 'diff')
   TaigaChangeDifference? difference;
 
