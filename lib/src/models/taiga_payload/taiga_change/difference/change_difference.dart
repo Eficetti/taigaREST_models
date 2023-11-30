@@ -75,7 +75,9 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
 
   // TODO(Nacho): Agregar Doc
 
-  /// Change made into the description of a job. This value came
+  /// Change made into the description of a job. This value can't be saved
+  /// because always its 'Check the history API for the exact diff' there is
+  /// no useful data 
   String? descriptionDiff;
 
   /// Change made into the isClosed bool status. This will storage the old and

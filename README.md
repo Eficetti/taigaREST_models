@@ -35,10 +35,11 @@ class RouteRoot extends WidgetRoute {
 ```
 ---
 
-This will create the model with all the data you receive from Taiga. Is recommended to validate this data before using it, but this is pending. If you want to do it by yourself: <https://docs.taiga.io/webhooks.html#_verify_signature>  
+This will create the model with all the data you receive from Taiga. Is recommended to validate this data before using it, but this feature is pending. If you want to do it by yourself: <https://docs.taiga.io/webhooks.html#_verify_signature>  
 
 ## <ins> How to use custom fields (?) </ins>
-For using custom fields of taiga (<https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150>) by the moment you have to modify the TaigaCustomFields model 'lib\src\models\taiga_payload\taiga_data\custom_fields\taiga_custom_fields.dart'.   
+For using custom fields of taiga (<https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150>) by the moment you have to modify the TaigaCustomFields model to add your custom fields. CustomField file directory:
+'lib\src\models\taiga_payload\taiga_data\custom_fields\taiga_custom_fields.dart'.   
 
 ```
 TaigaCustomFields({
