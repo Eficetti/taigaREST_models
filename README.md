@@ -178,8 +178,7 @@ Once this is done you can work with the data as the way you want
 
 ## Examples
 
-### This is an example from Taiga payload
-In this case is type userstory. 
+### In this case is type `userstory`. 
 So if you want to create an object of this payload you have to read it, and save it into a var, in this cas we're going to storage this as a map and then transform into a json with the `dart:convert` package
 ```
 import 'dart:convert';
