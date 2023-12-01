@@ -7,9 +7,9 @@ part 'data_wiki.mapper.dart';
 /// This class is used to map the wiki of Taiga which is used to create
 /// documentation of all the project.
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class DataWikiPage with DataWikiPageMappable {
+class TaigaWikiPageData with TaigaWikiPageDataMappable {
   /// Constructor of DataWikiPage Class
-  DataWikiPage({
+  TaigaWikiPageData({
     required this.id,
     required this.wikiSlug,
     required this.content,
@@ -66,5 +66,5 @@ class DataWikiPage with DataWikiPageMappable {
 
   /// FromJson method, convert a json type object into this DataWikiPage
   /// object
-  static const fromJson = DataWikiPageMapper.fromJson;
+  static const fromJson = TaigaWikiPageDataMapper.fromJson;
 }

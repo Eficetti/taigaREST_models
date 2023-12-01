@@ -7,9 +7,9 @@ part 'data_sprint.mapper.dart';
 /// This class will storage all the data related to an sprint coming from the
 /// payload of Taiga
 @MappableClass(caseStyle: CaseStyle.snakeCase)
-class DataSprint with DataSprintMappable {
+class TaigaSprintData with TaigaSprintDataMappable {
   /// Constructor of the DataSprint class
-  DataSprint({
+  TaigaSprintData({
     required this.sprintId,
     required this.sprintName,
     required this.sprintSlug,
@@ -83,5 +83,5 @@ class DataSprint with DataSprintMappable {
 
   /// FromJson method, convert a json type object into this
   /// TaigaUserStoryData Object
-  static const fromJson = DataSprintMapper.fromJson;
+  static const fromJson = TaigaSprintDataMapper.fromJson;
 }

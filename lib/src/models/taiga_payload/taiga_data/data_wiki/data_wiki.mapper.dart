@@ -6,13 +6,13 @@
 
 part of 'data_wiki.dart';
 
-class DataWikiPageMapper extends ClassMapperBase<DataWikiPage> {
-  DataWikiPageMapper._();
+class TaigaWikiPageDataMapper extends ClassMapperBase<TaigaWikiPageData> {
+  TaigaWikiPageDataMapper._();
 
-  static DataWikiPageMapper? _instance;
-  static DataWikiPageMapper ensureInitialized() {
+  static TaigaWikiPageDataMapper? _instance;
+  static TaigaWikiPageDataMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = DataWikiPageMapper._());
+      MapperContainer.globals.use(_instance = TaigaWikiPageDataMapper._());
       TaigaProjectMapper.ensureInitialized();
       TaigaUserMapper.ensureInitialized();
     }
@@ -20,37 +20,38 @@ class DataWikiPageMapper extends ClassMapperBase<DataWikiPage> {
   }
 
   @override
-  final String id = 'DataWikiPage';
+  final String id = 'TaigaWikiPageData';
 
-  static int _$id(DataWikiPage v) => v.id;
-  static const Field<DataWikiPage, int> _f$id = Field('id', _$id);
-  static String _$wikiSlug(DataWikiPage v) => v.wikiSlug;
-  static const Field<DataWikiPage, String> _f$wikiSlug =
+  static int _$id(TaigaWikiPageData v) => v.id;
+  static const Field<TaigaWikiPageData, int> _f$id = Field('id', _$id);
+  static String _$wikiSlug(TaigaWikiPageData v) => v.wikiSlug;
+  static const Field<TaigaWikiPageData, String> _f$wikiSlug =
       Field('wikiSlug', _$wikiSlug, key: 'slug');
-  static String _$content(DataWikiPage v) => v.content;
-  static const Field<DataWikiPage, String> _f$content =
+  static String _$content(TaigaWikiPageData v) => v.content;
+  static const Field<TaigaWikiPageData, String> _f$content =
       Field('content', _$content);
-  static String _$creationDate(DataWikiPage v) => v.creationDate;
-  static const Field<DataWikiPage, String> _f$creationDate =
+  static String _$creationDate(TaigaWikiPageData v) => v.creationDate;
+  static const Field<TaigaWikiPageData, String> _f$creationDate =
       Field('creationDate', _$creationDate, key: 'created_date');
-  static String _$modifiedDate(DataWikiPage v) => v.modifiedDate;
-  static const Field<DataWikiPage, String> _f$modifiedDate =
+  static String _$modifiedDate(TaigaWikiPageData v) => v.modifiedDate;
+  static const Field<TaigaWikiPageData, String> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static String _$permalink(DataWikiPage v) => v.permalink;
-  static const Field<DataWikiPage, String> _f$permalink =
+  static String _$permalink(TaigaWikiPageData v) => v.permalink;
+  static const Field<TaigaWikiPageData, String> _f$permalink =
       Field('permalink', _$permalink);
-  static TaigaProject _$relatedProject(DataWikiPage v) => v.relatedProject;
-  static const Field<DataWikiPage, TaigaProject> _f$relatedProject =
+  static TaigaProject _$relatedProject(TaigaWikiPageData v) => v.relatedProject;
+  static const Field<TaigaWikiPageData, TaigaProject> _f$relatedProject =
       Field('relatedProject', _$relatedProject, key: 'project');
-  static TaigaUser _$userOwner(DataWikiPage v) => v.userOwner;
-  static const Field<DataWikiPage, TaigaUser> _f$userOwner =
+  static TaigaUser _$userOwner(TaigaWikiPageData v) => v.userOwner;
+  static const Field<TaigaWikiPageData, TaigaUser> _f$userOwner =
       Field('userOwner', _$userOwner, key: 'owner');
-  static TaigaUser _$lastUserModifier(DataWikiPage v) => v.lastUserModifier;
-  static const Field<DataWikiPage, TaigaUser> _f$lastUserModifier =
+  static TaigaUser _$lastUserModifier(TaigaWikiPageData v) =>
+      v.lastUserModifier;
+  static const Field<TaigaWikiPageData, TaigaUser> _f$lastUserModifier =
       Field('lastUserModifier', _$lastUserModifier, key: 'last_modifier');
 
   @override
-  final Map<Symbol, Field<DataWikiPage, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaWikiPageData, dynamic>> fields = const {
     #id: _f$id,
     #wikiSlug: _f$wikiSlug,
     #content: _f$content,
@@ -62,8 +63,8 @@ class DataWikiPageMapper extends ClassMapperBase<DataWikiPage> {
     #lastUserModifier: _f$lastUserModifier,
   };
 
-  static DataWikiPage _instantiate(DecodingData data) {
-    return DataWikiPage(
+  static TaigaWikiPageData _instantiate(DecodingData data) {
+    return TaigaWikiPageData(
         id: data.dec(_f$id),
         wikiSlug: data.dec(_f$wikiSlug),
         content: data.dec(_f$content),
@@ -78,57 +79,60 @@ class DataWikiPageMapper extends ClassMapperBase<DataWikiPage> {
   @override
   final Function instantiate = _instantiate;
 
-  static DataWikiPage fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<DataWikiPage>(map);
+  static TaigaWikiPageData fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaWikiPageData>(map);
   }
 
-  static DataWikiPage fromJson(String json) {
-    return ensureInitialized().decodeJson<DataWikiPage>(json);
+  static TaigaWikiPageData fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaWikiPageData>(json);
   }
 }
 
-mixin DataWikiPageMappable {
+mixin TaigaWikiPageDataMappable {
   String toJson() {
-    return DataWikiPageMapper.ensureInitialized()
-        .encodeJson<DataWikiPage>(this as DataWikiPage);
+    return TaigaWikiPageDataMapper.ensureInitialized()
+        .encodeJson<TaigaWikiPageData>(this as TaigaWikiPageData);
   }
 
   Map<String, dynamic> toMap() {
-    return DataWikiPageMapper.ensureInitialized()
-        .encodeMap<DataWikiPage>(this as DataWikiPage);
+    return TaigaWikiPageDataMapper.ensureInitialized()
+        .encodeMap<TaigaWikiPageData>(this as TaigaWikiPageData);
   }
 
-  DataWikiPageCopyWith<DataWikiPage, DataWikiPage, DataWikiPage> get copyWith =>
-      _DataWikiPageCopyWithImpl(this as DataWikiPage, $identity, $identity);
+  TaigaWikiPageDataCopyWith<TaigaWikiPageData, TaigaWikiPageData,
+          TaigaWikiPageData>
+      get copyWith => _TaigaWikiPageDataCopyWithImpl(
+          this as TaigaWikiPageData, $identity, $identity);
   @override
   String toString() {
-    return DataWikiPageMapper.ensureInitialized()
-        .stringifyValue(this as DataWikiPage);
+    return TaigaWikiPageDataMapper.ensureInitialized()
+        .stringifyValue(this as TaigaWikiPageData);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            DataWikiPageMapper.ensureInitialized()
-                .isValueEqual(this as DataWikiPage, other));
+            TaigaWikiPageDataMapper.ensureInitialized()
+                .isValueEqual(this as TaigaWikiPageData, other));
   }
 
   @override
   int get hashCode {
-    return DataWikiPageMapper.ensureInitialized()
-        .hashValue(this as DataWikiPage);
+    return TaigaWikiPageDataMapper.ensureInitialized()
+        .hashValue(this as TaigaWikiPageData);
   }
 }
 
-extension DataWikiPageValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, DataWikiPage, $Out> {
-  DataWikiPageCopyWith<$R, DataWikiPage, $Out> get $asDataWikiPage =>
-      $base.as((v, t, t2) => _DataWikiPageCopyWithImpl(v, t, t2));
+extension TaigaWikiPageDataValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaWikiPageData, $Out> {
+  TaigaWikiPageDataCopyWith<$R, TaigaWikiPageData, $Out>
+      get $asTaigaWikiPageData =>
+          $base.as((v, t, t2) => _TaigaWikiPageDataCopyWithImpl(v, t, t2));
 }
 
-abstract class DataWikiPageCopyWith<$R, $In extends DataWikiPage, $Out>
-    implements ClassCopyWith<$R, $In, $Out> {
+abstract class TaigaWikiPageDataCopyWith<$R, $In extends TaigaWikiPageData,
+    $Out> implements ClassCopyWith<$R, $In, $Out> {
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get relatedProject;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get userOwner;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get lastUserModifier;
@@ -142,17 +146,18 @@ abstract class DataWikiPageCopyWith<$R, $In extends DataWikiPage, $Out>
       TaigaProject? relatedProject,
       TaigaUser? userOwner,
       TaigaUser? lastUserModifier});
-  DataWikiPageCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  TaigaWikiPageDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _DataWikiPageCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, DataWikiPage, $Out>
-    implements DataWikiPageCopyWith<$R, DataWikiPage, $Out> {
-  _DataWikiPageCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaWikiPageDataCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaWikiPageData, $Out>
+    implements TaigaWikiPageDataCopyWith<$R, TaigaWikiPageData, $Out> {
+  _TaigaWikiPageDataCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<DataWikiPage> $mapper =
-      DataWikiPageMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaWikiPageData> $mapper =
+      TaigaWikiPageDataMapper.ensureInitialized();
   @override
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get relatedProject =>
       $value.relatedProject.copyWith.$chain((v) => call(relatedProject: v));
@@ -185,7 +190,7 @@ class _DataWikiPageCopyWithImpl<$R, $Out>
         if (lastUserModifier != null) #lastUserModifier: lastUserModifier
       }));
   @override
-  DataWikiPage $make(CopyWithData data) => DataWikiPage(
+  TaigaWikiPageData $make(CopyWithData data) => TaigaWikiPageData(
       id: data.get(#id, or: $value.id),
       wikiSlug: data.get(#wikiSlug, or: $value.wikiSlug),
       content: data.get(#content, or: $value.content),
@@ -198,7 +203,7 @@ class _DataWikiPageCopyWithImpl<$R, $Out>
           data.get(#lastUserModifier, or: $value.lastUserModifier));
 
   @override
-  DataWikiPageCopyWith<$R2, DataWikiPage, $Out2> $chain<$R2, $Out2>(
+  TaigaWikiPageDataCopyWith<$R2, TaigaWikiPageData, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
-      _DataWikiPageCopyWithImpl($value, $cast, t);
+      _TaigaWikiPageDataCopyWithImpl($value, $cast, t);
 }

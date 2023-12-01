@@ -288,7 +288,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      DataSprintMapper.ensureInitialized();
+      TaigaSprintDataMapper.ensureInitialized();
       DataStoryPointMapper.ensureInitialized();
     }
     return _instance!;
@@ -372,8 +372,9 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static bool _$isClosedStatus(TaigaUserStoryData v) => v.isClosedStatus;
   static const Field<TaigaUserStoryData, bool> _f$isClosedStatus =
       Field('isClosedStatus', _$isClosedStatus, key: 'is_closed');
-  static DataSprint? _$relatedSprint(TaigaUserStoryData v) => v.relatedSprint;
-  static const Field<TaigaUserStoryData, DataSprint> _f$relatedSprint =
+  static TaigaSprintData? _$relatedSprint(TaigaUserStoryData v) =>
+      v.relatedSprint;
+  static const Field<TaigaUserStoryData, TaigaSprintData> _f$relatedSprint =
       Field('relatedSprint', _$relatedSprint, key: 'milestone');
   static List<DataStoryPoint> _$storyPoints(TaigaUserStoryData v) =>
       v.storyPoints;
@@ -520,7 +521,8 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
       get customValues;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers;
-  DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
+  TaigaSprintDataCopyWith<$R, TaigaSprintData, TaigaSprintData>?
+      get relatedSprint;
   ListCopyWith<$R, DataStoryPoint,
           DataStoryPointCopyWith<$R, DataStoryPoint, DataStoryPoint>>
       get storyPoints;
@@ -550,7 +552,7 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
       int? issueReference,
       bool? isBlockedStatus,
       bool? isClosedStatus,
-      DataSprint? relatedSprint,
+      TaigaSprintData? relatedSprint,
       List<DataStoryPoint>? storyPoints,
       bool? teamRequirementStatus});
   TaigaUserStoryDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -602,8 +604,9 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
           (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(assignedUsers: v));
   @override
-  DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint =>
-      $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
+  TaigaSprintDataCopyWith<$R, TaigaSprintData, TaigaSprintData>?
+      get relatedSprint =>
+          $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
   @override
   ListCopyWith<$R, DataStoryPoint,
           DataStoryPointCopyWith<$R, DataStoryPoint, DataStoryPoint>>
@@ -718,7 +721,7 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      DataSprintMapper.ensureInitialized();
+      TaigaSprintDataMapper.ensureInitialized();
       TaigaUserStoryDataMapper.ensureInitialized();
     }
     return _instance!;
@@ -788,8 +791,8 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   static bool _$isIocaineStatus(TaigaTaskData v) => v.isIocaineStatus;
   static const Field<TaigaTaskData, bool> _f$isIocaineStatus =
       Field('isIocaineStatus', _$isIocaineStatus, key: 'is_iocaine');
-  static DataSprint? _$relatedSprint(TaigaTaskData v) => v.relatedSprint;
-  static const Field<TaigaTaskData, DataSprint> _f$relatedSprint =
+  static TaigaSprintData? _$relatedSprint(TaigaTaskData v) => v.relatedSprint;
+  static const Field<TaigaTaskData, TaigaSprintData> _f$relatedSprint =
       Field('relatedSprint', _$relatedSprint, key: 'milestone');
   static List<dynamic> _$promotedToList(TaigaTaskData v) => v.promotedToList;
   static const Field<TaigaTaskData, List<dynamic>> _f$promotedToList =
@@ -932,7 +935,8 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
       get customValues;
-  DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
+  TaigaSprintDataCopyWith<$R, TaigaSprintData, TaigaSprintData>?
+      get relatedSprint;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedToList;
   TaigaUserStoryDataCopyWith<$R, TaigaUserStoryData, TaigaUserStoryData>
@@ -959,7 +963,7 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
       DateTime? finishedDate,
       bool? isBlockedStatus,
       bool? isIocaineStatus,
-      DataSprint? relatedSprint,
+      TaigaSprintData? relatedSprint,
       List<dynamic>? promotedToList,
       int? taskboardOrder,
       int? usOrder,
@@ -1006,8 +1010,9 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
               (v) => call(customValues: v))
           : null;
   @override
-  DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint =>
-      $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
+  TaigaSprintDataCopyWith<$R, TaigaSprintData, TaigaSprintData>?
+      get relatedSprint =>
+          $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedToList => ListCopyWith(
@@ -1117,7 +1122,7 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      DataSprintMapper.ensureInitialized();
+      TaigaSprintDataMapper.ensureInitialized();
       DataDetailsMapper.ensureInitialized();
     }
     return _instance!;
@@ -1178,9 +1183,9 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static DateTime? _$finishedDate(TaigaIssueData v) => v.finishedDate;
   static const Field<TaigaIssueData, DateTime> _f$finishedDate =
       Field('finishedDate', _$finishedDate, key: 'finished_date');
-  static DataSprint? _$issueRelatedSprint(TaigaIssueData v) =>
+  static TaigaSprintData? _$issueRelatedSprint(TaigaIssueData v) =>
       v.issueRelatedSprint;
-  static const Field<TaigaIssueData, DataSprint> _f$issueRelatedSprint =
+  static const Field<TaigaIssueData, TaigaSprintData> _f$issueRelatedSprint =
       Field('issueRelatedSprint', _$issueRelatedSprint, key: 'milestone');
   static DataDetails _$issuePriority(TaigaIssueData v) => v.issuePriority;
   static const Field<TaigaIssueData, DataDetails> _f$issuePriority =
@@ -1317,7 +1322,8 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
       get customValues;
-  DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint;
+  TaigaSprintDataCopyWith<$R, TaigaSprintData, TaigaSprintData>?
+      get issueRelatedSprint;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issuePriority;
   ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedToList;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issueSeverity;
@@ -1341,7 +1347,7 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
       DateTime? dueDate,
       String? dueDateReason,
       DateTime? finishedDate,
-      DataSprint? issueRelatedSprint,
+      TaigaSprintData? issueRelatedSprint,
       DataDetails? issuePriority,
       List<int?>? promotedToList,
       DataDetails? issueSeverity,
@@ -1389,8 +1395,8 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
               (v) => call(customValues: v))
           : null;
   @override
-  DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint =>
-      $value.issueRelatedSprint?.copyWith
+  TaigaSprintDataCopyWith<$R, TaigaSprintData, TaigaSprintData>?
+      get issueRelatedSprint => $value.issueRelatedSprint?.copyWith
           .$chain((v) => call(issueRelatedSprint: v));
   @override
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issuePriority =>

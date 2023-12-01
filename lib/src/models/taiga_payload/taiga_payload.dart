@@ -43,9 +43,9 @@ class TaigaPayload with TaigaPayloadMappable {
       case 'epic':
         data = TaigaEpicData.fromJson(jsonEncode(data));
       case 'milestone':
-        data = DataSprint.fromJson(jsonEncode(data));
+        data = TaigaSprintData.fromJson(jsonEncode(data));
       case 'wikipage':
-        data = DataWikiPage.fromJson(jsonEncode(data));
+        data = TaigaWikiPageData.fromJson(jsonEncode(data));
     }
   }
 

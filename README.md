@@ -187,36 +187,22 @@ Once this is done you can work with the data as the way you want
 
 ### This is an example from Taiga payload
 In this case is type milestone (Sprint). 
-Note: This payload samples are from the taiga docs: https://docs.taiga.io/webhooks.html#_test_payload
 So if you want to create an object of this payload you have to read it, and save it into a var, in this cas we're going to storage this as a map and then transform into a json with the `dart:convert` package
 ```
 import 'package:taiga_rest_models/taiga_rest_models.dart';
 
 import 'src/models/my_custom_fields.dart';
 
-void main() {
-    // Generate the object
-    final payload = TaigaPayload.fromJson(payload(body));
 
-    // Map custom fields
-    if (printData.customValues!.isNotEmpty) {
-        // If your custom fields class is well crated and generated it will return your fields  
-        final customFields = MyCustomFields.fromJson(jsonEncode(printData.customValues));
-
-        // Print the custom fields if they exist
-        print (customFields); // Print: MyCustomFields(yourField: Your field value)
-    }
-
-    print (payload);
-    
-}
 
 final payload = {
     "type": "userstory",
     "date": "2016-04-12T12:17:20.486Z",
     "action": "create",
     "data": {
-        "custom_attributes_values": {"Name of your field on Taiga": "Your field value",},
+        "custom_attributes_values": {"Name of your field on Taiga": "Your field value"},
+        "due_date": null,
+        "due_date_reason": "",
         "watchers": [],
         "permalink": "http://localhost:9001/project/project-0/us/72",
         "tags": [
@@ -240,6 +226,7 @@ final payload = {
             "gravatar_id": "464bb6d514c3ecece1b87136ceeda1da"
         },
         "assigned_to": null,
+        "assigned_users": [],
         "points": [
             {
                 "role": "UX",

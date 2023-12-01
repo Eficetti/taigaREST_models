@@ -6,13 +6,13 @@
 
 part of 'data_sprint.dart';
 
-class DataSprintMapper extends ClassMapperBase<DataSprint> {
-  DataSprintMapper._();
+class TaigaSprintDataMapper extends ClassMapperBase<TaigaSprintData> {
+  TaigaSprintDataMapper._();
 
-  static DataSprintMapper? _instance;
-  static DataSprintMapper ensureInitialized() {
+  static TaigaSprintDataMapper? _instance;
+  static TaigaSprintDataMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = DataSprintMapper._());
+      MapperContainer.globals.use(_instance = TaigaSprintDataMapper._());
       TaigaProjectMapper.ensureInitialized();
       TaigaUserMapper.ensureInitialized();
     }
@@ -20,48 +20,50 @@ class DataSprintMapper extends ClassMapperBase<DataSprint> {
   }
 
   @override
-  final String id = 'DataSprint';
+  final String id = 'TaigaSprintData';
 
-  static int _$sprintId(DataSprint v) => v.sprintId;
-  static const Field<DataSprint, int> _f$sprintId =
+  static int _$sprintId(TaigaSprintData v) => v.sprintId;
+  static const Field<TaigaSprintData, int> _f$sprintId =
       Field('sprintId', _$sprintId, key: 'id');
-  static String _$sprintName(DataSprint v) => v.sprintName;
-  static const Field<DataSprint, String> _f$sprintName =
+  static String _$sprintName(TaigaSprintData v) => v.sprintName;
+  static const Field<TaigaSprintData, String> _f$sprintName =
       Field('sprintName', _$sprintName, key: 'name');
-  static String _$sprintSlug(DataSprint v) => v.sprintSlug;
-  static const Field<DataSprint, String> _f$sprintSlug =
+  static String _$sprintSlug(TaigaSprintData v) => v.sprintSlug;
+  static const Field<TaigaSprintData, String> _f$sprintSlug =
       Field('sprintSlug', _$sprintSlug, key: 'slug');
-  static DateTime _$estimatedStartDate(DataSprint v) => v.estimatedStartDate;
-  static const Field<DataSprint, DateTime> _f$estimatedStartDate =
+  static DateTime _$estimatedStartDate(TaigaSprintData v) =>
+      v.estimatedStartDate;
+  static const Field<TaigaSprintData, DateTime> _f$estimatedStartDate =
       Field('estimatedStartDate', _$estimatedStartDate, key: 'estimated_start');
-  static DateTime _$estimatedFinishDate(DataSprint v) => v.estimatedFinishDate;
-  static const Field<DataSprint, DateTime> _f$estimatedFinishDate = Field(
+  static DateTime _$estimatedFinishDate(TaigaSprintData v) =>
+      v.estimatedFinishDate;
+  static const Field<TaigaSprintData, DateTime> _f$estimatedFinishDate = Field(
       'estimatedFinishDate', _$estimatedFinishDate,
       key: 'estimated_finish');
-  static DateTime _$creationDate(DataSprint v) => v.creationDate;
-  static const Field<DataSprint, DateTime> _f$creationDate =
+  static DateTime _$creationDate(TaigaSprintData v) => v.creationDate;
+  static const Field<TaigaSprintData, DateTime> _f$creationDate =
       Field('creationDate', _$creationDate, key: 'created_date');
-  static DateTime _$modifiedDate(DataSprint v) => v.modifiedDate;
-  static const Field<DataSprint, DateTime> _f$modifiedDate =
+  static DateTime _$modifiedDate(TaigaSprintData v) => v.modifiedDate;
+  static const Field<TaigaSprintData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static bool _$sprintClosedStatus(DataSprint v) => v.sprintClosedStatus;
-  static const Field<DataSprint, bool> _f$sprintClosedStatus =
+  static bool _$sprintClosedStatus(TaigaSprintData v) => v.sprintClosedStatus;
+  static const Field<TaigaSprintData, bool> _f$sprintClosedStatus =
       Field('sprintClosedStatus', _$sprintClosedStatus, key: 'closed');
-  static int _$disponibility(DataSprint v) => v.disponibility;
-  static const Field<DataSprint, int> _f$disponibility =
+  static int _$disponibility(TaigaSprintData v) => v.disponibility;
+  static const Field<TaigaSprintData, int> _f$disponibility =
       Field('disponibility', _$disponibility);
-  static String _$sprintPermalink(DataSprint v) => v.sprintPermalink;
-  static const Field<DataSprint, String> _f$sprintPermalink =
+  static String _$sprintPermalink(TaigaSprintData v) => v.sprintPermalink;
+  static const Field<TaigaSprintData, String> _f$sprintPermalink =
       Field('sprintPermalink', _$sprintPermalink, key: 'permalink');
-  static TaigaProject _$project(DataSprint v) => v.project;
-  static const Field<DataSprint, TaigaProject> _f$project =
+  static TaigaProject _$project(TaigaSprintData v) => v.project;
+  static const Field<TaigaSprintData, TaigaProject> _f$project =
       Field('project', _$project);
-  static TaigaUser _$createdBy(DataSprint v) => v.createdBy;
-  static const Field<DataSprint, TaigaUser> _f$createdBy =
+  static TaigaUser _$createdBy(TaigaSprintData v) => v.createdBy;
+  static const Field<TaigaSprintData, TaigaUser> _f$createdBy =
       Field('createdBy', _$createdBy, key: 'owner');
 
   @override
-  final Map<Symbol, Field<DataSprint, dynamic>> fields = const {
+  final Map<Symbol, Field<TaigaSprintData, dynamic>> fields = const {
     #sprintId: _f$sprintId,
     #sprintName: _f$sprintName,
     #sprintSlug: _f$sprintSlug,
@@ -76,8 +78,8 @@ class DataSprintMapper extends ClassMapperBase<DataSprint> {
     #createdBy: _f$createdBy,
   };
 
-  static DataSprint _instantiate(DecodingData data) {
-    return DataSprint(
+  static TaigaSprintData _instantiate(DecodingData data) {
+    return TaigaSprintData(
         sprintId: data.dec(_f$sprintId),
         sprintName: data.dec(_f$sprintName),
         sprintSlug: data.dec(_f$sprintSlug),
@@ -95,55 +97,57 @@ class DataSprintMapper extends ClassMapperBase<DataSprint> {
   @override
   final Function instantiate = _instantiate;
 
-  static DataSprint fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<DataSprint>(map);
+  static TaigaSprintData fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<TaigaSprintData>(map);
   }
 
-  static DataSprint fromJson(String json) {
-    return ensureInitialized().decodeJson<DataSprint>(json);
+  static TaigaSprintData fromJson(String json) {
+    return ensureInitialized().decodeJson<TaigaSprintData>(json);
   }
 }
 
-mixin DataSprintMappable {
+mixin TaigaSprintDataMappable {
   String toJson() {
-    return DataSprintMapper.ensureInitialized()
-        .encodeJson<DataSprint>(this as DataSprint);
+    return TaigaSprintDataMapper.ensureInitialized()
+        .encodeJson<TaigaSprintData>(this as TaigaSprintData);
   }
 
   Map<String, dynamic> toMap() {
-    return DataSprintMapper.ensureInitialized()
-        .encodeMap<DataSprint>(this as DataSprint);
+    return TaigaSprintDataMapper.ensureInitialized()
+        .encodeMap<TaigaSprintData>(this as TaigaSprintData);
   }
 
-  DataSprintCopyWith<DataSprint, DataSprint, DataSprint> get copyWith =>
-      _DataSprintCopyWithImpl(this as DataSprint, $identity, $identity);
+  TaigaSprintDataCopyWith<TaigaSprintData, TaigaSprintData, TaigaSprintData>
+      get copyWith => _TaigaSprintDataCopyWithImpl(
+          this as TaigaSprintData, $identity, $identity);
   @override
   String toString() {
-    return DataSprintMapper.ensureInitialized()
-        .stringifyValue(this as DataSprint);
+    return TaigaSprintDataMapper.ensureInitialized()
+        .stringifyValue(this as TaigaSprintData);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            DataSprintMapper.ensureInitialized()
-                .isValueEqual(this as DataSprint, other));
+            TaigaSprintDataMapper.ensureInitialized()
+                .isValueEqual(this as TaigaSprintData, other));
   }
 
   @override
   int get hashCode {
-    return DataSprintMapper.ensureInitialized().hashValue(this as DataSprint);
+    return TaigaSprintDataMapper.ensureInitialized()
+        .hashValue(this as TaigaSprintData);
   }
 }
 
-extension DataSprintValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, DataSprint, $Out> {
-  DataSprintCopyWith<$R, DataSprint, $Out> get $asDataSprint =>
-      $base.as((v, t, t2) => _DataSprintCopyWithImpl(v, t, t2));
+extension TaigaSprintDataValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, TaigaSprintData, $Out> {
+  TaigaSprintDataCopyWith<$R, TaigaSprintData, $Out> get $asTaigaSprintData =>
+      $base.as((v, t, t2) => _TaigaSprintDataCopyWithImpl(v, t, t2));
 }
 
-abstract class DataSprintCopyWith<$R, $In extends DataSprint, $Out>
+abstract class TaigaSprintDataCopyWith<$R, $In extends TaigaSprintData, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get project;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser> get createdBy;
@@ -160,17 +164,18 @@ abstract class DataSprintCopyWith<$R, $In extends DataSprint, $Out>
       String? sprintPermalink,
       TaigaProject? project,
       TaigaUser? createdBy});
-  DataSprintCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  TaigaSprintDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _DataSprintCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, DataSprint, $Out>
-    implements DataSprintCopyWith<$R, DataSprint, $Out> {
-  _DataSprintCopyWithImpl(super.value, super.then, super.then2);
+class _TaigaSprintDataCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, TaigaSprintData, $Out>
+    implements TaigaSprintDataCopyWith<$R, TaigaSprintData, $Out> {
+  _TaigaSprintDataCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<DataSprint> $mapper =
-      DataSprintMapper.ensureInitialized();
+  late final ClassMapperBase<TaigaSprintData> $mapper =
+      TaigaSprintDataMapper.ensureInitialized();
   @override
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get project =>
       $value.project.copyWith.$chain((v) => call(project: v));
@@ -207,7 +212,7 @@ class _DataSprintCopyWithImpl<$R, $Out>
         if (createdBy != null) #createdBy: createdBy
       }));
   @override
-  DataSprint $make(CopyWithData data) => DataSprint(
+  TaigaSprintData $make(CopyWithData data) => TaigaSprintData(
       sprintId: data.get(#sprintId, or: $value.sprintId),
       sprintName: data.get(#sprintName, or: $value.sprintName),
       sprintSlug: data.get(#sprintSlug, or: $value.sprintSlug),
@@ -225,7 +230,7 @@ class _DataSprintCopyWithImpl<$R, $Out>
       createdBy: data.get(#createdBy, or: $value.createdBy));
 
   @override
-  DataSprintCopyWith<$R2, DataSprint, $Out2> $chain<$R2, $Out2>(
+  TaigaSprintDataCopyWith<$R2, TaigaSprintData, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
-      _DataSprintCopyWithImpl($value, $cast, t);
+      _TaigaSprintDataCopyWithImpl($value, $cast, t);
 }

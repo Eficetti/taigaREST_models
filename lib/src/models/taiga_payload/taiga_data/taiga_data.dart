@@ -195,12 +195,12 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
   @MappableField(key: 'is_closed')
   bool isClosedStatus;
 
-  /// [DataSprint] instance <br>
+  /// [TaigaSprintData] instance <br>
   /// `relatedSprint:` This is the Sprint related to the `userStory`.
   /// If you need more information about what kind of data will be here, I
   /// recommend to take a look to the `DataSprint` object. <br>
   @MappableField(key: 'milestone')
-  DataSprint? relatedSprint;
+  TaigaSprintData? relatedSprint;
 
   /// [DataStoryPoint] instance <br>
   /// All this values are customizable in `Taiga`.
@@ -271,7 +271,7 @@ class TaigaTaskData extends TaigaData with TaigaTaskDataMappable {
   /// `relatedSprint:` This is the Sprint related to the `task`. <br>
   /// Its a `DataSprint` instance
   @MappableField(key: 'milestone')
-  DataSprint? relatedSprint;
+  TaigaSprintData? relatedSprint;
 
   /// `isBlockedStatus:` Its the state of the `Task` is it Blocked or not.
   /// Can be `True` or `False`
@@ -372,7 +372,7 @@ class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
   /// this value appears when you attach an `issue` into an `sprint`. <br>
   /// Came from `Taiga` as `milestone`.
   @MappableField(key: 'milestone')
-  DataSprint? issueRelatedSprint;
+  TaigaSprintData? issueRelatedSprint;
 
   /// [DataDetails] Instance <br>
   /// `issueType:` Its the `Type` of the Issue, this is a custom value you have
