@@ -1,4 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/custom_fields/custom_mapper.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/taiga_data.dart';
 
 
@@ -22,10 +23,7 @@ class TaigaCustomFields  {
   });
 
   ///
-  TaigaCustomFields.fromJson(MapEntry<String, dynamic> json) {
-    name = json.key;
-    value = json.value;
-  }
+  static const fromJson = TaigaCustomFieldsMapper.fromJson;
 
   ///
   String? name;
