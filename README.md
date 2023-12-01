@@ -145,6 +145,7 @@ To understand this models you need to know, the payload of Taiga webhook, always
 ### <ins> Explaining Data </ins>
 
 Data can came as different types based on the type (Named as **jobType** on the models) of payload, so when you need to use this data you will have to convert into the correct dataType:
+Once this is done you can work with the data as the way you want
 
 ```
 /// Payload will be the data you receive from the Taiga Webhook  
@@ -171,8 +172,6 @@ final payload = TaigaPayload.fromJson(decodedBody);
     }
 
 ``` 
-
-Once this is done you can work with the data as the way you want
 
 ---
 
