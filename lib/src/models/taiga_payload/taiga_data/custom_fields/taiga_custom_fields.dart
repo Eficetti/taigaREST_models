@@ -1,7 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/taiga_data.dart';
 
-part 'taiga_custom_fields.mapper.dart';
+
 
 //! This don't work with all custom fields, you need to modify this model
 //! to use your own custom fields. How to (?):
@@ -10,8 +10,8 @@ part 'taiga_custom_fields.mapper.dart';
 /// This class will storage all the custom fields on a object, if you create
 /// a taiga project, you will need to modify the CustomAttributes class
 /// and mapper to read your own values
-@MappableClass(caseStyle: CaseStyle.snakeCase)
-class TaigaCustomFields with TaigaCustomFieldsMappable {
+
+class TaigaCustomFields  {
   /// Constructor of the TaigaCustomAttributes class
   TaigaCustomFields({
     // this.figmaUrl,

@@ -20,7 +20,6 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomFieldsMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -165,8 +164,6 @@ abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get fromProject;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>?> get jobWatchers;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues;
   $R call(
       {int? jobId,
       int? referenceNumber,
@@ -215,10 +212,6 @@ class _TaigaDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
-  @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues =>
-          $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
   $R call(
           {int? jobId,
@@ -285,7 +278,6 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomFieldsMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       DataStoryPointMapper.ensureInitialized();
     }
@@ -514,9 +506,6 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get jobWatchers;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
-  @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, DataStoryPoint,
@@ -585,10 +574,6 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
-  @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues =>
-          $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers =>
       ListCopyWith(
@@ -712,7 +697,6 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomFieldsMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       TaigaUserStoryDataMapper.ensureInitialized();
     }
@@ -923,9 +907,6 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get jobWatchers;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
-  @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedToList;
@@ -991,10 +972,6 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
-  @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues =>
-          $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint =>
       $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
@@ -1107,7 +1084,6 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomFieldsMapper.ensureInitialized();
       DataSprintMapper.ensureInitialized();
       DataDetailsMapper.ensureInitialized();
     }
@@ -1304,9 +1280,6 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get jobWatchers;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
-  @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issuePriority;
   ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedToList;
@@ -1370,10 +1343,6 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
-  @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues =>
-          $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint =>
       $value.issueRelatedSprint?.copyWith
@@ -1485,7 +1454,6 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
       TaigaUserMapper.ensureInitialized();
       TaigaStatusMapper.ensureInitialized();
       TaigaProjectMapper.ensureInitialized();
-      TaigaCustomFieldsMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -1663,9 +1631,6 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues;
-  @override
   $R call(
       {int? jobId,
       int? referenceNumber,
@@ -1718,10 +1683,6 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
-  @override
-  TaigaCustomFieldsCopyWith<$R, TaigaCustomFields, TaigaCustomFields>?
-      get customValues =>
-          $value.customValues?.copyWith.$chain((v) => call(customValues: v));
   @override
   $R call(
           {int? jobId,
