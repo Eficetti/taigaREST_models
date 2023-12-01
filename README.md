@@ -150,33 +150,26 @@ Data can came as different types based on the type (Named as **jobType** on the 
 /// Payload will be the data you receive from the Taiga Webhook  
 final payload = TaigaPayload.fromJson(decodedBody);
 
-/// Based on the each jobType 
-switch (payload.jobType) {
+// Convert your data into the correct dataType based on the each jobType 
+    if (payload.jobType == 'epic') {
+        TaigaEpicData payloadData = payload.data as TaigaEpicData;
+    }
+    if (payload.jobType == 'task') {
+        TaigaTaskData payloadData = payload.data as TaigaTaskData;
+    }
+    if (payload.jobType == 'issue') {
+        TaigaIssueData payloadData = payload.data as TaigaIssueData;
+    }
+    if (payload.jobType == 'userstory') {
+        TaigaUserStoryData payloadData = payload.data as TaigaUserStoryData;
+    }
+    if (payload.jobType == 'milestone') {
+        TaigaSprintData payloadData = payload.data as TaigaSprintData;
+    }
+    if (payload.jobType == 'wikipage') {
+        TaigaWikiPageData payloadData = payload.data as TaigaWikiPageData;
+    }
 
-    /// Convert into epic
-    case 'epic':
-        TaigaEpicData correctDataType = payload.data as TaigaEpicData;
-    
-    /// Convert into task
-    case 'task':
-        TaigaTaskData correctDataType = payload.data as TaigaTaskData;
-
-    /// Convert into issue
-    case 'issue':
-        TaigaIssueData correctDataType = payload.data as TaigaIssueData;
-
-    /// Convert into userstory
-    case 'userstory':
-        TaigaUserStoryData correctDataType = payload.data as TaigaUserStoryData;
-
-    /// Convert into milestone(Sprint)
-    case 'milestone':
-        DataSprint correctDataType = payload.data as DataSprint;
-
-    /// Convert into wikipage
-    case 'wikipage':
-    DataWikiPage printData = payload.data as DataWikiPage;
-}
 ``` 
 
 Once this is done you can work with the data as the way you want
@@ -186,101 +179,136 @@ Once this is done you can work with the data as the way you want
 ## Examples
 
 ### This is an example from Taiga payload
-In this case is type milestone (Sprint). 
+In this case is type userstory. 
 So if you want to create an object of this payload you have to read it, and save it into a var, in this cas we're going to storage this as a map and then transform into a json with the `dart:convert` package
 ```
+import 'dart:convert';
+
+import 'package:taiga_consumer_server/src/models/my_custom_fields.dart';
 import 'package:taiga_rest_models/taiga_rest_models.dart';
 
-import 'src/models/my_custom_fields.dart';
+void main() {
+    // Generate the object
+    final payload = TaigaPayload.fromJson(jsonEncode(payloadData));
 
+    // Convert your data into the correct dataType
+    if (payload.jobType == 'epic') {
+    TaigaEpicData payloadData = payload.data as TaigaEpicData;
 
-
-final payload = {
-    "type": "userstory",
-    "date": "2016-04-12T12:17:20.486Z",
-    "action": "create",
-    "data": {
-        "custom_attributes_values": {"Name of your field on Taiga": "Your field value"},
-        "due_date": null,
-        "due_date_reason": "",
-        "watchers": [],
-        "permalink": "http://localhost:9001/project/project-0/us/72",
-        "tags": [
-            "dolorum",
-            "adipisci",
-            "ipsa"
-        ],
-        "external_reference": null,
-        "project": {
-            "id": 1,
-            "permalink": "http://localhost:9001/project/project-0",
-            "name": "Project Example 0",
-            "logo_big_url": null
-        },
-        "owner": {
-            "id": 6,
-            "permalink": "http://localhost:9001/profile/user1",
-            "username": "user1",
-            "full_name": "Purificacion Montero",
-            "photo": "//media.taiga.io/avatar.80x80_q85_crop.png",
-            "gravatar_id": "464bb6d514c3ecece1b87136ceeda1da"
-        },
-        "assigned_to": null,
-        "assigned_users": [],
-        "points": [
-            {
-                "role": "UX",
-                "name": "5",
-                "value": 5.0
-            },
-            {
-                "role": "Design",
-                "name": "1",
-                "value": 1.0
-            },
-            {
-                "role": "Front",
-                "name": "3",
-                "value": 3.0
-            },
-            {
-                "role": "Back",
-                "name": "40",
-                "value": 40.0
-            }
-        ],
-        "status": {
-            "id": 1,
-            "name": "New",
-            "slug": "new",
-            "color": "#999999",
-            "is_closed": false,
-            "is_archived": false
-        },
-        "milestone": null,
-        "id": 139,
-        "is_blocked": true,
-        "blocked_note": "Blocked test message",
-        "ref": 72,
-        "is_closed": false,
-        "created_date": "2016-04-12T12:17:19+0000",
-        "modified_date": "2016-04-12T12:17:19+0000",
-        "finish_date": null,
-        "subject": "test user story 5",
-        "description": "this is a test description",
-        "client_requirement": false,
-        "team_requirement": true,
-        "generated_from_issue": null,
-        "tribe_gig": null
-    },
-    "by": {
-        "id": 6,
-        "permalink": "http://localhost:9001/profile/user1",
-        "username": "user1",
-        "full_name": "Purificacion Montero",
-        "photo": "//media.taiga.io/avatar.80x80_q85_crop.png",
-        "gravatar_id": "464bb6d514c3ecece1b87136ceeda1da"
+    // Then if customValues exist, print them
+    if (payloadData.customValues!.isNotEmpty) {
+        print("This are my custom fields");
+        print(MyCustomFields.fromJson(jsonEncode(payloadData.customValues)));
     }
+    }
+    if (payload.jobType == 'task') {
+    TaigaTaskData payloadData = payload.data as TaigaTaskData;
+
+    // Then if customValues exist, print them
+    if (payloadData.customValues!.isNotEmpty) {
+        print("This are my custom fields");
+        print(MyCustomFields.fromJson(jsonEncode(payloadData.customValues)));
+    }
+    }
+    if (payload.jobType == 'issue') {
+    TaigaIssueData payloadData = payload.data as TaigaIssueData;
+
+    // Then if customValues exist, print them
+    if (payloadData.customValues!.isNotEmpty) {
+        print("This are my custom fields");
+        print(MyCustomFields.fromJson(jsonEncode(payloadData.customValues)));
+    }
+    }
+    if (payload.jobType == 'userstory') {
+    TaigaUserStoryData payloadData = payload.data as TaigaUserStoryData;
+
+    // Then if customValues exist, print them
+    if (payloadData.customValues!.isNotEmpty) {
+        print("This are my custom fields");
+        print(MyCustomFields.fromJson(jsonEncode(payloadData.customValues)));
+    }
+    }
+    if (payload.jobType == 'milestone') {
+    TaigaSprintData payloadData = payload.data as TaigaSprintData;
+    }
+    if (payload.jobType == 'wikipage') {
+    TaigaWikiPageData payloadData = payload.data as TaigaWikiPageData;
+    }
+
+    // Print the data
+
+    print("This is my payload Data");
+    print(payloadData);
+}
+
+final payloadData = {
+  "type": "userstory",
+  "date": "2016-04-12T12:17:20.486Z",
+  "action": "create",
+  "data": {
+    "custom_attributes_values": {
+      "Name of your field on Taiga": "Your field value"
+    },
+    "due_date": null,
+    "due_date_reason": "",
+    "watchers": [],
+    "permalink": "http://localhost:9001/project/project-0/us/72",
+    "tags": ["dolorum", "adipisci", "ipsa"],
+    "external_reference": null,
+    "project": {
+      "id": 1,
+      "permalink": "http://localhost:9001/project/project-0",
+      "name": "Project Example 0",
+      "logo_big_url": null
+    },
+    "owner": {
+      "id": 6,
+      "permalink": "http://localhost:9001/profile/user1",
+      "username": "user1",
+      "full_name": "Purificacion Montero",
+      "photo": "//media.taiga.io/avatar.80x80_q85_crop.png",
+      "gravatar_id": "464bb6d514c3ecece1b87136ceeda1da"
+    },
+    "assigned_to": null,
+    "assigned_users": [],
+    "points": [
+      {"role": "UX", "name": "5", "value": 5.0},
+      {"role": "Design", "name": "1", "value": 1.0},
+      {"role": "Front", "name": "3", "value": 3.0},
+      {"role": "Back", "name": "40", "value": 40.0}
+    ],
+    "status": {
+      "id": 1,
+      "name": "New",
+      "slug": "new",
+      "color": "#999999",
+      "is_closed": false,
+      "is_archived": false
+    },
+    "milestone": null,
+    "id": 139,
+    "is_blocked": true,
+    "blocked_note": "Blocked test message",
+    "ref": 72,
+    "is_closed": false,
+    "created_date": "2016-04-12T12:17:19+0000",
+    "modified_date": "2016-04-12T12:17:19+0000",
+    "finish_date": null,
+    "subject": "test user story 5",
+    "description": "this is a test description",
+    "client_requirement": false,
+    "team_requirement": true,
+    "generated_from_issue": null,
+    "tribe_gig": null
+  },
+  "by": {
+    "id": 6,
+    "permalink": "http://localhost:9001/profile/user1",
+    "username": "user1",
+    "full_name": "Purificacion Montero",
+    "photo": "//media.taiga.io/avatar.80x80_q85_crop.png",
+    "gravatar_id": "464bb6d514c3ecece1b87136ceeda1da"
+  }
 };
 ```
 
