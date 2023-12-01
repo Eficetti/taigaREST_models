@@ -15,7 +15,8 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
   /// Constructor of the TaigaChangeDifference class
   TaigaChangeDifference({
     this.attachments,
-    this.assignedTo,
+    this.assignedToJob,
+    this.assignedToUserStory,
     this.dueDate,
     this.status,
     this.relatedSprint,
@@ -46,10 +47,18 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
 
   /// [FromTo] Instance. <br>
   /// `assignedTo:` Storage changes made on the guy assigned to the job, will
-  /// storage the old value that can came as null or userId and the new one,
+  /// storage the old value that can came as null or `full name` and the new 
+  /// one, also can be null or `full name`.
+  @MappableField(key: 'assigned_to')
+  FromTo? assignedToJob;
+
+  /// [FromTo] Instance. <br>
+  /// `assignedUserStory:` Storage changes made on the guy assigned to and 
+  /// `userStory`, this will storage the old value that can came as null or 
+  /// userId and the new one,
   /// also can be null or userId.
-  /// This will bring the `full name` of the user on `Taiga`.
-  FromTo? assignedTo;
+  @MappableField(key: 'assigned_users')
+  FromTo? assignedToUserStory;
 
   /// [FromTo] Instance. <br>
   /// `dueDate:` Storage changes made into the due date of the job, will storage
@@ -170,15 +179,15 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
   FromTo? typeStatus;
 
   /// [FromTo] Instance. <br>
-  /// `name:` Storage the changes made into the name of the job. This will 
+  /// `name:` Storage the changes made into the name of the job. This will
   /// storage the old value of the name of one job, and the new one.
   @MappableField(key: 'subject')
   FromTo? name;
 
   /// [CustomValuesDataChange] Instance. <br>
-  /// `customAttributes:` Storage the changes made into a custom attributes, 
-  /// this is divided on three, new, deleted and changed. If a change is 
-  /// committed, will storage the difference. <br> 
+  /// `customAttributes:` Storage the changes made into a custom attributes,
+  /// this is divided on three, new, deleted and changed. If a change is
+  /// committed, will storage the difference. <br>
   /// I recommend to see the [CustomValuesDataChange] object, for more info.
   CustomValuesDataChange? customAttributes;
 
@@ -192,8 +201,8 @@ class TaigaChangeDifference with TaigaChangeDifferenceMappable {
 
   /// [FromTo] Instance. <br>
   /// `htmlWikiContent:` Storage the changes made into the content of a wikipage
-  /// on HTML format. This will storage the old and the new value. <br> 
-  /// Usually came with `< p>` tags 
+  /// on HTML format. This will storage the old and the new value. <br>
+  /// Usually came with `< p>` tags
   @MappableField(key: 'content_html')
   FromTo? htmlWikiContent;
 

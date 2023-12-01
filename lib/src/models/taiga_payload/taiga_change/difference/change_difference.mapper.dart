@@ -29,9 +29,14 @@ class TaigaChangeDifferenceMapper
       v.attachments;
   static const Field<TaigaChangeDifference, AttachmentsChange> _f$attachments =
       Field('attachments', _$attachments, opt: true);
-  static FromTo? _$assignedTo(TaigaChangeDifference v) => v.assignedTo;
-  static const Field<TaigaChangeDifference, FromTo> _f$assignedTo =
-      Field('assignedTo', _$assignedTo, key: 'assigned_to', opt: true);
+  static FromTo? _$assignedToJob(TaigaChangeDifference v) => v.assignedToJob;
+  static const Field<TaigaChangeDifference, FromTo> _f$assignedToJob =
+      Field('assignedToJob', _$assignedToJob, key: 'assigned_to', opt: true);
+  static FromTo? _$assignedToUserStory(TaigaChangeDifference v) =>
+      v.assignedToUserStory;
+  static const Field<TaigaChangeDifference, FromTo> _f$assignedToUserStory =
+      Field('assignedToUserStory', _$assignedToUserStory,
+          key: 'assigned_users', opt: true);
   static FromTo? _$dueDate(TaigaChangeDifference v) => v.dueDate;
   static const Field<TaigaChangeDifference, FromTo> _f$dueDate =
       Field('dueDate', _$dueDate, key: 'due_date', opt: true);
@@ -121,7 +126,8 @@ class TaigaChangeDifferenceMapper
   @override
   final Map<Symbol, Field<TaigaChangeDifference, dynamic>> fields = const {
     #attachments: _f$attachments,
-    #assignedTo: _f$assignedTo,
+    #assignedToJob: _f$assignedToJob,
+    #assignedToUserStory: _f$assignedToUserStory,
     #dueDate: _f$dueDate,
     #status: _f$status,
     #relatedSprint: _f$relatedSprint,
@@ -150,7 +156,8 @@ class TaigaChangeDifferenceMapper
   static TaigaChangeDifference _instantiate(DecodingData data) {
     return TaigaChangeDifference(
         attachments: data.dec(_f$attachments),
-        assignedTo: data.dec(_f$assignedTo),
+        assignedToJob: data.dec(_f$assignedToJob),
+        assignedToUserStory: data.dec(_f$assignedToUserStory),
         dueDate: data.dec(_f$dueDate),
         status: data.dec(_f$status),
         relatedSprint: data.dec(_f$relatedSprint),
@@ -235,7 +242,8 @@ abstract class TaigaChangeDifferenceCopyWith<
     $Out> implements ClassCopyWith<$R, $In, $Out> {
   AttachmentsChangeCopyWith<$R, AttachmentsChange, AttachmentsChange>?
       get attachments;
-  FromToCopyWith<$R, FromTo, FromTo>? get assignedTo;
+  FromToCopyWith<$R, FromTo, FromTo>? get assignedToJob;
+  FromToCopyWith<$R, FromTo, FromTo>? get assignedToUserStory;
   FromToCopyWith<$R, FromTo, FromTo>? get dueDate;
   FromToCopyWith<$R, FromTo, FromTo>? get status;
   FromToCopyWith<$R, FromTo, FromTo>? get relatedSprint;
@@ -260,7 +268,8 @@ abstract class TaigaChangeDifferenceCopyWith<
   FromToCopyWith<$R, FromTo, FromTo>? get name;
   $R call(
       {AttachmentsChange? attachments,
-      FromTo? assignedTo,
+      FromTo? assignedToJob,
+      FromTo? assignedToUserStory,
       FromTo? dueDate,
       FromTo? status,
       FromTo? relatedSprint,
@@ -299,8 +308,12 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
       get attachments =>
           $value.attachments?.copyWith.$chain((v) => call(attachments: v));
   @override
-  FromToCopyWith<$R, FromTo, FromTo>? get assignedTo =>
-      $value.assignedTo?.copyWith.$chain((v) => call(assignedTo: v));
+  FromToCopyWith<$R, FromTo, FromTo>? get assignedToJob =>
+      $value.assignedToJob?.copyWith.$chain((v) => call(assignedToJob: v));
+  @override
+  FromToCopyWith<$R, FromTo, FromTo>? get assignedToUserStory =>
+      $value.assignedToUserStory?.copyWith
+          .$chain((v) => call(assignedToUserStory: v));
   @override
   FromToCopyWith<$R, FromTo, FromTo>? get dueDate =>
       $value.dueDate?.copyWith.$chain((v) => call(dueDate: v));
@@ -369,7 +382,8 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   @override
   $R call(
           {Object? attachments = $none,
-          Object? assignedTo = $none,
+          Object? assignedToJob = $none,
+          Object? assignedToUserStory = $none,
           Object? dueDate = $none,
           Object? status = $none,
           Object? relatedSprint = $none,
@@ -393,7 +407,9 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
           Object? name = $none}) =>
       $apply(FieldCopyWithData({
         if (attachments != $none) #attachments: attachments,
-        if (assignedTo != $none) #assignedTo: assignedTo,
+        if (assignedToJob != $none) #assignedToJob: assignedToJob,
+        if (assignedToUserStory != $none)
+          #assignedToUserStory: assignedToUserStory,
         if (dueDate != $none) #dueDate: dueDate,
         if (status != $none) #status: status,
         if (relatedSprint != $none) #relatedSprint: relatedSprint,
@@ -421,7 +437,9 @@ class _TaigaChangeDifferenceCopyWithImpl<$R, $Out>
   @override
   TaigaChangeDifference $make(CopyWithData data) => TaigaChangeDifference(
       attachments: data.get(#attachments, or: $value.attachments),
-      assignedTo: data.get(#assignedTo, or: $value.assignedTo),
+      assignedToJob: data.get(#assignedToJob, or: $value.assignedToJob),
+      assignedToUserStory:
+          data.get(#assignedToUserStory, or: $value.assignedToUserStory),
       dueDate: data.get(#dueDate, or: $value.dueDate),
       status: data.get(#status, or: $value.status),
       relatedSprint: data.get(#relatedSprint, or: $value.relatedSprint),
