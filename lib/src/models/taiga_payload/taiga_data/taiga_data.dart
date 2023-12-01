@@ -1,5 +1,4 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/custom_fields/taiga_custom_fields.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_details/data_details.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_point/data_point.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_project/taiga_project.dart';
@@ -101,13 +100,15 @@ class TaigaData with TaigaDataMappable {
   @MappableField(key: 'modified_date')
   DateTime? modifiedDate;
 
-  // TODO(Nacho): Ver si se deja asi o se modifica TaigaCustomFields
+  // TODO (ANY): Create a mapper to grab this data
 
-  /// `customValues:` Is the custom fields you add on Taiga, if you use this on
-  /// your Taiga project, modify the class "TaigaCustomFields" to map
-  /// your own values
+  /// `customValues:` Is the custom fields you add on `Taiga`, by now, its a 
+  /// [Map] because the fields are created by the owner of the `Taiga` project, 
+  /// so i can't read it with a normal mapper with the values of my project.<br>
+  /// If you want to know more about `Custom fields` on `Taiga`: <br>
+  /// https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150
   @MappableField(key: 'custom_attributes_values')
-  Map<String,dynamic>? customValues;
+  Map<String, dynamic>? customValues;
 }
 
 /// This `TaigaUserStoryData` class is customized to storage the data section
@@ -196,7 +197,7 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
 
   /// [DataSprint] instance <br>
   /// `relatedSprint:` This is the Sprint related to the `userStory`.
-  /// If you need more information about what kind of data will be here, I 
+  /// If you need more information about what kind of data will be here, I
   /// recommend to take a look to the `DataSprint` object. <br>
   @MappableField(key: 'milestone')
   DataSprint? relatedSprint;
@@ -208,7 +209,7 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
   /// * Front
   /// * Back
   /// * Project Manager <br>
-  /// If you need more information about what kind of data will be here, I 
+  /// If you need more information about what kind of data will be here, I
   /// recommend to take a look to the `DataStoryPoint` object. <br>
   @MappableField(key: 'points')
   List<DataStoryPoint> storyPoints;
@@ -439,16 +440,16 @@ class TaigaEpicData extends TaigaData with TaigaEpicDataMappable {
   /// `color:` Its tje chosen color at the time of Creation of the Epic job.
   String color;
 
-  /// `epicsOrder:` Its a value who indicates the order of the Epic. 
+  /// `epicsOrder:` Its a value who indicates the order of the Epic.
   /// This is a `Taiga` value
   int epicsOrder;
 
-  /// `teamRequirementStatus:` Its a value who indicates if it is a Team 
+  /// `teamRequirementStatus:` Its a value who indicates if it is a Team
   /// Requirement or not. Can be `True` of `False`
   @MappableField(key: 'team_requirement')
   bool teamRequirementStatus;
 
-  /// `clientRequirementStatus:` Its a value who indicates if it is a Client 
+  /// `clientRequirementStatus:` Its a value who indicates if it is a Client
   /// Requirement or not. Can be `True` of `False`
   @MappableField(key: 'client_requirement')
   bool clientRequirementStatus;
