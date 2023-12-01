@@ -150,7 +150,6 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
 
   /// `assignedUsers:` This is a list of all the `IDs` of the users assigned on
   /// the `userStory`.
-  @MappableField(key: 'assigned_to')
   List<int> assignedUsers;
 
   /// `clientRequirementStatus:` If this is an client requirement or not. <br>
