@@ -109,7 +109,7 @@ Then when you want to read your custom fields, you have call the fromJson method
 ```
 import 'MyCustomFields.dart'
 
-// Here is the old code where you receive the payload data from Taiga
+// Here is the other part of the code where you receive the payload data from Taiga
 
 // And here is where you map your custom fields
 MyCustomFields.fromJson(jsonEncode(youPayload.data.customValues))
