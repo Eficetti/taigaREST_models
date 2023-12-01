@@ -191,6 +191,7 @@ class TaigaUserStoryData extends TaigaData with TaigaUserStoryDataMappable {
 
   /// `isClosedStatus:` Is the state of the UserStory Closed or not Closed
   /// `True` or `False`.
+  @MappableField(key: 'is_closed')
   bool isClosedStatus;
 
   /// [DataSprint] instance <br>

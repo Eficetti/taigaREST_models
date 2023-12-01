@@ -369,7 +369,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
       Field('isBlockedStatus', _$isBlockedStatus, key: 'is_blocked');
   static bool _$isClosedStatus(TaigaUserStoryData v) => v.isClosedStatus;
   static const Field<TaigaUserStoryData, bool> _f$isClosedStatus =
-      Field('isClosedStatus', _$isClosedStatus, key: 'is_closed_status');
+      Field('isClosedStatus', _$isClosedStatus, key: 'is_closed');
   static DataSprint? _$relatedSprint(TaigaUserStoryData v) => v.relatedSprint;
   static const Field<TaigaUserStoryData, DataSprint> _f$relatedSprint =
       Field('relatedSprint', _$relatedSprint, key: 'milestone');

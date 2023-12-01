@@ -1,4 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/taiga_data.dart';
 
 part 'taiga_custom_fields.mapper.dart';
 
@@ -35,3 +36,36 @@ class TaigaCustomFields with TaigaCustomFieldsMappable {
   /// TaigaCustomAttributes Object
   static const fromJson = TaigaCustomFieldsMapper.fromJson;
 }
+
+// base class TaigaCustomField<T> {
+//   final String name;
+//   T value;
+
+//   TaigaCustomField(this.name, this.value);
+// }
+
+
+// sealed class TaigaCustomFieldString extends TaigaCustomField<String>{
+//    final String name;
+//   T value;
+//   TaigaCustomField(this.name, this.value);
+// }
+
+// sealed  class TaigaCustomFieldDouble extends TaigaCustomField<double>{
+//   ;
+// }
+
+
+
+
+// codigo dle munieco
+// class ModeloTaskEnNidus extends TaigaTaskData{
+//   TaigaCustomFieldString linkToFigma; 
+
+
+// }
+
+// main(){
+//   ModeloTaskEnNidus modelo;
+//   final linkCompleto = modelo.linkToFigma.value.substring('http')[1];
+// }
