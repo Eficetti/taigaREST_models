@@ -14,58 +14,39 @@ part 'taiga_custom_fields.mapper.dart';
 class TaigaCustomFields with TaigaCustomFieldsMappable {
   /// Constructor of the TaigaCustomAttributes class
   TaigaCustomFields({
-    this.figmaUrl,
-    this.bounty,
-    this.figmaToDeveloped,
+    // this.figmaUrl,
+    // this.bounty,
+    // this.figmaToDeveloped,
+    this.name,
+    this.value,
   });
 
-  /// `figmaUrl:` Its the Url link of figma assigned to a `UserStory`.
-  @MappableField(key: 'Pestaña del Figma')
-  String? figmaUrl;
+  ///
+  TaigaCustomFields.fromJson(MapEntry<String, dynamic> json) {
+    name = json.key;
+    value = json.value;
+  }
 
-  /// `figmaToDeveloped:` Url link of figma to be developed, this is related to 
+  ///
+  String? name;
+
+  ///
+  dynamic value;
+
+  /// `figmaUrl:` Its the Url link of figma assigned to a `UserStory`.
+  //@MappableField(key: 'Pestaña del Figma')
+  //String? figmaUrl;
+
+  /// `figmaToDeveloped:` Url link of figma to be developed, this is related to
   /// a `jobType: Task`
-  @MappableField(key: 'Componente en el Figma')
-  String? figmaToDeveloped;
+  //@MappableField(key: 'Componente en el Figma')
+  //String? figmaToDeveloped;
 
   /// `bounty:` Its tje Bounty assigned to a `task`
-  @MappableField(key: 'Bounty')
-  String? bounty;
+  //@MappableField(key: 'Bounty')
+  //String? bounty;
 
   /// FromJson method, convert a json type object into this
   /// TaigaCustomAttributes Object
-  static const fromJson = TaigaCustomFieldsMapper.fromJson;
+  //static const fromJson = TaigaCustomFieldsMapper.fromJson;
 }
-
-// base class TaigaCustomField<T> {
-//   final String name;
-//   T value;
-
-//   TaigaCustomField(this.name, this.value);
-// }
-
-
-// sealed class TaigaCustomFieldString extends TaigaCustomField<String>{
-//    final String name;
-//   T value;
-//   TaigaCustomField(this.name, this.value);
-// }
-
-// sealed  class TaigaCustomFieldDouble extends TaigaCustomField<double>{
-//   ;
-// }
-
-
-
-
-// codigo dle munieco
-// class ModeloTaskEnNidus extends TaigaTaskData{
-//   TaigaCustomFieldString linkToFigma; 
-
-
-// }
-
-// main(){
-//   ModeloTaskEnNidus modelo;
-//   final linkCompleto = modelo.linkToFigma.value.substring('http')[1];
-// }
