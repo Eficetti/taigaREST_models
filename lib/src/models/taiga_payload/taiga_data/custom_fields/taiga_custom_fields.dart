@@ -7,7 +7,7 @@ part 'taiga_custom_fields.mapper.dart';
 //! https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150
 
 /// This class will storage all the custom fields on a object, if you create
-/// a taiga project, you will need to modify the CustomAttributes class
+/// a taiga project, you will need to modify the TaigaCustomFields class
 /// and mapper to read your own values
 @MappableClass(caseStyle: CaseStyle.snakeCase)
 class TaigaCustomFields with TaigaCustomFieldsMappable {
