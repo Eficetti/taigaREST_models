@@ -342,7 +342,7 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static List<int> _$assignedUsers(TaigaUserStoryData v) => v.assignedUsers;
   static const Field<TaigaUserStoryData, List<int>> _f$assignedUsers =
-      Field('assignedUsers', _$assignedUsers, key: 'assigned_users');
+      Field('assignedUsers', _$assignedUsers, key: 'assigned_to');
   static String _$blockedNote(TaigaUserStoryData v) => v.blockedNote;
   static const Field<TaigaUserStoryData, String> _f$blockedNote =
       Field('blockedNote', _$blockedNote, key: 'blocked_note');

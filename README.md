@@ -4,6 +4,8 @@
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
+--- 
+
 ## <ins> About </ins>
 
 TaigaRest models is a package created to consume the data from Taiga (<https://tree.taiga.io>) webhooks, and put it
@@ -26,9 +28,10 @@ taiga_rest_models:
       url: https://github.com/Eficetti/taigaREST_models.git
 ```
 
-Once is installed, you have to connect the taiga webhooks to your project on Dart (There is a guide about how to do it: <https://docs.taiga.io/webhooks-configuration.html#_developing_your_own_integration>), once it is connected you have to decode the data using the 'dart:convert' library (<https://api.dart.dev/stable/3.2.1/dart-convert/dart-convert-library.html>) and then use the fromJson method of the TaigaPayload model.   
+Once is installed, you have to connect the taiga webhooks to your project on Dart (There is a guide about how to do it: <https://docs.taiga.io/webhooks-configuration.html#_developing_your_own_integration>), once it is connected, you have to decode the data using the 'dart:convert' library (<https://api.dart.dev/stable/3.2.1/dart-convert/dart-convert-library.html>) and then use the fromJson method of the TaigaPayload model.   
 
 ### <ins> There is an example of the route where the webhook is hitting: </ins>
+In this example we are using a serverpod project (<https://serverpod.dev/>)
 ```
 import 'dart:convert';
 import 'dart:io';
@@ -67,6 +70,8 @@ For using custom fields of taiga (<https://community.taiga.io/t/can-i-add-new-cu
 ```
 import 'package:dart_mappable/dart_mappable.dart';
 
+part 'my_custom_fields.mapper.dart';
+
 /// Documentation for your `MyCustomFields` class
 @MappableClass()
 class MyCustomFields with MyCustomFieldsMappable{
@@ -93,15 +98,20 @@ class MyCustomFields with MyCustomFieldsMappable{
 }
 ```
 
-remind the key is how it came from the Taiga webhook, and it will be the exact same name you put in your custom fields configuration on your Taiga project. Once you have done, then you have to generate the mappable models using:  
+Note: You need build_runner package (https://pub.dev/packages/build_runner) to do this!
+Remind the @MappableField(key: 'Name of your field on Taiga') is how it came from the Taiga webhook, and it will be the exact same name you put in your custom fields configuration on your Taiga project. Once you have done, then you have to generate the mappable models using:  
 ```
 dart run build_runner build --delete-conflicting-outputs  
 ```
 
 Then when you want to read your custom fields, you have call the fromJson method
+
 ```
 import 'MyCustomFields.dart'
 
+// Here is the old code where you receive the payload data from Taiga
+
+// And here is where you map your custom fields
 MyCustomFields.fromJson(jsonEncode(youPayload.data.customValues))
 ```
 ---
@@ -172,6 +182,122 @@ switch (payload.jobType) {
 Once this is done you can work with the data as the way you want
 
 ---
+
+## Examples
+
+### This is an example from Taiga payload
+In this case is type milestone (Sprint). 
+Note: This payload samples are from the taiga docs: https://docs.taiga.io/webhooks.html#_test_payload
+So if you want to create an object of this payload you have to read it, and save it into a var, in this cas we're going to storage this as a map and then transform into a json with the `dart:convert` package
+```
+import 'package:taiga_rest_models/taiga_rest_models.dart';
+
+import 'src/models/my_custom_fields.dart';
+
+void main() {
+    // Generate the object
+    final payload = TaigaPayload.fromJson(payload(body));
+
+    // Map custom fields
+    if (printData.customValues!.isNotEmpty) {
+        // If your custom fields class is well crated and generated it will return your fields  
+        final customFields = MyCustomFields.fromJson(jsonEncode(printData.customValues));
+
+        // Print the custom fields if they exist
+        print (customFields); // Print: MyCustomFields(yourField: Your field value)
+    }
+
+    print (payload);
+    
+}
+
+final payload = {
+    "type": "userstory",
+    "date": "2016-04-12T12:17:20.486Z",
+    "action": "create",
+    "data": {
+        "custom_attributes_values": {"Name of your field on Taiga": "Your field value",},
+        "watchers": [],
+        "permalink": "http://localhost:9001/project/project-0/us/72",
+        "tags": [
+            "dolorum",
+            "adipisci",
+            "ipsa"
+        ],
+        "external_reference": null,
+        "project": {
+            "id": 1,
+            "permalink": "http://localhost:9001/project/project-0",
+            "name": "Project Example 0",
+            "logo_big_url": null
+        },
+        "owner": {
+            "id": 6,
+            "permalink": "http://localhost:9001/profile/user1",
+            "username": "user1",
+            "full_name": "Purificacion Montero",
+            "photo": "//media.taiga.io/avatar.80x80_q85_crop.png",
+            "gravatar_id": "464bb6d514c3ecece1b87136ceeda1da"
+        },
+        "assigned_to": null,
+        "points": [
+            {
+                "role": "UX",
+                "name": "5",
+                "value": 5.0
+            },
+            {
+                "role": "Design",
+                "name": "1",
+                "value": 1.0
+            },
+            {
+                "role": "Front",
+                "name": "3",
+                "value": 3.0
+            },
+            {
+                "role": "Back",
+                "name": "40",
+                "value": 40.0
+            }
+        ],
+        "status": {
+            "id": 1,
+            "name": "New",
+            "slug": "new",
+            "color": "#999999",
+            "is_closed": false,
+            "is_archived": false
+        },
+        "milestone": null,
+        "id": 139,
+        "is_blocked": true,
+        "blocked_note": "Blocked test message",
+        "ref": 72,
+        "is_closed": false,
+        "created_date": "2016-04-12T12:17:19+0000",
+        "modified_date": "2016-04-12T12:17:19+0000",
+        "finish_date": null,
+        "subject": "test user story 5",
+        "description": "this is a test description",
+        "client_requirement": false,
+        "team_requirement": true,
+        "generated_from_issue": null,
+        "tribe_gig": null
+    },
+    "by": {
+        "id": 6,
+        "permalink": "http://localhost:9001/profile/user1",
+        "username": "user1",
+        "full_name": "Purificacion Montero",
+        "photo": "//media.taiga.io/avatar.80x80_q85_crop.png",
+        "gravatar_id": "464bb6d514c3ecece1b87136ceeda1da"
+    }
+};
+```
+
+
 
 ## Installation 💻
 
