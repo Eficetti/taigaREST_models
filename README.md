@@ -4,26 +4,49 @@
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
+## <ins> About </ins>
+
 TaigaRest models is a package created to consume the data from Taiga (<https://tree.taiga.io>) webhooks, and put it
-inside of Dart models, to use it on a project. We are using mappable models (<https://pub.dev/packages/dart_mappable>)  
+inside of Dart models, to use it on a custom project. 
+
+We are using dart_mappable models (<https://pub.dev/packages/dart_mappable>)  
+
+
+## <ins> TO-DO LIST </ins>
+- [ ] Create a mapper or function to read the custom fields, and make it an object (Now is `Map<String,Dynamic>`)
+- [ ] End the function to validate signature, the actual its not working
+
 
 ## <ins> How to use (?) </ins>
 
-First of all, you have to connect the taiga webhooks to your project on Dart (There is a guide: <https://docs.taiga.io/webhooks-configuration.html#_developing_your_own_integration>), once it is connected you have to decode the data using
-the 'dart:convert' library (<https://api.dart.dev/stable/3.2.1/dart-convert/dart-convert-library.html>) and then use the fromJson method of the TaigaPayload model.   
+Install the package adding this into your dependencies
+```
+taiga_rest_models:
+    git:
+      url: https://github.com/Eficetti/taigaREST_models.git
+```
 
-<ins> There is an example of the route where the webhook is hitting: </ins>
+Once is installed, you have to connect the taiga webhooks to your project on Dart (There is a guide about how to do it: <https://docs.taiga.io/webhooks-configuration.html#_developing_your_own_integration>), once it is connected you have to decode the data using the 'dart:convert' library (<https://api.dart.dev/stable/3.2.1/dart-convert/dart-convert-library.html>) and then use the fromJson method of the TaigaPayload model.   
+
+### <ins> There is an example of the route where the webhook is hitting: </ins>
 ```
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:taiga_rest_models/taiga_rest_models.dart';
+
 class RouteRoot extends WidgetRoute {
   @override
   Future<Widget> build(Session session, HttpRequest request) async {
-    final decodedBody = await utf8.decodeStream(request);
+
+    // Here is the data we want to convert into an our TaigaPayload Model
+    final decodedBody = await utf8.decodeStream(request); 
+
+    // This is just the response we give, don't mind about it
     final body = json.decode(decodedBody);
     
-    // Convert the webhook payload into a dart model using 'fromJson' method
+    // Convert the webhook payload into a dart model using the 'fromJson' 
+    //method inside of taigaPayload
     final payload = TaigaPayload.fromJson(decodedBody);
     
     // Add your custom code to manage what to do after generate the model
@@ -33,27 +56,53 @@ class RouteRoot extends WidgetRoute {
   }
 }
 ```
----
 
 This will create the model with all the data you receive from Taiga. Is recommended to validate this data before using it, but this feature is pending. If you want to do it by yourself: <https://docs.taiga.io/webhooks.html#_verify_signature>  
 
 ## <ins> How to use custom fields (?) </ins>
-For using custom fields of taiga (<https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150>) by the moment you have to modify the TaigaCustomFields model to add your custom fields. CustomField file directory:
-'lib\src\models\taiga_payload\taiga_data\custom_fields\taiga_custom_fields.dart'.   
+For using custom fields of taiga (<https://community.taiga.io/t/can-i-add-new-custom-fields-to-my-project/150>) by the moment you have to create a custom model, with a mapper, we recommend using dart_mappable models (<https://pub.dev/packages/dart_mappable>).
+
+### <ins> There is an example about how to do it: </ins>
 
 ```
-TaigaCustomFields({
-    this.yourField,
-  });
+import 'package:dart_mappable/dart_mappable.dart';
 
-  /// Documentation for your field
-  @MappableField(key: 'Name of your field')
-  String? yourField;
+/// Documentation for your `MyCustomFields` class
+@MappableClass()
+class MyCustomFields with MyCustomFieldsMappable{
+    MyCustomFields({
+        this.yourField,
+    });
+
+    /// Remind that you have different types of field on `Taiga`
+    /// Text can be read as [String]
+    /// Multi-line can be read as [String]
+    /// Rich-text can be read as [String]
+    /// Date can be read as [DateTime]
+    /// Url can be read as [String]
+    /// Dropdown can be read as [String]
+    /// Checkbox can be read as [bool]
+    /// Number can be read as [num]
+    /// Documentation for your field
+    @MappableField(key: 'Name of your field on Taiga')
+    String? yourField; 
+
+    /// FromJson method, convert a json type object into this
+    /// `MyCustomFields` Object
+    static const fromJson = MyCustomFieldsMapper.fromJson;
+}
 ```
 
 remind the key is how it came from the Taiga webhook, and it will be the exact same name you put in your custom fields configuration on your Taiga project. Once you have done, then you have to generate the mappable models using:  
 ```
 dart run build_runner build --delete-conflicting-outputs  
+```
+
+Then when you want to read your custom fields, you have call the fromJson method
+```
+import 'MyCustomFields.dart'
+
+MyCustomFields.fromJson(jsonEncode(youPayload.data.customValues))
 ```
 ---
 
@@ -82,24 +131,6 @@ To understand this models you need to know, the payload of Taiga webhook, always
 - *Data* field contains the current object information.  
 
 - *Change* field (only present on change notifications) contains the information about the changes made.  
-
-## <ins> Important Fields </ins>  
-
-### <ins> Explaining TaigaUser</ins>  
-
-TaigaUser is used on different instances and it have the next values:   
-
-- **id**: id is just like any id from an user, in this case it refers to one user on the Taiga platform  
-
-- **taigaProfileUrl**: Is the permanent url to the user profile on Taiga  
-
-- **username**: Is the username of the user on Taiga  
-
-- **fullName**: Is the full name of the user related on Taiga  
-
-- **profilePicUrl**: Is the link of his actual profile picture  
-
-- **gravatarServiceId**: Is the Id of the user avatar on the gravatar service(Gravatar service url: https://docs.gravatar.com/)  
 
 ### <ins> Explaining Data </ins>
 
@@ -132,8 +163,14 @@ switch (payload.jobType) {
     case 'milestone':
         DataSprint correctDataType = payload.data as DataSprint;
 
+    /// Convert into wikipage
+    case 'wikipage':
+    DataWikiPage printData = payload.data as DataWikiPage;
 }
 ``` 
+
+Once this is done you can work with the data as the way you want
+
 ---
 
 ## Installation 💻
