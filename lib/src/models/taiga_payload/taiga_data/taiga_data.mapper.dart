@@ -66,8 +66,8 @@ class TaigaDataMapper extends ClassMapperBase<TaigaData> {
   static DateTime? _$modifiedDate(TaigaData v) => v.modifiedDate;
   static const Field<TaigaData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomFields? _$customValues(TaigaData v) => v.customValues;
-  static const Field<TaigaData, TaigaCustomFields> _f$customValues =
+  static Map<String, dynamic>? _$customValues(TaigaData v) => v.customValues;
+  static const Field<TaigaData, Map<String, dynamic>> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
 
   @override
@@ -164,6 +164,8 @@ abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
   TaigaProjectCopyWith<$R, TaigaProject, TaigaProject> get fromProject;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>?> get jobWatchers;
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
+      get customValues;
   $R call(
       {int? jobId,
       int? referenceNumber,
@@ -178,7 +180,7 @@ abstract class TaigaDataCopyWith<$R, $In extends TaigaData, $Out>
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomFields? customValues});
+      Map<String, dynamic>? customValues});
   TaigaDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -212,6 +214,14 @@ class _TaigaDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
+  @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
+      get customValues => $value.customValues != null
+          ? MapCopyWith(
+              $value.customValues!,
+              (v, t) => ObjectCopyWith(v, $identity, t),
+              (v) => call(customValues: v))
+          : null;
   @override
   $R call(
           {int? jobId,
@@ -326,9 +336,9 @@ class TaigaUserStoryDataMapper extends ClassMapperBase<TaigaUserStoryData> {
   static DateTime? _$modifiedDate(TaigaUserStoryData v) => v.modifiedDate;
   static const Field<TaigaUserStoryData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomFields? _$customValues(TaigaUserStoryData v) =>
+  static Map<String, dynamic>? _$customValues(TaigaUserStoryData v) =>
       v.customValues;
-  static const Field<TaigaUserStoryData, TaigaCustomFields> _f$customValues =
+  static const Field<TaigaUserStoryData, Map<String, dynamic>> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static List<int> _$assignedUsers(TaigaUserStoryData v) => v.assignedUsers;
   static const Field<TaigaUserStoryData, List<int>> _f$assignedUsers =
@@ -506,6 +516,9 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get jobWatchers;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
+  @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+      get customValues;
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, DataStoryPoint,
@@ -526,7 +539,7 @@ abstract class TaigaUserStoryDataCopyWith<$R, $In extends TaigaUserStoryData,
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomFields? customValues,
+      Map<String, dynamic>? customValues,
       List<int>? assignedUsers,
       String? blockedNote,
       bool? clientRequirementStatus,
@@ -574,6 +587,14 @@ class _TaigaUserStoryDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
+  @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+      get customValues => $value.customValues != null
+          ? MapCopyWith(
+              $value.customValues!,
+              (v, t) => ObjectCopyWith(v, $identity, t),
+              (v) => call(customValues: v))
+          : null;
   @override
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get assignedUsers =>
       ListCopyWith(
@@ -745,8 +766,9 @@ class TaigaTaskDataMapper extends ClassMapperBase<TaigaTaskData> {
   static DateTime? _$modifiedDate(TaigaTaskData v) => v.modifiedDate;
   static const Field<TaigaTaskData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomFields? _$customValues(TaigaTaskData v) => v.customValues;
-  static const Field<TaigaTaskData, TaigaCustomFields> _f$customValues =
+  static Map<String, dynamic>? _$customValues(TaigaTaskData v) =>
+      v.customValues;
+  static const Field<TaigaTaskData, Map<String, dynamic>> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static String _$blockedNote(TaigaTaskData v) => v.blockedNote;
   static const Field<TaigaTaskData, String> _f$blockedNote =
@@ -907,6 +929,9 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get jobWatchers;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
+  @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+      get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
       get promotedToList;
@@ -927,7 +952,7 @@ abstract class TaigaTaskDataCopyWith<$R, $In extends TaigaTaskData, $Out>
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomFields? customValues,
+      Map<String, dynamic>? customValues,
       String? blockedNote,
       DateTime? dueDate,
       String? dueDateReason,
@@ -972,6 +997,14 @@ class _TaigaTaskDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
+  @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+      get customValues => $value.customValues != null
+          ? MapCopyWith(
+              $value.customValues!,
+              (v, t) => ObjectCopyWith(v, $identity, t),
+              (v) => call(customValues: v))
+          : null;
   @override
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get relatedSprint =>
       $value.relatedSprint?.copyWith.$chain((v) => call(relatedSprint: v));
@@ -1132,8 +1165,9 @@ class TaigaIssueDataMapper extends ClassMapperBase<TaigaIssueData> {
   static DateTime? _$modifiedDate(TaigaIssueData v) => v.modifiedDate;
   static const Field<TaigaIssueData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomFields? _$customValues(TaigaIssueData v) => v.customValues;
-  static const Field<TaigaIssueData, TaigaCustomFields> _f$customValues =
+  static Map<String, dynamic>? _$customValues(TaigaIssueData v) =>
+      v.customValues;
+  static const Field<TaigaIssueData, Map<String, dynamic>> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static DateTime? _$dueDate(TaigaIssueData v) => v.dueDate;
   static const Field<TaigaIssueData, DateTime> _f$dueDate =
@@ -1280,6 +1314,9 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get jobWatchers;
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
+  @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+      get customValues;
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint;
   DataDetailsCopyWith<$R, DataDetails, DataDetails> get issuePriority;
   ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get promotedToList;
@@ -1300,7 +1337,7 @@ abstract class TaigaIssueDataCopyWith<$R, $In extends TaigaIssueData, $Out>
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomFields? customValues,
+      Map<String, dynamic>? customValues,
       DateTime? dueDate,
       String? dueDateReason,
       DateTime? finishedDate,
@@ -1343,6 +1380,14 @@ class _TaigaIssueDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
+  @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+      get customValues => $value.customValues != null
+          ? MapCopyWith(
+              $value.customValues!,
+              (v, t) => ObjectCopyWith(v, $identity, t),
+              (v) => call(customValues: v))
+          : null;
   @override
   DataSprintCopyWith<$R, DataSprint, DataSprint>? get issueRelatedSprint =>
       $value.issueRelatedSprint?.copyWith
@@ -1500,8 +1545,9 @@ class TaigaEpicDataMapper extends ClassMapperBase<TaigaEpicData> {
   static DateTime? _$modifiedDate(TaigaEpicData v) => v.modifiedDate;
   static const Field<TaigaEpicData, DateTime> _f$modifiedDate =
       Field('modifiedDate', _$modifiedDate, key: 'modified_date');
-  static TaigaCustomFields? _$customValues(TaigaEpicData v) => v.customValues;
-  static const Field<TaigaEpicData, TaigaCustomFields> _f$customValues =
+  static Map<String, dynamic>? _$customValues(TaigaEpicData v) =>
+      v.customValues;
+  static const Field<TaigaEpicData, Map<String, dynamic>> _f$customValues =
       Field('customValues', _$customValues, key: 'custom_attributes_values');
   static String _$color(TaigaEpicData v) => v.color;
   static const Field<TaigaEpicData, String> _f$color = Field('color', _$color);
@@ -1631,6 +1677,9 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned;
   @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+      get customValues;
+  @override
   $R call(
       {int? jobId,
       int? referenceNumber,
@@ -1645,7 +1694,7 @@ abstract class TaigaEpicDataCopyWith<$R, $In extends TaigaEpicData, $Out>
       String? jobDescription,
       DateTime? creationDate,
       DateTime? modifiedDate,
-      TaigaCustomFields? customValues,
+      Map<String, dynamic>? customValues,
       String? color,
       int? epicsOrder,
       bool? teamRequirementStatus,
@@ -1683,6 +1732,14 @@ class _TaigaEpicDataCopyWithImpl<$R, $Out>
   @override
   TaigaUserCopyWith<$R, TaigaUser, TaigaUser>? get userAssigned =>
       $value.userAssigned?.copyWith.$chain((v) => call(userAssigned: v));
+  @override
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+      get customValues => $value.customValues != null
+          ? MapCopyWith(
+              $value.customValues!,
+              (v, t) => ObjectCopyWith(v, $identity, t),
+              (v) => call(customValues: v))
+          : null;
   @override
   $R call(
           {int? jobId,

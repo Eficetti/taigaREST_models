@@ -107,7 +107,7 @@ class TaigaData with TaigaDataMappable {
   /// your Taiga project, modify the class "TaigaCustomFields" to map
   /// your own values
   @MappableField(key: 'custom_attributes_values')
-  TaigaCustomFields? customValues;
+  Map<String,dynamic>? customValues;
 }
 
 /// This `TaigaUserStoryData` class is customized to storage the data section
