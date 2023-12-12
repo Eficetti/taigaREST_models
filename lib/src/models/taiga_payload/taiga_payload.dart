@@ -76,8 +76,8 @@ class TaigaPayload with TaigaPayloadMappable {
   /// [TaigaUserStoryData] <br>
   /// [TaigaTaskData] <br>
   /// [TaigaEpicData] <br>
-  /// [DataSprint] <br>
-  /// [DataWikiPage] <br>
+  /// [TaigaSprintData] <br>
+  /// [TaigaWikiPageData] <br>
   dynamic data;
 
   /// This is the changes that were made on this payload, this only exist if the

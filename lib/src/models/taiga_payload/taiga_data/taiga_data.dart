@@ -100,7 +100,7 @@ class TaigaData with TaigaDataMappable {
   @MappableField(key: 'modified_date')
   DateTime? modifiedDate;
 
-  // TODO (ANY): Create a mapper to grab this data
+  // TODO(ANY): Create a mapper to grab this data
 
   /// `customValues:` Is the custom fields you add on `Taiga`, by now, its a 
   /// [Map] because the fields are created by the owner of the `Taiga` project, 
@@ -367,7 +367,7 @@ class TaigaIssueData extends TaigaData with TaigaIssueDataMappable {
   /// is not any reason assigned.
   String dueDateReason;
 
-  /// [DataSprint] Instance <br>
+  /// [TaigaSprintData] Instance <br>
   /// `issueRelatedSprint:` Its the sprint related to the `Taiga Issue`,
   /// this value appears when you attach an `issue` into an `sprint`. <br>
   /// Came from `Taiga` as `milestone`.
