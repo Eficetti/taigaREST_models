@@ -18,4 +18,5 @@ dependencies:
   crypto: ^3.0.3
   dart_mappable: ^4.0.1
   freezed_annotation: ^2.4.1
+  http: ^0.13.3
   json_annotation: ^4.8.1
