@@ -9,20 +9,20 @@ part 'issue.mapper.dart';
 class TaigaIssueAPI with TaigaIssueAPIMappable {
   ///
   TaigaIssueAPI({
-    required this.assignedTo,
-    required this.blockedNote,
-    required this.description,
-    required this.isBlocked,
-    required this.isClosed,
-    required this.milestone,
-    required this.priority,
     required this.project,
-    required this.severity,
-    required this.status,
     required this.subject,
-    required this.tags,
-    required this.type,
     required this.watchers,
+    this.assignedTo,
+    this.blockedNote,
+    this.description,
+    this.isBlocked,
+    this.isClosed,
+    this.milestone,
+    this.priority,
+    this.severity,
+    this.status,
+    this.tags,
+    this.type,
   });
 
   ///
