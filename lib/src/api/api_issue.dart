@@ -26,7 +26,9 @@ class ApiTaigaIssue {
   ///   try this: <br>
   ///   http://localhost:8000/api/v1 <br>
   ///   <br>
-  ///   note: Do not put the last "/", because the function already have this
+  ///   <h5> 
+  ///   note: Do not put the last "/", because the function already have this 
+  ///   </h5>
   /// </p></li>
   /// <br>
   /// <li>
