@@ -35,16 +35,16 @@ class ApiTaigaIssue {
   /// <ul>
   /// <br>
   /// <li><p>
-  ///   [TaigaIssueAPI.project] <strong>ID</strong> of the <strong>project</strong>
+  ///   [TaigaIssueAPI.projectId] <strong>ID</strong> of the <strong>project</strong>
   /// </p></li>
   /// <br>
   /// <li><p>
-  ///   [TaigaIssueAPI.subject] <strong>Name</strong> of the future 
+  ///   [TaigaIssueAPI.title] <strong>Name</strong> of the future 
   ///   <strong>issue</strong>
   /// </p></li>
   /// <br>
   /// <li><p>
-  ///   [TaigaIssueAPI.watchers] Can't be null, because it brakes. So if you
+  ///   [TaigaIssueAPI.watchersId] Can't be null, because it brakes. So if you
   ///   don't want to use this value, just let an empty [List], like this: 
   ///   <strong> [ ] </strong>
   ///   </p></li>
@@ -69,20 +69,20 @@ class ApiTaigaIssue {
   }) async {
     /// This is the body of the `POST` request
     final data = {
-      'assigned_to': issue.assignedTo,
+      'assigned_to': issue.assignedToId,
       'blocked_note': issue.blockedNote,
       'description': issue.description,
       'is_blocked': issue.isBlocked,
       'is_closed': issue.isClosed,
-      'milestone': issue.milestone,
-      'priority': issue.priority,
-      'project': issue.project,
-      'severity': issue.severity,
-      'status': issue.status,
-      'subject': issue.subject,
+      'milestone': issue.sprintId,
+      'priority': issue.priorityId,
+      'project': issue.projectId,
+      'severity': issue.severityId,
+      'status': issue.statusId,
+      'subject': issue.title,
       'tags': issue.tags,
       'type': issue.type,
-      'watchers': issue.watchers,
+      'watchers': issue.watchersId,
     };
 
     // Create the 'POST' request
@@ -120,10 +120,10 @@ void main() async {
     authToken: auth,
     apiUrl: 'https://api.taiga.io/api/v1',
     issue: TaigaIssueAPI(
-      project: 1179467,
-      subject: 'Prio 1',
-      watchers: [],
-      priority: 3541292,
+      projectId: 1179467,
+      title: 'Prio 1',
+      watchersId: [],
+      priorityId: 3541292,
     ),
   );
 
