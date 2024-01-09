@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:taiga_rest_models/src/api/api_auth.dart';
-import 'package:taiga_rest_models/src/models/API/issue_model/issue.dart';
+import 'package:taiga_rest_models/src/models/api_models/issue_model/issue.dart';
 
 /// This class [ApiTaigaIssue] will manage all the methods to interact with an
 /// `issue` using the `Taiga API`
