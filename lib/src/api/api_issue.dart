@@ -8,13 +8,65 @@ import 'package:taiga_rest_models/src/models/api_models/issue_model/issue.dart';
 /// `issue` using the `Taiga API`
 class ApiTaigaIssue {
   /// This function [createIssue] will send a `POST` request into the `API` to
-  /// create an `issue`.
+  /// create an `issue`. <br>
+  /// This can manage all type of values from the `issue`, if you want to know
+  /// more check the [TaigaIssueAPI] model. <br>
+  /// <h4> Parameters: </h4>
+  /// <ul><li><p>
+  ///   [String] authToken: [authToken] Its the <strong>token</strong> given by 
+  ///   the function [ApiAuth], make sure to use that function to generate it 
+  ///   before use it.
+  /// </p></li>
+  /// <br>
+  /// <li><p>
+  ///  [String] apiUrl: [apiUrl] Its the url of the api, if you're using the
+  ///   web version of <strong>Taiga</strong>, this should work: <br>
+  ///   https://api.taiga.io/api/v1, <br>
+  ///   otherwise if you use the App on local, will be a different one, you can 
+  ///   try this: <br>
+  ///   http://localhost:8000/api/v1 <br>
+  ///   <br>
+  ///   note: Do not put the last "/", because the function already have this
+  /// </p></li>
+  /// <br>
+  /// <li>
+  ///   [TaigaIssueAPI] issue: [issue] This value contains all the things you
+  ///   will need to customize your issue, it only needs 3 values.
+  /// <ul>
+  /// <br>
+  /// <li><p>
+  ///   [TaigaIssueAPI.project] <strong>ID</strong> of the <strong>project</strong>
+  /// </p></li>
+  /// <br>
+  /// <li><p>
+  ///   [TaigaIssueAPI.subject] <strong>Name</strong> of the future 
+  ///   <strong>issue</strong>
+  /// </p></li>
+  /// <br>
+  /// <li><p>
+  ///   [TaigaIssueAPI.watchers] Can't be null, because it brakes. So if you
+  ///   don't want to use this value, just let an empty [List], like this: 
+  ///   <strong> [ ] </strong>
+  ///   </p></li>
+  /// </ul>
+  /// </li>
+  /// <br><li><p>
+  ///   [bool] debug: [debug] value, is used to print or not the response body,
+  ///   if you're getting <strong> False </strong> and don't know why, put the 
+  ///   debug option on: </strong> True </strong>
+  /// </p></li>
+  /// </ul>
+  /// <h4> Returns: </h4>
+  /// <p>
+  /// This function will return a [bool], so <strong>True</strong> or 
+  /// <strong>False</strong>, depending if its works, or not.
+  /// </p>
   Future<bool> createIssue({
     required String authToken,
     required String apiUrl,
     required TaigaIssueAPI issue,
+    bool debug = false,
   }) async {
-    
     /// This is the body of the `POST` request
     final data = {
       'assigned_to': issue.assignedTo,
@@ -33,6 +85,7 @@ class ApiTaigaIssue {
       'watchers': issue.watchers,
     };
 
+    // Create the 'POST' request
     final response = await http.post(
       Uri.parse('$apiUrl/issues'),
       headers: {
@@ -42,36 +95,37 @@ class ApiTaigaIssue {
       body: jsonEncode(data),
     );
 
-    print(response.body);
-
+    // If the post request its 'OK' will return a status of '201'
     if (response.statusCode == 201) {
+      // If its 'OK' return 'True'
       return true;
     } else {
+      // If the debug option is set on 'True', will return the response body
+      if (debug) {
+          throw Exception(response.body);
+      }
+      // Otherwise return 'False'
       return false;
     }
   }
 }
 
-// void main() async {
-  // final response = await ApiTaigaIssue().createIssue(
-  //   authToken: auth,
-  //   apiUrl: 'https://api.taiga.io/api/v1',
-  //   issue: TaigaIssueAPI(
-  //     assignedTo: null,
-  //     blockedNote: null,
-  //     description: null,
-  //     isBlocked: null,
-  //     isClosed: null,
-  //     milestone: null,
-  //     priority: null,
-  //     project: 1179467,
-  //     severity: null,
-  //     status: null,
-  //     subject: 'asd',
-  //     tags: null,
-  //     type: null,
-  //     watchers: [],
-  //   ),
-  // );
-//   print(auth);
-// }
+void main() async {
+  final auth = await ApiAuth().authenticateWithTaiga(
+    username: 'ign.cardozo02@gmail.com',
+    password: '8yTs_yR#.gfgqk5',
+  );
+
+  final response = await ApiTaigaIssue().createIssue(
+    authToken: auth,
+    apiUrl: 'https://api.taiga.io/api/v1',
+    issue: TaigaIssueAPI(
+      project: 1179467,
+      subject: 'Prio 1',
+      watchers: [],
+      priority: 3541292,
+    ),
+  );
+
+  print(response);
+}
