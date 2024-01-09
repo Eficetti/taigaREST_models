@@ -1,25 +1,32 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-/// The `ApiAuth` class provides a function to authenticate with Taiga using
+/// The [ApiAuth] class provides a function to authenticate with `Taiga` using
 class ApiAuth {
-  // The function `authenticateWithTaiga` sends a POST request to the Taiga API
-  ///  with the provided username and password, and returns the authentication
-  /// token if successful.
+  /// The function [authenticateWithTaiga] sends a `POST` request to the 
+  /// `Taiga API` with the provided [username] and [password], and returns the 
+  /// `authentication token` if successful.
   ///
-  /// Args:
-  ///   username (String): The username is a required parameter that represents
-  /// the username of the user trying to authenticate with Taiga.
-  ///   password (String): The `password` parameter is a required string that
-  /// represents the user's password for authentication with Taiga.
-  ///
-  /// Returns:
-  ///   The method `authenticateWithTaiga` returns a `Future<String>`.
+  /// <h4> Args: </h4> 
+  /// <ul>
+  /// <li>
+  ///   [String] username: The [username] is a required parameter that 
+  ///   represents the username of the user trying to authenticate with Taiga.
+  /// </li>
+  /// <li>
+  ///   [String] password: The [password] parameter is a required string that
+  ///   represents the user's password for authentication with Taiga.
+  /// </li>
+  /// </ul>
+  /// <h4> Returns: </h4> 
+  ///   The method [authenticateWithTaiga] returns a [Future]<[String]>.
   Future<String> authenticateWithTaiga({
     required String username,
     required String password,
   }) async {
     try {
+
+      // Make the POST 
       final response = await http.post(
         Uri.parse('https://api.taiga.io/api/v1/auth'),
         headers: {
@@ -32,10 +39,14 @@ class ApiAuth {
         }),
       );
 
+      // If the response status is 200, thats means its OK
       if (response.statusCode == 200) {
         final jsonResponse = json.decode(response.body) as Map<String, dynamic>;
-        // cast explícito a String
+
+        // Turn it into an String
         final authToken = jsonResponse['auth_token'] as String;
+
+        // If the auth token can be read
         if (authToken.isNotEmpty) {
           return authToken;
         } else {

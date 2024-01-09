@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-/// The `ApiProjects` class provides a function to retrieve all projects related
-///  to a user using an authorization token and user ID.
+/// The [ApiProjects] class provides a function to retrieve all projects related
+/// to a `user` using an `authorization token` and `user ID`.
 class ApiProjects {
-//This function returns all [projects] related to a user. as input parameters
-//it requires an authorization [token] and a [userId]
+  /// This function returns all `projects` related to a user. <br>
+  /// Ss input  parameters it requires an authorization [authToken] and a 
+  /// [userId]
   Future<List<Map<String, dynamic>>> getProjects({
     required String authToken,
     required int userId,
@@ -19,10 +20,12 @@ class ApiProjects {
       },
     );
 
+    // If the status is 200, Thats mean its OK 
     if (response.statusCode == 200) {
-      List<dynamic> jsonResponse = json.decode(response.body) as List<dynamic>;
-      // Convertimos cada proyecto a un Map<String, dynamic>
-      List<Map<String, dynamic>> projects = jsonResponse
+      final jsonResponse = json.decode(response.body) as List<dynamic>;
+
+      // Convert the projects into a List<Map<String, dynamic>>
+      final projects = jsonResponse
           .map((project) => project as Map<String, dynamic>)
           .toList();
       return projects;
