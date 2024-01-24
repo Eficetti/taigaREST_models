@@ -8,6 +8,7 @@ export 'src/api/api_projects.dart';
 export 'src/api/api_us.dart';
 export 'src/helpers/validate_taiga_signature.dart';
 export 'src/models/api_models/issue_model/issue.dart';
+export 'src/models/taiga_payload/taiga_change/taiga_change.dart';
 export 'src/models/taiga_payload/taiga_data/data_sprint/data_sprint.dart';
 export 'src/models/taiga_payload/taiga_data/data_wiki/data_wiki.dart';
 export 'src/models/taiga_payload/taiga_data/taiga_data.dart';
