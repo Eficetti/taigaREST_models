@@ -54,7 +54,7 @@ class ApiUserMapper extends ClassMapperBase<ApiUser> {
       Field('avatar', _$avatar, key: 'photo');
   static String? _$bigAvatar(ApiUser v) => v.bigAvatar;
   static const Field<ApiUser, String> _f$bigAvatar =
-      Field('bigAvatar', _$bigAvatar, key: 'bigPhoto');
+      Field('bigAvatar', _$bigAvatar, key: 'big_photo');
   static String _$gravatarId(ApiUser v) => v.gravatarId;
   static const Field<ApiUser, String> _f$gravatarId =
       Field('gravatarId', _$gravatarId, key: 'gravatar_id');

@@ -70,7 +70,7 @@ class ApiUser with ApiUserMappable {
   String? avatar;
 
   /// [bigAvatar] Is the avatar image url but its in a 300x300 format
-  @MappableField(key: 'bigPhoto')
+  @MappableField(key: 'big_photo')
   String? bigAvatar;
 
   /// [gravatarId] Its the id of gravatar of the user.
