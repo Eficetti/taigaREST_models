@@ -64,8 +64,6 @@ class TaigaSprintData with TaigaSprintDataMappable {
   @MappableField(key: 'closed')
   bool sprintClosedStatus;
 
-  // TODO(Nacho): Consultar como funciona disponibility
-
   /// Disponibility of the sprint
   int disponibility;
 

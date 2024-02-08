@@ -111,23 +111,3 @@ class ApiTaigaIssue {
     }
   }
 }
-
-void main() async {
-  final auth = await ApiAuth().authenticateWithTaiga(
-    username: 'ign.cardozo02@gmail.com',
-    password: '8yTs_yR#.gfgqk5',
-  );
-
-  final response = await ApiTaigaIssue().createIssue(
-    authToken: auth,
-    apiUrl: 'https://api.taiga.io/api/v1',
-    issue: TaigaIssueAPI(
-      projectId: 1179467,
-      title: 'Prio 1',
-      watchersId: [],
-      priorityId: 3541292,
-    ),
-  );
-
-  print(response);
-}

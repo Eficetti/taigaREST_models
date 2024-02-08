@@ -4,8 +4,6 @@ import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/differen
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/from_to/from_to.dart';
 import 'package:taiga_rest_models/src/models/taiga_payload/taiga_change/difference/point_difference/point_difference.dart';
 
-// TODO(Nacho): Add variables if they appear on the payload
-
 part 'change_difference.mapper.dart';
 
 /// When a change is committed, will be storage in this class. Can be any type
