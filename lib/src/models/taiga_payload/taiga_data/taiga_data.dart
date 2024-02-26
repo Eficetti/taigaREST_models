@@ -49,7 +49,7 @@ class TaigaData with TaigaDataMappable {
   /// `jobTags:` This are all the tags added on the job, if the job have no tags
   /// , came as an empty list from `Taiga`.
   @MappableField(key: 'tags')
-  List<String> jobTags;
+  List<String>? jobTags;
 
   ///[TaigaUser] instance. <br>
   /// `jobOwner:` Is the Owner of the Job, it will be an instance of `user`,

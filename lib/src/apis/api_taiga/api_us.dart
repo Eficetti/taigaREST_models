@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:taiga_rest_models/src/models/taiga_payload/taiga_data/data_create_us/data_create_us.dart';
+import 'package:taiga_rest_models/src/models/api_models/data_create_us/data_create_us.dart';
 
-// TODO(Nacho): Verifiy this doc
+// TODO(Nacho): Verify this doc
 
 ///
 class ApiTaigaUS {
@@ -33,7 +33,8 @@ class ApiTaigaUS {
     try {
       final response = await http.get(
         Uri.parse(
-            'https://api.taiga.io/api/v1/userstory-statuses?project=$projectId'),
+          'https://api.taiga.io/api/v1/userstory-statuses?project=$projectId',
+        ),
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer $authToken',

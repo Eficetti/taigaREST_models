@@ -28,18 +28,18 @@ class ValidateTaigaSignature {
   }
 }
 
-Future<void> main() async {
-  const secret = 'B8AC34D22CFB5'; // Key
-  const payload = // Data
-      '{}';
-  const signature = ''; // Signature
-  if (await ValidateTaigaSignature.verifySignature(
-    data: payload,
-    key: secret,
-    signature: signature,
-  )) {
-    print('Signature valida');
-  } else {
-    print('Signature no valida');
-  }
-}
+// Future<void> main() async {
+//   const secret = 'B8AC34D22CFB5'; // Key
+//   const payload = // Data
+//       '{}';
+//   const signature = ''; // Signature
+//   if (await ValidateTaigaSignature.verifySignature(
+//     data: payload,
+//     key: secret,
+//     signature: signature,
+//   )) {
+//     print('Signature valida');
+//   } else {
+//     print('Signature no valida');
+//   }
+// }

@@ -20,81 +20,83 @@ class TaigaIssueAPIMapper extends ClassMapperBase<TaigaIssueAPI> {
   @override
   final String id = 'TaigaIssueAPI';
 
-  static int? _$assignedTo(TaigaIssueAPI v) => v.assignedTo;
-  static const Field<TaigaIssueAPI, int> _f$assignedTo =
-      Field('assignedTo', _$assignedTo, key: 'assigned_to');
+  static int _$projectId(TaigaIssueAPI v) => v.projectId;
+  static const Field<TaigaIssueAPI, int> _f$projectId =
+      Field('projectId', _$projectId, key: 'project');
+  static String _$title(TaigaIssueAPI v) => v.title;
+  static const Field<TaigaIssueAPI, String> _f$title =
+      Field('title', _$title, key: 'subject');
+  static List<int?> _$watchersId(TaigaIssueAPI v) => v.watchersId;
+  static const Field<TaigaIssueAPI, List<int?>> _f$watchersId =
+      Field('watchersId', _$watchersId, key: 'watchers');
+  static int? _$assignedToId(TaigaIssueAPI v) => v.assignedToId;
+  static const Field<TaigaIssueAPI, int> _f$assignedToId =
+      Field('assignedToId', _$assignedToId, key: 'assigned_to', opt: true);
   static String? _$blockedNote(TaigaIssueAPI v) => v.blockedNote;
   static const Field<TaigaIssueAPI, String> _f$blockedNote =
-      Field('blockedNote', _$blockedNote, key: 'blocked_note');
+      Field('blockedNote', _$blockedNote, key: 'blocked_note', opt: true);
   static String? _$description(TaigaIssueAPI v) => v.description;
   static const Field<TaigaIssueAPI, String> _f$description =
-      Field('description', _$description);
+      Field('description', _$description, opt: true);
   static bool? _$isBlocked(TaigaIssueAPI v) => v.isBlocked;
   static const Field<TaigaIssueAPI, bool> _f$isBlocked =
-      Field('isBlocked', _$isBlocked, key: 'is_blocked');
+      Field('isBlocked', _$isBlocked, key: 'is_blocked', opt: true);
   static bool? _$isClosed(TaigaIssueAPI v) => v.isClosed;
   static const Field<TaigaIssueAPI, bool> _f$isClosed =
-      Field('isClosed', _$isClosed, key: 'is_closed');
-  static int? _$milestone(TaigaIssueAPI v) => v.milestone;
-  static const Field<TaigaIssueAPI, int> _f$milestone =
-      Field('milestone', _$milestone);
-  static int? _$priority(TaigaIssueAPI v) => v.priority;
-  static const Field<TaigaIssueAPI, int> _f$priority =
-      Field('priority', _$priority);
-  static int _$project(TaigaIssueAPI v) => v.project;
-  static const Field<TaigaIssueAPI, int> _f$project =
-      Field('project', _$project);
-  static int? _$severity(TaigaIssueAPI v) => v.severity;
-  static const Field<TaigaIssueAPI, int> _f$severity =
-      Field('severity', _$severity);
-  static int? _$status(TaigaIssueAPI v) => v.status;
-  static const Field<TaigaIssueAPI, int> _f$status = Field('status', _$status);
-  static String _$subject(TaigaIssueAPI v) => v.subject;
-  static const Field<TaigaIssueAPI, String> _f$subject =
-      Field('subject', _$subject);
+      Field('isClosed', _$isClosed, key: 'is_closed', opt: true);
+  static int? _$sprintId(TaigaIssueAPI v) => v.sprintId;
+  static const Field<TaigaIssueAPI, int> _f$sprintId =
+      Field('sprintId', _$sprintId, key: 'milestone', opt: true);
+  static int? _$priorityId(TaigaIssueAPI v) => v.priorityId;
+  static const Field<TaigaIssueAPI, int> _f$priorityId =
+      Field('priorityId', _$priorityId, key: 'priority', opt: true);
+  static int? _$severityId(TaigaIssueAPI v) => v.severityId;
+  static const Field<TaigaIssueAPI, int> _f$severityId =
+      Field('severityId', _$severityId, key: 'severity', opt: true);
+  static int? _$statusId(TaigaIssueAPI v) => v.statusId;
+  static const Field<TaigaIssueAPI, int> _f$statusId =
+      Field('statusId', _$statusId, key: 'status', opt: true);
   static List<String>? _$tags(TaigaIssueAPI v) => v.tags;
   static const Field<TaigaIssueAPI, List<String>> _f$tags =
-      Field('tags', _$tags);
+      Field('tags', _$tags, opt: true);
   static int? _$type(TaigaIssueAPI v) => v.type;
-  static const Field<TaigaIssueAPI, int> _f$type = Field('type', _$type);
-  static List<int?> _$watchers(TaigaIssueAPI v) => v.watchers;
-  static const Field<TaigaIssueAPI, List<int?>> _f$watchers =
-      Field('watchers', _$watchers);
+  static const Field<TaigaIssueAPI, int> _f$type =
+      Field('type', _$type, opt: true);
 
   @override
   final Map<Symbol, Field<TaigaIssueAPI, dynamic>> fields = const {
-    #assignedTo: _f$assignedTo,
+    #projectId: _f$projectId,
+    #title: _f$title,
+    #watchersId: _f$watchersId,
+    #assignedToId: _f$assignedToId,
     #blockedNote: _f$blockedNote,
     #description: _f$description,
     #isBlocked: _f$isBlocked,
     #isClosed: _f$isClosed,
-    #milestone: _f$milestone,
-    #priority: _f$priority,
-    #project: _f$project,
-    #severity: _f$severity,
-    #status: _f$status,
-    #subject: _f$subject,
+    #sprintId: _f$sprintId,
+    #priorityId: _f$priorityId,
+    #severityId: _f$severityId,
+    #statusId: _f$statusId,
     #tags: _f$tags,
     #type: _f$type,
-    #watchers: _f$watchers,
   };
 
   static TaigaIssueAPI _instantiate(DecodingData data) {
     return TaigaIssueAPI(
-        assignedTo: data.dec(_f$assignedTo),
+        projectId: data.dec(_f$projectId),
+        title: data.dec(_f$title),
+        watchersId: data.dec(_f$watchersId),
+        assignedToId: data.dec(_f$assignedToId),
         blockedNote: data.dec(_f$blockedNote),
         description: data.dec(_f$description),
         isBlocked: data.dec(_f$isBlocked),
         isClosed: data.dec(_f$isClosed),
-        milestone: data.dec(_f$milestone),
-        priority: data.dec(_f$priority),
-        project: data.dec(_f$project),
-        severity: data.dec(_f$severity),
-        status: data.dec(_f$status),
-        subject: data.dec(_f$subject),
+        sprintId: data.dec(_f$sprintId),
+        priorityId: data.dec(_f$priorityId),
+        severityId: data.dec(_f$severityId),
+        statusId: data.dec(_f$statusId),
         tags: data.dec(_f$tags),
-        type: data.dec(_f$type),
-        watchers: data.dec(_f$watchers));
+        type: data.dec(_f$type));
   }
 
   @override
@@ -152,23 +154,23 @@ extension TaigaIssueAPIValueCopy<$R, $Out>
 
 abstract class TaigaIssueAPICopyWith<$R, $In extends TaigaIssueAPI, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
+  ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get watchersId;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get tags;
-  ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get watchers;
   $R call(
-      {int? assignedTo,
+      {int? projectId,
+      String? title,
+      List<int?>? watchersId,
+      int? assignedToId,
       String? blockedNote,
       String? description,
       bool? isBlocked,
       bool? isClosed,
-      int? milestone,
-      int? priority,
-      int? project,
-      int? severity,
-      int? status,
-      String? subject,
+      int? sprintId,
+      int? priorityId,
+      int? severityId,
+      int? statusId,
       List<String>? tags,
-      int? type,
-      List<int?>? watchers});
+      int? type});
   TaigaIssueAPICopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -181,63 +183,63 @@ class _TaigaIssueAPICopyWithImpl<$R, $Out>
   late final ClassMapperBase<TaigaIssueAPI> $mapper =
       TaigaIssueAPIMapper.ensureInitialized();
   @override
+  ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get watchersId =>
+      ListCopyWith($value.watchersId, (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(watchersId: v));
+  @override
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get tags =>
       $value.tags != null
           ? ListCopyWith($value.tags!,
               (v, t) => ObjectCopyWith(v, $identity, t), (v) => call(tags: v))
           : null;
   @override
-  ListCopyWith<$R, int?, ObjectCopyWith<$R, int?, int?>?> get watchers =>
-      ListCopyWith($value.watchers, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(watchers: v));
-  @override
   $R call(
-          {Object? assignedTo = $none,
+          {int? projectId,
+          String? title,
+          List<int?>? watchersId,
+          Object? assignedToId = $none,
           Object? blockedNote = $none,
           Object? description = $none,
           Object? isBlocked = $none,
           Object? isClosed = $none,
-          Object? milestone = $none,
-          Object? priority = $none,
-          int? project,
-          Object? severity = $none,
-          Object? status = $none,
-          String? subject,
+          Object? sprintId = $none,
+          Object? priorityId = $none,
+          Object? severityId = $none,
+          Object? statusId = $none,
           Object? tags = $none,
-          Object? type = $none,
-          List<int?>? watchers}) =>
+          Object? type = $none}) =>
       $apply(FieldCopyWithData({
-        if (assignedTo != $none) #assignedTo: assignedTo,
+        if (projectId != null) #projectId: projectId,
+        if (title != null) #title: title,
+        if (watchersId != null) #watchersId: watchersId,
+        if (assignedToId != $none) #assignedToId: assignedToId,
         if (blockedNote != $none) #blockedNote: blockedNote,
         if (description != $none) #description: description,
         if (isBlocked != $none) #isBlocked: isBlocked,
         if (isClosed != $none) #isClosed: isClosed,
-        if (milestone != $none) #milestone: milestone,
-        if (priority != $none) #priority: priority,
-        if (project != null) #project: project,
-        if (severity != $none) #severity: severity,
-        if (status != $none) #status: status,
-        if (subject != null) #subject: subject,
+        if (sprintId != $none) #sprintId: sprintId,
+        if (priorityId != $none) #priorityId: priorityId,
+        if (severityId != $none) #severityId: severityId,
+        if (statusId != $none) #statusId: statusId,
         if (tags != $none) #tags: tags,
-        if (type != $none) #type: type,
-        if (watchers != null) #watchers: watchers
+        if (type != $none) #type: type
       }));
   @override
   TaigaIssueAPI $make(CopyWithData data) => TaigaIssueAPI(
-      assignedTo: data.get(#assignedTo, or: $value.assignedTo),
+      projectId: data.get(#projectId, or: $value.projectId),
+      title: data.get(#title, or: $value.title),
+      watchersId: data.get(#watchersId, or: $value.watchersId),
+      assignedToId: data.get(#assignedToId, or: $value.assignedToId),
       blockedNote: data.get(#blockedNote, or: $value.blockedNote),
       description: data.get(#description, or: $value.description),
       isBlocked: data.get(#isBlocked, or: $value.isBlocked),
       isClosed: data.get(#isClosed, or: $value.isClosed),
-      milestone: data.get(#milestone, or: $value.milestone),
-      priority: data.get(#priority, or: $value.priority),
-      project: data.get(#project, or: $value.project),
-      severity: data.get(#severity, or: $value.severity),
-      status: data.get(#status, or: $value.status),
-      subject: data.get(#subject, or: $value.subject),
+      sprintId: data.get(#sprintId, or: $value.sprintId),
+      priorityId: data.get(#priorityId, or: $value.priorityId),
+      severityId: data.get(#severityId, or: $value.severityId),
+      statusId: data.get(#statusId, or: $value.statusId),
       tags: data.get(#tags, or: $value.tags),
-      type: data.get(#type, or: $value.type),
-      watchers: data.get(#watchers, or: $value.watchers));
+      type: data.get(#type, or: $value.type));
 
   @override
   TaigaIssueAPICopyWith<$R2, TaigaIssueAPI, $Out2> $chain<$R2, $Out2>(
